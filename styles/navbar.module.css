@@ -101,6 +101,30 @@
 	cursor: pointer;
 }
 
+@media screen and (max-width: 1000px){
+	.navTitle h3{
+		font-size: 1rem;
+	}
+}
+
+@media screen and (max-width: 875px){
+	.navTitle h3{
+		font-size: 1rem;
+	}
+}
+
+@media screen and (max-width: 812px){
+	.navTitle h3{
+		font-size: .9rem;
+	}
+}
+
+@media screen and (max-width: 797px){
+	.navTitle h3{
+		font-size: .8rem;
+	}
+}
+
 @media screen and (max-width: 768px){
 	.navbarContainer ul{
 		position: fixed;
@@ -131,8 +155,3 @@
 	
 }
 
-@media screen and (max-width: 875px){
-	.navTitle h3{
-		font-size: 1rem;
-	}
-}
