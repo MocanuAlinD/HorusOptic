@@ -86,6 +86,9 @@
 
 .ulMission li{
   color: #e8eddf;
+  font-family: 'Poppins',sans-serif;
+  font-size: .9rem;
+  font-weight: 200;
 }
 
 /* .mission p{
