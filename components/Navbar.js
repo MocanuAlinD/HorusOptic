@@ -17,6 +17,7 @@ class Navbar extends Component {
                     <li><Link href=''><a>Consultanta</a></Link></li>
                     <li><Link href=''><a>Contact</a></Link></li>
                 </ul>
+                <button className={style.meniu}>Meniu</button>
             </div>
         );
     }

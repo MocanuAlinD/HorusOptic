@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { getIndexData } from "../actions"
 import Card1 from '../components/Card1'
+import { BsArrowBarUp} from 'react-icons/bs'
 
 export default function Home(props) {
   const { allIndexData } = props
@@ -11,6 +12,7 @@ export default function Home(props) {
         <h3>NOI AVEM GRIJA DE OCHII DUMNEAVOASTRA !</h3>
       </div>
       <Card1 indexData={allIndexData}/>
+      <BsArrowBarUp className={styles.backTop}/>
     </div>
   )
 }
