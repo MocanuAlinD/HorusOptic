@@ -16,7 +16,7 @@ class Card1 extends Component {
         return (
             <div className={style.cardContainer}>
                 {this.indexData.map(glass=>(
-                    <div className={style.cards}>
+                    <div key={glass.id} className={style.cards}>
                         <h3>{glass.title}</h3>
                         <hr color='#cfdbd5' style={{height:'.1rem'}}/>
                         <h4>{this.shorten(glass.text, 200)}</h4>

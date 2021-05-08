@@ -7,7 +7,7 @@
 }
 .cards{
     min-height: 150px;
-    min-width: 20rem;
+    min-width: 10rem;
     margin: .5rem;
     background: #242423;
     display: flex;
