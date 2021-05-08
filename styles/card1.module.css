@@ -62,7 +62,7 @@
     border-bottom: 1px solid #f5cb5c;
 }
 
-@media screen and (max-width: 880px){
+@media screen and (max-width: 740px){
     .cardContainer{
         flex-direction: column;
     }

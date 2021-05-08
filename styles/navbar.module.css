@@ -101,7 +101,7 @@
 	cursor: pointer;
 }
 
-@media screen and (max-width: 880px){
+@media screen and (max-width: 768px){
 	.navbarContainer ul{
 		position: fixed;
 		top: 3rem;
@@ -120,8 +120,8 @@
 	}
 	.meniu{
 		display: flex;
-		
 	}
+	
 	.ul{
 		transition: all .35s ease-in-out;
 	}
@@ -129,4 +129,10 @@
 		font-size: 1rem;
 	}
 	
+}
+
+@media screen and (max-width: 875px){
+	.navTitle h3{
+		font-size: 1rem;
+	}
 }

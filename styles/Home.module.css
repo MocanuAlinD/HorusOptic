@@ -48,7 +48,16 @@
   display: none;
 }
 
-@media screen and (max-width: 880px){
+@media screen and (max-width: 875px){
+	.bigImage h3{
+    font-size: 1.5rem;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px){
   .bigImage h3{
     font-size: .8rem;
     width: 100%;
@@ -56,3 +65,4 @@
     text-align: center;
   }
 }
+

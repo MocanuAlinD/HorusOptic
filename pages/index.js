@@ -13,15 +13,13 @@ export default function Home(props) {
       </div>
       <Card1 indexData={allIndexData}/>
       <BsArrowBarUp className={styles.backTop}/>
+      <div className={styles.mission}></div>
     </div>
   )
 }
 
 Home.getInitialProps = async () => {
   const indexData = await getIndexData() // returns array of movies
-
-  // this is what returns
-  // [id: 'image-1', image: 'https://img.cinemablend.com/filter:scale/quill/0/f/5/2/a/6/0f52a6843a25c1a5c1f9a0c00548cad9e1d912e2.jpg?mw=600']
   const allIndexData = indexData.map(data => ({
     id: data.id,
     title: data.title,
