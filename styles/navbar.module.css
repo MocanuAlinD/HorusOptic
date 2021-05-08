@@ -103,12 +103,30 @@
 
 @media screen and (max-width: 880px){
 	.navbarContainer ul{
-		display: none;
+		position: fixed;
+		top: 3rem;
+		right: -100%;
+		width: fit-content;
+		background: #ffffff22;
+		backdrop-filter: blur(3px);
+		height: 20%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: flex-end;
+		border-radius: 1rem 0 0 1rem;
+		border-left: 1px solid #ffffff77;
+		border-bottom: 1px solid #ffffff77;
 	}
 	.meniu{
 		display: flex;
+		
+	}
+	.ul{
+		transition: all .35s ease-in-out;
 	}
 	.navTitle h3{
 		font-size: 1rem;
 	}
+	
 }
