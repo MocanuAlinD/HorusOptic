@@ -1,10 +1,8 @@
 
 .container{
   background: linear-gradient(to right, #333533, #303030);
-  /* max-width: 100%; */
   min-height: 100vh;
   padding-top: 1.8rem;
-  /* background: red; */
 }
 
 .bigImage{
@@ -47,6 +45,55 @@
   z-index: 99;
   display: none;
 }
+
+.mission{
+  width: calc(100% - 1rem);
+  margin: .5rem;
+  background: #242423;
+  padding: 1rem;
+  border-radius: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* .mission img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: .3;
+} */
+
+.mission h3{
+  color: #e8eddf;
+  font-size: 1.5rem;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 600;
+  /* z-index: 2; */
+  position: relative;
+}
+
+.ulMission{
+  position: relative;
+  margin-left: 1rem;
+}
+.ulMission li::marker{
+  color: #f5cb5c;
+  /* color: #2a9d8f; */
+}
+
+.ulMission li{
+  color: #e8eddf;
+}
+
+/* .mission p{
+  color: #e8eddf;
+  font-family: 'Poppins',sans-serif;
+  font-size: .9rem;
+  font-weight: 200;
+} */
 
 @media screen and (max-width: 875px){
 	.bigImage h3{
