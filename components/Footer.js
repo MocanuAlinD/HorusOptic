@@ -34,6 +34,7 @@ const Footer = () => {
             </div>
             <div className={styles.rightFooter}>
                 <Link href=""><a>Politica de confidentialitate</a></Link>
+                <Link href="./Garantie"><a>Garantie</a></Link>
                 <h4>CUI: 40666971</h4>
                 <h4>J13/856/2019</h4>
             </div>

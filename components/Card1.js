@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import style from '../styles/card1.module.css'
+import Link from 'next/link'
 
 class Card1 extends Component {
     constructor(props){
@@ -20,8 +21,7 @@ class Card1 extends Component {
                         <h3>{glass.title}</h3>
                         <hr color='#cfdbd5' style={{height:'.1rem'}}/>
                         <h4>{this.shorten(glass.text, 200)}</h4>
-                        <div className={style.button}><button>{glass.button}</button></div>
-                        
+                        <div className={style.button}><Link href={glass.url}><a>{glass.button}</a></Link></div>
                     </div>
                     
                 ))}

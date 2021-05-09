@@ -34,7 +34,7 @@ const Navbar = () => {
                 <li><Link href='./'><a onClick={closeMenu}>Acasa</a></Link></li>
                 <li><Link href='/'><a onClick={closeMenu}>Produse</a></Link></li>
                 <li><Link href='./despre'><a onClick={closeMenu}>Despre noi</a></Link></li>
-                <li><Link href='./info'><a onClick={closeMenu}>Info</a></Link></li>
+                <li><Link href='./info'><a onClick={closeMenu}>?</a></Link></li>
             </ul>
             <button className={style.meniu} onClick={changeMe}>Meniu</button>
         </div>

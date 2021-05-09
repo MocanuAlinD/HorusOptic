@@ -41,7 +41,8 @@ Home.getInitialProps = async () => {
     id: data.id,
     title: data.title,
     text: data.text,
-    button: data.button
+    button: data.button,
+    url: data.url
   }))
 
   return { allIndexData }

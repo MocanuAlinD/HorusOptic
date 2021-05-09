@@ -34,7 +34,7 @@
     text-align: left;
 }
 
-.cards button{
+.cards a{
     color: #242423;
     font-family: 'Poppins';
     font-size: 1rem;
@@ -57,11 +57,11 @@
     height: 100%;
 }
 
-.button button{
+.button a{
     align-self: flex-end;
 }
 
-.cards button:hover{
+.cards a:hover{
     background: #242423;
     color: #f5cb5c;
     border-bottom: 1px solid #f5cb5c;

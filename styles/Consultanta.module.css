@@ -1,0 +1,23 @@
+.consultantaContainer{
+    min-height: calc(100vh - 3rem);
+    margin: 3rem 1rem 1rem 1rem;
+}
+.consultantaContainer h3{
+    color: #e8eddf;
+    font-weight: 600;
+    text-decoration: underline;
+    font-family: 'Poppins',sans-serif;
+}
+
+.consultantaContainer li::marker{
+    color: #f5cb5c;
+}
+
+.consultantaContainer li{
+    color: #e8eddf;
+    margin-left: 3rem;
+    font-family: 'Poppins',sans-serif;
+    /* font-weight: 400; */
+    font-size: .9rem;
+    letter-spacing: 0.02rem;
+}

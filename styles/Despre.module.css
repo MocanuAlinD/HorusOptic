@@ -1,6 +1,6 @@
 .despreContainer{
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 3rem);
     /* background: red; */
     margin-top: 3rem;
 }
