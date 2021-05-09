@@ -36,7 +36,7 @@ export default function Home(props) {
 }
 
 Home.getInitialProps = async () => {
-  const indexData = await getIndexData() // returns array of movies
+  const indexData = await getIndexData()
   const allIndexData = indexData.map(data => ({
     id: data.id,
     title: data.title,

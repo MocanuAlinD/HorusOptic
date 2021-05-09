@@ -23,27 +23,27 @@ const INDEX_DATA = [
 
 ]
 
-const PRODUSE_RAME = [
-    {id: '1', name: 'Alin1', material: 'plastic', price: '152'},
-    {id: '2', name: 'Alin2', material: 'organic', price: '335'},
-    {id: '3', name: 'Alin3', material: 'plastic', price: '363'},
-    {id: '4', name: 'Alin4', material: 'metal', price: '583'},
-    {id: '5', name: 'Alin5', material: 'plastic', price: '641'},
-    {id: '6', name: 'Alin6', material: 'organic', price: '111'},
-    {id: '7', name: 'Alin7', material: 'metal', price: '913'},
-    {id: '8', name: 'Alin8', material: 'plastic', price: '767'},
-    {id: '9', name: 'Alin9', material: 'plastic', price: '193'},
-    {id: '10', name: 'Alin10', material: 'plastic', price: '557'},
-    {id: '11', name: 'Alin11', material: 'metal', price: '935'},
-    {id: '12', name: 'Alin12', material: 'plastic', price: '322'},
-    {id: '13', name: 'Alin13', material: 'plastic', price: '458'},
-    {id: '14', name: 'Alin14', material: 'plastic', price: '679'},
-    {id: '15', name: 'Alin15', material: 'metal', price: '788'},
-    {id: '16', name: 'Alin16', material: 'plastic', price: '640'},
-    {id: '17', name: 'Alin17', material: 'plastic', price: '915'},
-    {id: '18', name: 'Alin18', material: 'organic', price: '511'},
-    {id: '19', name: 'Alin19', material: 'plastic', price: '762'},
-    {id: '20', name: 'Alin20', material: 'plastic', price: '906'},
+const PRODUSE = [
+    {id: '1',url: '/ochelari/img01.jpg', name: 'Ochelari 1', material: 'plastic', price: '152', width: '275', height: '183'},
+    {id: '2',url: '/ochelari/img02.jpg', name: 'Ochelari 2', material: 'organic', price: '335', width: '652', height: '374'},
+    {id: '3',url: '/ochelari/img03.jpg', name: 'Ochelari 3', material: 'plastic', price: '363', width: '1433', height: '617'},
+    {id: '4',url: '/ochelari/img04.jpg', name: 'Ochelari 4', material: 'metal', price: '583', width: '1080', height: '881'},
+    {id: '5',url: '/ochelari/img05.jpg', name: 'Ochelari 5', material: 'plastic', price: '641', width: '600', height: '600'},
+    {id: '6',url: '/ochelari/img06.jpg', name: 'Ochelari 6', material: 'organic', price: '111', width: '540', height: '540'},
+    {id: '7',url: '/ochelari/img07.jpg', name: 'Ochelari 7', material: 'metal', price: '913', width: '735', height: '506'},
+    {id: '8',url: '/ochelari/img08.jpg', name: 'Ochelari 8', material: 'plastic', price: '767', width: '735', height: '543'},
+    {id: '9',url: '/ochelari/img09.jpg', name: 'Ochelari 9', material: 'plastic', price: '193', width: '736', height: '736'},
+    {id: '10',url: '/ochelari/img10.jpg', name: 'Ochelari 10', material: 'plastic', price: '557', width: '500', height: '500'},
+    {id: '11',url: '/ochelari/img11.jpg', name: 'Ochelari 11', material: 'metal', price: '935', width: '736', height: '736'},
+    {id: '12',url: '/ochelari/img12.jpg', name: 'Ochelari 12', material: 'plastic', price: '322', width: '453', height: '577'},
+    {id: '13',url: '/ochelari/img13.jpg', name: 'Ochelari 13', material: 'plastic', price: '458', width: '370', height: '500'},
+    {id: '14',url: '/ochelari/img14.jpg', name: 'Ochelari 14', material: 'plastic', price: '679', width: '350', height: '537'},
+    {id: '15',url: '/ochelari/img15.jpg', name: 'Ochelari 15', material: 'metal', price: '788', width: '735', height: '1265'},
+    {id: '16',url: '/ochelari/img16.jpg', name: 'Ochelari 16', material: 'plastic', price: '640', width: '541', height: '541'},
+    {id: '17',url: '/ochelari/img17.jpg', name: 'Ochelari 17', material: 'plastic', price: '915', width: '500', height: '508'},
+    {id: '18',url: '/ochelari/img18.jpg', name: 'Ochelari 18', material: 'organic', price: '511', width: '600', height: '600'},
+    {id: '19',url: '/ochelari/img19.jpg', name: 'Ochelari 19', material: 'plastic', price: '762', width: '626', height: '500'},
+    {id: '20',url: '/ochelari/img20.jpg', name: 'Ochelari 20', material: 'plastic', price: '906', width: '310', height: '310'},
 ]
 
 
@@ -52,6 +52,16 @@ export const getIndexData = () => {
         // first arg is a function, second arg is the time
         setTimeout(() => {
             resolve(INDEX_DATA)
+            // reject('Cannot fetch data.')
+        }, 50)
+    })
+}
+
+export const getProduse = () => {
+    return new Promise((resolve, reject) => {
+        // first arg is a function, second arg is the time
+        setTimeout(() => {
+            resolve(PRODUSE)
             // reject('Cannot fetch data.')
         }, 50)
     })
