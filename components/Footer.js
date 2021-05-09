@@ -25,7 +25,7 @@ const Footer = () => {
                 <hr width='100%' style={{height:'.1rem'}}/>
                 <Link href="/Footer/istoria"><a>Istoria ochelarilor de vedere</a></Link>
                 <Link href="/Footer/nastere"><a>Locul de naștere a ochelarilor</a></Link>
-                <Link href="/Footer/stare"><a>De ce sunt în stare ochelarii de azi</a></Link>
+                <Link href="/Footer/stare"><a>Tipuri de lentile</a></Link>
                 <Link href="/Footer/contact"><a>Lentile de contact</a></Link>
                 <Link href="/Footer/prezent"><a>Ochelarii din ziua de azi</a></Link>
                 <Link href="/Footer/soare"><a>Ochelarii de soare</a></Link>

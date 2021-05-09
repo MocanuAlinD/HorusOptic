@@ -5,11 +5,32 @@
 
 .container h3,
 .container h4,
+.container h5,
 .container p{
     color: #e8eddf;
     font-family: 'Poppins';
+    text-align: justify;
 }
 
 .container p{
     font-size: .9rem;
+    margin-bottom: 1rem;
+}
+
+.container h4{
+    font-weight: 600;
+}
+.container h5{
+    font-weight: 200;
+    font-size: .9rem;
+}
+.container ul li{
+    color: #e8eddf;
+    font-family: 'Poppins',sans-serif;
+    font-size: .9rem;
+    margin-left: 3rem;
+}
+
+.container li::marker{
+    color: #f5cb5c;
 }
