@@ -5,7 +5,6 @@ import Image from 'next/image'
 
 const MiniCard = (props) => {
     const { produs } = props
-    console.log('Produs: ', produs.id)
     return (
         <div key={produs.id} className={styles.container}>
                 <Image className={styles.img} priority as='image' src={produs.url} width={produs.width} height={produs.height}/>
