@@ -23,17 +23,16 @@ const Footer = () => {
             <div className={styles.middleFooter}>
                 <h3>Despre</h3>
                 <hr width='100%' style={{height:'.1rem'}}/>
-                <Link href=""><a>Istoria ochelarilor de vedere</a></Link>
-                <Link href=""><a>Locul de naștere a ochelarilor</a></Link>
-                <Link href=""><a>De ce sunt în stare ochelarii de azi</a></Link>
-                <Link href=""><a>Lentile de contact</a></Link>
-                <Link href=""><a>Ochelarii din ziua de azi</a></Link>
-                <Link href=""><a>Ochelarii de soare</a></Link>
-                <Link href=""><a>Consult  optica medicala</a></Link>
-                <Link href=""><a></a></Link>
+                <Link href="/Footer/istoria"><a>Istoria ochelarilor de vedere</a></Link>
+                <Link href="/Footer/nastere"><a>Locul de naștere a ochelarilor</a></Link>
+                <Link href="/Footer/stare"><a>De ce sunt în stare ochelarii de azi</a></Link>
+                <Link href="/Footer/contact"><a>Lentile de contact</a></Link>
+                <Link href="/Footer/prezent"><a>Ochelarii din ziua de azi</a></Link>
+                <Link href="/Footer/soare"><a>Ochelarii de soare</a></Link>
+                <Link href="/Footer/optica"><a>Consult optica medicala</a></Link>
             </div>
             <div className={styles.rightFooter}>
-                <Link href=""><a>Politica de confidentialitate</a></Link>
+                <Link href="./PoliticaDeConfidentialitate"><a>Politica de confidentialitate</a></Link>
                 <Link href="./Garantie"><a>Garantie</a></Link>
                 <h4>CUI: 40666971</h4>
                 <h4>J13/856/2019</h4>

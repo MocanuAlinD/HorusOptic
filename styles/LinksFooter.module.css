@@ -1,0 +1,15 @@
+.container{
+    min-height: calc(100vh - 3rem);
+    margin: 3rem 1rem 1rem 1rem;
+}
+
+.container h3,
+.container h4,
+.container p{
+    color: #e8eddf;
+    font-family: 'Poppins';
+}
+
+.container p{
+    font-size: .9rem;
+}
