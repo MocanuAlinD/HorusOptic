@@ -1,0 +1,10 @@
+.container{
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 3rem;
+    /* background: #242423; */
+}
+
+.container h3{
+    color: red;
+}

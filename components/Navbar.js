@@ -31,11 +31,10 @@ const Navbar = () => {
                 <GiEyeOfHorus size='3rem' color="#f5cb5c" />
             </div>
             <ul className={style.ul}>
-                <li><Link href='/'><a onClick={closeMenu}>Acasa</a></Link></li>
+                <li><Link href='./'><a onClick={closeMenu}>Acasa</a></Link></li>
                 <li><Link href='/'><a onClick={closeMenu}>Produse</a></Link></li>
-                <li><Link href='/'><a onClick={closeMenu}>Consultanta</a></Link></li>
-                <li><Link href='/'><a onClick={closeMenu}>Info</a></Link></li>
-                <li><Link href='/'><a onClick={closeMenu}>Despre noi</a></Link></li>
+                <li><Link href='./despre'><a onClick={closeMenu}>Despre noi</a></Link></li>
+                <li><Link href='./info'><a onClick={closeMenu}>Info</a></Link></li>
             </ul>
             <button className={style.meniu} onClick={changeMe}>Meniu</button>
         </div>

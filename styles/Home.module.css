@@ -1,6 +1,6 @@
 
 .container{
-  background: linear-gradient(to right, #333533, #303030);
+  /* background: linear-gradient(to right, #333533, #303030); */
   min-height: 100vh;
   padding-top: 1.8rem;
 }
@@ -24,6 +24,7 @@
   color: #f5cb5c;
   font-family: 'Poppins';
   font-size: 2rem;
+  font-weight: 600;
   background: rgba(0,0,0,0.1);
   backdrop-filter: blur(5px);
   margin-left: 2rem;
@@ -31,6 +32,7 @@
   border-radius: 20px;
   font-style: italic;
 }
+
 .backTop{
   position: fixed;
   bottom: 0;
