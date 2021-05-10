@@ -29,7 +29,7 @@ const PRODUSE = [
     { id: '3', url: '/ochelari/img03.jpg', code: '3910376', name: 'Ochelari 3', material: 'plastic', price: '363', width: '1097', height: '617' },
     { id: '4', url: '/ochelari/img04.jpg', code: '4066760', name: 'Arnette', material: 'metal', price: '583', width: '1080', height: '607' },
     { id: '5', url: '/ochelari/img05.jpg', code: '3263893', name: 'Ochelari 5', material: 'plastic', price: '641', width: '600', height: '338' },
-    { id: '6', url: '/ochelari/img06.jpg', code: '0280617', name: 'Police night', material: 'organic', price: '111', width: '540', height: '304' },
+    { id: '6', url: '/ochelari/img06.jpg', code: '0280617', name: 'Police night', material: 'organic', price: '311', width: '540', height: '304' },
     { id: '7', url: '/ochelari/img07.jpg', code: '8100572', name: 'Arnette', material: 'metal', price: '913', width: '735', height: '414' },
     { id: '8', url: '/ochelari/img08.jpg', code: '1605970', name: 'Guci Knight 8', material: 'plastic', price: '767', width: '735', height: '413' },
     { id: '9', url: '/ochelari/img09.jpg', code: '6543541', name: 'Police Dark Blue', material: 'plastic', price: '193', width: '736', height: '414' },

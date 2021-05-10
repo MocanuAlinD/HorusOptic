@@ -4,12 +4,11 @@ import styles from '../styles/Sidebar.module.css'
 // import { BiArrowFromBottom, BiArrowFromTop } from 'react-icons/bi'
 
 const Sidebar = (props) => {
-
     return (
         <div className={styles.container}>
             <div className={styles.bucati}>
                 <h4>Brand:</h4>
-                <input type="radio" id="toate" name="marca" value="toate" onClick={() => props.changeCat('all')}></input>
+                <input defaultChecked type="radio" id="toate" name="marca" value="toate" onClick={() => props.changeCat('all')}></input>
                 <label for="toate">Toate</label><br />
                 <input type="radio" id="guci" name="marca" value="guci" onClick={() => props.changeCat('Guci')}></input>
                 <label for="guci">Guci</label><br />
@@ -22,22 +21,22 @@ const Sidebar = (props) => {
             </div>
             <div className={styles.bucati}>
                 <h4>Pret</h4>
-                <input type="radio" id="mic" name="pret" value="mic"></input>
+                <input defaultChecked type="radio" id="mic" name="pret" value="mic" onClick={() => props.changePrice('mic')}></input>
                 <label for="mic">Mic</label> <br />
-                <input type="radio" id="mare" name="pret" value="mare"></input>
+                <input type="radio" id="mare" name="pret" value="mare" onClick={() => props.changePrice('mare')}></input>
                 <label for="mare">Mare</label>
             </div>
             <div className={styles.bucati}>
                 <h4>Nume</h4>
-                <input type="radio" id="atoz" name="nume" value="atoz"></input>
+                <input defaultChecked type="radio" id="atoz" name="nume" value="atoz" onClick={() => props.changePrice('atoz')}></input>
                 <label for="atoz">A - Z</label> <br />
-                <input type="radio" id="ztoa" name="nume" value="ztoa"></input>
+                <input type="radio" id="ztoa" name="nume" value="ztoa" onClick={() => props.changePrice('ztoa')}></input>
                 <label for="ztoa">Z - A</label>
             </div>
             <div className={styles.bucatiDropdown}>
                 <h4>Brand</h4>
                 <select name="marca" id="marca" onChange={(e) => props.changeCat(e.target.value)}>
-                    <option value="all" selected>Toate</option>
+                    <option value="all">Toate</option>
                     <option value="Guci">Guci</option>
                     <option value="Police">Police</option>
                     <option value="Arnette">Arnette</option>
@@ -46,19 +45,19 @@ const Sidebar = (props) => {
             </div>
             <div className={styles.bucatiDropdown}>
                 <h4>Pret</h4>
-                <select name="pret" id="pret">
-                    <option value="mic" selected>Mic</option>
+                <select name="pret" id="pret" onChange={(e) => props.changePrice(e.target.value)}>
+                    <option value="mic">Mic</option>
                     <option value="mare">Mare</option>
                 </select>
             </div>
             <div className={styles.bucatiDropdown}>
                 <h4>Nume</h4>
-                <select name="nume" id="nume">
-                    <option value="atoz" selected>A - Z</option>
+                <select name="nume" id="nume" onChange={(e) => props.changePrice(e.target.value)}>
+                    <option value="atoz">A - Z</option>
                     <option value="ztoa">Z - A</option>
                 </select>
             </div>
-            
+
         </div>
     );
 }
