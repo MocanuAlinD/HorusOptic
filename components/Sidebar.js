@@ -36,11 +36,11 @@ const Sidebar = (props) => {
             </div>
             <div className={styles.bucatiDropdown}>
                 <h4>Brand</h4>
-                <select name="marca" id="marca">
-                    <option value="toate" selected>Toate</option>
-                    <option value="guci" onClick={() => console.log('Alin Mocanu')}>Guci</option>
-                    <option value="police">Police</option>
-                    <option value="arnette">Arnette</option>
+                <select name="marca" id="marca" onChange={(e) => props.changeCat(e.target.value)}>
+                    <option value="all" selected>Toate</option>
+                    <option value="Guci">Guci</option>
+                    <option value="Police">Police</option>
+                    <option value="Arnette">Arnette</option>
                     <option value="Costa">Costa</option>
                 </select>
             </div>
