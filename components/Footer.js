@@ -18,6 +18,12 @@ const Footer = () => {
                         <li><AiOutlineMail size='1.2rem' style={{ marginBottom: '-0.2rem', marginRight: '.5rem' }}/><a> horus_top_optic@yahoo.com</a></li>
                     </ul>
                 </div>
+                <div className={styles.socialFooterMobile}>
+                    <ul>
+                        <li><a href="tel:0742654258"><ImMobile size='2rem' style={{ marginTop: '1rem', marginRight: '0' }} /></a></li>
+                        <li><a href="mailto:horus_top_optic@yahoo.com"><AiOutlineMail size='2rem' style={{ marginTop: '1rem', marginRight: '0' }} /></a></li>
+                    </ul>
+                </div>
                 
             </div>
             <div className={styles.middleFooter}>
