@@ -2,9 +2,24 @@
     width: 100%;
     min-height: 100vh;
     margin-top: 3rem;
-    /* background: #242423; */
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-.container h3{
-    color: red;
+.container h4,
+.container p{
+    color: #e8eddf;
+    font-family: 'Poppins',sans-serif;
+}
+
+.container h4{
+    font-weight: 600;
+}
+
+.container p{
+    font-weight: 200;
+    font-size: .9rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    text-align: left;
 }

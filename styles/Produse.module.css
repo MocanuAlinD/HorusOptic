@@ -4,12 +4,16 @@
     margin: 4rem 1rem 1rem 1rem;
     display: flex;
     justify-content: space-around;
+    position: relative;
 }
 
 .sidebar{
-    min-width: 14rem;
+    min-width: 10rem;
     height: 100%;
-    background: blue;
+    background: #e8eddf;
+    border-radius: .3rem;
+    position: sticky;
+    top: 4rem;
 }
 
 .productList{

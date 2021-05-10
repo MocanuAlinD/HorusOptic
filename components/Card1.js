@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import style from '../styles/card1.module.css'
 import Link from 'next/link'
 
+// Cards from index page
 class Card1 extends Component {
     constructor(props){
         super(props)

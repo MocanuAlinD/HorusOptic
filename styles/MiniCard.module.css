@@ -1,20 +1,20 @@
 .container{
 	position: relative;
-    /* background: #171717; */
+    background: #232323;
     display: flex;
     width: 250px;
     height: fit-content;
     margin: .8rem;
     flex-direction: column;
     padding: 1rem;
-    border-radius: .7rem;
+    border-radius: .3rem;
     box-shadow: 3px 3px 7px #171717, -3px -3px 7px #242423;
     transition: all 350ms ease-in-out;
 }
 
 .container:hover{
-    /* box-shadow: inset 3px 3px 7px #171717, inset -3px -3px 7px #242423; */
-    transform: scale(1.05);
+    transform: scale(1.03);
+    background: #555;
 }
 
 .container h4,
@@ -37,13 +37,40 @@
     /* align-self: flex-end; */
     /* justify-content: flex-end; */
 }
-
 .container .link a{
+    /* background: blue; */
+    color: #333533;
+    position: absolute;
+    bottom: -.2rem;
+    right: 0;
+    background: #f5cb5c;
+    padding: .05rem .2rem;
+    border-radius: .3rem;
+    font-family: 'Poppins',sans-serif;
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.container .details{
+    flex-grow: 1;
+    text-align: left;
+    position: relative;
+}
+.container .details a{
     /* background: blue; */
     color: #e8eddf;
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 0;
+    font-family: 'Poppins',sans-serif;
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+
+.container h5:nth-child(5){
+    margin-bottom: 1.5rem;
+    /* background: red; */
 }
 
 

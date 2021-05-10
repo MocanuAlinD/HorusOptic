@@ -3,6 +3,7 @@ import { getIndexData } from "../actions"
 import Card1 from '../components/Card1'
 import { BsArrowBarUp} from 'react-icons/bs'
 
+
 export default function Home(props) {
   const { allIndexData } = props
   return (
