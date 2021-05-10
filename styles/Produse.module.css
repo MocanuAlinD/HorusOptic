@@ -8,9 +8,9 @@
 }
 
 .sidebar{
-    min-width: 10rem;
+    min-width: 7rem;
     height: 100%;
-    background: #e8eddf;
+    background: #232323;
     border-radius: .3rem;
     position: sticky;
     top: 4rem;
@@ -28,5 +28,12 @@
 @media screen and (max-width: 768px){
     .container{
         flex-direction: column;
+        margin: 3rem 0 1rem 0;
+    }
+    .sidebar{
+        width: 100%;
+        border-radius: 0;
+        height: fit-content;
+        top: 3rem;
     }
 }
