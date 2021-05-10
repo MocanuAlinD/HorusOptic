@@ -23,6 +23,24 @@
     display: none;
 }
 
+.bucati input{
+    /* background: red; */
+    -webkit-appearance: none;
+    width: .85rem;
+    height: .85rem;
+    margin-right: .2rem;
+    background: #242423;
+    border-radius: 50%;
+    /* border: 1px solid #ffffff33; */
+    box-shadow: 0px 0px 2px 0px #ccc, 2px 2px 2px 1px #00000077;
+}
+
+.bucati input:checked{
+    background: #f5cb5c;
+    box-shadow: none;
+}
+
+
 @media screen and (max-width: 768px){
     .container{
         display: flex;
