@@ -1,14 +1,17 @@
 .container{
     margin: .5rem;
+    /* max-height: 100vh; */
 }
 .container .bucati{
     margin-bottom: 1rem;
+    /* background: red; */
 }
 
 .bucati h4{
     color: #e8eddf;
     font-family: 'Poppins',sans-serif;
     font-weight: 400;
+    font-size: .8rem;
 }
 
 .bucati label{
@@ -16,7 +19,7 @@
     margin-left: .3rem;
     font-family: 'Poppins',sans-serif;
     font-weight: 200;
-    font-size: .9rem;
+    font-size: .7rem;
 }
 
 .container .bucatiDropdown{
@@ -26,8 +29,8 @@
 .bucati input{
     /* background: red; */
     -webkit-appearance: none;
-    width: .85rem;
-    height: .85rem;
+    width: .6rem;
+    height: .6rem;
     margin-right: .2rem;
     background: #242423;
     border-radius: 50%;
@@ -38,6 +41,27 @@
 .bucati input:checked{
     background: #f5cb5c;
     box-shadow: none;
+}
+
+.searchDiv{
+    display: flex;
+    margin-bottom: .5rem;
+    justify-content: space-between;
+}
+
+.searchIcon{
+    color: #e8eddf;
+    font-size: 1rem;
+}
+
+.search{
+    width: 80%;
+    background: #e8eddf22;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #f5cb5c;
+    border-radius: .2rem;
+    color: #f5cb5c;
 }
 
 

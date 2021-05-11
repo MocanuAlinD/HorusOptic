@@ -68,7 +68,7 @@
 }
 
 
-.container h5:nth-child(5){
+.container h5:last-of-type{
     margin-bottom: 1.5rem;
     /* background: red; */
 }
