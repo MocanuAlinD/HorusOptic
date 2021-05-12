@@ -178,7 +178,7 @@ const Sidebar = (props) => {
 
                 <div className={styles.bucatiDrop}>
                     <AiOutlineSearch className={styles.searchIconDrop} />
-                    <input type="search" className={styles.searchDrop} />
+                    <input type="search" className={styles.searchDrop} onChange={(e) => props.searchResult(e.target.value.toLowerCase())}/>
                 </div>
 
                 <div className={styles.bucatiDrop}>

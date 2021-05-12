@@ -81,8 +81,12 @@
     .container{
         flex-direction: column;
         width: 100%;
+        box-shadow: none;
+        border-radius: .1rem;
     }
     .container:hover{
         transform: none;
+        box-shadow: none;
+        background: #121212;
     }
 }

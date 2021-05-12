@@ -126,6 +126,9 @@
 }
 
 @media screen and (max-width: 768px){
+	.navbarContainer{
+		border-bottom: none;
+	}
 	.navbarContainer ul{
 		position: fixed;
 		top: 3rem;
