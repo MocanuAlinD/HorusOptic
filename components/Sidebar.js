@@ -10,13 +10,13 @@ const Sidebar = (props) => {
         const accesorii = document.querySelector('#accesorii')
         accesorii.style.display = 'block'
         const brands = document.querySelector('#brand')
-        brands.style.display='block'
+        brands.style.display = 'block'
         const dioptrii = document.querySelector('#dioptrii')
         dioptrii.style.display = 'block'
         props.changeCat('allCats')
     }
 
-    const sendAllRame = ()=>{
+    const sendAllRame = () => {
         const accesorii = document.querySelector('#accesorii')
         accesorii.style.display = 'none'
         const brands = document.querySelector('#brand')
@@ -46,9 +46,9 @@ const Sidebar = (props) => {
         props.changeCat('lentile')
     }
 
-    const mobileSendAllCats =(e)=>{
-        console.log('mobile all cats',e)
-        if (e==='toate'){
+    const mobileSendAllCats = (e) => {
+        console.log('mobile all cats', e)
+        if (e === 'toate') {
             const accesorii = document.querySelector('#divAccesorii')
             accesorii.style.display = 'flex'
             const brands = document.querySelector('#divBrand')
@@ -57,7 +57,7 @@ const Sidebar = (props) => {
             dioptrii.style.display = 'flex'
             props.changeCat('allCats')
         }
-        if (e==='rame'){
+        if (e === 'rame') {
             const accesorii = document.querySelector('#divAccesorii')
             accesorii.style.display = 'none'
             const brands = document.querySelector('#divBrand')
@@ -66,7 +66,7 @@ const Sidebar = (props) => {
             dioptrii.style.display = 'none'
             props.changeCat('rame')
         }
-        if (e==='accesorii'){
+        if (e === 'accesorii') {
             const accesorii = document.querySelector('#divAccesorii')
             accesorii.style.display = 'flex'
             const brands = document.querySelector('#divBrand')
@@ -75,7 +75,7 @@ const Sidebar = (props) => {
             dioptrii.style.display = 'none'
             props.changeCat('accesorii')
         }
-        if (e==='lentile'){
+        if (e === 'lentile') {
             const accesorii = document.querySelector('#divAccesorii')
             accesorii.style.display = 'none'
             const brands = document.querySelector('#divBrand')
@@ -84,7 +84,7 @@ const Sidebar = (props) => {
             dioptrii.style.display = 'flex'
             props.changeCat('lentile')
         }
-        
+
     }
 
     return (
@@ -161,12 +161,12 @@ const Sidebar = (props) => {
 
                 {/* Meniu NUME */}
                 <div className={styles.bucati}>
-                <h4>Nume</h4>
-                <input defaultChecked type="radio" id="atoz" name="nume" value="atoz" onClick={() => props.changePrice('atoz')}></input>
-                <label for="atoz">A - Z</label> <br />
-                <input type="radio" id="ztoa" name="nume" value="ztoa" onClick={() => props.changePrice('ztoa')}></input>
-                <label for="ztoa">Z - A</label>
-            </div>
+                    <h4>Nume</h4>
+                    <input defaultChecked type="radio" id="atoz" name="nume" value="atoz" onClick={() => props.changePrice('atoz')}></input>
+                    <label for="atoz">A - Z</label> <br />
+                    <input type="radio" id="ztoa" name="nume" value="ztoa" onClick={() => props.changePrice('ztoa')}></input>
+                    <label for="ztoa">Z - A</label>
+                </div>
             </div>
 
 
@@ -183,7 +183,7 @@ const Sidebar = (props) => {
 
                 <div className={styles.bucatiDrop}>
                     <h4>Arata</h4>
-                    <select name="arataMobile" id="arataMobile" onChange={(e)=> mobileSendAllCats(e.target.value)}>
+                    <select name="arataMobile" id="arataMobile" onChange={(e) => mobileSendAllCats(e.target.value)}>
                         <option value="toate">Toate</option>
                         <option value="rame">Rame</option>
                         <option value="lentile">Lentile</option>
@@ -239,7 +239,7 @@ const Sidebar = (props) => {
                     </select>
                 </div>
 
-                
+
             </div>
 
         </div>

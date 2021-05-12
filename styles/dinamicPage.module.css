@@ -1,0 +1,12 @@
+.container{
+    /* background: red; */
+    min-height: calc(100vh - 3rem);
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container h4{
+    color: white;
+}

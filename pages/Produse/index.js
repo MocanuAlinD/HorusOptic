@@ -8,31 +8,39 @@ const Produse = (props) => {
     const { allProducts } = props
     const [filter, setFilter] = useState('allCats')
     const [search, setSearch] = useState('')
-    const [def, setDef] = useState('mic')
+    const [def, setDef] = useState('')
 
-    let consu = allProducts
+    let localProd = allProducts
 
     const filterGlasses = allProducts => {
         if (filter === 'allCats'){
-            return consu
+            return checkFilter(localProd)
         }
-        if (filter === 'rame') {
-            return consu.filter(m => { return m.clasa && m.clasa.includes(filter) })
-        }
-        if (filter === 'accesorii') {
-            return consu.filter(m => { return m.clasa && m.clasa.includes(filter) })
-        }
-        if (filter === 'lentile') {
-            return consu.filter(m => { return m.clasa && m.clasa.includes(filter) })
-        }
+        localProd = localProd.filter(m => { return m.clasa && m.clasa.includes(filter) })
+        return checkFilter(localProd)
     }
 
-    const checkDef =() => {
-        console.log('checkDef')
-    }
-
-    const arata =() => {
-        console.log('arata')
+    const checkFilter =(c) => {
+        if (def === 'mic') {
+            localProd = localProd.sort((a, b) => a.price > b.price && 1 || -1)
+        }
+        if (def === 'mare') {
+            localProd = localProd.sort((a, b) => a.price < b.price && 1 || -1)
+        }
+        if (def === 'atoz') {
+            localProd = localProd.sort((a, b) => a.name > b.name && 1 || -1)
+        }
+        if (def === 'ztoa') {
+            localProd = localProd.sort((a, b) => a.name < b.name && 1 || -1)
+        }
+        if (search === '') {
+            return localProd
+        }
+        if (search !== 'mic' || search !== 'mare' || search !== 'atoz' || search !== 'ztoa') {
+            return localProd.filter(m => {
+                return m.name && m.name.toLowerCase().includes(search)
+            })
+        }
     }
 
     return (
@@ -45,21 +53,9 @@ const Produse = (props) => {
                 />
             </div>
             <div className={styles.productList}>
-                {filter === 'allCats' ? filterGlasses(consu).map(prd =>
+                {filterGlasses(localProd).map(prd =>
                     <MiniCard produs={prd} />
-                ): []}
-
-                {filter === 'rame' ? filterGlasses(consu).map(prd =>
-                    <MiniCard produs={prd} />
-                ) : []}
-
-                {filter === 'accesorii' ? filterGlasses(consu).map(prd =>
-                    <MiniCard produs={prd} />
-                ) : []}
-
-                {filter === 'lentile' ? filterGlasses(consu).map(prd =>
-                    <MiniCard produs={prd} />
-                ) : []}
+                )}
             </div>
         </div>
     );

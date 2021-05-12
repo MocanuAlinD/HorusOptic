@@ -15,7 +15,7 @@ const MiniCard = (props) => {
             <h5>Material: {produs.material}</h5>
             <h5>{produs.culoare ? 'Culoare: ' + produs.culoare : []}</h5>
             <div className={styles.link}><Link href='' ><a>Adauga in cos</a></Link></div>
-            <div className={styles.details}><Link href='' ><a>Detalii</a></Link></div>
+            <div className={styles.details}><Link href={'Produse/'+ produs.id}><a>Detalii</a></Link></div>
         </div>
     );
 }
