@@ -1,6 +1,7 @@
 .container{
     margin: .5rem;
     /* max-height: 100vh; */
+    position: relative;
 }
 .container .bucati{
     margin-bottom: 1rem;
@@ -20,10 +21,6 @@
     font-family: 'Poppins',sans-serif;
     font-weight: 200;
     font-size: .7rem;
-}
-
-.container .bucatiDropdown{
-    display: none;
 }
 
 .bucati input{
@@ -63,23 +60,58 @@
     border-radius: .2rem;
     color: #f5cb5c;
 }
+.mobile{
+    display: none;
+}
 
 
 @media screen and (max-width: 768px){
     .container{
-        display: flex;
+        /* display: flex;
         justify-content: space-between;
-        flex-wrap: wrap;
-
+        flex-wrap: wrap; */
+        /* background: red; */
+        margin: 0.2rem;
     }
-    .container .bucati{
+
+    .desktop{
         display: none;
     }
-    .container .bucatiDropdown{
+
+    .mobile{
         display: flex;
-        margin: .3rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
-    .bucatiDropdown h4{
+    
+    .bucatiDrop{
+        display: flex;
+        /* margin: .3rem; */
+        /* background: red; */
+        margin: 3px;
+        width: fit-content;
+    }
+
+    .mobile div:first-child{
+        /* background: blue; */
+        width: 100%;
+    }
+    .searchIconDrop{
+        color: #e8eddf;
+        font-size: 1rem;
+        margin-right: .5rem;
+    }
+    .container .searchDrop{
+        width: 100%;
+        background: #e8eddf22;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #f5cb5c;
+        border-radius: .2rem;
+        color: #f5cb5c;
+    }
+
+    .bucatiDrop h4{
         color: #e8eddf;
         font-family: 'Poppins',sans-serif;
         font-weight: 400;
@@ -87,7 +119,7 @@
         font-size: .9rem;
     }
 
-    .bucatiDropdown select{
+    .bucatiDrop select{
         background: #f5cb5c;
         outline: none;
         border-radius: .2rem;
@@ -96,7 +128,7 @@
         border: none;
     }
     
-    .bucatiDropdown option{
+    .bucatiDrop option{
         background: #f5cb5c;
         font-family: "Poppins";
         font-size: .8rem;

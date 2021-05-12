@@ -48,7 +48,7 @@ const PRODUSE = [
     { id: '22', clasa: 'accesorii', culoare: 'rosu', url: '/accesorii/laveta2.jpg', code: '75629', material: 'lana', name: 'Laveta2', price: 79, width: '800', height: '450' },
     { id: '23', clasa: 'accesorii', culoare: 'albastru', url: '/accesorii/laveta3.jpg', code: '54976', material: 'bumbac', name: 'Laveta3', price: 48, width: '800', height: '450' },
     { id: '24', clasa: 'accesorii', culoare: 'verde', url: '/accesorii/laveta4.jpg', code: '92809', material: 'bumbac', name: 'Laveta4', price: 91, width: '1200', height: '675' },
-    { id: '25', clasa: 'accesorii', culoare: 'verde', url: '/accesorii/laveta5.jpg', code: '92981', material: 'lana', name: 'Laveta5', price: 17, width: '800', height: '450' },
+    { id: '25', clasa: 'accesorii', culoare: 'portocaliu', url: '/accesorii/laveta5.jpg', code: '92981', material: 'lana', name: 'Laveta5', price: 17, width: '800', height: '450' },
     { id: '26', clasa: 'accesorii', culoare: 'verde', url: '/accesorii/laveta6.jpg', code: '58565', material: 'bumbac', name: 'Laveta6', price: 48, width: '1200', height: '675' },
     { id: '27', clasa: 'accesorii', culoare: 'verde', url: '/accesorii/laveta7.jpg', code: '81986', material: 'lana', name: 'Laveta7', price: 94, width: '1000', height: '562' },
     { id: '28', clasa: 'accesorii', culoare: 'verde', url: '/accesorii/laveta8.jpg', code: '52561', material: 'bumbac', name: 'Laveta8', price: 45, width: '485', height: '273' },

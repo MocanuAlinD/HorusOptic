@@ -11,27 +11,20 @@ const Produse = (props) => {
     const [def, setDef] = useState('mic')
 
     let consu = allProducts
-    
 
     const filterGlasses = allProducts => {
         if (filter === 'allCats'){
-            // console.log('allCats')
             return consu
         }
         if (filter === 'rame') {
-            // console.log('rame')
             return consu.filter(m => { return m.clasa && m.clasa.includes(filter) })
         }
         if (filter === 'accesorii') {
-            // console.log('accesorii')
             return consu.filter(m => { return m.clasa && m.clasa.includes(filter) })
         }
         if (filter === 'lentile') {
-            // console.log('accesorii')
             return consu.filter(m => { return m.clasa && m.clasa.includes(filter) })
         }
-
-        // return consu.filter(m => {return m.name && m.name.includes(filter)})
     }
 
     const checkDef =() => {

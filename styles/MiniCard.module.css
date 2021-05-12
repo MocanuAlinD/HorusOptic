@@ -1,6 +1,6 @@
 .container{
 	position: relative;
-    background: #232323;
+    background: #242423;
     display: flex;
     width: 250px;
     height: fit-content;
@@ -8,13 +8,15 @@
     flex-direction: column;
     padding: 1rem;
     border-radius: .3rem;
-    box-shadow: 3px 3px 7px #171717, -3px -3px 7px #242423;
+    box-shadow: 1px 1px 1px 1px #171717;
     transition: all 350ms ease-in-out;
 }
 
 .container:hover{
     transform: scale(1.03);
-    background: #555;
+    box-shadow: 5px 5px 5px 5px rgba(24, 24, 24, 0.333);
+    background: #121212;
+    /* border: 1px solid black; */
 }
 
 .container h4,
