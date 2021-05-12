@@ -133,17 +133,14 @@
 		position: fixed;
 		top: 3rem;
 		right: -100%;
-		width: fit-content;
-		background: linear-gradient(to right, #00000055,#ffffff22);
-		backdrop-filter: blur(3px);
-		height: 40%;
+		width: 100%;
+		background: #242423;
+		height: 3rem;
 		display: flex;
-		flex-direction: column;
 		justify-content: space-around;
-		align-items: flex-end;
-		border-radius: 1rem 0 0 1rem;
-		border-left: 1px solid #ffffff77;
+		align-items: center;
 		border-bottom: 1px solid #ffffff77;
+		/* border-top: 1px solid #ffffff77; */
 	}
 	.meniu{
 		display: flex;
