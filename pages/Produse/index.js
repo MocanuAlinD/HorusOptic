@@ -12,7 +12,7 @@ const Produse = (props) => {
 
     let localProd = allProducts
 
-    const filterGlasses = allProducts => {
+    const filterGlasses = (e) => {
         if (filter === 'allCats'){
             return checkFilter(localProd)
         }
