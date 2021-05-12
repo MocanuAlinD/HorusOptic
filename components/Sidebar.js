@@ -75,7 +75,7 @@ const Sidebar = (props) => {
             dioptrii.style.display = 'none'
             props.changeCat('accesorii')
         }
-        if (e==='dioptrii'){
+        if (e==='lentile'){
             const accesorii = document.querySelector('#divAccesorii')
             accesorii.style.display = 'none'
             const brands = document.querySelector('#divBrand')
