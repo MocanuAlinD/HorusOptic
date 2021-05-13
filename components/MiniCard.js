@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 
-const MiniCard = ({ produs}) => {
+const MiniCard = ({ produs }) => {
     return (
         <div key={produs.id} className={styles.container}>
             <Image priority as='image' src={produs.url} width={produs.width} height={produs.height} />

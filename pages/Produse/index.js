@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../../styles/Produse.module.css'
 import { getProduse } from '../../actions'
 import MiniCard from '../../components/MiniCard'
@@ -8,21 +8,25 @@ import Head from 'next/head'
 const Produse = (props) => {
     const { allProducts } = props
     const [filter, setFilter] = useState('allCats')
+    const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('')
 
     let localProd = allProducts
 
-    const filterGlasses = (e) => {
-        if (filter === 'allCats'){
-            return checkFilter(localProd)
+    const filterGlasses = () => {
+        if (filter === 'allCats') {
+            checkSort()
+            // localProd = allProducts
+            return allProducts
         }
-        localProd = localProd.filter(m => { return m.clasa && m.clasa.includes(filter) })
-        return checkFilter(localProd)
+        checkSort()
+        return localProd.filter(m => { return m.clasa && m.clasa.includes(filter) })
     }
 
-    const checkFilter = (localProd) => {
-        if (def === 'mic') {
+    const checkSort = () => {
+        console.log(search)
+        if (def === "mic") {
             localProd = localProd.sort((a, b) => a.price > b.price && 1 || -1)
         }
         if (def === 'mare') {
@@ -34,11 +38,17 @@ const Produse = (props) => {
         if (def === 'ztoa') {
             localProd = localProd.sort((a, b) => a.name < b.name && 1 || -1)
         }
-        if (search === '') {
-            return localProd
+        if (filter === 'marcaAll') {
+            localProd = localProd.filter(m => { return m.clasa && m.clasa === 'rame' })
         }
-        if (search !== 'mic' || search !== 'mare' || search !== 'atoz' || search !== 'ztoa') {
-            return localProd.filter(m => {
+        if (filter !== 'marcaAll') {
+            localProd = localProd.filter(m => { return m.clasa && m.clasa.includes(filter) })
+        }
+        if (search === '') {
+            localProd = localProd
+        }
+        if (search) {
+            localProd = localProd.filter(m => {
                 return m.name && m.name.toLowerCase().includes(search)
             })
         }
@@ -52,8 +62,10 @@ const Produse = (props) => {
             <div className={styles.sidebar}>
                 <Sidebar
                     changeCat={cat => setFilter(cat)}
+                    brandAll={word => setBrand(word)}
                     changePrice={word => setDef(word)}
                     searchResult={word => setSearch(word)}
+                // changeType={word => setType(word)}
                 />
             </div>
             <div className={styles.productList}>

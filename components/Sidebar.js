@@ -6,48 +6,49 @@ import { AiOutlineSearch, AiOutlineArrowDown, AiOutlineArrowUp } from 'react-ico
 const Sidebar = (props) => {
     const [menu, setMenu] = useState(true)
 
-    const sendAllCats = () => {
-        const accesorii = document.querySelector('#accesorii')
-        accesorii.style.display = 'block'
-        const brands = document.querySelector('#brand')
-        brands.style.display = 'block'
-        const dioptrii = document.querySelector('#dioptrii')
-        dioptrii.style.display = 'block'
-        props.changeCat('allCats')
+    const sendAllCats = (e) => {
+        props.changeCat(e)
+        checkFilter(e)
     }
 
-    const sendAllRame = () => {
-        const accesorii = document.querySelector('#accesorii')
-        accesorii.style.display = 'none'
-        const brands = document.querySelector('#brand')
-        brands.style.display = 'block'
-        const dioptrii = document.querySelector('#dioptrii')
-        dioptrii.style.display = 'none'
-        props.changeCat('rame')
+    const checkFilter =(e) => {
+        if (e === 'allCats'){
+            const accesorii = document.querySelector('#accesorii')
+            accesorii.style.display = 'none'
+            const brands = document.querySelector('#brand')
+            brands.style.display = 'none'
+            const dioptrii = document.querySelector('#dioptrii')
+            dioptrii.style.display = 'none'
+        }
+        if (e ==='rame'){
+            const accesorii = document.querySelector('#accesorii')
+            accesorii.style.display = 'none'
+            const brands = document.querySelector('#brand')
+            brands.style.display = 'block'
+            const dioptrii = document.querySelector('#dioptrii')
+            dioptrii.style.display = 'none'
+        }
+        if (e==='lentile'){
+            const accesorii = document.querySelector('#accesorii')
+            accesorii.style.display = 'none'
+            const brands = document.querySelector('#brand')
+            brands.style.display = 'none'
+            const dioptrii = document.querySelector('#dioptrii')
+            dioptrii.style.display = 'block'
+        }
+        if (e==='accesorii'){
+            const accesorii = document.querySelector('#accesorii')
+            accesorii.style.display = 'block'
+            const brands = document.querySelector('#brand')
+            brands.style.display = 'none'
+            const dioptrii = document.querySelector('#dioptrii')
+            dioptrii.style.display = 'none'
+        }
     }
 
-    const sendAllAccesorii = () => {
-        const accesorii = document.querySelector('#accesorii')
-        accesorii.style.display = 'block'
-        const brands = document.querySelector('#brand')
-        brands.style.display = 'none'
-        const dioptrii = document.querySelector('#dioptrii')
-        dioptrii.style.display = 'none'
-        props.changeCat('accesorii')
-    }
-
-    const sendAllLentile = () => {
-        const accesorii = document.querySelector('#accesorii')
-        accesorii.style.display = 'none'
-        const brands = document.querySelector('#brand')
-        brands.style.display = 'none'
-        const dioptrii = document.querySelector('#dioptrii')
-        dioptrii.style.display = 'block'
-        props.changeCat('lentile')
-    }
 
     const mobileSendAllCats = (e) => {
-        console.log('mobile all cats', e)
+        // console.log('mobile all cats', e)
         if (e === 'toate') {
             const accesorii = document.querySelector('#divAccesorii')
             accesorii.style.display = 'flex'
@@ -64,7 +65,7 @@ const Sidebar = (props) => {
             brands.style.display = 'flex'
             const dioptrii = document.querySelector('#divDioptrii')
             dioptrii.style.display = 'none'
-            props.changeCat('rame')
+            props.changeType('rame')
         }
         if (e === 'accesorii') {
             const accesorii = document.querySelector('#divAccesorii')
@@ -99,28 +100,28 @@ const Sidebar = (props) => {
                 {/* Meniu categorii */}
                 <div className={styles.bucati}>
                     <h4>Arata</h4>
-                    <input defaultChecked type="radio" id="toateProduse" name="categorie" value="toateProduse" onClick={() => sendAllCats()}></input>
-                    <label for="toateProduse">Toate</label><br />
-                    <input type="radio" id="rame" name="categorie" value="rame" onClick={() => sendAllRame()}></input>
+                    <input defaultChecked type="radio" id="allCats" name="categorie" value="allCats" onClick={(e) => sendAllCats(e.target.value)}></input>
+                    <label for="allCats">Toate</label><br />
+                    <input type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label for="rame">Rame</label><br />
-                    <input type="radio" id="lentile" name="categorie" value="lentile" onClick={() => sendAllLentile()}></input>
+                    <input type="radio" id="lentile" name="categorie" value="lentile" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label for="lentile">Lentile</label><br />
-                    <input type="radio" id="accesoriiSus" name="categorie" value="accesorii" onClick={() => sendAllAccesorii()}></input>
+                    <input type="radio" id="accesoriiSus" name="categorie" value="accesorii" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label for="accesorii">Accesorii</label>
                 </div>
 
                 {/* Meniu Brand RAME */}
                 <div className={styles.bucati} id='brand'>
                     <h4>Brand</h4>
-                    <input defaultChecked type="radio" id="toate" name="marca" value="toate" onClick={() => props.changeCat('allBrands')}></input>
-                    <label for="toate">Toate</label><br />
-                    <input type="radio" id="guci" name="marca" value="guci" onClick={() => props.changeCat('Guci')}></input>
+                    <input defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={() => props.brandAll('marcaAll')}></input>
+                    <label for="marcaAll">Toate</label><br />
+                    <input type="radio" id="guci" name="marca" value="guci" onClick={() => props.brandAll('Guci')}></input>
                     <label for="guci">Guci</label><br />
-                    <input type="radio" id="police" name="marca" value="police" onClick={() => props.changeCat('Police')}></input>
+                    <input type="radio" id="police" name="marca" value="police" onClick={() => props.brandAll('Police')}></input>
                     <label for="police">Police</label> <br />
-                    <input type="radio" id="altele" name="marca" value="altele" onClick={() => props.changeCat('Arnette')}></input>
+                    <input type="radio" id="altele" name="marca" value="altele" onClick={() => props.brandAll('Arnette')}></input>
                     <label for="altele">Arnette</label> <br />
-                    <input type="radio" id="costa" name="marca" value="costa" onClick={() => props.changeCat('Costa')}></input>
+                    <input type="radio" id="costa" name="marca" value="costa" onClick={() => props.brandAll('Costa')}></input>
                     <label for="costa">Costa</label><br />
                 </div>
 
