@@ -19,19 +19,21 @@
 }
 
 .navTitle h3{
-    font-family: 'Poppins';
+    font-family: 'Abril Fatface';
+    font-family: 'Monotone';
+    font-family: 'Cinzel Decorative', cursive;
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 600;
     color: whitesmoke;
 	margin-right: 1rem;
 }
+
 
 .navbarContainer ul{
     display: flex;
     list-style: none;
     justify-content: flex-end;
     width: fit-content;
-    /* background: red; */
     height: 2rem;
     align-items: center;
 }

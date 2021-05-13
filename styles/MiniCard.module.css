@@ -4,9 +4,9 @@
     display: flex;
     width: 250px;
     height: fit-content;
-    margin: .8rem;
+    margin: .4rem .6rem;
     flex-direction: column;
-    padding: 1rem;
+    padding: .5rem;
     border-radius: .3rem;
     box-shadow: 1px 1px 1px 1px #171717;
     transition: all 350ms ease-in-out;
@@ -14,7 +14,7 @@
 
 .container:hover{
     transform: scale(1.03);
-    box-shadow: 5px 5px 5px 5px rgba(24, 24, 24, 0.333);
+    box-shadow: 3px 3px 3px 3px rgba(24, 24, 24, 0.333);
     background: #121212;
     /* border: 1px solid black; */
 }
@@ -44,7 +44,7 @@
     color: #333533;
     position: absolute;
     bottom: -.2rem;
-    right: 0;
+    right: -1rem;
     background: #f5cb5c;
     padding: .05rem .2rem;
     border-radius: .3rem;
@@ -88,5 +88,10 @@
         transform: none;
         box-shadow: none;
         background: #121212;
+    }
+    .container .link a{
+        bottom: 0rem;
+        right: 0;
+        padding: .05rem .2rem;
     }
 }

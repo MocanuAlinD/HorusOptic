@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from '../styles/Info.module.css'
+import Head from 'next/head'
 
-const info = () => {
+const Info = () => {
     return (
         <div className={styles.container}>
+            <Head>
+                <title>Info</title>
+            </Head>
             <h4>La ce perioadă de timp trebuie să repet consultatia optometrică gratuită  ?</h4>
             <p>Consultul pentru determinarea dioptriilor trebuie să se realizeze periodic și să 
                 nu depășească un an de la ultima verificare. În acest fel pot fi descoperite la 
@@ -104,4 +108,4 @@ const info = () => {
     );
 }
 
-export default info;
+export default Info;

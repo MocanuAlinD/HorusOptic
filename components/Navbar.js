@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className={style.navbarContainer}>
             <div className={style.navTitle}>
                 <h3>HORUS TOP OPTIC</h3>
-                <GiEyeOfHorus size='3rem' color="#f5cb5c" />
+                <GiEyeOfHorus size='3rem' color="#f5cb5c" className={style.icon}/>
             </div>
             <ul className={style.ul}>
                 <li><Link href='/'><a onClick={closeMenu}>Acasa</a></Link></li>

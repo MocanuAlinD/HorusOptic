@@ -7,7 +7,7 @@ const Layout = ({children}) => {
     return (
         <>
             <Head>
-                <title>horusTopOptic</title>
+                <title>Horus Top Optic</title>
                 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link
@@ -16,6 +16,9 @@ const Layout = ({children}) => {
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <script src="https://kit.fontawesome.com/cbb96f47ca.js" crossorigin="anonymous"></script>
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet"></link>
+                <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+                    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet"></link>
             </Head>
             <Navbar />
             {children}

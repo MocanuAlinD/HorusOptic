@@ -1,7 +1,7 @@
 .container{
     min-height: calc(100vh - 3rem);
     /* background: red; */
-    margin: 3rem 1rem 1rem 1rem;
+    margin: 4rem 1rem 1rem 1rem;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
@@ -13,7 +13,8 @@
     height: 100%;
     background: #232323;
     border-radius: .3rem;
-    margin-top: .8rem;
+    margin-top: .4rem;
+    margin-right: .5rem;
     /* position: sticky; */
     /* top: 4rem; */
     z-index: 1;

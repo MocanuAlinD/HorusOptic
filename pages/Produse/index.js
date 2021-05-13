@@ -3,6 +3,7 @@ import styles from '../../styles/Produse.module.css'
 import { getProduse } from '../../actions'
 import MiniCard from '../../components/MiniCard'
 import Sidebar from '../../components/Sidebar'
+import Head from 'next/head'
 
 const Produse = (props) => {
     const { allProducts } = props
@@ -20,7 +21,7 @@ const Produse = (props) => {
         return checkFilter(localProd)
     }
 
-    const checkFilter =(c) => {
+    const checkFilter = (localProd) => {
         if (def === 'mic') {
             localProd = localProd.sort((a, b) => a.price > b.price && 1 || -1)
         }
@@ -45,6 +46,9 @@ const Produse = (props) => {
 
     return (
         <div className={styles.container}>
+            <Head>
+                <title>Produse</title>
+            </Head>
             <div className={styles.sidebar}>
                 <Sidebar
                     changeCat={cat => setFilter(cat)}
