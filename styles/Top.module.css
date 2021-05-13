@@ -1,0 +1,32 @@
+.backTopDiv{
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    /* outline: 1px solid red; */
+}
+
+.backTop{
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  background: #f5cb5c;
+  font-size: 2rem;
+  border-radius: 50%;
+  color: #242423;
+  opacity: .5;
+  cursor: pointer;
+  margin: 0 .5rem .5rem 0;
+  z-index: 99;
+  transition: all .5s ease-in-out;
+}
+
+.backTop:hover{
+    opacity: 1;
+    font-size: 3rem;
+}

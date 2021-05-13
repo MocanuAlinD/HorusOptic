@@ -13,18 +13,9 @@ const Sidebar = (props) => {
 
     const sendAllBrands = (e) => {
         props.brandAll(e)
-        // checkFilter(e)
     }
 
     const checkFilter =(e) => {
-        // if (e === 'allCats'){
-        //     const accesorii = document.querySelector('#accesorii')
-        //     accesorii.style.display = 'none'
-        //     const brands = document.querySelector('#brand')
-        //     brands.style.display = 'none'
-        //     const dioptrii = document.querySelector('#dioptrii')
-        //     dioptrii.style.display = 'none'
-        // }
         if (e ==='rame'){
             const accesorii = document.querySelector('#accesorii')
             accesorii.style.display = 'none'
@@ -51,18 +42,7 @@ const Sidebar = (props) => {
         }
     }
 
-
     const mobileSendAllCats = (e) => {
-        // console.log('mobile all cats', e)
-        // if (e === 'toate') {
-        //     const accesorii = document.querySelector('#divAccesorii')
-        //     accesorii.style.display = 'flex'
-        //     const brands = document.querySelector('#divBrand')
-        //     brands.style.display = 'flex'
-        //     const dioptrii = document.querySelector('#divDioptrii')
-        //     dioptrii.style.display = 'flex'
-        //     props.changeCat('allCats')
-        // }
         if (e === 'rame') {
             const accesorii = document.querySelector('#divAccesorii')
             accesorii.style.display = 'none'

@@ -4,6 +4,9 @@ import { getProduse } from '../../actions'
 import MiniCard from '../../components/MiniCard'
 import Sidebar from '../../components/Sidebar'
 import Head from 'next/head'
+import ScrollToTop from '../../components/ScrollToTop'
+
+
 
 const Produse = (props) => {
     const { allProducts } = props
@@ -11,6 +14,7 @@ const Produse = (props) => {
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('')
+    const [isVisible, setIsVisible] = useState(false)
 
     const filterGlasses = () => {
         if (filter === 'rame') {
@@ -40,7 +44,7 @@ const Produse = (props) => {
         filterGlasses()
     }, [filter, brand, def])
 
-    
+
     const checkSort = () => {
         if (def === "mic") {
             return allProducts.sort((a, b) => a.price > b.price && 1 || -1)
@@ -56,18 +60,18 @@ const Produse = (props) => {
         }
     }
 
-    const searchItems =() => {
-        const a = allProducts.filter(x => { return x.name && x.name.toLowerCase().includes(search) || 
-                                                    x.code && x.code.includes(search) || 
-                                                    x.material && x.material.includes(search) ||
-                                                    x.culoare && x.culoare.toLowerCase().includes(search)
-                                                })
+    const searchItems = () => {
+        const a = allProducts.filter(x => {
+            return x.name && x.name.toLowerCase().includes(search) ||
+                x.code && x.code.includes(search) ||
+                x.material && x.material.includes(search) ||
+                x.culoare && x.culoare.toLowerCase().includes(search)
+        })
         return a
     }
 
-
     return (
-        <div className={styles.container}>
+        <div className={styles.container} id='top'>
             <Head>
                 <title>Produse</title>
             </Head>
@@ -77,8 +81,6 @@ const Produse = (props) => {
                     brandAll={word => setBrand(word)}
                     changePrice={word => setDef(word)}
                     searchResult={word => setSearch(word)}
-                // searchResult={word => setSearch(word)}
-                // changeType={word => setType(word)}
                 />
             </div>
             <div className={styles.productList}>
@@ -93,7 +95,12 @@ const Produse = (props) => {
                 {search !== '' ? searchItems().map(prd =>
                     <MiniCard produs={prd} />
                 ) : []}
+                {/* <div className={styles.backTopDiv}>
+                    <BsArrowBarUp className={styles.backTop} id='myBtn' title='Go to top' onClick={() => topFunction()} />
+                </div> */}
+                <ScrollToTop/>
             </div>
+
         </div>
     );
 }

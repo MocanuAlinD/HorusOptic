@@ -15,10 +15,9 @@ export default function Home(props) {
       
       <Card1 indexData={allIndexData}/>
 
-      <BsArrowBarUp className={styles.backTop}/>
+      {/* <BsArrowBarUp className={styles.backTop}/> */}
 
       <div className={styles.mission}>
-        {/* <img src="/bg4.jpg" alt="" /> */}
         <h3>Misiunea noastra</h3>
         <ul className={styles.ulMission}>
           <li>Preturi incepand de la 100 lei perechea de ochelari</li>
