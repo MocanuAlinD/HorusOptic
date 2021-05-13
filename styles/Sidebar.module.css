@@ -106,6 +106,16 @@
         /* background: blue; */
         width: 100%;
     }
+
+    /* .mobile div:nth-child(3){
+        display: none;
+    } */
+    .mobile div:nth-child(4){
+        display: none;
+    }
+    .mobile div:nth-child(5){
+        display: none;
+    }
     .searchIconDrop{
         color: #e8eddf;
         font-size: 1rem;

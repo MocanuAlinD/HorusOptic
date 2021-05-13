@@ -11,6 +11,11 @@ const Sidebar = (props) => {
         checkFilter(e)
     }
 
+    const sendAllBrands = (e) => {
+        props.brandAll(e)
+        // checkFilter(e)
+    }
+
     const checkFilter =(e) => {
         // if (e === 'allCats'){
         //     const accesorii = document.querySelector('#accesorii')
@@ -49,23 +54,23 @@ const Sidebar = (props) => {
 
     const mobileSendAllCats = (e) => {
         // console.log('mobile all cats', e)
-        if (e === 'toate') {
-            const accesorii = document.querySelector('#divAccesorii')
-            accesorii.style.display = 'flex'
-            const brands = document.querySelector('#divBrand')
-            brands.style.display = 'flex'
-            const dioptrii = document.querySelector('#divDioptrii')
-            dioptrii.style.display = 'flex'
-            props.changeCat('allCats')
-        }
+        // if (e === 'toate') {
+        //     const accesorii = document.querySelector('#divAccesorii')
+        //     accesorii.style.display = 'flex'
+        //     const brands = document.querySelector('#divBrand')
+        //     brands.style.display = 'flex'
+        //     const dioptrii = document.querySelector('#divDioptrii')
+        //     dioptrii.style.display = 'flex'
+        //     props.changeCat('allCats')
+        // }
         if (e === 'rame') {
             const accesorii = document.querySelector('#divAccesorii')
             accesorii.style.display = 'none'
             const brands = document.querySelector('#divBrand')
-            brands.style.display = 'flex'
+            brands.style.display =  'flex'
             const dioptrii = document.querySelector('#divDioptrii')
             dioptrii.style.display = 'none'
-            props.changeType('rame')
+            props.changeCat('rame')
         }
         if (e === 'accesorii') {
             const accesorii = document.querySelector('#divAccesorii')
@@ -169,10 +174,10 @@ const Sidebar = (props) => {
                     <label for="ztoa">Z - A</label>
                 </div>
             </div>
-
-
-
-
+            {/* =========================================================================================== */}
+            {/* =========================================================================================== */}
+            {/* =========================================================================================== */}
+            {/* =========================================================================================== */}
             {/* =========================================================================================== */}
             {/* MOBILE */}
             <div className={styles.mobile}>
@@ -183,9 +188,9 @@ const Sidebar = (props) => {
                 </div>
 
                 <div className={styles.bucatiDrop}>
-                    <h4>Arata</h4>
+                    <h4>Categorii</h4>
                     <select name="arataMobile" id="arataMobile" onChange={(e) => mobileSendAllCats(e.target.value)}>
-                        <option value="toate">Toate</option>
+                        {/* <option value="toate">Toate</option> */}
                         <option value="rame">Rame</option>
                         <option value="lentile">Lentile</option>
                         <option value="accesorii">Accesorii</option>
@@ -194,12 +199,12 @@ const Sidebar = (props) => {
 
                 <div className={styles.bucatiDrop} id='divBrand'>
                     <h4>Brand</h4>
-                    <select name="brand" id="brandMobile">
-                        <option value="toate">Toate</option>
-                        <option value="guci">Guci</option>
-                        <option value="police">Police</option>
-                        <option value="arnette">Arnette</option>
-                        <option value="costa">Costa</option>
+                    <select name="brand" id="brandMobile" onChange={(e) => sendAllBrands(e.target.value)}>
+                        <option value="marcaAll">Toate</option>
+                        <option value="Guci">Guci</option>
+                        <option value="Police">Police</option>
+                        <option value="Arnette">Arnette</option>
+                        <option value="Costa">Costa</option>
                     </select>
                 </div>
 
@@ -226,7 +231,7 @@ const Sidebar = (props) => {
 
                 <div className={styles.bucatiDrop} id='divPret'>
                     <h4>Pret</h4>
-                    <select name="pret" id="pret">
+                    <select name="pret" id="pret" onChange={(e) => props.changePrice(e.target.value)}>
                         <option value="mic">Mic</option>
                         <option value="mare">Mare</option>
                     </select>
@@ -234,7 +239,7 @@ const Sidebar = (props) => {
 
                 <div className={styles.bucatiDrop} id='divNume'>
                     <h4>Nume</h4>
-                    <select name="nume" id="nume">
+                    <select name="nume" id="nume" onChange={(e) => props.changePrice(e.target.value)}>
                         <option value="atoz">A- Z</option>
                         <option value="ztoa">Z - A</option>
                     </select>
