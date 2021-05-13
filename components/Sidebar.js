@@ -12,14 +12,14 @@ const Sidebar = (props) => {
     }
 
     const checkFilter =(e) => {
-        if (e === 'allCats'){
-            const accesorii = document.querySelector('#accesorii')
-            accesorii.style.display = 'none'
-            const brands = document.querySelector('#brand')
-            brands.style.display = 'none'
-            const dioptrii = document.querySelector('#dioptrii')
-            dioptrii.style.display = 'none'
-        }
+        // if (e === 'allCats'){
+        //     const accesorii = document.querySelector('#accesorii')
+        //     accesorii.style.display = 'none'
+        //     const brands = document.querySelector('#brand')
+        //     brands.style.display = 'none'
+        //     const dioptrii = document.querySelector('#dioptrii')
+        //     dioptrii.style.display = 'none'
+        // }
         if (e ==='rame'){
             const accesorii = document.querySelector('#accesorii')
             accesorii.style.display = 'none'
@@ -99,10 +99,10 @@ const Sidebar = (props) => {
 
                 {/* Meniu categorii */}
                 <div className={styles.bucati}>
-                    <h4>Arata</h4>
-                    <input defaultChecked type="radio" id="allCats" name="categorie" value="allCats" onClick={(e) => sendAllCats(e.target.value)}></input>
-                    <label for="allCats">Toate</label><br />
-                    <input type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input>
+                    <h4>Categorie</h4>
+                    {/* <input defaultChecked type="radio" id="allCats" name="categorie" value="allCats" onClick={(e) => sendAllCats(e.target.value)}></input> */}
+                    {/* <label for="allCats">Toate</label><br /> */}
+                    <input defaultChecked type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label for="rame">Rame</label><br />
                     <input type="radio" id="lentile" name="categorie" value="lentile" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label for="lentile">Lentile</label><br />
@@ -143,7 +143,7 @@ const Sidebar = (props) => {
                     <h4>Tip</h4>
                     <input defaultChecked type="radio" id="lavetaToate" name="accesorii" value="lavetaToate"></input>
                     <label for="lavetaToate">Toate</label> <br />
-                    <input type="radio" id="laveta" name="accesorii" value="laveta" onClick={() => props.changeCat('Laveta')}></input>
+                    <input type="radio" id="laveta" name="accesorii" value="laveta"></input>
                     <label for="laveta">Lavete</label> <br />
                     <input type="radio" id="toc" name="accesorii" value="toc"></input>
                     <label for="toc">Tocuri</label><br />

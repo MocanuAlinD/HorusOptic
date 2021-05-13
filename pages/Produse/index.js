@@ -7,52 +7,64 @@ import Head from 'next/head'
 
 const Produse = (props) => {
     const { allProducts } = props
-    const [filter, setFilter] = useState('allCats')
+    const [filter, setFilter] = useState('rame')
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('')
 
-    let localProd = allProducts
-
     const filterGlasses = () => {
-        if (filter === 'allCats') {
+        if (filter === 'rame') {
             checkSort()
-            // localProd = allProducts
-            return allProducts
+            if (brand === 'marcaAll') {
+                return allProducts.filter(m => { return m.clasa && m.clasa.includes('rame') })
+            }
+            if (brand) {
+                return allProducts.filter(m => { return m.name && m.name.includes(brand) })
+            }
+
         }
-        checkSort()
-        return localProd.filter(m => { return m.clasa && m.clasa.includes(filter) })
+        if (filter === 'lentile') {
+            checkSort()
+            return allProducts.filter(m => { return m.clasa && m.clasa.includes('lentile') })
+        }
+        if (filter === 'accesorii') {
+            checkSort()
+            return allProducts.filter(m => { return m.clasa && m.clasa.includes('accesorii') })
+        }
+
+
     }
 
+
+    useEffect(() => {
+        filterGlasses()
+    }, [filter, brand, def])
+
+    
     const checkSort = () => {
-        console.log(search)
         if (def === "mic") {
-            localProd = localProd.sort((a, b) => a.price > b.price && 1 || -1)
+            return allProducts.sort((a, b) => a.price > b.price && 1 || -1)
         }
         if (def === 'mare') {
-            localProd = localProd.sort((a, b) => a.price < b.price && 1 || -1)
+            return allProducts.sort((a, b) => a.price < b.price && 1 || -1)
         }
         if (def === 'atoz') {
-            localProd = localProd.sort((a, b) => a.name > b.name && 1 || -1)
+            return allProducts.sort((a, b) => a.name > b.name && 1 || -1)
         }
         if (def === 'ztoa') {
-            localProd = localProd.sort((a, b) => a.name < b.name && 1 || -1)
-        }
-        if (filter === 'marcaAll') {
-            localProd = localProd.filter(m => { return m.clasa && m.clasa === 'rame' })
-        }
-        if (filter !== 'marcaAll') {
-            localProd = localProd.filter(m => { return m.clasa && m.clasa.includes(filter) })
-        }
-        if (search === '') {
-            localProd = localProd
-        }
-        if (search) {
-            localProd = localProd.filter(m => {
-                return m.name && m.name.toLowerCase().includes(search)
-            })
+            return allProducts.sort((a, b) => a.name < b.name && 1 || -1)
         }
     }
+
+    const searchItems =() => {
+        const a = allProducts.filter(x => { return x.name && x.name.toLowerCase().includes(search) || 
+                                                    x.code && x.code.includes(search) || 
+                                                    x.material && x.material.includes(search) ||
+                                                    x.culoare && x.culoare.toLowerCase().includes(search)
+                                                })
+        return a
+    }
+
 
     return (
         <div className={styles.container}>
@@ -65,13 +77,22 @@ const Produse = (props) => {
                     brandAll={word => setBrand(word)}
                     changePrice={word => setDef(word)}
                     searchResult={word => setSearch(word)}
+                // searchResult={word => setSearch(word)}
                 // changeType={word => setType(word)}
                 />
             </div>
             <div className={styles.productList}>
-                {filterGlasses(localProd).map(prd =>
+                {/* {filterGlasses(allProducts).map(prd =>
                     <MiniCard produs={prd} />
-                )}
+                )} */}
+
+                {search === '' ? filterGlasses(allProducts).map(prd =>
+                    <MiniCard produs={prd} />
+                ) : []}
+
+                {search !== '' ? searchItems().map(prd =>
+                    <MiniCard produs={prd} />
+                ) : []}
             </div>
         </div>
     );
