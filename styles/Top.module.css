@@ -30,3 +30,10 @@
     opacity: 1;
     font-size: 3rem;
 }
+
+@media screen and (max-width: 768px){
+  .backTop:hover{
+    opacity: .5;
+    font-size: 2rem;
+}
+}

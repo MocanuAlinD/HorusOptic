@@ -4,7 +4,7 @@ import styles from '../../styles/LinksFooter.module.css'
 const prezent = () => {
     return (
         <div className={styles.container}>
-            <h4>Ochelarii din ziua de azi</h4>
+            <h4>&emsp;&emsp;Ochelarii din ziua de azi</h4>
             <p>Ochelarii purtați și în ziua de azi, a apărut la începutul secolului al 18-lea. 
                 Problema cu mijloacele vizuale de la aceea vreme a fost faptul, că nu erau comode: 
                 alunecau în jos sau se putea ține pe loc doar cu mare dificultate și astfel 
@@ -24,7 +24,7 @@ const prezent = () => {
                 pe parcursul secolului trecut. Cu toate acestea, confortul de purtare s-a 
                 îmbunătățit cu timpul, brațele și suporturile de pe nas devenind din ce în 
                 ce mai confortabile, până la atingerea perfecțiunii anatomice la începutul secolului20.</p>
-            <h4>Ochelari de toate formele și dimensiunile</h4>
+            <h4>&emsp;&emsp;Ochelari de toate formele și dimensiunile</h4>
             <p>După apariția pietrei pentru citit s-au confecționat numeroase mijloace de 
                 îmbunătățire a vederii, de forme și dimeniuni diferite. De exemplu: începând 
                 cu anul 1727 monoclul a devenit un accesoriu preferat în rândul celor 

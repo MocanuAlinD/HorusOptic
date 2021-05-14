@@ -4,7 +4,7 @@ import styles from '../../styles/LinksFooter.module.css'
 const contact = () => {
     return (
         <div className={styles.container}>
-            <h4>Lentile de contact</h4>
+            <h4>&emsp;&emsp;Lentile de contact</h4>
             <p>Desi purtarea lentilelor de contact pare sa fie un fenomen nou, faimosul arhitect, matematician si inventator italian Leonardo da Vinci (1452-1519) a realizat primele schite (in 1508) care sugerau ca optica ochiului uman poate fi modificata prin plasarea corneei in contact direct cu apa.</p>
             <p>Cu toate acestea, inventarea propriu-zisa a lentilelor de contact a avut loc mult mai tarziu. Multe voci considera ca ideile lui da Vinci au dus la aparitia lentilelor de contact dupa 350 de ani de la realizarea schitelor celebrului inventator italian.</p>
             <p>In 1827, astronomul englez Sir John Herschel a avut ideea de a realiza mulaje ale ochiului uman. Aceste mulaje aveau rolul de a ajuta la fabricarea unor lentile de corectie care se puteau mula pe suprafata ochilor. Au fost necesari, insa, inca 50 de ani pentru ca cineva sa produca efectiv astfel de lentile de contact. In plus, exista cateva controverse printre specialisti cu privire la persoana care a realizat pentru prima data lentilele de contact.</p>

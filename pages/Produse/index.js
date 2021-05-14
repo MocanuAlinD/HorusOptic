@@ -4,7 +4,6 @@ import { getProduse } from '../../actions'
 import MiniCard from '../../components/MiniCard'
 import Sidebar from '../../components/Sidebar'
 import Head from 'next/head'
-import ScrollToTop from '../../components/ScrollToTop'
 
 
 
@@ -98,7 +97,6 @@ const Produse = (props) => {
                 {/* <div className={styles.backTopDiv}>
                     <BsArrowBarUp className={styles.backTop} id='myBtn' title='Go to top' onClick={() => topFunction()} />
                 </div> */}
-                <ScrollToTop/>
             </div>
 
         </div>

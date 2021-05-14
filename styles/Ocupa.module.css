@@ -1,16 +1,17 @@
 .ocupaContainer{
-    min-height: calc(100vh - 3rem);
-    margin: 3rem 1rem 1rem 1rem;
+    min-height: 79vh;
+    padding: 3rem 1rem 1rem 1rem;
 }
 
 .ocupaContainer li,
 .ocupaContainer h3{
     color: #e8eddf;
     font-family: 'Poppins',sans-serif;
+    font-weight: 200;
 }
 
 .ocupaContainer h3{
-    font-weight: 600;
+    font-weight: 400;
     text-decoration: underline;
 }
 

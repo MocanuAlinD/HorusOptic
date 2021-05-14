@@ -98,7 +98,7 @@
         display: flex;
         /* margin: .3rem; */
         /* background: red; */
-        margin: 3px;
+        padding: 3px;
         width: fit-content;
     }
 
@@ -118,8 +118,8 @@
     }
     .searchIconDrop{
         color: #e8eddf;
-        font-size: 1rem;
-        margin-right: .5rem;
+        font-size: 1.5rem;
+        margin: 0 .5rem;
     }
     .container .searchDrop{
         width: 100%;
@@ -129,6 +129,7 @@
         border-bottom: 1px solid #f5cb5c;
         border-radius: .2rem;
         color: #f5cb5c;
+        height: 1.5rem;
     }
 
     .bucatiDrop h4{

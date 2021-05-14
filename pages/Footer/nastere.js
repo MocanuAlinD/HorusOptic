@@ -4,7 +4,7 @@ import styles from '../../styles/LinksFooter.module.css'
 const nastere = () => {
     return (
         <div className={styles.container}>
-            <h3>Locul de naștere a ochelarilor</h3>
+            <h3>&emsp;&emsp;Locul de naștere al ochelarilor</h3>
             <p>Chiar dacă aceste pietre pentru citit i-au ajutat pe oamenii să vadă mai bine în viața de zi cu zi, 
                 ele au trebuit să mai facă o cale lungă, până ce s-au transformat în ochelarii, pe care îi cunoaștem 
                 azi. Acest lucru s-a întâmplat prin invenția făcută în celebrele ateliere de sticlărie din Murano 

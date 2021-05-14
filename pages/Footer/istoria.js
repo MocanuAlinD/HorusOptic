@@ -4,7 +4,7 @@ import styles from '../../styles/LinksFooter.module.css'
 const istoria = () => {
     return (
         <div className={styles.container}>
-            <h3>Istoria ochelarilor de vedere</h3>
+            <h3>&emsp;&emsp;Istoria ochelarilor de vedere</h3>
             <p>De la origini, ”pietrele pentru citit” până la modernele accesorii de stil de viață și modă
                 Potrivit experților, ochelarii sunt a cincea cea mai importantă invenție, de când s-a descoperit focul 
                 și s-a inventat roata. Motivul: pentru prima dată în istoria omenirii, milioane de oameni cu deficiențe de 
@@ -23,7 +23,7 @@ const istoria = () => {
                 soare” de atunci erau verzi și se purtau și în interior.
                 Dar când a început de fapt inventarea unui mijloc propriu-zis de îmbunătățire a vederii?</p>
             <br />
-            <h4>Primul mijloc de îmbunătățire a vederii din lume</h4>
+            <h4>&emsp;&emsp;Primul mijloc de îmbunătățire a vederii din lume</h4>
             <p>Eruditul și astronomul arab Ibn al-Heitam (aprox. 965-1040 după Hr.) a fost primul care a menționat, că lentilele 
                 șlefuite le pot veni în ajutorul celor care suferă de tulburări de vedere. Cu toate acestea, ideea lui de a folosi 
                 părți ale unei sfere din sticlă pentru mărire optică a fost pusă în practică cu mulți ani mai târziu. Opera sa ”Cartea opticii”” 

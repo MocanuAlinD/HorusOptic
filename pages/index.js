@@ -4,6 +4,7 @@ import Card1 from '../components/Card1'
 import { BsArrowBarUp} from 'react-icons/bs'
 
 
+
 export default function Home(props) {
   const { allIndexData } = props
   return (
@@ -30,7 +31,6 @@ export default function Home(props) {
           <li>Informarea clientilor despre noutatile din lumea opticii medicale (tip rame, tip lentiel etc).</li>
           </ul>
       </div>
-
     </div>
   )
 }

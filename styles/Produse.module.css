@@ -1,7 +1,7 @@
 .container{
-    min-height: calc(100vh - 3rem);
+    min-height: 79vh;
     /* background: red; */
-    margin: 4rem 1rem 1rem 1rem;
+    padding: 4rem 1rem 1rem 1rem;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
@@ -59,7 +59,7 @@
     .container{
         flex-direction: column;
         justify-content: flex-start;
-        margin: 3rem 0 1rem 0;
+        padding: 0 0 1rem 0;
     }
     .sidebar{
         width: 100%;
@@ -68,5 +68,6 @@
         position: sticky;
         top: 3rem;
         margin-top: 0;
+        padding: 0 .1rem;
     }
 }
