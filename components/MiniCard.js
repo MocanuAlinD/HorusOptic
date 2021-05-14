@@ -10,7 +10,7 @@ const MiniCard = ({ produs }) => {
             <Image priority as='image' src={produs.url} width={produs.width} height={produs.height} />
             <h4>{produs.name}</h4>
             <h5>Code: {produs.code}</h5>
-            <h5>Pret: {produs.price} lei</h5>
+            <h5 className={styles.pret}>{produs.price} ron</h5>
             <h5>Material: {produs.material}</h5>
             <h5>{produs.culoare ? 'Culoare: ' + produs.culoare : []}</h5>
             <div className={styles.link}><Link href='' ><a>Adauga in cos</a></Link></div>

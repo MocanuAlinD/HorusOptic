@@ -13,10 +13,9 @@
 }
 
 .container:hover{
-    transform: scale(1.03);
+    transform: scale(1.02);
     box-shadow: 3px 3px 3px 3px rgba(24, 24, 24, 0.333);
     background: #121212;
-    /* border: 1px solid black; */
 }
 
 .container h4,
@@ -29,6 +28,25 @@
 }
 .container h5{
     font-weight: 200;
+}
+
+.container .pret{
+    color: #f5cb5c;
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    /* right: 50%; */
+    /* width: fit-content; */
+    /* transform: translate(-50%,0); */
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: .3rem .6rem;
+    /* padding-right: .6rem; */
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
+    border-radius: 0 0 1rem 0;
+    /* border-right: .2rem solid black; */
+    /* text-shadow: 3px 3px black; */
 }
 
 .container .link{
