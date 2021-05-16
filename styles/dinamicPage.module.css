@@ -22,11 +22,19 @@
 .right{
     background: indianred;
     width: 50%;
-    /* height: 100%; */
+    align-self: flex-end;
+    height: fit-content;
 }
 
 .right h4{
     font-size: 3rem;
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+}
+.right h5{
     color: whitesmoke;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;

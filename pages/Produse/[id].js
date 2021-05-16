@@ -11,6 +11,7 @@ const Details = ({ allProducts}) => {
 
     const [count, setCount] = useState(0)
     const ln = page.carousel.length-1
+    const tempImg = page.carousel[count]
 
     const setImagePlus =() =>{
         if (count===ln){
@@ -36,7 +37,7 @@ const Details = ({ allProducts}) => {
     return (
         <div className={styles.container}>
             <div className={styles.left}>
-                <Image src={page.carousel[count]} width={page.width} height={page.height} />
+                <Image src={tempImg} width={page.width} height={page.height} />
                 <div className={styles.buttonsDiv}>
                     <button className={styles.btnMinus} onClick={() => setImageMinus()}>&#60;</button>
                     <h4 className={styles.countText}>{count+1}/{ln+1}</h4>
