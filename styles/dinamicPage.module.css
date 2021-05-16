@@ -1,12 +1,76 @@
 .container{
-    /* background: red; */
-    min-height: calc(100vh - 3rem);
-    margin-top: 3rem;
+    /* background: green; */
+    min-height: 79vh;
+    /* padding-top: 3rem; */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 1rem;
+    position: relative;
 }
 
-.container h4{
-    color: white;
+.container .left{
+    /* background: greenyellow; */
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
+
+.right{
+    background: indianred;
+    width: 50%;
+    /* height: 100%; */
+}
+
+.right h4{
+    font-size: 3rem;
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.left button{
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    width: 2rem;
+    cursor: pointer;
+    color: #242423;
+    background: none;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 600;
+    transition: all 350ms ease-in-out;
+}
+
+.buttonsDiv{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: fit-content;
+    height: 1.7rem;
+    display: flex;
+    background: #24242322;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.countText{
+    color: #242423;
+    /* padding: 0 1rem; */
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+    min-width: 3rem;
+    /* background: red; */
+    text-align: center;
+}
+
+.left button:hover{
+    color: #f5cb5c;
+}
+
+
