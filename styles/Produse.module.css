@@ -17,7 +17,7 @@
     margin-right: .5rem;
     /* position: sticky; */
     /* top: 4rem; */
-    z-index: 1;
+    /* z-index: 1; */
     border-bottom: 1px solid #f5cb5c;
 }
 
@@ -26,34 +26,9 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    z-index: 0;
+    /* z-index: 99; */
 }
 
-/* .backTopDiv{
-    background: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-} */
-
-/* .backTop{
-  position: sticky;
-  bottom: 0;
-  right: 0;
-  background: #f5cb5c;
-  font-size: 2rem;
-  border-radius: 50%;
-  color: #242423;
-  opacity: .4;
-  cursor: pointer;
-  margin: 0 .5rem .5rem 0;
-  z-index: 99;
-} */
 
 @media screen and (max-width: 768px){
     .container{
@@ -69,5 +44,6 @@
         top: 3rem;
         margin-top: 0;
         padding: 0 .1rem;
+        z-index: 2;
     }
 }

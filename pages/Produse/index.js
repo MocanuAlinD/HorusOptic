@@ -3,6 +3,7 @@ import styles from '../../styles/Produse.module.css'
 import { getProduse } from '../../actions'
 import MiniCard from '../../components/MiniCard'
 import Sidebar from '../../components/Sidebar'
+import DetailsPop from '../../components/DetailsPop'
 import Head from 'next/head'
 
 
@@ -66,6 +67,15 @@ const Produse = (props) => {
         return a
     }
 
+    // let change = '10%'
+    const [move, setMove] = useState('1')
+
+    const change = (e) => {
+        setMove(e)
+        let a = document.getElementById('pop')
+        a.style.left='0'
+    }
+
     return (
         <div className={styles.container} id='top'>
             <Head>
@@ -81,12 +91,14 @@ const Produse = (props) => {
             </div>
             <div className={styles.productList}>
                 {search === '' ? filterGlasses(allProducts).map(prd =>
-                    <MiniCard produs={prd} />
+                    <MiniCard produs={prd} change={cat=>change(cat)} />
                 ) : []}
 
                 {search !== '' ? searchItems().map(prd =>
                     <MiniCard produs={prd} />
                 ) : []}
+
+                <DetailsPop produse={allProducts} id='pop' prodId={move}/>
             </div>
 
         </div>
@@ -106,7 +118,8 @@ Produse.getInitialProps = async () => {
         width: data.width,
         height: data.height,
         code: data.code,
-        culoare: data.culoare
+        culoare: data.culoare,
+        carousel: data.carousel
     }))
 
     return { allProducts }

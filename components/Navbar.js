@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import Link from 'next/link'
 import style from '../styles/navbar.module.css'
 import { GiEyeOfHorus } from 'react-icons/gi'
-import {useState} from 'react'
+import { useState } from 'react'
 
 
 const Navbar = () => {
-    const [state,setState] =useState(true)
-    const changeMe =()=>{
+    const [state, setState] = useState(true)
+    const changeMe = () => {
         let a = document.querySelector("ul")
-        if (state){
+        if (state) {
             setState(false)
-            a.style.right="0"
+            a.style.right = "0"
         } else {
             setState(true)
-            a.style.right="-100%"
+            a.style.right = "-100%"
         }
     }
 
-    const closeMenu=()=>{
+    const closeMenu = () => {
         let a = document.querySelector("ul")
         a.style.right = "-100%"
         setState(true)
@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className={style.navbarContainer}>
             <div className={style.navTitle}>
                 <h3>HORUS TOP OPTIC</h3>
-                <GiEyeOfHorus size='3rem' color="#f5cb5c" className={style.icon}/>
+                <GiEyeOfHorus size='3rem' color="#f5cb5c" className={style.icon} />
             </div>
             <ul className={style.ul}>
                 <li><Link href='/'><a onClick={closeMenu}>Acasa</a></Link></li>
@@ -60,7 +60,7 @@ export default Navbar;
 
 /*
 class Navbar extends Component {
-    
+
     constructor(props) {
         super(props)
         this.status = false
