@@ -13,7 +13,7 @@ const Produse = (props) => {
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('')
-    const [isVisible, setIsVisible] = useState(false)
+
 
     const filterGlasses = () => {
         if (filter === 'rame') {
@@ -34,15 +34,12 @@ const Produse = (props) => {
             checkSort()
             return allProducts.filter(m => { return m.clasa && m.clasa.includes('accesorii') })
         }
-
-
     }
 
 
     useEffect(() => {
         filterGlasses()
-    }, [filter, brand, def])
-
+    }, [filter, brand, def, search])
 
     const checkSort = () => {
         if (def === "mic") {
@@ -63,7 +60,7 @@ const Produse = (props) => {
         const a = allProducts.filter(x => {
             return x.name && x.name.toLowerCase().includes(search) ||
                 x.code && x.code.includes(search) ||
-                x.material && x.material.includes(search) ||
+                x.material && x.material.toLowerCase().includes(search) ||
                 x.culoare && x.culoare.toLowerCase().includes(search)
         })
         return a
@@ -83,10 +80,6 @@ const Produse = (props) => {
                 />
             </div>
             <div className={styles.productList}>
-                {/* {filterGlasses(allProducts).map(prd =>
-                    <MiniCard produs={prd} />
-                )} */}
-
                 {search === '' ? filterGlasses(allProducts).map(prd =>
                     <MiniCard produs={prd} />
                 ) : []}
@@ -94,9 +87,6 @@ const Produse = (props) => {
                 {search !== '' ? searchItems().map(prd =>
                     <MiniCard produs={prd} />
                 ) : []}
-                {/* <div className={styles.backTopDiv}>
-                    <BsArrowBarUp className={styles.backTop} id='myBtn' title='Go to top' onClick={() => topFunction()} />
-                </div> */}
             </div>
 
         </div>

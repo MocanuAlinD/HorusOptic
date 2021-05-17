@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styles from '../styles/Sidebar.module.css'
 import { AiOutlineSearch, AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
 // import { BiArrowFromBottom, BiArrowFromTop } from 'react-icons/bi'
 
 const Sidebar = (props) => {
-    const [menu, setMenu] = useState(true)
 
     const sendAllCats = (e) => {
         props.changeCat(e)
