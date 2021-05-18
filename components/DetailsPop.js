@@ -13,7 +13,8 @@ const DetailsPop = (props) => {
     }
 
     useEffect(() => {
-        setCount(0)
+        setCount(0),
+        console.log(page.id)
     }, [props.prodId])
 
 
@@ -41,7 +42,7 @@ const DetailsPop = (props) => {
         <div className={styles.container} id='pop'>
             <button className={styles.backBtn} onClick={() => closeMenu('-150%')}>X</button>
             <div className={styles.left} style={{ width: '100%' }}>
-                <Image priority="eager" src={page.carousel[count]} width={page.width} height={page.height} id='img' />
+                <Image as='image' src={page.carousel[count]} width={page.width/2} height={page.height/2} id='img' />
                 <div className={styles.buttonsDiv}>
                     <button className={styles.btnMinus} onClick={() => setImageMinus()}>&#60;</button>
                     <h4 className={styles.countText}>{count + 1}/{ln + 1}</h4>
