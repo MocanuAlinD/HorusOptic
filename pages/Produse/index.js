@@ -14,6 +14,11 @@ const Produse = (props) => {
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('')
+    const [move, setMove] = useState('1')
+
+    useEffect(() => {
+        filterGlasses()
+    }, [filter, brand, def, search])
 
 
     const filterGlasses = () => {
@@ -38,9 +43,7 @@ const Produse = (props) => {
     }
 
 
-    useEffect(() => {
-        filterGlasses()
-    }, [filter, brand, def, search])
+
 
     const checkSort = () => {
         if (def === "mic") {
@@ -67,14 +70,12 @@ const Produse = (props) => {
         return a
     }
 
-    // let change = '10%'
-    const [move, setMove] = useState('1')
-
     const change = (e) => {
         setMove(e)
         let a = document.getElementById('pop')
-        a.style.left='0'
+        a.style.left = '0'
     }
+
 
     return (
         <div className={styles.container} id='top'>
@@ -91,14 +92,14 @@ const Produse = (props) => {
             </div>
             <div className={styles.productList}>
                 {search === '' ? filterGlasses(allProducts).map(prd =>
-                    <MiniCard produs={prd} change={cat=>change(cat)} />
+                    <MiniCard produs={prd} change={cat => change(cat)} />
                 ) : []}
 
                 {search !== '' ? searchItems().map(prd =>
-                    <MiniCard produs={prd} />
+                    <MiniCard produs={prd} change={cat => change(cat)} />
                 ) : []}
 
-                <DetailsPop produse={allProducts} id='pop' prodId={move}/>
+                <DetailsPop produse={allProducts[move - 1]} id='pop' prodId={move} />
             </div>
 
         </div>
@@ -112,6 +113,7 @@ Produse.getInitialProps = async () => {
         id: data.id,
         clasa: data.clasa,
         url: data.url,
+        carousel: data.carousel,
         name: data.name,
         material: data.material,
         price: data.price,
@@ -119,7 +121,6 @@ Produse.getInitialProps = async () => {
         height: data.height,
         code: data.code,
         culoare: data.culoare,
-        carousel: data.carousel
     }))
 
     return { allProducts }

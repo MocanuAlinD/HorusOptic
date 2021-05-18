@@ -1,10 +1,9 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/DetailsPop.module.css'
 import Image from 'next/image'
 
 const DetailsPop = (props) => {
-    const {produse} = props
-    const page = produse[props.prodId-1]
+    const page = props.produse
     const [count, setCount] = useState(0)
     const ln = page.carousel ? page.carousel.length - 1 : []
 
@@ -13,9 +12,9 @@ const DetailsPop = (props) => {
         a.style.left = e
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         setCount(0)
-    },[produse])
+    }, [props.prodId])
 
 
     const setImagePlus = () => {
@@ -36,13 +35,13 @@ const DetailsPop = (props) => {
         }
     }
 
-    useEffect(() => [count])
+    // useEffect(() => [count])
 
     return (
         <div className={styles.container} id='pop'>
             <button className={styles.backBtn} onClick={() => closeMenu('-150%')}>X</button>
-            <div className={styles.left}>
-                <Image src={page.carousel[count]} width={page.width} height={page.height} />
+            <div className={styles.left} style={{ width: '100%' }}>
+                <Image priority="eager" src={page.carousel[count]} width={page.width} height={page.height} id='img' />
                 <div className={styles.buttonsDiv}>
                     <button className={styles.btnMinus} onClick={() => setImageMinus()}>&#60;</button>
                     <h4 className={styles.countText}>{count + 1}/{ln + 1}</h4>
@@ -51,7 +50,6 @@ const DetailsPop = (props) => {
             </div>
             <div className={styles.right}>
                 <h4>{page.name}</h4>
-                {/* <h5>{page.id}</h5> */}
                 <p>Material: <em>{page.material}</em></p>
                 <p>{page.culoare ? 'Culoare: ' + page.culoare : []}</p>
                 <p>Cod: <em>{page.code}</em></p>
@@ -67,7 +65,6 @@ const DetailsPop = (props) => {
 //         id: data.id,
 //         clasa: data.clasa,
 //         url: data.url,
-//         carousel: data.carousel,
 //         name: data.name,
 //         material: data.material,
 //         price: data.price,
@@ -77,9 +74,8 @@ const DetailsPop = (props) => {
 //         culoare: data.culoare
 //     }))
 
-
 //     return {
-//         allProducts
+//         produse
 //     }
 // }
 
