@@ -628,18 +628,3 @@ export const getProduse = () => {
     })
 }
 
-/*
-export const getIndexData = () => {
-  return new Promise((resolve, reject) => {
-    // first arg is a function, second arg is the time
-    setTimeout(() => {
-      resolve(INDEX_DATA)
-      // reject('Cannot fetch data.')
-    }, 50)
-  })
-}
-
-export const getProduse = () => {
-  return axios.get(`${BASE_URL}/api/Prods`).then(res => res.data)
-}
-*/

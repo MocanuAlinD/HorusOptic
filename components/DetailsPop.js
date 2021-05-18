@@ -6,47 +6,36 @@ const DetailsPop = (props) => {
     const page = props.produse
     const [count, setCount] = useState(0)
     const ln = page.carousel ? page.carousel.length - 1 : []
+    // const ln = page.carousel.length-1
 
     const closeMenu = (e) => {
         let a = document.getElementById('pop')
         a.style.left = e
+        setCount(0)
     }
 
     useEffect(() => {
-        setCount(0),
-        console.log(page.id)
+        setCount(0)
     }, [props.prodId])
 
 
     const setImagePlus = () => {
-        if (count === ln) {
-            setCount(ln)
-        }
-        if (count < ln) {
-            setCount(count + 1)
-        }
+        setCount(count === ln ? ln : count + 1)
     }
-
+    
     const setImageMinus = () => {
-        if (count === 0) {
-            setCount(0)
-        }
-        if (count > 0) {
-            setCount(count - 1)
-        }
+        setCount(count === 0 ? 0: count -1)
     }
-
-    // useEffect(() => [count])
 
     return (
         <div className={styles.container} id='pop'>
             <button className={styles.backBtn} onClick={() => closeMenu('-150%')}>X</button>
-            <div className={styles.left} style={{ width: '100%' }}>
-                <Image as='image' src={page.carousel[count]} width={page.width/2} height={page.height/2} id='img' />
+            <div className={styles.left}>
+                <Image as='image' src={page.carousel[count]} width={page.width} height={page.height} />
                 <div className={styles.buttonsDiv}>
-                    <button className={styles.btnMinus} onClick={() => setImageMinus()}>&#60;</button>
+                    <button className={styles.btnMinus} onClick={setImageMinus}>&#60;</button>
                     <h4 className={styles.countText}>{count + 1}/{ln + 1}</h4>
-                    <button className={styles.btnPlus} onClick={() => setImagePlus()}>&#62;</button>
+                    <button className={styles.btnPlus} onClick={setImagePlus}>&#62;</button>
                 </div>
             </div>
             <div className={styles.right}>

@@ -9,7 +9,7 @@ const MiniCard = ({ produs, change}) => {
     return (
         <div key={produs.id} className={styles.container}>
 
-            <Image priority="eager" as='image' src={produs.url} width={produs.width} height={produs.height} />
+            <Image as='image' src={produs.url} width={produs.width} height={produs.height} />
             <h4>{produs.name}</h4>
             <h5>Id: {produs.id}</h5>
             <h5>Code: {produs.code}</h5>
