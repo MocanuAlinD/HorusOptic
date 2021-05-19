@@ -7,6 +7,11 @@ const DetailsPop = (props) => {
     const ln = page.carousel ? page.carousel.length - 1 : []
     var sliderIndex = 0
 
+    useEffect(()=>{
+        let b = document.getElementById('slider')
+        b.style.transform = 'translate(0)'
+    },[page])
+
     const closeMenu = (e) => {
         let a = document.getElementById('pop')
         let b = document.getElementById('slider')
