@@ -3,7 +3,8 @@ import styles from '../styles/DetailsPop.module.css'
 import Image from 'next/image'
 
 const DetailsPop = (props) => {
-    let page = props.produse
+    const jobId = props.propId
+    let page = props.produse.filter(x => x && x.id === jobId)[0]
     const ln = page.carousel ? page.carousel.length - 1 : []
     var sliderIndex = 0
 
@@ -32,8 +33,6 @@ const DetailsPop = (props) => {
         a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
     }
 
-
-
     return (
         <div className={styles.container} id='pop'>
             <button className={styles.backBtn} onClick={() => closeMenu('-150%')}>X</button>
@@ -43,7 +42,6 @@ const DetailsPop = (props) => {
                         <div className={styles.slider} id='slider'>
                             {page.carousel.map((alin, index) =>
                                 <section key={index}>
-                                    {/* {alin} */}
                                     <Image priority='true' layout='responsive' src={alin} alt='Glasses' width={page.width} height={page.height} />
                                 </section>
                             )}
@@ -57,7 +55,7 @@ const DetailsPop = (props) => {
             </div>
             <div className={styles.right}>
                 <h4>{page.name}</h4>
-                {/* <h5>{page.id}</h5> */}
+                <h5>{page.id}</h5>
                 <p>Material: <em>{page.material}</em></p>
                 <p>{page.culoare ? 'Culoare: ' + page.culoare : []}</p>
                 <p>Cod: <em>{page.code}</em></p>

@@ -5,6 +5,7 @@ import MiniCard from '../../components/MiniCard'
 import Sidebar from '../../components/Sidebar'
 import DetailsPop from '../../components/DetailsPop'
 import Head from 'next/head'
+import { AiOutlineVerticalRight } from 'react-icons/ai';
 
 
 
@@ -99,7 +100,7 @@ const Produse = (props) => {
                     <MiniCard produs={prd} change={cat => change(cat)} />
                 ) : []}
 
-                <DetailsPop produse={allProducts[move - 1]} id='pop' />
+                <DetailsPop produse={allProducts} id='pop' propId={move}/>
             </div>
 
         </div>
