@@ -99,7 +99,7 @@ const Produse = (props) => {
                     <MiniCard produs={prd} change={cat => change(cat)} />
                 ) : []}
 
-                <DetailsPop produse={allProducts[move - 1]} id='pop' prodId={move} />
+                <DetailsPop produse={allProducts[move - 1]} id='pop' />
             </div>
 
         </div>

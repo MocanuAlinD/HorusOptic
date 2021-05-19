@@ -12,6 +12,7 @@
     transition: all 350ms ease-in-out;
 }
 
+
 .container:hover{
     /* transform: scale(1.02); */
     box-shadow: 3px 3px 3px 3px rgba(24, 24, 24, 0.333);
@@ -79,6 +80,8 @@
     /* align-self: flex-end; */
     /* justify-content: flex-end; */
 }
+
+
 .container .link a{
     /* background: blue; */
     color: #333533;
@@ -94,10 +97,7 @@
 }
 
 .container .details{
-    flex-grow: 1;
-    text-align: left;
     position: relative;
-    background: red;
 }
 
 .container .details a{
@@ -109,6 +109,9 @@
     font-family: 'Poppins',sans-serif;
     font-size: .9rem;
     font-weight: 400;
+    border: 1px solid #f5cb5c;
+    padding: .01rem .6rem;
+    border-radius: .3rem;
 }
 
 
