@@ -30,7 +30,7 @@ const Footer = () => {
                 <h3>Despre</h3>
                 <hr width='100%' style={{height:'.1rem'}}/>
                 <Link href="/Footer/istoria"><a>Istoria ochelarilor de vedere</a></Link>
-                <Link href="/Footer/nastere"><a>Locul de naștere a ochelarilor</a></Link>
+                <Link href="/Footer/nastere"><a>Locul de naștere al ochelarilor</a></Link>
                 <Link href="/Footer/stare"><a>Tipuri de lentile</a></Link>
                 <Link href="/Footer/contact"><a>Lentile de contact</a></Link>
                 <Link href="/Footer/prezent"><a>Ochelarii din ziua de azi</a></Link>

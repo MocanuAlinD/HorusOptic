@@ -5,13 +5,13 @@ import Image from 'next/image'
 const DetailsPop = (props) => {
     const jobId = props.propId
     let page = props.produse.filter(x => x && x.id === jobId)[0]
-    const ln = page.carousel ? page.carousel.length - 1 : []
+    let ln = page.carousel ? page.carousel.length - 1 : []
     var sliderIndex = 0
 
-    useEffect(()=>{
+    useEffect(() => {
         let b = document.getElementById('slider')
         b.style.transform = 'translate(0)'
-    },[page])
+    }, [page])
 
     const closeMenu = (e) => {
         let a = document.getElementById('pop')
@@ -19,6 +19,7 @@ const DetailsPop = (props) => {
         b.style.transform = 'translate(0)'
         a.style.left = e
         sliderIndex = 0
+        ln = 0
     }
 
     const setImagePlus = () => {
@@ -64,27 +65,5 @@ const DetailsPop = (props) => {
         </div>
     );
 }
-
-// DetailsPop.getInitialProps = async () => {
-//     const products = await getProduse()
-//     const allProducts = products.map(data => ({
-//         id: data.id,
-//         clasa: data.clasa,
-//         url: data.url,
-//         carousel: data.carousel,
-//         name: data.name,
-//         material: data.material,
-//         price: data.price,
-//         width: data.width,
-//         height: data.height,
-//         code: data.code,
-//         culoare: data.culoare
-//     }))
-
-
-//     return {
-//         allProducts
-//     }
-// }
 
 export default DetailsPop;
