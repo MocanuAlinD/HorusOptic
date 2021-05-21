@@ -29,7 +29,6 @@ const Produse = (props) => {
                 return allProducts.filter(m => { return m.clasa && m.clasa.includes('rame') })
             }
             if (brand) {
-                console.log(brand)
                 return allProducts.filter(m => { return m.brand && m.brand.includes(brand) })
             }
 
@@ -65,7 +64,7 @@ const Produse = (props) => {
     const searchItems = () => {
         const a = allProducts.filter(x => {
             return x.brand && x.brand.toLowerCase().includes(search) ||
-                x.cod && x.cod.includes(search) ||
+                x.cod && x.cod.toLowerCase().includes(search) ||
                 x.material && x.material.toLowerCase().includes(search) ||
                 x.culoare && x.culoare.toLowerCase().includes(search)
         })
@@ -94,11 +93,11 @@ const Produse = (props) => {
             </div>
             <div className={styles.productList}>
                 {search === '' ? filterGlasses(allProducts).map(prd =>
-                    <MiniCard produs={prd} change={cat => change(cat)} />
+                    <MiniCard key={prd.id} produs={prd} change={cat => change(cat)} />
                 ) : []}
 
                 {search !== '' ? searchItems().map(prd =>
-                    <MiniCard produs={prd} change={cat => change(cat)} />
+                    <MiniCard key={prd.id} produs={prd} change={cat => change(cat)} />
                 ) : []}
 
                 <DetailsPop produse={allProducts} id='pop' propId={move}/>

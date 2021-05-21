@@ -301,10 +301,49 @@ const Sidebar = (props) => {
                     <h4>Brand</h4>
                     <select name="brand" id="brandMobile" onChange={(e) => sendAllBrands(e.target.value)}>
                         <option value="marcaAll">Toate</option>
-                        <option value="Guci">Guci</option>
-                        <option value="Police">Police</option>
-                        <option value="Arnette">Arnette</option>
-                        <option value="Costa">Costa</option>
+                        <option value="AUTOMAN">AUTOMAN</option>
+                        <option value="AVANGLION">AVANGLION</option>
+                        <option value="C.C.D.K">C.C.D.K</option>
+                        <option value="CADRU OPTIC">CADRU OPTIC</option>
+                        <option value="CARDY DONY">CARDY DONY</option>
+                        <option value="CHARM">CHARM</option>
+                        <option value="CHIARA">CHIARA</option>
+                        <option value="CHICLAMOUR">CHICLAMOUR</option>
+                        <option value="CONSUL">CONSUL</option>
+                        <option value="CORRADO">CORRADO</option>
+                        <option value="DiVERONA">DiVERONA</option>
+                        <option value="ENZO">ENZO</option>
+                        <option value="FENDI">FENDI</option>
+                        <option value="FURLA">FURLA</option>
+                        <option value="GROSSO">GROSSO</option>
+                        <option value="GUESS">GUESS</option>
+                        <option value="JACOPO">JACOPO</option>
+                        <option value="KIND">KIND</option>
+                        <option value="LEDIX">LEDIX</option>
+                        <option value="LOUIS VUITTON">LOUIS VUITTON</option>
+                        <option value="MODERN LADY">MODERN LADY</option>
+                        <option value="MYSTERY">MYSTERY</option>
+                        <option value="NEXUS">NEXUS</option>
+                        <option value="NICKOO">NICKOO</option>
+                        <option value="NISUS">NISUS</option>
+                        <option value="ODYSEY">ODYSEY</option>
+                        <option value="OLEISS">OLEISS</option>
+                        <option value="PEIEP">PEIEP</option>
+                        <option value="POBI">POBI</option>
+                        <option value="POLICE">POLICE</option>
+                        <option value="POTYGO">POTYGO</option>
+                        <option value="PSSE">PSSE</option>
+                        <option value="REMY MARTIN">REMY MARTIN</option>
+                        <option value="RICH PERSON">RICH PERSON</option>
+                        <option value="SENSUELLE">SENSUELLE</option>
+                        <option value="SONE TRUST">SONE TRUST</option>
+                        <option value="SPRING">SPRING</option>
+                        <option value="SWAROVSKI">SWAROVSKI</option>
+                        <option value="Tony Morgan">Tony Morgan</option>
+                        <option value="VINTAGE">VINTAGE</option>
+                        <option value="VITO FABIUS">VITO FABIUS</option>
+                        <option value="VIZZINI">VIZZINI</option>
+                        
                     </select>
                 </div>
 
