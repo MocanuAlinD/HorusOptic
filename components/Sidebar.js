@@ -292,11 +292,13 @@ const Sidebar = (props) => {
             {/* MOBILE */}
             <div className={styles.mobile}>
 
+                {/* Search */}
                 <div className={styles.bucatiDrop}>
                     <AiOutlineSearch className={styles.searchIconDrop} />
                     <input type="search" className={styles.searchDrop} onChange={(e) => props.searchResult(e.target.value.toLowerCase())}/>
                 </div>
 
+                {/* Categorie RAME-ACCESORII */}
                 <div className={styles.bucatiDrop}>
                     <h4>Categorii</h4>
                     <select name="arataMobile" id="arataMobile" onChange={(e) => mobileSendAllCats(e.target.value)}>
@@ -307,6 +309,7 @@ const Sidebar = (props) => {
                     </select>
                 </div>
 
+                {/* BRANDS */}
                 <div className={styles.bucatiDrop} id='divBrand'>
                     <h4>Brand</h4>
                     <select name="brand" id="brandMobile" onChange={(e) => sendAllBrands(e.target.value)}>
