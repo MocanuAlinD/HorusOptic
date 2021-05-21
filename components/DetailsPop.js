@@ -57,11 +57,17 @@ const DetailsPop = (props) => {
                 </div>
             </div>
             <div className={styles.right}>
-                <h4>{page.name}</h4>
-                <h5>{page.id}</h5>
-                <p>Material: <em>{page.material}</em></p>
-                <p>Culoare: <em>{page.culoare}</em></p>
+                <h4>{page.brand}</h4>
+                {/* <h5>{page.id}</h5> */}
                 <p>Cod: <em>{page.cod}</em></p>
+                <p>Material: <em>{page.material}</em></p>
+                <p>Stil rama: <em>{page.stilRama}</em></p>
+                <p>Tip rama: <em>{page.tipRama}</em></p>
+                <p>Pentru: <em>{page.pentru}</em></p>
+                <p>Culoare: <em>{page.culoare}</em></p>
+                <p>Latime lentile: <em>{page.latimeLentile/10} cm</em></p>
+                <p>Lungime brat: <em>{page.lungimeBrat/10} cm</em></p>
+                <p>Punte nazala: <em>{page.punteNazala/10} cm</em></p>
                 <h5>Pret: {page.pret} <sub>ron</sub></h5>
             </div>
         </div>

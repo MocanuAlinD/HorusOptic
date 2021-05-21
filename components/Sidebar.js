@@ -376,21 +376,13 @@ const Sidebar = (props) => {
                     </h4>
                     <select id="pret" onChange={(e) => props.changePrice(e.target.value)}>
                         <optgroup label="Pret"></optgroup>
-                        <option value="mic">Mic</option>
-                        <option value="mare">Mare</option>
+                        <option value="mic">Pret mic</option>
+                        <option value="mare">Pret mare</option>
                         <optgroup label='Nume'></optgroup>
                         <option value="atoz">A - Z</option>
                         <option value="ztoa">Z - A</option>
                     </select>
                 </div>
-
-                {/* <div className={styles.bucatiDrop} id='divNume'>
-                    <h4>Nume</h4>
-                    <select name="nume" id="nume" onChange={(e) => props.changePrice(e.target.value)}>
-                        <option value="--">--</option>
-                    </select>
-                </div> */}
-
 
             </div>
 
