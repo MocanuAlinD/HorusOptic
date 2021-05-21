@@ -14,7 +14,7 @@ const Produse = (props) => {
     const [filter, setFilter] = useState('rame')
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
-    const [def, setDef] = useState('')
+    const [def, setDef] = useState('mic')
     const [move, setMove] = useState('DSC_0001')
 
     useEffect(() => {
@@ -29,6 +29,7 @@ const Produse = (props) => {
                 return allProducts.filter(m => { return m.clasa && m.clasa.includes('rame') })
             }
             if (brand) {
+                checkSort()
                 return allProducts.filter(m => { return m.brand && m.brand.includes(brand) })
             }
 
@@ -47,9 +48,6 @@ const Produse = (props) => {
 
 
     const checkSort = () => {
-        if (def === "--") {
-            return allProducts
-        }
         if (def === "mic") {
             return allProducts.sort((a, b) => parseInt(a.pret) > parseInt(b.pret) && 1 || -1)
         }
@@ -57,10 +55,10 @@ const Produse = (props) => {
             return allProducts.sort((a, b) => parseInt(a.pret) < parseInt(b.pret) && 1 || -1)
         }
         if (def === 'atoz') {
-            return allProducts.sort((a, b) => a.brand > b.brand && 1 || -1)
+            return allProducts.sort((a, b) => a.brand.toLowerCase() > b.brand.toLowerCase() && 1 || -1)
         }
         if (def === 'ztoa') {
-            return allProducts.sort((a, b) => a.brand < b.brand && 1 || -1)
+            return allProducts.sort((a, b) => a.brand.toLowerCase() < b.brand.toLowerCase() && 1 || -1)
         }
     }
 
@@ -103,7 +101,7 @@ const Produse = (props) => {
                     <MiniCard key={prd.id} produs={prd} change={cat => change(cat)} />
                 ) : []}
 
-                <DetailsPop produse={allProducts} id='pop' propId={move}/>
+                <DetailsPop produse={allProducts} id='pop' propId={move} />
             </div>
 
         </div>

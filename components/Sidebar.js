@@ -95,9 +95,6 @@ const Sidebar = (props) => {
                 {/* Meniu PRET */}
                 <div className={styles.bucati}>
                     <h4>Pret</h4>
-                    {/* <input defaultChecked type="radio" id="--" name="pret" value="--" onClick={() => props.changePrice('--')}></input>
-                    <label for="--">None</label> <br /> */}
-
                     <input defaultChecked type="radio" id="mic" name="pret" value="mic" onClick={() => props.changePrice('mic')}></input>
                     <label for="mic">Mic</label> <br />
 
@@ -373,20 +370,26 @@ const Sidebar = (props) => {
                 </div>
 
                 <div className={styles.bucatiDrop} id='divPret'>
-                    <h4>Pret</h4>
-                    <select name="pret" id="pret" onChange={(e) => props.changePrice(e.target.value)}>
+                    <h4>
+                        <AiOutlineArrowDown />
+                        <AiOutlineArrowUp />
+                    </h4>
+                    <select id="pret" onChange={(e) => props.changePrice(e.target.value)}>
+                        <optgroup label="Pret"></optgroup>
                         <option value="mic">Mic</option>
                         <option value="mare">Mare</option>
-                    </select>
-                </div>
-
-                <div className={styles.bucatiDrop} id='divNume'>
-                    <h4>Nume</h4>
-                    <select name="nume" id="nume" onChange={(e) => props.changePrice(e.target.value)}>
-                        <option value="atoz">A- Z</option>
+                        <optgroup label='Nume'></optgroup>
+                        <option value="atoz">A - Z</option>
                         <option value="ztoa">Z - A</option>
                     </select>
                 </div>
+
+                {/* <div className={styles.bucatiDrop} id='divNume'>
+                    <h4>Nume</h4>
+                    <select name="nume" id="nume" onChange={(e) => props.changePrice(e.target.value)}>
+                        <option value="--">--</option>
+                    </select>
+                </div> */}
 
 
             </div>

@@ -11,6 +11,7 @@ const MiniCard = ({ produs, change}) => {
 
             <Image priority='true' layout='responsive' as='image' src={produs.url} width={produs.width} height={produs.height} />
             <h4>{produs.brand}</h4>
+            <h5>ID: <a>{produs.id}</a> </h5>
             <h5>Code: {produs.cod}</h5>
             <h5 className={styles.pret}>{produs.pret} <sub>ron</sub></h5>
             <h5>Material: {produs.material}</h5>
