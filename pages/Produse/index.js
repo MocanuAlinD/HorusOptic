@@ -15,7 +15,7 @@ const Produse = (props) => {
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('')
-    const [move, setMove] = useState('1')
+    const [move, setMove] = useState('DSC_0001')
 
     useEffect(() => {
         filterGlasses()
@@ -29,7 +29,8 @@ const Produse = (props) => {
                 return allProducts.filter(m => { return m.clasa && m.clasa.includes('rame') })
             }
             if (brand) {
-                return allProducts.filter(m => { return m.name && m.name.includes(brand) })
+                console.log(brand)
+                return allProducts.filter(m => { return m.brand && m.brand.includes(brand) })
             }
 
         }
@@ -48,23 +49,23 @@ const Produse = (props) => {
 
     const checkSort = () => {
         if (def === "mic") {
-            return allProducts.sort((a, b) => a.price > b.price && 1 || -1)
+            return allProducts.sort((a, b) => parseInt(a.pret) > parseInt(b.pret) && 1 || -1)
         }
         if (def === 'mare') {
-            return allProducts.sort((a, b) => a.price < b.price && 1 || -1)
+            return allProducts.sort((a, b) => parseInt(a.pret) < parseInt(b.pret) && 1 || -1)
         }
         if (def === 'atoz') {
-            return allProducts.sort((a, b) => a.name > b.name && 1 || -1)
+            return allProducts.sort((a, b) => a.brand > b.brand && 1 || -1)
         }
         if (def === 'ztoa') {
-            return allProducts.sort((a, b) => a.name < b.name && 1 || -1)
+            return allProducts.sort((a, b) => a.brand < b.brand && 1 || -1)
         }
     }
 
     const searchItems = () => {
         const a = allProducts.filter(x => {
-            return x.name && x.name.toLowerCase().includes(search) ||
-                x.code && x.code.includes(search) ||
+            return x.brand && x.brand.toLowerCase().includes(search) ||
+                x.cod && x.cod.includes(search) ||
                 x.material && x.material.toLowerCase().includes(search) ||
                 x.culoare && x.culoare.toLowerCase().includes(search)
         })
@@ -115,13 +116,19 @@ Produse.getInitialProps = async () => {
         clasa: data.clasa,
         url: data.url,
         carousel: data.carousel,
-        name: data.name,
+        brand: data.brand,
+        stilRama: data.stilRama,
+        pentru: data.pentru,
+        pret: data.pret,
         material: data.material,
-        price: data.price,
-        width: data.width,
-        height: data.height,
-        code: data.code,
         culoare: data.culoare,
+        cod: data.cod,
+        tipRama: data.tipRama,
+        latimeLentile: data.latimeLentile,
+        punteNazala: data.punteNazala,
+        lungimeBrat: data.lungimeBrat,
+        width: data.width,
+        height: data.height
     }))
 
     return { allProducts }

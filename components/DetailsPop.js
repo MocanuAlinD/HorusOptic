@@ -3,8 +3,10 @@ import styles from '../styles/DetailsPop.module.css'
 import Image from 'next/image'
 
 const DetailsPop = (props) => {
+    if (!props.propId) return null
+
     const jobId = props.propId
-    let page = props.produse.filter(x => x && x.id === jobId)[0]
+    let page = jobId ? props.produse.filter(x => x && x.id === jobId)[0] : ''
     let ln = page.carousel ? page.carousel.length - 1 : []
     var sliderIndex = 0
 
@@ -58,9 +60,9 @@ const DetailsPop = (props) => {
                 <h4>{page.name}</h4>
                 <h5>{page.id}</h5>
                 <p>Material: <em>{page.material}</em></p>
-                <p>{page.culoare ? 'Culoare: ' + page.culoare : []}</p>
-                <p>Cod: <em>{page.code}</em></p>
-                <h5>Pret: {page.price} <sub>ron</sub></h5>
+                <p>Culoare: <em>{page.culoare}</em></p>
+                <p>Cod: <em>{page.cod}</em></p>
+                <h5>Pret: {page.pret} <sub>ron</sub></h5>
             </div>
         </div>
     );

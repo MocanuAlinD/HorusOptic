@@ -84,8 +84,6 @@ const Sidebar = (props) => {
                 {/* Meniu categorii */}
                 <div className={styles.bucati}>
                     <h4>Categorie</h4>
-                    {/* <input defaultChecked type="radio" id="allCats" name="categorie" value="allCats" onClick={(e) => sendAllCats(e.target.value)}></input> */}
-                    {/* <label for="allCats">Toate</label><br /> */}
                     <input defaultChecked type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label for="rame">Rame</label><br />
                     <input type="radio" id="lentile" name="categorie" value="lentile" onClick={(e) => sendAllCats(e.target.value)}></input>
@@ -94,19 +92,156 @@ const Sidebar = (props) => {
                     <label for="accesorii">Accesorii</label>
                 </div>
 
+                {/* Meniu PRET */}
+                <div className={styles.bucati}>
+                    <h4>Pret</h4>
+                    <input defaultChecked type="radio" id="mic" name="pret" value="mic" onClick={() => props.changePrice('mic')}></input>
+                    <label for="mic">Mic</label> <br />
+                    <input type="radio" id="mare" name="pret" value="mare" onClick={() => props.changePrice('mare')}></input>
+                    <label for="mare">Mare</label>
+                </div>
+
+                {/* Meniu NUME */}
+                <div className={styles.bucati}>
+                    <h4>Nume</h4>
+                    <input defaultChecked type="radio" id="atoz" name="nume" value="atoz" onClick={() => props.changePrice('atoz')}></input>
+                    <label for="atoz">A - Z</label> <br />
+                    <input type="radio" id="ztoa" name="nume" value="ztoa" onClick={() => props.changePrice('ztoa')}></input>
+                    <label for="ztoa">Z - A</label>
+                </div>
+
                 {/* Meniu Brand RAME */}
                 <div className={styles.bucati} id='brand'>
                     <h4>Brand</h4>
                     <input defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={() => props.brandAll('marcaAll')}></input>
                     <label for="marcaAll">Toate</label><br />
-                    <input type="radio" id="guci" name="marca" value="guci" onClick={() => props.brandAll('Guci')}></input>
-                    <label for="guci">Guci</label><br />
-                    <input type="radio" id="police" name="marca" value="police" onClick={() => props.brandAll('Police')}></input>
-                    <label for="police">Police</label> <br />
-                    <input type="radio" id="altele" name="marca" value="altele" onClick={() => props.brandAll('Arnette')}></input>
-                    <label for="altele">Arnette</label> <br />
-                    <input type="radio" id="costa" name="marca" value="costa" onClick={() => props.brandAll('Costa')}></input>
-                    <label for="costa">Costa</label><br />
+
+                    <input type="radio" id="automan" name="marca" value="automan" onClick={() => props.brandAll('AUTOMAN')}></input>
+                    <label for="costa">AUTOMAN</label><br />
+
+                    <input type="radio" id="avanglion" name="marca" value="avanglion" onClick={() => props.brandAll('AVANGLION')}></input>
+                    <label for="costa">AVANGLION</label><br />
+
+                    <input type="radio" id="c.c.d.k." name="marca" value="c.c.d.k." onClick={() => props.brandAll('C.C.D.K')}></input>
+                    <label for="costa">C.C.D.K</label><br />
+
+                    <input type="radio" id="cadruOptic" name="marca" value="cadruOptic" onClick={() => props.brandAll('CADRU OPTIC')}></input>
+                    <label for="costa">CADRU OPTIC</label><br />
+
+                    <input type="radio" id="cardyDony" name="marca" value="cardyDony" onClick={() => props.brandAll('CARDY DONY')}></input>
+                    <label for="costa">CARDY DONY</label><br />
+
+                    <input type="radio" id="charm" name="marca" value="charm" onClick={() => props.brandAll('CHARM')}></input>
+                    <label for="costa">CHARM</label><br />
+
+                    <input type="radio" id="chiara" name="marca" value="chiara" onClick={() => props.brandAll('CHIARA')}></input>
+                    <label for="costa">CHIARA</label><br />
+
+                    <input type="radio" id="chiclamour" name="marca" value="chiclamour" onClick={() => props.brandAll('CHICLAMOUR')}></input>
+                    <label for="costa">CHICLAMOUR</label><br />
+
+                    <input type="radio" id="consul" name="marca" value="consul" onClick={() => props.brandAll('CONSUL')}></input>
+                    <label for="costa">CONSUL</label><br />
+
+                    <input type="radio" id="corrado" name="marca" value="corrado" onClick={() => props.brandAll('CORRADO')}></input>
+                    <label for="costa">CORRADO</label><br />
+
+                    <input type="radio" id="diverona" name="marca" value="diverona" onClick={() => props.brandAll('DiVERONA')}></input>
+                    <label for="costa">DiVERONA</label><br />
+
+                    <input type="radio" id="enzo" name="marca" value="enzo" onClick={() => props.brandAll('ENZO')}></input>
+                    <label for="costa">ENZO</label><br />
+
+                    <input type="radio" id="fendi" name="marca" value="fendi" onClick={() => props.brandAll('FENDI')}></input>
+                    <label for="costa">FENDI</label><br />
+
+                    <input type="radio" id="furla" name="marca" value="furla" onClick={() => props.brandAll('FURLA')}></input>
+                    <label for="costa">FURLA</label><br />
+
+                    <input type="radio" id="grosso" name="marca" value="grosso" onClick={() => props.brandAll('GROSSO')}></input>
+                    <label for="costa">GROSSO</label><br />
+
+                    <input type="radio" id="guess" name="marca" value="guess" onClick={() => props.brandAll('GUESS')}></input>
+                    <label for="costa">GUESS</label><br />
+
+                    <input type="radio" id="jacopo" name="marca" value="jacopo" onClick={() => props.brandAll('JACOPO')}></input>
+                    <label for="costa">JACOPO</label><br />
+
+                    <input type="radio" id="kind" name="marca" value="kind" onClick={() => props.brandAll('KIND')}></input>
+                    <label for="costa">KIND</label><br />
+
+                    <input type="radio" id="ledix" name="marca" value="ledix" onClick={() => props.brandAll('LEDIX')}></input>
+                    <label for="costa">LEDIX</label><br />
+
+                    <input type="radio" id="louisVuitton" name="marca" value="louisVuitton" onClick={() => props.brandAll('LOUIS VUITTON')}></input>
+                    <label for="costa">LOUIS VUITTON</label><br />
+
+                    <input type="radio" id="modernLady" name="marca" value="modernLady" onClick={() => props.brandAll('MODERN LADY')}></input>
+                    <label for="costa">MODERN LADY</label><br />
+
+                    <input type="radio" id="mystery" name="marca" value="mystery" onClick={() => props.brandAll('MYSTERY')}></input>
+                    <label for="costa">MYSTERY</label><br />
+
+                    <input type="radio" id="nexus" name="marca" value="nexus" onClick={() => props.brandAll('NEXUS')}></input>
+                    <label for="costa">NEXUS</label><br />
+
+                    <input type="radio" id="nickoo" name="marca" value="nickoo" onClick={() => props.brandAll('NICKOO')}></input>
+                    <label for="costa">NICKOO</label><br />
+
+                    <input type="radio" id="nisus" name="marca" value="nisus" onClick={() => props.brandAll('NISUS')}></input>
+                    <label for="costa">NISUS</label><br />
+
+                    <input type="radio" id="odysey" name="marca" value="odysey" onClick={() => props.brandAll('ODYSEY')}></input>
+                    <label for="costa">ODYSEY</label><br />
+
+                    <input type="radio" id="oleiss" name="marca" value="oleiss" onClick={() => props.brandAll('OLEISS')}></input>
+                    <label for="costa">OLEISS</label><br />
+
+                    <input type="radio" id="peiep" name="marca" value="peiep" onClick={() => props.brandAll('PEIEP')}></input>
+                    <label for="costa">PEIEP</label><br />
+
+                    <input type="radio" id="pobi" name="marca" value="pobi" onClick={() => props.brandAll('POBI')}></input>
+                    <label for="costa">POBI</label><br />
+
+                    <input type="radio" id="police" name="marca" value="police" onClick={() => props.brandAll('POLICE')}></input>
+                    <label for="costa">POLICE</label><br />
+
+                    <input type="radio" id="potygo" name="marca" value="potygo" onClick={() => props.brandAll('POTYGO')}></input>
+                    <label for="costa">POTYGO</label><br />
+
+                    <input type="radio" id="psse" name="marca" value="psse" onClick={() => props.brandAll('PSSE')}></input>
+                    <label for="costa">PSSE</label><br />
+
+                    <input type="radio" id="remyMartin" name="marca" value="remyMartin" onClick={() => props.brandAll('REMY MARTIN')}></input>
+                    <label for="costa">REMY MARTIN</label><br />
+
+                    <input type="radio" id="richPerson" name="marca" value="richPerson" onClick={() => props.brandAll('RICH PERSON')}></input>
+                    <label for="costa">RICH PERSON</label><br />
+
+                    <input type="radio" id="sensuelle" name="marca" value="sensuelle" onClick={() => props.brandAll('SENSUELLE')}></input>
+                    <label for="costa">SENSUELLE</label><br />
+
+                    <input type="radio" id="soneTrust" name="marca" value="soneTrust" onClick={() => props.brandAll('SONE TRUST')}></input>
+                    <label for="costa">SONE TRUST</label><br />
+
+                    <input type="radio" id="spring" name="marca" value="spring" onClick={() => props.brandAll('SPRING')}></input>
+                    <label for="costa">SPRING</label><br />
+
+                    <input type="radio" id="swarovski" name="marca" value="swarovski" onClick={() => props.brandAll('SWAROVSKI')}></input>
+                    <label for="costa">SWAROVSKI</label><br />
+
+                    <input type="radio" id="tonyMorgan" name="marca" value="tonyMorgan" onClick={() => props.brandAll('Tony Morgan')}></input>
+                    <label for="costa">Tony Morgan</label><br />
+
+                    <input type="radio" id="vintage" name="marca" value="vintage" onClick={() => props.brandAll('VINTAGE')}></input>
+                    <label for="altele">VINTAGE</label> <br />
+
+                    <input type="radio" id="vitoFabius" name="marca" value="vito fabius" onClick={() => props.brandAll('VITO FABIUS')}></input>
+                    <label for="police">VITO FABIUS</label> <br />
+
+                    <input type="radio" id="vizzini" name="marca" value="vizzini" onClick={() => props.brandAll('VIZZINI')}></input>
+                    <label for="guci">VIZZINI</label><br />
+
                 </div>
 
                 {/* Meniu DIOPTRII */}
@@ -135,24 +270,10 @@ const Sidebar = (props) => {
                     <label for="snur">Snururi</label><br />
                 </div>
 
-                {/* Meniu PRET */}
-                <div className={styles.bucati}>
-                    <h4>Pret</h4>
-                    <input defaultChecked type="radio" id="mic" name="pret" value="mic" onClick={() => props.changePrice('mic')}></input>
-                    <label for="mic">Mic</label> <br />
-                    <input type="radio" id="mare" name="pret" value="mare" onClick={() => props.changePrice('mare')}></input>
-                    <label for="mare">Mare</label>
-                </div>
-
-                {/* Meniu NUME */}
-                <div className={styles.bucati}>
-                    <h4>Nume</h4>
-                    <input defaultChecked type="radio" id="atoz" name="nume" value="atoz" onClick={() => props.changePrice('atoz')}></input>
-                    <label for="atoz">A - Z</label> <br />
-                    <input type="radio" id="ztoa" name="nume" value="ztoa" onClick={() => props.changePrice('ztoa')}></input>
-                    <label for="ztoa">Z - A</label>
-                </div>
+               
             </div>
+
+
             {/* =========================================================================================== */}
             {/* =========================================================================================== */}
             {/* =========================================================================================== */}
