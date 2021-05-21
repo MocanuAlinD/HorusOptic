@@ -95,8 +95,12 @@ const Sidebar = (props) => {
                 {/* Meniu PRET */}
                 <div className={styles.bucati}>
                     <h4>Pret</h4>
+                    {/* <input defaultChecked type="radio" id="--" name="pret" value="--" onClick={() => props.changePrice('--')}></input>
+                    <label for="--">None</label> <br /> */}
+
                     <input defaultChecked type="radio" id="mic" name="pret" value="mic" onClick={() => props.changePrice('mic')}></input>
                     <label for="mic">Mic</label> <br />
+
                     <input type="radio" id="mare" name="pret" value="mare" onClick={() => props.changePrice('mare')}></input>
                     <label for="mare">Mare</label>
                 </div>

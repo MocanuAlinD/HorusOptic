@@ -47,6 +47,9 @@ const Produse = (props) => {
 
 
     const checkSort = () => {
+        if (def === "--") {
+            return allProducts
+        }
         if (def === "mic") {
             return allProducts.sort((a, b) => parseInt(a.pret) > parseInt(b.pret) && 1 || -1)
         }
