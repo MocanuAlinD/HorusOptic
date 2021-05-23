@@ -7,7 +7,7 @@ const DetailsPop = (props) => {
 
     const jobId = props.propId
     let page = jobId ? props.produse.filter(x => x && x.id === jobId)[0] : ''
-    let ln = page.carousel ? page.carousel.length - 1 : []
+    let ln = page.assets ? page.assets.length - 1 : []
     var sliderIndex = 0
 
     useEffect(() => {
@@ -39,13 +39,14 @@ const DetailsPop = (props) => {
     return (
         <div className={styles.container} id='pop'>
             <button className={styles.backBtn} onClick={() => closeMenu('-150%')}>X</button>
+
             <div className={styles.left}>
                 <div className={styles.containerImg} id='containerImg'>
                     <div className={styles.carousel} id='carousel'>
                         <div className={styles.slider} id='slider'>
-                            {page.carousel.map((alin, index) =>
-                                <section key={index}>
-                                    <Image priority='true' layout='responsive' src={alin} alt='Glasses' width={page.width} height={page.height} />
+                            {page.assets.map((alin) =>
+                                <section key={alin.id}>
+                                    <Image priority='true' layout='responsive' src={alin.url} alt='Glasses' width={alin.image_dimensions.width} height={alin.image_dimensions.height} />
                                 </section>
                             )}
                         </div>
@@ -56,19 +57,11 @@ const DetailsPop = (props) => {
                     <button className={styles.btnPlus} onClick={() => setImagePlus()}>&#62;</button>
                 </div>
             </div>
+
             <div className={styles.right}>
-                <h4>{page.brand}</h4>
-                {/* <h5>{page.id}</h5> */}
-                <p>Cod: <em>{page.cod}</em></p>
-                <p>Material: <em>{page.material}</em></p>
-                <p>Stil rama: <em>{page.stilRama}</em></p>
-                <p>Tip rama: <em>{page.tipRama}</em></p>
-                <p>Pentru: <em>{page.pentru}</em></p>
-                <p>Culoare: <em>{page.culoare}</em></p>
-                <p>Latime lentile: <em>{page.latimeLentile/10} cm</em></p>
-                <p>Lungime brat: <em>{page.lungimeBrat/10} cm</em></p>
-                <p>Punte nazala: <em>{page.punteNazala/10} cm</em></p>
-                <h5>Pret: {page.pret} <sub>ron</sub></h5>
+                <h4>{page.name}</h4>
+                <p dangerouslySetInnerHTML={{__html: page.description}}></p>
+                <h5>Pret: {page.price.raw} <sub>ron</sub></h5>
             </div>
         </div>
     );

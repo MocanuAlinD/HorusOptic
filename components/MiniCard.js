@@ -2,23 +2,26 @@ import React from 'react';
 import styles from '../styles/MiniCard.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import { commerce } from '../lib/commerce';
 
 
 
 const MiniCard = ({ produs, change}) => {
+    // console.log('un produs: ',produs)
+    // const alin = async()=>{
+    //     const res = await commerce.products.retrieve(produs.id).then(item=> console.log('Item: ',item))
+    // }
+    // alin()
     return (
         <div key={produs.id} className={styles.container}>
-
-            <Image priority='true' layout='responsive' as='image' src={produs.url} width={produs.width} height={produs.height} />
-            <h4>{produs.brand}</h4>
-            <h5>Cod: {produs.cod}</h5>
-            <h5 className={styles.pret}>{produs.pret} <sub>ron</sub></h5>
-            <h5>Material: {produs.material}</h5>
-            {/* <h5>{produs.culoare ? 'Culoare: ' + produs.culoare : []}</h5> */}
-            <h5>Culoare: {produs.culoare}</h5>
-            <div className={styles.link}><Link href='#' ><a>Adauga in cos</a></Link></div>
-            {/* <div className={styles.details}><Link href={'Produse/' + produs.id}><a>Detalii</a></Link></div> */}
-            <div className={styles.details}><Link href='#'><a onClick={() => change(produs.id)}>Detalii</a></Link></div>
+            
+            <Image priority='true' layout='responsive' as='image' src={produs.media.source} width={1920} height={1080} />
+            <h4>{produs.name}</h4>
+            <h5 className={styles.pret}>{produs.price.raw} <sub>ron</sub></h5>
+            <h5 dangerouslySetInnerHTML={{ __html: produs.description }}></h5>
+            <div className={styles.link}><Link href='' ><a>Adauga in cos</a></Link></div>
+            {/* <div className={styles.details}><a onClick={() => change(produs.id)}>Detalii</a></div> */}
+            <div className={styles.details}><Link href={`/Produse/${produs.id}`}><a>Detalii</a></Link></div>
         </div>
     );
 }

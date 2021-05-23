@@ -5,9 +5,18 @@ import { AiOutlineSearch, AiOutlineArrowDown, AiOutlineArrowUp } from 'react-ico
 
 const Sidebar = (props) => {
 
+    const products = props.products.sort((a, b) => a.name > b.name && 1 || -1)
+    let temp = []
+
+    for (let i in products){
+        if (temp.includes(products[i].name)){
+            continue
+        } else { temp.push(products[i].name)}
+    }
+    
     const sendAllCats = (e) => {
         props.changeCat(e)
-        checkFilter(e)
+        // checkFilter(e)
     }
 
     const sendAllBrands = (e) => {
@@ -84,15 +93,16 @@ const Sidebar = (props) => {
                 {/* Meniu categorii */}
                 <div className={styles.bucati}>
                     <h4>Categorie</h4>
+                    {/* <input defaultChecked type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input> */}
                     <input defaultChecked type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label for="rame">Rame</label><br />
-                    {/* <input type="radio" id="lentile" name="categorie" value="lentile" onClick={(e) => sendAllCats(e.target.value)}></input> */}
-                    {/* <label for="lentile">Lentile</label><br /> */}
+
+                    {/* <input type="radio" id="accesoriiSus" name="categorie" value="accesorii" onClick={(e) => sendAllCats(e.target.value)}></input> */}
                     <input type="radio" id="accesoriiSus" name="categorie" value="accesorii" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label for="accesorii">Accesorii</label>
                 </div>
 
-                {/* Meniu PRET */}
+                {/* Meniu PRET - NUME */}
                 <div className={styles.bucati}>
                     <h4>Pret</h4>
                     <input defaultChecked type="radio" id="mic" name="pret" value="mic" onClick={() => props.changePrice('mic')}></input>
@@ -100,185 +110,31 @@ const Sidebar = (props) => {
 
                     <input type="radio" id="mare" name="pret" value="mare" onClick={() => props.changePrice('mare')}></input>
                     <label for="mare">Mare</label>
-                </div>
 
-                {/* Meniu NUME */}
-                <div className={styles.bucati}>
                     <h4>Nume</h4>
-                    <input defaultChecked type="radio" id="atoz" name="nume" value="atoz" onClick={() => props.changePrice('atoz')}></input>
+                    <input type="radio" id="atoz" name="pret" value="atoz" onClick={() => props.changePrice('atoz')}></input>
                     <label for="atoz">A - Z</label> <br />
-                    <input type="radio" id="ztoa" name="nume" value="ztoa" onClick={() => props.changePrice('ztoa')}></input>
+
+                    <input type="radio" id="ztoa" name="pret" value="ztoa" onClick={() => props.changePrice('ztoa')}></input>
                     <label for="ztoa">Z - A</label>
                 </div>
 
                 {/* Meniu Brand RAME */}
                 <div className={styles.bucati} id='brand'>
                     <h4>Brand</h4>
+
                     <input defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={() => props.brandAll('marcaAll')}></input>
                     <label for="marcaAll">Toate</label><br />
-
-                    <input type="radio" id="automan" name="marca" value="automan" onClick={() => props.brandAll('AUTOMAN')}></input>
-                    <label for="automan">AUTOMAN</label><br />
-
-                    <input type="radio" id="avanglion" name="marca" value="avanglion" onClick={() => props.brandAll('AVANGLION')}></input>
-                    <label for="avanglion">AVANGLION</label><br />
-
-                    <input type="radio" id="c.c.d.k." name="marca" value="c.c.d.k." onClick={() => props.brandAll('C.C.D.K')}></input>
-                    <label for="c.c.d.k.">C.C.D.K</label><br />
-
-                    <input type="radio" id="cadruOptic" name="marca" value="cadruOptic" onClick={() => props.brandAll('CADRU OPTIC')}></input>
-                    <label for="cadruOptic">CADRU OPTIC</label><br />
-
-                    <input type="radio" id="cardyDony" name="marca" value="cardyDony" onClick={() => props.brandAll('CARDY DONY')}></input>
-                    <label for="cardyDony">CARDY DONY</label><br />
-
-                    <input type="radio" id="charm" name="marca" value="charm" onClick={() => props.brandAll('CHARM')}></input>
-                    <label for="charm">CHARM</label><br />
-
-                    <input type="radio" id="chiara" name="marca" value="chiara" onClick={() => props.brandAll('CHIARA')}></input>
-                    <label for="chiara">CHIARA</label><br />
-
-                    <input type="radio" id="chiclamour" name="marca" value="chiclamour" onClick={() => props.brandAll('CHICLAMOUR')}></input>
-                    <label for="chiclamour">CHICLAMOUR</label><br />
-
-                    <input type="radio" id="consul" name="marca" value="consul" onClick={() => props.brandAll('CONSUL')}></input>
-                    <label for="consul">CONSUL</label><br />
-
-                    <input type="radio" id="corrado" name="marca" value="corrado" onClick={() => props.brandAll('CORRADO')}></input>
-                    <label for="corrado">CORRADO</label><br />
-
-                    <input type="radio" id="diverona" name="marca" value="diverona" onClick={() => props.brandAll('DiVERONA')}></input>
-                    <label for="diverona">DiVERONA</label><br />
-
-                    <input type="radio" id="efor" name="marca" value="efor" onClick={() => props.brandAll('EFOR')}></input>
-                    <label for="efor">EFOR</label><br />
-
-                    <input type="radio" id="enzo" name="marca" value="enzo" onClick={() => props.brandAll('ENZO')}></input>
-                    <label for="enzo">ENZO</label><br />
-
-                    <input type="radio" id="fendi" name="marca" value="fendi" onClick={() => props.brandAll('FENDI')}></input>
-                    <label for="fendi">FENDI</label><br />
-
-                    <input type="radio" id="furla" name="marca" value="furla" onClick={() => props.brandAll('FURLA')}></input>
-                    <label for="furla">FURLA</label><br />
-
-                    <input type="radio" id="gio" name="marca" value="gio" onClick={() => props.brandAll('GIO')}></input>
-                    <label for="gio">GIO</label><br />
-
-                    <input type="radio" id="grosso" name="marca" value="grosso" onClick={() => props.brandAll('GROSSO')}></input>
-                    <label for="grosso">GROSSO</label><br />
-
-                    <input type="radio" id="guess" name="marca" value="guess" onClick={() => props.brandAll('GUESS')}></input>
-                    <label for="guess">GUESS</label><br />
-
-                    <input type="radio" id="jacopo" name="marca" value="jacopo" onClick={() => props.brandAll('JACOPO')}></input>
-                    <label for="jacopo">JACOPO</label><br />
-
-                    <input type="radio" id="kind" name="marca" value="kind" onClick={() => props.brandAll('KIND')}></input>
-                    <label for="kind">KIND</label><br />
-
-                    <input type="radio" id="ledix" name="marca" value="ledix" onClick={() => props.brandAll('LEDIX')}></input>
-                    <label for="ledix">LEDIX</label><br />
-
-                    <input type="radio" id="louisVuitton" name="marca" value="louisVuitton" onClick={() => props.brandAll('LOUIS VUITTON')}></input>
-                    <label for="louisVuitton">LOUIS VUITTON</label><br />
-
-                    <input type="radio" id="marina" name="marca" value="marina" onClick={() => props.brandAll('MARINA')}></input>
-                    <label for="marina">MARINA</label><br />
-
-                    <input type="radio" id="modernLady" name="marca" value="modernLady" onClick={() => props.brandAll('MODERN LADY')}></input>
-                    <label for="modernLady">MODERN LADY</label><br />
-
-                    <input type="radio" id="mystery" name="marca" value="mystery" onClick={() => props.brandAll('MYSTERY')}></input>
-                    <label for="mystery">MYSTERY</label><br />
-
-                    <input type="radio" id="nexus" name="marca" value="nexus" onClick={() => props.brandAll('NEXUS')}></input>
-                    <label for="nexus">NEXUS</label><br />
-
-                    <input type="radio" id="nickoo" name="marca" value="nickoo" onClick={() => props.brandAll('NICKOO')}></input>
-                    <label for="nickoo">NICKOO</label><br />
-
-                    <input type="radio" id="nisus" name="marca" value="nisus" onClick={() => props.brandAll('NISUS')}></input>
-                    <label for="nisus">NISUS</label><br />
-
-                    <input type="radio" id="odysey" name="marca" value="odysey" onClick={() => props.brandAll('ODYSEY')}></input>
-                    <label for="odysey">ODYSEY</label><br />
-
-                    <input type="radio" id="oleiss" name="marca" value="oleiss" onClick={() => props.brandAll('OLEISS')}></input>
-                    <label for="oleiss">OLEISS</label><br />
-
-                    <input type="radio" id="peiep" name="marca" value="peiep" onClick={() => props.brandAll('PEIEP')}></input>
-                    <label for="peiep">PEIEP</label><br />
-
-                    <input type="radio" id="pobi" name="marca" value="pobi" onClick={() => props.brandAll('POBI')}></input>
-                    <label for="pobi">POBI</label><br />
-
-                    <input type="radio" id="police" name="marca" value="police" onClick={() => props.brandAll('POLICE')}></input>
-                    <label for="police">POLICE</label><br />
-
-                    <input type="radio" id="potygo" name="marca" value="potygo" onClick={() => props.brandAll('POTYGO')}></input>
-                    <label for="potygo">POTYGO</label><br />
-
-                    <input type="radio" id="psse" name="marca" value="psse" onClick={() => props.brandAll('PSSE')}></input>
-                    <label for="psse">PSSE</label><br />
-
-                    <input type="radio" id="remyMartin" name="marca" value="remyMartin" onClick={() => props.brandAll('REMY MARTIN')}></input>
-                    <label for="remyMartin">REMY MARTIN</label><br />
-
-                    <input type="radio" id="richPerson" name="marca" value="richPerson" onClick={() => props.brandAll('RICH PERSON')}></input>
-                    <label for="richPerson">RICH PERSON</label><br />
-
-                    <input type="radio" id="sensuelle" name="marca" value="sensuelle" onClick={() => props.brandAll('SENSUELLE')}></input>
-                    <label for="sensuelle">SENSUELLE</label><br />
-
-                    <input type="radio" id="soneTrust" name="marca" value="soneTrust" onClick={() => props.brandAll('SONE TRUST')}></input>
-                    <label for="soneTrust">SONE TRUST</label><br />
-
-                    <input type="radio" id="spring" name="marca" value="spring" onClick={() => props.brandAll('SPRING')}></input>
-                    <label for="spring">SPRING</label><br />
-
-                    <input type="radio" id="swarovski" name="marca" value="swarovski" onClick={() => props.brandAll('SWAROVSKI')}></input>
-                    <label for="swarovski">SWAROVSKI</label><br />
-
-                    <input type="radio" id="tonyMorgan" name="marca" value="tonyMorgan" onClick={() => props.brandAll('Tony Morgan')}></input>
-                    <label for="tonyMorgan">Tony Morgan</label><br />
-
-                    <input type="radio" id="vintage" name="marca" value="vintage" onClick={() => props.brandAll('VINTAGE')}></input>
-                    <label for="vintage">VINTAGE</label> <br />
-
-                    <input type="radio" id="vitoFabius" name="marca" value="vito fabius" onClick={() => props.brandAll('VITO FABIUS')}></input>
-                    <label for="vitoFabius">VITO FABIUS</label> <br />
-
-                    <input type="radio" id="vizzini" name="marca" value="vizzini" onClick={() => props.brandAll('VIZZINI')}></input>
-                    <label for="vizzini">VIZZINI</label><br />
+                    {temp.map((item, index)=>{
+                        return (
+                            <div key= { index } >
+                                <input type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input>
+                                <label for={item}>{item}</label><br />
+                            </div>
+                        )
+                    })}
 
                 </div>
-
-                {/* Meniu DIOPTRII */}
-                {/* <div className={styles.bucati} id='dioptrii'>
-                    <h4>Dioptrii</h4>
-                    <input defaultChecked type="radio" id="len1" name="lentile" value="len1"></input>
-                    <label for="len1">1</label> <br />
-                    <input type="radio" id="len2" name="lentile" value="len2"></input>
-                    <label for="len2">2</label><br />
-                    <input type="radio" id="len3" name="lentile" value="len3"></input>
-                    <label for="len3">3</label><br />
-                    <input type="radio" id="len4" name="lentile" value="len4"></input>
-                    <label for="len4">4</label>
-                </div> */}
-
-                {/* Meniu ACCESORII */}
-                {/* <div className={styles.bucati} id='accesorii'>
-                    <h4>Tip</h4>
-                    <input defaultChecked type="radio" id="lavetaToate" name="accesorii" value="lavetaToate"></input>
-                    <label for="lavetaToate">Toate</label> <br />
-                    <input type="radio" id="laveta" name="accesorii" value="laveta"></input>
-                    <label for="laveta">Lavete</label> <br />
-                    <input type="radio" id="toc" name="accesorii" value="toc"></input>
-                    <label for="toc">Tocuri</label><br />
-                    <input type="radio" id="snur" name="accesorii" value="snur"></input>
-                    <label for="snur">Snururi</label><br />
-                </div> */}
 
                
             </div>
@@ -289,6 +145,10 @@ const Sidebar = (props) => {
             {/* =========================================================================================== */}
             {/* =========================================================================================== */}
             {/* =========================================================================================== */}
+
+
+
+
             {/* MOBILE */}
             <div className={styles.mobile}>
 
@@ -302,9 +162,7 @@ const Sidebar = (props) => {
                 <div className={styles.bucatiDrop}>
                     <h4>Categorii</h4>
                     <select name="arataMobile" id="arataMobile" onChange={(e) => mobileSendAllCats(e.target.value)}>
-                        {/* <option value="toate">Toate</option> */}
                         <option value="rame">Rame</option>
-                        {/* <option value="lentile">Lentile</option> */}
                         <option value="accesorii">Accesorii</option>
                     </select>
                 </div>
@@ -314,75 +172,15 @@ const Sidebar = (props) => {
                     <h4>Brand</h4>
                     <select name="brand" id="brandMobile" onChange={(e) => sendAllBrands(e.target.value)}>
                         <option value="marcaAll">Toate</option>
-                        <option value="AUTOMAN">AUTOMAN</option>
-                        <option value="AVANGLION">AVANGLION</option>
-                        <option value="C.C.D.K">C.C.D.K</option>
-                        <option value="CADRU OPTIC">CADRU OPTIC</option>
-                        <option value="CARDY DONY">CARDY DONY</option>
-                        <option value="CHARM">CHARM</option>
-                        <option value="CHIARA">CHIARA</option>
-                        <option value="CHICLAMOUR">CHICLAMOUR</option>
-                        <option value="CONSUL">CONSUL</option>
-                        <option value="CORRADO">CORRADO</option>
-                        <option value="DiVERONA">DiVERONA</option>
-                        <option value="EFOR">EFOR</option>
-                        <option value="ENZO">ENZO</option>
-                        <option value="FENDI">FENDI</option>
-                        <option value="FURLA">FURLA</option>
-                        <option value="GROSSO">GROSSO</option>
-                        <option value="GIO">GIO</option>
-                        <option value="GUESS">GUESS</option>
-                        <option value="JACOPO">JACOPO</option>
-                        <option value="KIND">KIND</option>
-                        <option value="LEDIX">LEDIX</option>
-                        <option value="LOUIS VUITTON">LOUIS VUITTON</option>
-                        <option value="MARINA">MARINA</option>
-                        <option value="MODERN LADY">MODERN LADY</option>
-                        <option value="MYSTERY">MYSTERY</option>
-                        <option value="NEXUS">NEXUS</option>
-                        <option value="NICKOO">NICKOO</option>
-                        <option value="NISUS">NISUS</option>
-                        <option value="ODYSEY">ODYSEY</option>
-                        <option value="OLEISS">OLEISS</option>
-                        <option value="PEIEP">PEIEP</option>
-                        <option value="POBI">POBI</option>
-                        <option value="POLICE">POLICE</option>
-                        <option value="POTYGO">POTYGO</option>
-                        <option value="PSSE">PSSE</option>
-                        <option value="REMY MARTIN">REMY MARTIN</option>
-                        <option value="RICH PERSON">RICH PERSON</option>
-                        <option value="SENSUELLE">SENSUELLE</option>
-                        <option value="SONE TRUST">SONE TRUST</option>
-                        <option value="SPRING">SPRING</option>
-                        <option value="SWAROVSKI">SWAROVSKI</option>
-                        <option value="Tony Morgan">Tony Morgan</option>
-                        <option value="VINTAGE">VINTAGE</option>
-                        <option value="VITO FABIUS">VITO FABIUS</option>
-                        <option value="VIZZINI">VIZZINI</option>
+                        
+                        {temp.map((item, index) => {
+                            return (
+                                <option key={index} value={item}>{item}</option>
+                            )
+                        })}
                         
                     </select>
                 </div>
-
-                {/* <div className={styles.bucatiDrop} id='divDioptrii'>
-                    <h4>Dioptrii</h4>
-                    <select name="dioptrii" id="dioptrii">
-                        <option value="len1">1</option>
-                        <option value="len2">2</option>
-                        <option value="len3">3</option>
-                        <option value="len4">4</option>
-                        <option value="len5">5</option>
-                    </select>
-                </div> */}
-
-                {/* <div className={styles.bucatiDrop} id='divAccesorii'>
-                    <h4>Accesorii</h4>
-                    <select name="accesorii" id="accesoriiToate">
-                        <option value="accesorii_1">Toate</option>
-                        <option value="accesorii_2">Lavete</option>
-                        <option value="accesorii_3">Tocuri</option>
-                        <option value="accesorii_4">Snururi</option>
-                    </select>
-                </div> */}
 
                 <div className={styles.bucatiDrop} id='divPret'>
                     <h4>
