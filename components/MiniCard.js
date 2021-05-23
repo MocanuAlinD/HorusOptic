@@ -7,11 +7,6 @@ import { commerce } from '../lib/commerce';
 
 
 const MiniCard = ({ produs, change}) => {
-    // console.log('un produs: ',produs)
-    // const alin = async()=>{
-    //     const res = await commerce.products.retrieve(produs.id).then(item=> console.log('Item: ',item))
-    // }
-    // alin()
     return (
         <div key={produs.id} className={styles.container}>
             
