@@ -1,27 +1,19 @@
 import React, { useState,useEffect } from 'react';
 import styles from '../styles/Sidebar.module.css'
 import { AiOutlineSearch, AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
+// import { BiArrowFromBottom, BiArrowFromTop } from 'react-icons/bi'
 
 const Sidebar = (props) => {
 
-    // const products = props.products.sort((a, b) => a.name > b.name && 1 || -1)
-    const products = props.products
-    // console.log(products)
-    // let temp = []
-
-    // for (let i in products){
-    //     if (temp.includes(products[i].name)){
-    //         continue
-    //     } else { temp.push(products[i].name)}
-    // }
-    
     const sendAllCats = (e) => {
         props.changeCat(e)
+        // checkFilter(e)
     }
 
-    const sendAllBrands = (e) => {
-        props.brandAll(e)
-    }
+    // const sendAllBrands = (e) => {
+    //     console.log(e)
+    //     props.brandAll(e)
+    // }
 
     const checkFilter =(e) => {
         if (e ==='rame'){
@@ -105,17 +97,17 @@ const Sidebar = (props) => {
                 {/* Meniu PRET - NUME */}
                 <div className={styles.bucati}>
                     <h4>Pret</h4>
-                    <input defaultChecked type="radio" id="mic" name="pret" value="mic" onClick={() => props.changePrice('mic')}></input>
+                    <input defaultChecked type="radio" id="mic" name="pret" value="mic" onClick={() => props.changePriceName('mic')}></input>
                     <label for="mic">Mic</label> <br />
 
-                    <input type="radio" id="mare" name="pret" value="mare" onClick={() => props.changePrice('mare')}></input>
-                    <label for="mare">Mare</label>
+                    <input type="radio" id="mare" name="pret" value="mare" onClick={() => props.changePriceName('mare')}></input>
+                    <label for="mare">Mare</label> <br />
 
                     <h4>Nume</h4>
-                    <input type="radio" id="atoz" name="pret" value="atoz" onClick={() => props.changePrice('atoz')}></input>
+                    <input type="radio" id="atoz" name="pret" value="atoz" onClick={() => props.changePriceName('atoz')}></input>
                     <label for="atoz">A - Z</label> <br />
 
-                    <input type="radio" id="ztoa" name="pret" value="ztoa" onClick={() => props.changePrice('ztoa')}></input>
+                    <input type="radio" id="ztoa" name="pret" value="ztoa" onClick={() => props.changePriceName('ztoa')}></input>
                     <label for="ztoa">Z - A</label>
                 </div>
 
@@ -125,14 +117,14 @@ const Sidebar = (props) => {
 
                     <input defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={() => props.brandAll('marcaAll')}></input>
                     <label for="marcaAll">Toate</label><br />
-                    {/* {temp.map((item, index)=>{
+                    {props.sortedNames.map((item, index)=>{
                         return (
                             <div key= { index } >
                                 <input type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input>
                                 <label for={item}>{item}</label><br />
                             </div>
                         )
-                    })} */}
+                    })}
 
                 </div>
 
@@ -161,25 +153,25 @@ const Sidebar = (props) => {
                 {/* Categorie RAME-ACCESORII */}
                 <div className={styles.bucatiDrop}>
                     <h4>Categorii</h4>
-                    {/* <select name="arataMobile" id="arataMobile" onChange={(e) => mobileSendAllCats(e.target.value)}>
+                    <select name="arataMobile" id="arataMobile" onChange={(e) => mobileSendAllCats(e.target.value)}>
                         <option value="rame">Rame</option>
                         <option value="accesorii">Accesorii</option>
-                    </select> */}
+                    </select>
                 </div>
 
                 {/* BRANDS */}
                 <div className={styles.bucatiDrop} id='divBrand'>
                     <h4>Brand</h4>
-                    {/* <select name="brand" id="brandMobile" onChange={(e) => sendAllBrands(e.target.value)}> */}
-                        {/* <option value="marcaAll">Toate</option> */}
+                    <select name="brand" id="brandMobile" onChange={(e) => sendAllBrands(e.target.value)}>
+                        <option value="marcaAll">Toate</option>
                         
-                        {/* {temp.map((item, index) => {
+                        {props.sortedNames.map((item, index) => {
                             return (
                                 <option key={index} value={item}>{item}</option>
                             )
-                        })} */}
+                        })}
                         
-                    {/* </select> */}
+                    </select>
                 </div>
 
                 <div className={styles.bucatiDrop} id='divPret'>

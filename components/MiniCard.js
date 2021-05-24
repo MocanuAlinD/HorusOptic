@@ -7,7 +7,6 @@ import { commerce } from '../lib/commerce';
 
 
 const MiniCard = ({ produs, change}) => {
-    // console.log('Produs MINICARD: ', produs.id)
     
     return (
         <div key={produs.id} className={styles.container}>
