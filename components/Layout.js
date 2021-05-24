@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Head from 'next/head'
 
+
 const Layout = ({children}) => {
+    
+    
     return (
         <>
             <Head>
@@ -20,7 +23,8 @@ const Layout = ({children}) => {
                 <link rel="preconnect" href="https://fonts.gstatic.com"></link>
                     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet"></link>
             </Head>
-            <Navbar />
+            {/* <Navbar products={children[0].props}/> */}
+            <Navbar onAddToCart={handleAddToCart}/>
             {children}
             <Footer />
         </>

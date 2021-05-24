@@ -29,15 +29,16 @@ export async function getStaticProps() {
 
 
 
-const Produse = (props) => {
+const Produse = ({products, sortedNames, onAddToCart}) => {
+    console.log("Produse props: ", onAddToCart)
 
-    const allProducts = props.products
-    const sortedNames = props.sortedNames
+    const allProducts = products
+    // const sortedNames = sortedNames
     const [filter, setFilter] = useState('mocanu')
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('mic')
-    const [move, setMove] = useState(allProducts[0].id.toString())
+    // const [move, setMove] = useState(allProducts[0].id.toString())
     const [img, setImg] = useState(allProducts[0])
     const [imgpos, setImgpos] = useState(0)
 
@@ -118,7 +119,7 @@ const Produse = (props) => {
                                 </div>
 
                                 <div className={styles.productList}>
-                                    {changeBrand(allProducts).map(prd => <MiniCard key={prd.id} produs={prd} change={cat => changeMe(cat)} />)}
+                                    {changeBrand(allProducts).map(prd => <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={cat => changeMe(cat)} />)}
                                 </div>
                             </div>
                         </section>
@@ -142,5 +143,6 @@ const Produse = (props) => {
         </div>
     );
 }
+
 
 export default Produse;

@@ -6,7 +6,8 @@ import { commerce } from '../lib/commerce';
 
 
 
-const MiniCard = ({ produs, change}) => {
+const MiniCard = ({ produs, change, onAddToCart}) => {
+
     
     return (
         <div key={produs.id} className={styles.container}>
@@ -15,7 +16,7 @@ const MiniCard = ({ produs, change}) => {
             <h4>{produs.name}</h4>
             <h5 className={styles.pret}>{produs.price.raw} <sub>ron</sub></h5>
             <h5 dangerouslySetInnerHTML={{ __html: produs.description }}></h5>
-            <div className={styles.link}><Link href='' ><a>Adauga in cos</a></Link></div>
+            <div className={styles.link}><Link href='' ><a onClick={() => onAddToCart(produs.id, 1)}>Adauga in cos</a></Link></div>
             {/* <div className={styles.details}><a onClick={() => change(produs.id)}>Detalii</a></div> */}
             {/* <div className={styles.details}><Link href={`/Produse/${produs.id}`}><a>Detalii</a></Link></div> */}
             <div className={styles.details}><Link href='#'><a onClick={()=>change(produs)}>Detalii</a></Link></div>

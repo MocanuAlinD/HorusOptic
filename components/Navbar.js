@@ -5,7 +5,8 @@ import { GiEyeOfHorus } from 'react-icons/gi'
 import { useState } from 'react'
 
 
-const Navbar = () => {
+const Navbar = (props) => {
+    console.log('Navbar: ', props)
     const [state, setState] = useState(true)
     const changeMe = () => {
         let a = document.querySelector("ul")
