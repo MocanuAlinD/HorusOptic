@@ -60,7 +60,7 @@ const unProdus = ({ page }) => {
     return (
         <div className={cls.container} id='pop'>
             {/* <button className={cls.backBtn} onClick={} >&#60; back</button> */}
-            <Link href='/Produse'><a className={cls.backBtn} >&#60; back</a></Link>
+            <Link href='/Produse'><a className={cls.backBtn} >&#60;</a></Link>
 
             <div className={cls.left}>
                 <div className={cls.containerImg} id='containerImg'>

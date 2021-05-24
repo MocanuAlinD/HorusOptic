@@ -5,6 +5,7 @@ import Sidebar from '../../components/Sidebar'
 import DetailsPop from '../../components/DetailsPop'
 import Head from 'next/head'
 import { AiOutlineVerticalRight } from 'react-icons/ai';
+import Image from 'next/image'
 
 import { commerce } from '../../lib/commerce'
 
@@ -29,48 +30,48 @@ const Produse = (props) => {
     const [def, setDef] = useState('mic')
     const [move, setMove] = useState(allProducts[0].id.toString())
 
+    const [img, setImg] = useState(allProducts[0])
+
+    let tempImg = allProducts[0]
+
     useEffect(() => {
-        changeMe()
-    }, [filter,brand,def])
+        changeMic()
+    }, [def])
 
-    const changeMe = () => {
-        if (brand==='marcaAll'){
-            if (def === 'mic') {
-                return allProducts.sort((a, b) => parseInt(a.price.raw) > parseInt(b.price.raw) || -1)
-            }
-            if (def === 'mare') {
-                return allProducts.sort((a, b) => parseInt(a.price.raw) < parseInt(b.price.raw) || -1)
-            }
-            if (def === 'atoz') {
-                return allProducts.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() || -1)
-            }
-            if (def === 'ztoa') {
-                return allProducts.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() || -1)
-            }
-        }
 
-        if (brand !== 'marcaAll'){
-            if (def === 'mic') {
-                return allProducts.filter(m => { return m.name && m.name.includes(brand) }).sort((a, b) => parseInt(a.price.raw) > parseInt(b.price.raw) || -1)
-            }
-            if (def === 'mare') {
-                return allProducts.filter(m => { return m.name && m.name.includes(brand) }).sort((a, b) => parseInt(a.price.raw) < parseInt(b.price.raw) || -1)
-            }
-            if (def === 'atoz') {
-                return allProducts.filter(m => { return m.name && m.name.includes(brand) }).sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() || -1)
-            }
-            if (def === 'ztoa') {
-                return allProducts.filter(m => { return m.name && m.name.includes(brand) }).sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() || -1)
-            }
-        }
+    const change = (e) => {
+        // const alin = allProducts.filter(item => { return item.id && item.id === e.id })[0]
+        setImg(e)
+        // tempImg = e
+        // console.log(e)
+        // setMove(e)
+        // let a = document.getElementById('s1')
+        // a.style.transform = 'translate(100px)'
+
+        // document.getElementById("s2").scrollIntoView()
     }
 
-   
-    const change = (e) => {
-        // setMove(e)
-        // let a = document.getElementById('pop')
+    const goback = () => {
+        // let a = document.getElementById('s1')
         // a.style.left = '0'
-        return ('alin')
+        // document.getElementById("s1").scrollIntoView()
+    }
+
+    const changeMic =(e) => {
+        // console.log(e)
+        setDef(e)
+        if (e === 'mic'){
+            return allProducts.sort((a, b) => parseInt(a.price.raw) > parseInt(b.price.raw) || -1)
+        }
+        if (e === 'mare'){
+            return allProducts.sort((a, b) => parseInt(a.price.raw) < parseInt(b.price.raw) || -1)
+        }
+        if (def === 'atoz') {
+            return allProducts.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() || -1)
+        }
+        if (def === 'ztoa') {
+            return allProducts.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() || -1)
+        }
     }
 
 
@@ -80,26 +81,41 @@ const Produse = (props) => {
                 <title>Produse</title>
             </Head>
 
-            <div className={styles.sidebar}>
-                <Sidebar
-                    changeCat={cat => setFilter(cat)}
-                    brandAll={word => setBrand(word)}
-                    changePrice={word => setDef(word)}
-                    products={allProducts}
-                // searchResult={word => setSearch(word)}
-                />
-            </div>
+            <section className={styles.s1} id='s1'>
+                <Image src={img.media.source} width={960} height={540} />
+                <div className={styles.containerSt}>
+                    <div className={styles.sidebar}>
+                        <Sidebar
+                            changeCat={cat => setFilter(cat)}
+                            brandAll={word => setBrand(word)}
+                            changePrice={word => changeMic(word)}
+                            products={allProducts}
+                        />
+                    </div>
 
-            <div className={styles.productList}>
-                {/* {allProducts.map(prd => (<MiniCard produs={prd} />)} */}
-                {changeMe(allProducts).map(prd => <MiniCard key={prd.id} produs={prd} change={cat => change(cat)} />)}
+                    <div className={styles.productList}>
+                        {/* {allProducts.map(prd => (<MiniCard produs={prd} />)} */}
+                        {allProducts.map(prd => <MiniCard key={prd.id} produs={prd} change={cat => change(cat)} />)}
+                        {/* {changeMe(allProducts).map(prd => <MiniCard key={prd.id} produs={prd} change={()=>setImg(prd)} />)} */}
 
-                {/* {search !== '' ? searchItems().map(prd =>
+                        {/* {search !== '' ? searchItems().map(prd =>
                     <MiniCard key={prd.id} produs={prd} change={cat => change(cat)} />
                 ) : []} */}
 
-                <DetailsPop produse={allProducts} id='pop' propId={move} />
-            </div>
+                        {/* <DetailsPop produse={allProducts} id='pop' propId={move} /> */}
+                    </div>
+                </div>
+            </section>
+
+            <section className={styles.s2} id='s2'>
+                <div className={styles.containerDr}>
+                    <button onClick={() => goback()}>Go to Produse</button>
+                    <h4>{img.name}</h4>
+                    <Image src={img.media.source} width={960} height={540} />
+                </div>
+            </section>
+
+
 
         </div>
     );
@@ -116,3 +132,30 @@ const Produse = (props) => {
 
 
 export default Produse;
+
+
+
+// return (
+//     <div className={styles.container} id='top'>
+//         <Head>
+//             <title>Produse</title>
+//         </Head>
+
+//         <div className={styles.sidebar}>
+//             <Sidebar
+//                 changeCat={cat => setFilter(cat)}
+//                 brandAll={word => setBrand(word)}
+//                 changePrice={word => setDef(word)}
+//                 products={allProducts}
+//             />
+//         </div>
+
+//         <div className={styles.productList}>
+//             {changeMe(allProducts).map(prd => <MiniCard key={prd.id} produs={prd} change={cat => change(cat)} />)}
+
+
+//             <DetailsPop produse={allProducts} id='pop' propId={move} />
+//         </div>
+
+//     </div>
+// )

@@ -7,6 +7,7 @@ import { commerce } from '../lib/commerce';
 
 
 const MiniCard = ({ produs, change}) => {
+    // console.log('Produs MINICARD: ', produs.id)
     
     return (
         <div key={produs.id} className={styles.container}>
@@ -17,7 +18,8 @@ const MiniCard = ({ produs, change}) => {
             <h5 dangerouslySetInnerHTML={{ __html: produs.description }}></h5>
             <div className={styles.link}><Link href='' ><a>Adauga in cos</a></Link></div>
             {/* <div className={styles.details}><a onClick={() => change(produs.id)}>Detalii</a></div> */}
-            <div className={styles.details}><Link href={`/Produse/${produs.id}`}><a>Detalii</a></Link></div>
+            {/* <div className={styles.details}><Link href={`/Produse/${produs.id}`}><a>Detalii</a></Link></div> */}
+            <div className={styles.details}><Link href='#'><a onClick={()=>change(produs)}>Detalii</a></Link></div>
         </div>
     );
 }

@@ -1,22 +1,22 @@
 import React, { useState,useEffect } from 'react';
 import styles from '../styles/Sidebar.module.css'
 import { AiOutlineSearch, AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
-// import { BiArrowFromBottom, BiArrowFromTop } from 'react-icons/bi'
 
 const Sidebar = (props) => {
 
-    const products = props.products.sort((a, b) => a.name > b.name && 1 || -1)
-    let temp = []
+    // const products = props.products.sort((a, b) => a.name > b.name && 1 || -1)
+    const products = props.products
+    // console.log(products)
+    // let temp = []
 
-    for (let i in products){
-        if (temp.includes(products[i].name)){
-            continue
-        } else { temp.push(products[i].name)}
-    }
+    // for (let i in products){
+    //     if (temp.includes(products[i].name)){
+    //         continue
+    //     } else { temp.push(products[i].name)}
+    // }
     
     const sendAllCats = (e) => {
         props.changeCat(e)
-        // checkFilter(e)
     }
 
     const sendAllBrands = (e) => {
@@ -125,14 +125,14 @@ const Sidebar = (props) => {
 
                     <input defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={() => props.brandAll('marcaAll')}></input>
                     <label for="marcaAll">Toate</label><br />
-                    {temp.map((item, index)=>{
+                    {/* {temp.map((item, index)=>{
                         return (
                             <div key= { index } >
                                 <input type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input>
                                 <label for={item}>{item}</label><br />
                             </div>
                         )
-                    })}
+                    })} */}
 
                 </div>
 
@@ -161,25 +161,25 @@ const Sidebar = (props) => {
                 {/* Categorie RAME-ACCESORII */}
                 <div className={styles.bucatiDrop}>
                     <h4>Categorii</h4>
-                    <select name="arataMobile" id="arataMobile" onChange={(e) => mobileSendAllCats(e.target.value)}>
+                    {/* <select name="arataMobile" id="arataMobile" onChange={(e) => mobileSendAllCats(e.target.value)}>
                         <option value="rame">Rame</option>
                         <option value="accesorii">Accesorii</option>
-                    </select>
+                    </select> */}
                 </div>
 
                 {/* BRANDS */}
                 <div className={styles.bucatiDrop} id='divBrand'>
                     <h4>Brand</h4>
-                    <select name="brand" id="brandMobile" onChange={(e) => sendAllBrands(e.target.value)}>
-                        <option value="marcaAll">Toate</option>
+                    {/* <select name="brand" id="brandMobile" onChange={(e) => sendAllBrands(e.target.value)}> */}
+                        {/* <option value="marcaAll">Toate</option> */}
                         
-                        {temp.map((item, index) => {
+                        {/* {temp.map((item, index) => {
                             return (
                                 <option key={index} value={item}>{item}</option>
                             )
-                        })}
+                        })} */}
                         
-                    </select>
+                    {/* </select> */}
                 </div>
 
                 <div className={styles.bucatiDrop} id='divPret'>

@@ -1,11 +1,36 @@
 .container{
     min-height: 79vh;
-    /* background: red; */
-    padding: 1rem;
+    width: fit-content;
+    background: green;
+    /* padding: 1rem; */
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    /* justify-content: space-around; */
+    /* align-items: flex-start; */
+    /* flex-direction: column; */
     position: relative;
+    /* overflow: hidden; */
+}
+
+.container section{
+    width: 100%;
+    min-width: 100%;
+}
+.container .s2{
+    background: darkolivegreen;
+}
+
+/* .container .s1{
+    width: fit-content;
+    height: 100%;
+    background: dimgray;
+}
+.container .s2{
+    width: 100vw;
+    background: darkslategray;
+} */
+
+.containerSt{
+    display: flex;
 }
 
 .sidebar{
@@ -13,11 +38,8 @@
     height: 100%;
     background: #232323;
     border-radius: .3rem;
-    margin-top: .4rem;
+    margin-top: 1rem;
     margin-right: .5rem;
-    /* position: sticky; */
-    /* top: 4rem; */
-    /* z-index: 1; */
     border-bottom: 1px solid #f5cb5c;
 }
 
@@ -25,7 +47,6 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    /* z-index: 99; */
 }
 
 
