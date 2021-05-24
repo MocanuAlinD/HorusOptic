@@ -107,13 +107,13 @@ const Produse = (props) => {
                 </div>
             </section>
 
-            <section className={styles.s2} id='s2'>
+            {/* <section className={styles.s2} id='s2'>
                 <div className={styles.containerDr}>
                     <button onClick={() => goback()}>Go to Produse</button>
                     <h4>{img.name}</h4>
                     <Image src={img.media.source} width={960} height={540} />
                 </div>
-            </section>
+            </section> */}
 
 
 
