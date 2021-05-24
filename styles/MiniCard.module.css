@@ -133,10 +133,17 @@
 
 @media screen and (max-width: 768px){
     .container{
-        flex-direction: column;
+        position: relative;
+        background: #242423;
+        display: flex;
         width: 100%;
-        box-shadow: none;
-        border-radius: .1rem;
+        height: fit-content;
+        margin: 1rem;
+        flex-direction: column;
+        padding: .4rem;
+        border-radius: .3rem;
+        box-shadow: 1px 1px 1px 1px #17171766;
+        transition: all 350ms ease-in-out;
     }
     .container:hover{
         transform: none;
@@ -144,7 +151,7 @@
         background: #121212;
     }
     .container .link a{
-        bottom: 0rem;
+        bottom: 0;
         right: 0;
         padding: .05rem .2rem;
     }

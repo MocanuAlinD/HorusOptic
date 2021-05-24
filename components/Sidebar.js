@@ -162,7 +162,7 @@ const Sidebar = (props) => {
                 {/* BRANDS */}
                 <div className={styles.bucatiDrop} id='divBrand'>
                     <h4>Brand</h4>
-                    <select name="brand" id="brandMobile" onChange={(e) => sendAllBrands(e.target.value)}>
+                    <select name="brand" id="brandMobile" onChange={(e) => props.brandAll(e.target.value)}>
                         <option value="marcaAll">Toate</option>
                         
                         {props.sortedNames.map((item, index) => {
@@ -179,7 +179,7 @@ const Sidebar = (props) => {
                         <AiOutlineArrowDown />
                         <AiOutlineArrowUp />
                     </h4>
-                    <select id="pret" onChange={(e) => props.changePrice(e.target.value)}>
+                    <select id="pret" onChange={(e) => props.changePriceName(e.target.value)}>
                         <optgroup label="Pret"></optgroup>
                         <option value="mic">Pret mic</option>
                         <option value="mare">Pret mare</option>

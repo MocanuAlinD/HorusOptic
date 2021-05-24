@@ -104,26 +104,13 @@ const Produse = (props) => {
                 <title>Produse</title>
             </Head>
 
-            {/* <div className={cls.containerImg} id='containerImg'>
-                <div className={cls.carousel} id='carousel'>
-                    <div className={cls.slider} id='slider'>
-                        {page.assets.map((alin) =>
-                            <section key={alin.id}>
-                                <Image priority='true' layout='responsive' src={alin.url} alt='Glasses' width={alin.image_dimensions.width} height={alin.image_dimensions.height} />
-                            </section>
-                        )}
-                    </div>
-                </div>
-            </div> */}
-
-
             <div className={styles.containerImg} id='containerImg'>
                 <div className={styles.carousel} id='carousel'>
                     <div className={styles.slider} id='slider'>
                         <section className={styles.s1} id='s1'>
                             <div className={styles.containerSt}>
                                 <div className={styles.sidebar}>
-                                    <Sidebar className={styles.siderbar1}
+                                    <Sidebar
                                         changeCat={cat => setFilter(cat)}
                                         brandAll={word => setBrand(word)}
                                         changePriceName={word => changePriceName(word)}
@@ -152,91 +139,8 @@ const Produse = (props) => {
                     </div>
                 </div>
             </div>
-
-
-            {/* <section className={styles.s1} id='s1'>
-                <div className={styles.containerSt}>
-                    <div className={styles.sidebar}>
-                        <Sidebar
-                            changeCat={cat => setFilter(cat)}
-                            brandAll={word => setBrand(word)}
-                            changePriceName={word => changePriceName(word)}
-                            sortedNames={sortedNames}
-                        />
-                    </div>
-
-                    <div className={styles.productList}>
-                        {changeBrand(allProducts).map(prd => <MiniCard key={prd.id} produs={prd} change={cat => changeMe(cat)} />)}
-                    </div>
-                </div>
-            </section>
-
-            <section className={styles.s2} id='s2'>
-                <div className={styles.containerDr}>
-                    <button onClick={()=> goback()}>Go to Produse</button>
-                    <h4>{img.name}</h4>
-                    <Image src={img.media.source} width={960} height={540} />
-                </div>
-            </section> */}
-
-
-
         </div>
     );
 }
 
-// Produse.getInitialProps = async () => {
-//     const { data } = await commerce.products.list()
-
-//     console.log(data[0])
-
-//     return { 
-//         props: data }
-// }
-
-
 export default Produse;
-
-
-
-// return (
-//     <div className={styles.container} id='top'>
-//         <Head>
-//             <title>Produse</title>
-//         </Head>
-
-//         <div className={styles.sidebar}>
-//             <Sidebar
-//                 changeCat={cat => setFilter(cat)}
-//                 brandAll={word => setBrand(word)}
-//                 changePrice={word => setDef(word)}
-//                 products={allProducts}
-//             />
-//         </div>
-
-//         <div className={styles.productList}>
-//             {changeMe(allProducts).map(prd => <MiniCard key={prd.id} produs={prd} change={cat => change(cat)} />)}
-
-
-//             <DetailsPop produse={allProducts} id='pop' propId={move} />
-//         </div>
-
-//     </div>
-// )
-
-
-
-// const changeMe = (e) => {
-//     setImg(e)
-//     let b = document.getElementById('s2')
-//     b.style.transform = 'translate(-100%)'
-//     let c = document.getElementById('s1')
-//     c.style.transform = 'translate(-100%)'
-// }
-
-// const goback = (e) => {
-//     let b = document.getElementById('s1')
-//     b.style.transform = 'translate(0)'
-//     let c = document.getElementById('s2')
-//     c.style.transform = 'translate(0)'
-// }
