@@ -9,7 +9,7 @@ import {useRouter } from 'next/router'
 
 
 const Navbar = ({totalItems}) => {
-    console.log('Navbar: ', totalItems)
+    // console.log('Navbar: ', totalItems)
     const [state, setState] = useState(true)
     const location = useRouter()
     

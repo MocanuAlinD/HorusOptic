@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
     fetchCart()
   }, [])
 
-  console.log('Items in cart: ', cart)
+  // console.log('Items in cart: ', cart)
 
   return (
     <>

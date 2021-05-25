@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart }) => {
     // const Cart = (props) => {
-    console.log('Cart: ', cart)
+    // console.log('Cart: ', cart)
     const noOfItems = cart.line_items
     // console.log('Cart props: ', props)
 
@@ -14,7 +14,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
     return (
         <div className={styles.cartContainer}>
             <div className={styles.wrapperLeft}>
-                {cart.total_items !== 0 ? noOfItems.map(item => (
+                {noOfItems ? noOfItems.map(item => (
                     <div key={item.id} className="">
                         <CartItem item={item}
                             onUpdateCartQty={handleUpdateCartQty}
