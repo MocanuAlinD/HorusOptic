@@ -4,7 +4,6 @@ import { ImMobile} from 'react-icons/im'
 import { FiFacebook} from 'react-icons/fi'
 import { AiOutlineMail} from 'react-icons/ai'
 import Link from 'next/link'
-import { stubFalse } from 'lodash';
 
 const Footer = () => {
     return (

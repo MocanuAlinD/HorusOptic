@@ -1,0 +1,47 @@
+.cartContainer{
+    width: 100%;
+    height: fit-content;
+    min-height: 79vh;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-wrap: wrap;
+    /* background: cornflowerblue; */
+}
+
+.wrapperLeft{
+    /* background: red; */
+    width: 100%;
+    display: flex;
+    height: fit-content;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.wrapperRight{
+    background: #333;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapperRight h4{
+    color: #e8eddf;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin: 1rem;
+    /* background: chocolate; */
+    width: fit-content;
+}
+
+.btnEmpty{
+    background: darkgoldenrod;
+}
+
+.wrapperRight a{
+    color: #f5cb5c;
+    margin: 0 .2rem;
+    /* text-decoration: underline; */
+    letter-spacing: .02rem;
+    font-size: 1.2rem;
+}

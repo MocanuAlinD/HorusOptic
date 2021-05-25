@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import styles from '../../styles/Produse.module.css'
 import MiniCard from '../../components/MiniCard'
 import Sidebar from '../../components/Sidebar'
-import DetailsPop from '../../components/DetailsPop'
 import Head from 'next/head'
 import { AiOutlineVerticalRight } from 'react-icons/ai';
 import Image from 'next/image'
-
 import { commerce } from '../../lib/commerce'
+// import { useRouter } from 'next/router'
+
+
+
+
 
 export async function getStaticProps() {
     const { data: products } = await commerce.products.list()
@@ -29,23 +32,24 @@ export async function getStaticProps() {
 
 
 
-const Produse = ({products, sortedNames, onAddToCart}) => {
+const Produse = ({ products, sortedNames, onAddToCart }) => {
 
-    const allProducts = products
-    // const sortedNames = sortedNames
+    // const location = useRouter()
+
     const [filter, setFilter] = useState('mocanu')
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('mic')
     // const [move, setMove] = useState(allProducts[0].id.toString())
-    const [img, setImg] = useState(allProducts[0])
+    const [img, setImg] = useState(products[0])
     const [imgpos, setImgpos] = useState(0)
+    const [showCart, setShowCart] = useState(false)
 
     const changeBrand = () => {
         if (brand === 'marcaAll') {
-            return allProducts
+            return products
         }
-        const testFilter = allProducts.filter(m => { return m.name && m.name.includes(brand) })
+        const testFilter = products.filter(m => { return m.name && m.name.includes(brand) })
         return testFilter
 
 
@@ -54,16 +58,16 @@ const Produse = ({products, sortedNames, onAddToCart}) => {
     const changePriceName = (e) => {
         setDef(e)
         if (e === 'mic') {
-            return allProducts.sort((a, b) => parseInt(a.price.raw) > parseInt(b.price.raw) && 1 || -1)
+            return products.sort((a, b) => parseInt(a.price.raw) > parseInt(b.price.raw) && 1 || -1)
         }
         if (e === 'mare') {
-            return allProducts.sort((a, b) => parseInt(a.price.raw) < parseInt(b.price.raw) && 1 || -1)
+            return products.sort((a, b) => parseInt(a.price.raw) < parseInt(b.price.raw) && 1 || -1)
         }
         if (e === 'atoz') {
-            return allProducts.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() && 1 || -1)
+            return products.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() && 1 || -1)
         }
         if (e === 'ztoa') {
-            return allProducts.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() && 1 || -1)
+            return products.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() && 1 || -1)
         }
     }
 
@@ -118,7 +122,7 @@ const Produse = ({products, sortedNames, onAddToCart}) => {
                                 </div>
 
                                 <div className={styles.productList}>
-                                    {changeBrand(allProducts).map(prd => <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={cat => changeMe(cat)} />)}
+                                    {changeBrand(products).map(prd => <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={cat => changeMe(cat)} />)}
                                 </div>
                             </div>
                         </section>

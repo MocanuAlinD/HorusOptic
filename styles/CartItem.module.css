@@ -1,0 +1,106 @@
+.container{
+	position: relative;
+    background: #242423;
+    display: flex;
+    width: 12rem;
+    /* height: fit-content; */
+    margin: .5rem;
+    flex-direction: column;
+    padding: .1rem;
+    /* border-radius: .3rem; */
+    /* box-shadow: 1px 1px 1px 1px #17171766; */
+    /* transition: all 350ms ease-in-out; */
+}
+
+/* .container h4,
+.container h5{
+    color: #e8eddf;
+    font-family: 'Poppins';
+} */
+/* .container h4{
+    font-weight: 400;
+} */
+
+.namePrice{
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    /* background: red; */
+    margin: 0 .3rem;
+}
+.namePrice h4{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    color: white;
+    font-size: .9rem;
+    /* background: darkblue; */
+}
+
+.price{
+    text-align: end;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: blue; */
+}
+.buttons button{
+    outline: none;
+    border: none;
+    background: #e8eddf;
+    color: #242423;
+    width: 1rem;
+    height: 1rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+    border-radius: .15rem;
+    transition: all .35s ease-in-out;
+}
+
+.buttons button:hover{
+    background: #f5cb5c;
+}
+
+
+.buttons h5{
+    color: #e8eddf;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+}
+
+.buttons .sterge{
+    width: fit-content;
+    /* background: red; */
+}
+
+.plusMinus{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+
+
+
+
+
+
+/* .pret sub{
+    font-weight: 400;
+    font-size: .8rem;
+} */
+
+
+
+/* .container h5:last-of-type{
+    margin-bottom: 2rem;
+} */
+
+
+
+
+@media screen and (max-width: 768px){
+    
+}

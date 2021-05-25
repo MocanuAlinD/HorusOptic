@@ -3,12 +3,16 @@ import Link from 'next/link'
 import style from '../styles/navbar.module.css'
 import { GiEyeOfHorus } from 'react-icons/gi'
 import { useState } from 'react'
-import {AppBar,Toolbar,IconButton,Badge,MenuItem,Menu,Typography} from '@material-ui/core'
+import {IconButton, Badge, Typography} from '@material-ui/core'
 import {ShoppingCart} from '@material-ui/icons'
+import {useRouter } from 'next/router'
+
 
 const Navbar = ({totalItems}) => {
     console.log('Navbar: ', totalItems)
     const [state, setState] = useState(true)
+    const location = useRouter()
+    
     const changeMe = () => {
         let a = document.querySelector("ul")
         if (state) {
@@ -39,11 +43,13 @@ const Navbar = ({totalItems}) => {
                 <li><Link href='/info'><a onClick={() => closeMenu()}>?</a></Link></li>
             </ul>
             <button className={style.meniu} onClick={changeMe}>Meniu</button>
-            <IconButton aria-label='Show cart items' style={{ color: "#f5cb5c" }} >
-                <Badge badgeContent={totalItems} anchorOrigin={{ vertical: 'top', horizontal: 'right', }} color='secondary'>
-                    <ShoppingCart />
-                </Badge>
-            </IconButton>
+            {location.pathname !== '/Cart' && <Link href='/Cart'>
+                <IconButton aria-label='Show cart items' style={{ color: "#f5cb5c" }} >
+                    <Badge badgeContent={totalItems} anchorOrigin={{ vertical: 'top', horizontal: 'right', }} color='secondary'>
+                        <ShoppingCart />
+                    </Badge>
+                </IconButton>
+            </Link>}
         </div>
     );
 }
