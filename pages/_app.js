@@ -6,24 +6,6 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { commerce } from '../lib/commerce'
 
-export async function getStaticProps() {
-  const { data: products } = await commerce.products.list()
-
-  const sortedNames1 = []
-  for (let i in products) {
-    if (sortedNames1.includes(products[i].name)) {
-      continue
-    } else { sortedNames1.push(products[i].name) }
-  }
-  const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
-
-  return {
-    props: {
-      products, sortedNames
-    }
-  }
-}
-
 
 function MyApp({ Component, pageProps }) {
   console.log('MyApp pageProps: ', pageProps)
@@ -51,8 +33,8 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Navbar total_items={cart.total_items}/>
-      <Component {...pageProps} products={pageProps.products} sortedNames={pageProps.sortedNames} onAddToCart={handleAddToCart} />
+      <Navbar totalItems={cart.total_items}/>
+      <Component {...pageProps} onAddToCart={handleAddToCart} />
       <ScrollToTop />
       <Footer />
     </>

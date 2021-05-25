@@ -30,7 +30,6 @@ export async function getStaticProps() {
 
 
 const Produse = ({products, sortedNames, onAddToCart}) => {
-    console.log("Produse props: ", onAddToCart)
 
     const allProducts = products
     // const sortedNames = sortedNames
