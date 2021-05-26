@@ -3,45 +3,147 @@
     height: fit-content;
     min-height: 79vh;
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    /* background: cornflowerblue; */
 }
 
-.wrapperLeft{
-    /* background: red; */
-    width: 100%;
+.wrapper{
+    width: 80%;
+}
+
+.sus{
     display: flex;
-    height: fit-content;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    background: #e8eddf;
 }
 
-.wrapperRight{
-    background: #333;
+.jos{
+    background: #242423;
+    height: 100%;
     width: 100%;
+}
+
+.endButtons{
+    padding: 0 .5rem;
     display: flex;
     justify-content: space-between;
+    height: 100%;
 }
+
+
+.wrapperRight{
+    padding-bottom: .5rem;
+}
+
 
 .wrapperRight h4{
     color: #e8eddf;
     font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    padding: 0 .5rem;
+    font-size: 1.5rem;
+    justify-self: flex-end;
+    width: 100%;
+    text-align: end;
+}
+
+
+.btnEmpty,
+.btnCheckout{
+    align-self: center;
+    background: none;
+    border: 1px solid #f5cb5c;
+    border-radius: .3rem;
+    color: #e8eddf;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
     font-weight: 400;
-    margin: 1rem;
-    /* background: chocolate; */
+    height: fit-content;
+    outline: none;
+    padding: .1rem .3rem;
     width: fit-content;
+    transition: all .35s ease-in-out;
+}
+.btnCheckout{
+    background: #e8eddf;
+    border: none;
+    color: #242423;
 }
 
-.btnEmpty{
-    background: darkgoldenrod;
+.btnEmpty:hover{
+    border: 1px solid #e76f51;
 }
 
-.wrapperRight a{
+.btnCheckout:hover{
+    background: #83c5be;
+}
+
+.emptyCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyCart a{
     color: #f5cb5c;
     margin: 0 .2rem;
-    /* text-decoration: underline; */
-    letter-spacing: .02rem;
+    text-decoration: underline;
+    letter-spacing: .05rem;
     font-size: 1.2rem;
+}
+
+
+.emptyCart h5{
+    color: #e8eddf;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 768px){
+    .cartContainer{
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .wrapper{
+        width: 100%;
+    }
+
+    .sus{
+        display: block;
+        justify-content: center;
+        flex-wrap: nowrap;
+        background: none;
+    }
+
+    .jos{
+        margin-bottom: 1rem;
+    }
+
+    .wrapperRight h4{
+        font-size: 1rem;
+    }
+
+    .emptyCart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50%;
+    }
+
+    .emptyCart a{
+        font-size: 1rem;
+    }
+
+
+    .emptyCart h5{
+        color: #e8eddf;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        text-align: center;
+    }
 }
