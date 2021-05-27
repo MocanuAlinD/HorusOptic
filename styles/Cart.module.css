@@ -49,8 +49,7 @@
 }
 
 
-.btnEmpty,
-.btnCheckout{
+.btnEmpty{
     align-self: center;
     background: none;
     border: 1px solid #f5cb5c;
@@ -66,17 +65,32 @@
     width: fit-content;
     transition: all .35s ease-in-out;
 }
-.btnCheckout{
-    background: #e8eddf;
-    border: none;
-    color: #242423;
-}
+
 
 .btnEmpty:hover{
     border: 1px solid #e76f51;
 }
 
-.btnCheckout:hover{
+
+
+
+.endButtons a{
+    align-self: center;
+    background: #e8eddf;
+    /* border: 1px solid #f5cb5c; */
+    border-radius: .3rem;
+    color: #242423;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    height: fit-content;
+    outline: none;
+    padding: .1rem .3rem;
+    transition: all .35s ease-in-out;
+}
+
+.endButtons a:hover{
     background: #83c5be;
 }
 

@@ -1,0 +1,21 @@
+.container{
+    width: 100%;
+    height: fit-content;
+    min-height: 79vh;
+    /* background: darkcyan; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout{
+    width: 80%;
+    height: fit-content;
+    /* background: darkgoldenrod; */
+}
+
+.container .paper{
+    /* background: red; */
+    padding: 1.5rem;
+    margin: 2rem;
+}

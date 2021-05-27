@@ -31,7 +31,8 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
                         <h4>Subtotal: {cart.subtotal && cart.subtotal.formatted_with_code}</h4>
                         <div className={styles.endButtons}>
                             <button className={styles.btnEmpty} onClick={() => handleEmptyCart()}>Goleste cosul</button>
-                            <button className={styles.btnCheckout}>Plateste</button>
+                            {/* <button className={styles.btnCheckout}>Plateste</button> */}
+                            <Link href='/Checkout' className={styles.btnCheckout}><a>Plateste</a></Link>
                         </div>
                     </div> : <div className={styles.emptyCart}>
                         <h5>Nu aveti produse in cos. <Link href='/Produse'><a>Aici</a></Link> vedeti produsele noastre.</h5>

@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import { commerce } from '../lib/commerce'
 import Head from 'next/head'
 
+
 // import NProgress from 'nprogress';
 // import Router from 'next/router';
 
@@ -17,6 +18,8 @@ import Head from 'next/head'
 function MyApp({ Component, pageProps }) {
   // console.log('MyApp pageProps: ', pageProps)
   const [cart, setCart] = useState({})
+  const [order,setOrder] = useState({})
+  const [ errorMessage, setErrorMessage] = useState('')
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve())
@@ -41,6 +44,21 @@ function MyApp({ Component, pageProps }) {
   const handleEmptyCart = async () => {
     const { cart } = await commerce.cart.empty()
     setCart(cart)
+  }
+
+  const refreshCart = async() => {
+    const newCart = await commerce.cart.refresh()
+    setCart(newCart)
+  }
+
+  const handleCaptureCheckout = async (checkoutTokenId, newOrder)=>{
+    try{
+      const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder)
+      setOrder(incomingOrder)
+      refreshCart()
+    } catch (error) {
+      setErrorMessage(error.data.error.message)
+    }
   }
 
   useEffect(() => {
@@ -73,7 +91,11 @@ function MyApp({ Component, pageProps }) {
         handleUpdateCartQty={handleUpdateCartQty}
         handleRemoveFromCart={handleRemoveFromCart}
         handleEmptyCart={handleEmptyCart}
+        order={order}
+        onCaptureCheckout={handleCaptureCheckout}
+        error={errorMessage}
       />
+
       <ScrollToTop />
       <Footer />
     </>
