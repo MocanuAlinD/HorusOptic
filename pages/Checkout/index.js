@@ -8,7 +8,6 @@ import { commerce } from '../../lib/commerce'
 
 const steps = ["Shipping address", "Payment details"]
 
-
 const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [activeStep, setActiveStep] = useState(0)
     const [checkoutToken, setCheckoutToken] = useState(null);
