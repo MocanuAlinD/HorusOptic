@@ -2,21 +2,16 @@ import React from 'react'
 import { TextField, Grid } from '@material-ui/core'
 import { useFormContext, Controller } from 'react-hook-form'
 
-const FormInput = ({ name, label}) => {
+const FormInput = ({ name}) => {
     const { control } = useFormContext()
     return (
         // <Grid item xs={12} sm={6}>
         <Grid item xs={12} sm={6}>
-            <Controller
+            < Controller
                 control={control}
                 name={name}
-                render={({ field }) => (
-                    <TextField
-                        fullWidth
-                        label={label}
-                        required
-                    />
-                )}
+                render={({ field }) => <input {...field} />}
+                defaultValue=""
             />
 
         </Grid>
@@ -24,3 +19,16 @@ const FormInput = ({ name, label}) => {
 }
 
 export default FormInput
+
+
+//     < Controller
+// control = { control }
+// name = { name }
+// render = {({ field }) => (
+//     <TextField
+//         fullWidth
+//         label={label}
+//         required
+//     />
+// )}
+// />

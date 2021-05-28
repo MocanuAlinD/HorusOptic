@@ -17,8 +17,6 @@ const MiniCard = ({ produs, change, onAddToCart}) => {
             <h5 className={styles.pret}>{produs.price.raw} <sub>ron</sub></h5>
             <h5 dangerouslySetInnerHTML={{ __html: produs.description }}></h5>
             <div className={styles.link}><a onClick={() => onAddToCart(produs.id, 1)}>Adauga in cos</a></div>
-            {/* <div className={styles.details}><a onClick={() => change(produs.id)}>Detalii</a></div> */}
-            {/* <div className={styles.details}><Link href={`/Produse/${produs.id}`}><a>Detalii</a></Link></div> */}
             <div className={styles.details}><a onClick={()=>change(produs)}>Detalii</a></div>
         </div>
     );

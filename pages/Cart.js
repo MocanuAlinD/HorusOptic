@@ -4,12 +4,7 @@ import CartItem from '../components/CartItem'
 import Link from 'next/link'
 
 const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart }) => {
-    // const Cart = (props) => {
-    // console.log('Cart: ', cart)
     const noOfItems = cart.line_items
-    // console.log('Cart props: ', props)
-
-
 
     return (
         <div className={styles.cartContainer}>

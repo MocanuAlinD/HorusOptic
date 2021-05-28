@@ -87,28 +87,28 @@ const Sidebar = (props) => {
                     <h4>Categorie</h4>
                     {/* <input defaultChecked type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input> */}
                     <input defaultChecked type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input>
-                    <label for="rame">Rame</label><br />
+                    <label htmlFor="rame">Rame</label><br />
 
                     {/* <input type="radio" id="accesoriiSus" name="categorie" value="accesorii" onClick={(e) => sendAllCats(e.target.value)}></input> */}
                     <input type="radio" id="accesoriiSus" name="categorie" value="accesorii" onClick={(e) => sendAllCats(e.target.value)}></input>
-                    <label for="accesorii">Accesorii</label>
+                    <label htmlFor="accesorii">Accesorii</label>
                 </div>
 
                 {/* Meniu PRET - NUME */}
                 <div className={styles.bucati}>
                     <h4>Pret</h4>
                     <input defaultChecked type="radio" id="mic" name="pret" value="mic" onClick={() => props.changePriceName('mic')}></input>
-                    <label for="mic">Mic</label> <br />
+                    <label htmlFor="mic">Mic</label> <br />
 
                     <input type="radio" id="mare" name="pret" value="mare" onClick={() => props.changePriceName('mare')}></input>
-                    <label for="mare">Mare</label> <br />
+                    <label htmlFor="mare">Mare</label> <br />
 
                     <h4>Nume</h4>
                     <input type="radio" id="atoz" name="pret" value="atoz" onClick={() => props.changePriceName('atoz')}></input>
-                    <label for="atoz">A - Z</label> <br />
+                    <label htmlFor="atoz">A - Z</label> <br />
 
                     <input type="radio" id="ztoa" name="pret" value="ztoa" onClick={() => props.changePriceName('ztoa')}></input>
-                    <label for="ztoa">Z - A</label>
+                    <label htmlFor="ztoa">Z - A</label>
                 </div>
 
                 {/* Meniu Brand RAME */}
@@ -116,12 +116,12 @@ const Sidebar = (props) => {
                     <h4>Brand</h4>
 
                     <input defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={() => props.brandAll('marcaAll')}></input>
-                    <label for="marcaAll">Toate</label><br />
+                    <label htmlFor="marcaAll">Toate</label><br />
                     {props.sortedNames.map((item, index)=>{
                         return (
                             <div key= { index } >
                                 <input type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input>
-                                <label for={item}>{item}</label><br />
+                                <label htmlFor={item}>{item}</label><br />
                             </div>
                         )
                     })}
