@@ -4,7 +4,7 @@ import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js
 import { loadStripe } from '@stripe/stripe-js'
 import Review from './Review'
 
-const stripePromise = loadStripe("pk_test_51IvjQMCwylVTkzc3HwhthNWP6BYVACviTg3fZqVTOO9yuilqt76G72Yo3E1EfbJyoSMLmgNNHxNw69q4sbx8qPO100krbqy2dC")
+const stripePromise = loadStripe(process.env.NEXT_APP_STRIPE_PUBLIC_API_KEY)
 
 
 const PaymentForm = ({ checkoutToken, backStep, onCaptureCheckout, shippingData, nextStep }) => {
