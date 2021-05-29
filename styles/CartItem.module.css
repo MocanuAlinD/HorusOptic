@@ -2,28 +2,39 @@
 	position: relative;
     background: #242423;
     display: flex;
-    width: 12.5rem;
+    width: 30rem;
+    max-width: 100%;
     height: fit-content;
-    margin: .3rem;
-    flex-direction: column;
-    padding: .1rem;
+    margin: .3rem 0;
+    flex-direction: row;
+    padding: .15rem;
+    border-radius: .2rem;
 }
+
+.img{
+    width: 15rem;
+}
+
+.textButtons{
+    display: block;
+    width: 100%;
+    padding: .2rem .3rem;
+}
+
 
 
 .namePrice{
     display: flex;
-    /* justify-content: space-around; */
     align-items: center;
-    /* background: red; */
-    margin: 0 .3rem;
+    height: 50%;
 }
+
 .namePrice h4{
     width: 100%;
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     color: white;
     font-size: .9rem;
-    /* background: darkblue; */
 }
 
 .price{
@@ -33,9 +44,11 @@
 .buttons{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    /* background: blue; */
+    align-items: flex-end;
+    height: 50%;
+    width: 100%;
 }
+
 .buttons button{
     background: #e8eddf;
     border: none;
@@ -59,7 +72,6 @@
     color: #e8eddf;
     font-family: 'Poppins',sans-serif;
     font-weight: 400;
-    /* font-size: 1.2rem; */
 }
 
 .buttons .sterge{
@@ -67,27 +79,23 @@
     height: fit-content;
     font-family: 'Poppins',sans-serif;
     font-weight: 400;
-    /* background: red; */
     padding: 0 .3rem;
+    margin: 0;
 }
 
 .plusMinus{
     display: flex;
     align-items: center;
-    /* background: red; */
+    width: 100%;
 }
+
 .plusMinus button{
     background: none;
     color: #e8eddf;
     font-weight: 200;
     font-size: 1.2rem;
-    height: fit-content;
+    height: 100%;
 }
-
-.textButtons{
-    display: block;
-}
-
 
 
 @media screen and (max-width: 768px){

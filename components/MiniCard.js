@@ -6,18 +6,19 @@ import { commerce } from '../lib/commerce';
 
 
 
-const MiniCard = ({ produs, change, onAddToCart}) => {
+const MiniCard = ({ produs, change, onAddToCart }) => {
 
-    
+
     return (
         <div key={produs.id} className={styles.container}>
-            
             <Image priority='true' layout='responsive' as='image' src={produs.media.source} width={1920} height={1080} />
             <h4>{produs.name}</h4>
             <h5 className={styles.pret}>{produs.price.raw} <sub>ron</sub></h5>
             <h5 dangerouslySetInnerHTML={{ __html: produs.description }}></h5>
-            <div className={styles.link}><a onClick={() => onAddToCart(produs.id, 1)}>Adauga in cos</a></div>
-            <div className={styles.details}><a onClick={()=>change(produs)}>Detalii</a></div>
+            <hr className={styles.divider}/>
+            <h5>In stoc: <span>{produs.inventory.available}</span> </h5>
+            <div className={styles.link}><button onClick={() => onAddToCart(produs.id, 1)} disabled={true && produs.inventory.available < 99}>Adauga in cos</button></div>
+            <div className={styles.details}><a onClick={() => change(produs)}>Detalii</a></div>
         </div>
     );
 }

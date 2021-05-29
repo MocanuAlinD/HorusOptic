@@ -9,13 +9,18 @@
 }
 
 .checkout{
-    width: 80%;
+    width: 35rem;
+    max-width: 100%;
     height: fit-content;
     /* background: darkgoldenrod; */
 }
 
 .container .paper{
-    /* background: red; */
-    padding: 1.5rem;
-    margin: 2rem;
+    background: #e8eddf;
+    padding: .5rem;
+    margin: 1rem .3rem;
+}
+
+.container .stepper{
+    background: #e8eddf;
 }

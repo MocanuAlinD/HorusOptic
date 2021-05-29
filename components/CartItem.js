@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 
 const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart}) => {
-    // console.log('Cart Items: ', item)
 
     return (
         <div key={item.id} className={styles.container}>

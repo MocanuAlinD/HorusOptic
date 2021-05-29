@@ -7,16 +7,8 @@ import { commerce } from '../lib/commerce'
 import Head from 'next/head'
 
 
-// import NProgress from 'nprogress';
-// import Router from 'next/router';
-
-// Router.onRouteChangeStart = () => NProgress.start();
-// Router.onRouteChangeComplete = () => NProgress.done();
-// Router.onRouteChangeError = () => NProgress.done();
-
 
 function MyApp({ Component, pageProps }) {
-  // console.log('MyApp pageProps: ', pageProps)
   const [cart, setCart] = useState({})
   const [order, setOrder] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
@@ -28,7 +20,6 @@ function MyApp({ Component, pageProps }) {
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity)
     setCart(cart)
-    // console.log(item.cart)
   }
 
   const handleUpdateCartQty = async (productId, quantity) => {
@@ -52,7 +43,6 @@ function MyApp({ Component, pageProps }) {
   }
 
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
-    // console.log("new Order is::::", ...newOrder)
     try {
       const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder)
       setOrder(incomingOrder)
@@ -65,6 +55,12 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     fetchCart()
   }, [])
+
+  // const alin = async()=>{
+  //   const res = await commerce.products.list()
+  //   console.log(res.data.map(x=> x.inventory.available))
+  // }
+  // alin()
 
 
   return (

@@ -6,53 +6,55 @@ import Head from 'next/head'
 import { AiOutlineVerticalRight } from 'react-icons/ai';
 import Image from 'next/image'
 import { commerce } from '../../lib/commerce'
-// import { useRouter } from 'next/router'
-
-
-
+import cls from '../../styles/dinamicPage.module.css'
 
 
 export async function getStaticProps() {
     const { data: products } = await commerce.products.list()
 
+    const { data: categories } = await commerce.categories.list()
+
     const sortedNames1 = []
-    for (let i in products) {
+    for (let i in products.filter(x=>x.categories[0].slug==='rame')) {
         if (sortedNames1.includes(products[i].name)) {
             continue
         } else { sortedNames1.push(products[i].name) }
     }
     const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
+    
 
     return {
         props: {
-            products, sortedNames
+            products, sortedNames, categories
         }
     }
 }
 
 
 
-const Produse = ({ products, sortedNames, onAddToCart }) => {
+const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
+    // console.log(products.filter(x=>x.categories[0].slug==='rame'))
 
-    // const location = useRouter()
 
-    const [filter, setFilter] = useState('mocanu')
+
+    const [filter, setFilter] = useState('rame')
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('mic')
-    // const [move, setMove] = useState(allProducts[0].id.toString())
     const [img, setImg] = useState(products[0])
     const [imgpos, setImgpos] = useState(0)
-    const [showCart, setShowCart] = useState(false)
+
+
 
     const changeBrand = () => {
         if (brand === 'marcaAll') {
-            return products
+            return products.filter(x=>x.categories[0].slug===filter)
         }
-        const testFilter = products.filter(m => { return m.name && m.name.includes(brand) })
-        return testFilter
-
-
+        if (brand!== 'marcaAll'){
+            return products.filter(m => { return m.name && m.name.includes(brand) })
+        }
+        // const testFilter = products.filter(m => { return m.name && m.name.includes(brand) })
+        // return testFilter
     }
 
     const changePriceName = (e) => {
@@ -77,10 +79,8 @@ const Produse = ({ products, sortedNames, onAddToCart }) => {
 
         let b = document.getElementById('s2')
         b.style.display = 'flex'
-        // b.style.opacity = 1
         let c = document.getElementById('s1')
         c.style.display = 'none'
-        // c.style.opacity = 0
         window.scrollTo({
             top: 0,
             left: 0,
@@ -88,18 +88,50 @@ const Produse = ({ products, sortedNames, onAddToCart }) => {
         })
     }
 
+
+
     const goback = (e) => {
         let b = document.getElementById('s1')
         b.style.display = 'flex'
-        // b.style.opacity = 1
         let c = document.getElementById('s2')
         c.style.display = 'none'
-        // c.style.opacity = 0
         window.scrollTo({
             top: imgpos,
             left: 0,
             behavior: 'auto'
         })
+    }
+
+    const searchItems = () => {
+        const a = products.filter(x => {
+            return x.name && x.name.toLowerCase().includes(search) ||
+                x.description && x.description.toLowerCase().includes(search)
+        })
+        return a
+    }
+
+
+    // Slider Images
+    const jobId = img.id
+    let ln = img.assets ? img.assets.length - 1 : []
+    var sliderIndex = 0
+
+    useEffect(() => {
+        let b = document.getElementById('slider1')
+        b.style.transform = 'translate(0)'
+    }, [img])
+
+
+    const setImagePlus = () => {
+        let a = document.getElementById('slider1')
+        sliderIndex = (sliderIndex < ln) ? sliderIndex + 1 : ln
+        a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
+    }
+
+    const setImageMinus = () => {
+        let a = document.getElementById('slider1')
+        sliderIndex = (sliderIndex > 0) ? sliderIndex - 1 : 0
+        a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
     }
 
     return (
@@ -108,8 +140,8 @@ const Produse = ({ products, sortedNames, onAddToCart }) => {
                 <title>Produse</title>
             </Head>
 
-            <div className={styles.containerImg} id='containerImg'>
-                <div className={styles.carousel} id='carousel'>
+            <div className={styles.containerImg}>
+                <div className={styles.carousel}>
                     <div className={styles.slider} id='slider'>
                         <section className={styles.s1} id='s1'>
                             <div className={styles.containerSt}>
@@ -118,11 +150,16 @@ const Produse = ({ products, sortedNames, onAddToCart }) => {
                                         changeCat={cat => setFilter(cat)}
                                         brandAll={word => setBrand(word)}
                                         changePriceName={word => changePriceName(word)}
-                                        sortedNames={sortedNames} />
+                                        sortedNames={sortedNames}
+                                        searchResult={word => setSearch(word)} />
                                 </div>
 
                                 <div className={styles.productList}>
-                                    {changeBrand(products).map(prd => <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={cat => changeMe(cat)} />)}
+                                    {search === '' && changeBrand(products).map(prd =>
+                                        <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={cat => changeMe(cat)} />)}
+
+                                    {search !== '' ? searchItems().map(prd =>
+                                        <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={cat => changeMe(cat)} />) : []}
                                 </div>
                             </div>
                         </section>
@@ -130,12 +167,31 @@ const Produse = ({ products, sortedNames, onAddToCart }) => {
                         <section className={styles.s2} id='s2'>
                             <div className={styles.containerDr}>
                                 <button className={styles.backBtn} onClick={() => goback()}>&#60;</button>
-                                <div className={styles.imageDiv}>
-                                    <Image src={img.media.source} width={1920} height={1080} />
+
+                                <div className={cls.alin1}>
+                                    <div className={cls.alin2}>
+                                        <div className={cls.alin3}>
+                                            <div className={cls.alin4} id='slider1'>
+                                                <div className={cls.alin5}>
+                                                    {img.assets.map((alin) =>
+                                                        <section key={alin.id}>
+                                                            <Image src={alin.url} width={alin.image_dimensions.width} height={alin.image_dimensions.height} />
+                                                        </section>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={cls.buttonsDiv}>
+                                            <button className={cls.btnMinus} onClick={() => setImageMinus()}>&#60;</button>
+                                            <button className={cls.btnPlus} onClick={() => setImagePlus()}>&#62;</button>
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <div className={styles.rightSide}>
                                     <h4>{img.name}</h4>
                                     <div className={styles.description} dangerouslySetInnerHTML={{ __html: img.description }}></div>
+                                    <div className={styles.link}><button onClick={() => onAddToCart(img.id, 1)} disabled={true && img.inventory.available < 99}>Adauga in cos</button></div>
                                     <h4>Pret: {img.price.raw} <sub>ron</sub></h4>
                                 </div>
                             </div>

@@ -24,14 +24,6 @@ const Sidebar = (props) => {
             // const dioptrii = document.querySelector('#dioptrii')
             // dioptrii.style.display = 'none'
         }
-        // if (e==='lentile'){
-        //     const accesorii = document.querySelector('#accesorii')
-        //     accesorii.style.display = 'none'
-        //     const brands = document.querySelector('#brand')
-        //     brands.style.display = 'none'
-        //     const dioptrii = document.querySelector('#dioptrii')
-        //     dioptrii.style.display = 'block'
-        // }
         if (e==='accesorii'){
             // const accesorii = document.querySelector('#accesorii')
             // accesorii.style.display = 'block'
@@ -61,16 +53,6 @@ const Sidebar = (props) => {
             // dioptrii.style.display = 'none'
             props.changeCat('accesorii')
         }
-        // if (e === 'lentile') {
-        //     const accesorii = document.querySelector('#divAccesorii')
-        //     accesorii.style.display = 'none'
-        //     const brands = document.querySelector('#divBrand')
-        //     brands.style.display = 'none'
-        //     const dioptrii = document.querySelector('#divDioptrii')
-        //     dioptrii.style.display = 'flex'
-        //     props.changeCat('lentile')
-        // }
-
     }
 
     return (

@@ -16,10 +16,6 @@ const AddressForm = ({ checkoutToken, next }) => {
     const [shippingOption, setShippingOption] = useState('')
     const methods = useForm()
 
-    // console.log("1 Address Form shippingCountry:::",shippingCountry)
-    // console.log("2 Address Form shippingSubdivision:::", shippingSubdivision)
-    // console.log("3 Address Form shippingOption:::", shippingOption)
-
     const countries = Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name }))
     const subdivisions = Object.entries(shippingSubdivisions).map(([code, name]) => ({ id: code, label: name }))
     const options = shippingOptions.map((sO) => ({ id: sO.id, label: `${sO.price.raw} ${sO.description}` }))
@@ -43,17 +39,14 @@ const AddressForm = ({ checkoutToken, next }) => {
     }
 
     useEffect(() => {
-        console.log("1 use effect Address Form checkoutToken ID:::", checkoutToken.id)
         fetchShippingCountries(checkoutToken.id)
     }, []);
 
     useEffect(() => {
-        console.log("2 use effect Address Form shippingCountry:::", shippingCountry)
         if (shippingCountry) fetchSubdivisions(shippingCountry)
     }, [shippingCountry])
 
     useEffect(() => {
-        console.log("3 use effect Address Form shippingSubdivision:::", shippingSubdivision)
         if (shippingSubdivision) fetchShippingOptions(checkoutToken.id, shippingCountry, shippingSubdivision)
     }, [shippingSubdivision]);
 
@@ -61,16 +54,13 @@ const AddressForm = ({ checkoutToken, next }) => {
         <>
             <Typography variant="h6" gutterBottom>Adresa livrare</Typography>
             <FormProvider {...methods}>
-                <form onSubmit={methods.handleSubmit((data)=>next({...data, shippingCountry, shippingSubdivision, shippingOption}))}>
-                {/* <form onSubmit={methods.handleSubmit((data)=>next({...data}))}> */}
-                {/* <form onSubmit={methods.handleSubmit((data)=>console.log(data))}> */}
-                    <Grid container spacing={3}>
+                <form onSubmit={methods.handleSubmit((data) => next({ ...data, city: subdivisions.filter(x => x.id && x.id === shippingSubdivision)[0].label, shippingCountry, shippingSubdivision, shippingOption }))}>
+                    <Grid container spacing={3} >
                         <FormInput name='firstName' label='Nume' />
                         <FormInput name='lastName' label='Prenume' />
                         <FormInput name='address1' label='Adresa' />
                         <FormInput name='email' label='Email' />
-                        <FormInput name='city' label='Oras' />
-                        <FormInput name='zip' label='Cod postal' />
+
                         <Grid item xs={12} sm={6}>
                             <InputLabel>Tara</InputLabel>
                             <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
@@ -82,6 +72,8 @@ const AddressForm = ({ checkoutToken, next }) => {
 
                             </Select>
                         </Grid>
+
+                        <FormInput name='zip' label='Cod postal' />
 
                         <Grid item xs={12} sm={6}>
                             <InputLabel>Oras</InputLabel>
@@ -105,9 +97,10 @@ const AddressForm = ({ checkoutToken, next }) => {
                             </Select>
                         </Grid>
                     </Grid>
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "1rem" }}>
                         <Link href='/Cart'><Button variant="outlined">Inapoi la cos</Button></Link>
-                        <Button type='submit' variant="contained" color='primary'>Continua</Button>
+                        {/* <Button type='submit' variant="contained" color='primary'>Continua</Button> */}
+                        <Button type="submit" variant="contained" color="primary">Next</Button>
                     </div>
                 </form>
             </FormProvider>
