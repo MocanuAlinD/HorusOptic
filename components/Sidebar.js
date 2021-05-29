@@ -1,56 +1,34 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import styles from '../styles/Sidebar.module.css'
 import { AiOutlineSearch, AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
-// import { BiArrowFromBottom, BiArrowFromTop } from 'react-icons/bi'
 
 const Sidebar = (props) => {
 
     const sendAllCats = (e) => {
         props.changeCat(e)
-        // checkFilter(e)
+        checkFilter(e)
     }
-
-    // const sendAllBrands = (e) => {
-    //     console.log(e)
-    //     props.brandAll(e)
-    // }
 
     const checkFilter =(e) => {
         if (e ==='rame'){
-            // const accesorii = document.querySelector('#accesorii')
-            // accesorii.style.display = 'none'
             const brands = document.querySelector('#brand')
             brands.style.display = 'block'
-            // const dioptrii = document.querySelector('#dioptrii')
-            // dioptrii.style.display = 'none'
         }
         if (e==='accesorii'){
-            // const accesorii = document.querySelector('#accesorii')
-            // accesorii.style.display = 'block'
             const brands = document.querySelector('#brand')
             brands.style.display = 'none'
-            // const dioptrii = document.querySelector('#dioptrii')
-            // dioptrii.style.display = 'none'
         }
     }
 
     const mobileSendAllCats = (e) => {
         if (e === 'rame') {
-            // const accesorii = document.querySelector('#divAccesorii')
-            // accesorii.style.display = 'none'
             const brands = document.querySelector('#divBrand')
             brands.style.display =  'flex'
-            // const dioptrii = document.querySelector('#divDioptrii')
-            // dioptrii.style.display = 'none'
             props.changeCat('rame')
         }
         if (e === 'accesorii') {
-            // const accesorii = document.querySelector('#divAccesorii')
-            // accesorii.style.display = 'flex'
             const brands = document.querySelector('#divBrand')
             brands.style.display = 'none'
-            // const dioptrii = document.querySelector('#divDioptrii')
-            // dioptrii.style.display = 'none'
             props.changeCat('accesorii')
         }
     }
@@ -67,11 +45,9 @@ const Sidebar = (props) => {
                 {/* Meniu categorii */}
                 <div className={styles.bucati}>
                     <h4>Categorie</h4>
-                    {/* <input defaultChecked type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input> */}
                     <input defaultChecked type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label htmlFor="rame">Rame</label><br />
 
-                    {/* <input type="radio" id="accesoriiSus" name="categorie" value="accesorii" onClick={(e) => sendAllCats(e.target.value)}></input> */}
                     <input type="radio" id="accesoriiSus" name="categorie" value="accesorii" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label htmlFor="accesorii">Accesorii</label>
                 </div>

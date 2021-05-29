@@ -44,8 +44,6 @@ const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
     const [img, setImg] = useState(products[0])
     const [imgpos, setImgpos] = useState(0)
 
-
-
     const changeBrand = () => {
         if (brand === 'marcaAll') {
             return products.filter(x=>x.categories[0].slug===filter)
@@ -147,11 +145,12 @@ const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
                             <div className={styles.containerSt}>
                                 <div className={styles.sidebar}>
                                     <Sidebar
-                                        changeCat={cat => setFilter(cat)}
+                                        changeCat={cat => (setFilter(cat), setBrand('marcaAll'))}
                                         brandAll={word => setBrand(word)}
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
-                                        searchResult={word => setSearch(word)} />
+                                        searchResult={word => setSearch(word)} 
+                                        />
                                 </div>
 
                                 <div className={styles.productList}>
