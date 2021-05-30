@@ -6,10 +6,37 @@
   height: 100%;
 }
 
+.scrollText{
+  overflow: hidden;
+  /* background: green; */
+  width: 100%;
+}
+
+.scrollText p{
+  white-space: nowrap;
+  animation: alin 75s linear infinite;
+  color: white;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Cinzel Decorative', cursive; */
+  /* font-family: 'Poiret One', cursive; */
+  font-weight: 200;
+  font-size: .8rem;
+  /* background: tomato; */
+  text-align: center;
+  letter-spacing: .05rem;
+  display: flex;
+  justify-content: space-around;
+  /* padding: .2rem 0; */
+}
+@keyframes alin {
+    0%   { transform: translate(100%); }
+    100% { transform: translate(-100%); }
+}
+
 .bigImage{
   width: 100%;
   height: 15rem;
-  /* margin-top: 1.2rem; */
   background-image: url('/bg3.jpg');
   background-position-x: center;
   background-position-y: center;
@@ -34,20 +61,6 @@
   font-style: italic;
 }
 
-/* .backTop{
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background: #f5cb5c;
-  font-size: 2rem;
-  border-radius: 50%;
-  color: #242423;
-  opacity: 1;
-  cursor: pointer;
-  margin: 0 .5rem .5rem 0;
-  z-index: 99;
-} */
-
 .mission{
   width: calc(100% - 1rem);
   margin: .5rem;
@@ -64,7 +77,6 @@
   font-size: 1.5rem;
   font-family: 'Poppins',sans-serif;
   font-weight: 600;
-  /* z-index: 2; */
   position: relative;
 }
 
@@ -74,7 +86,6 @@
 }
 .ulMission li::marker{
   color: #f5cb5c;
-  /* color: #2a9d8f; */
 }
 
 .ulMission li{
@@ -84,12 +95,6 @@
   font-weight: 200;
 }
 
-/* .mission p{
-  color: #e8eddf;
-  font-family: 'Poppins',sans-serif;
-  font-size: .9rem;
-  font-weight: 200;
-} */
 
 @media screen and (max-width: 875px){
 	.bigImage h3{
@@ -106,6 +111,10 @@
     width: 100%;
     margin: 0;
     text-align: center;
+  }
+  .scrollText p{
+    animation: alin 30s linear infinite;
+    letter-spacing: 0;
   }
 }
 

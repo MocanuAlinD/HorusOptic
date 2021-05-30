@@ -34,6 +34,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
     const fetchShippingOptions = async (checkoutTokenId, country, region = null) => {
         const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region })
+        console.log("Options: ",options)
         setShippingOptions(options)
         setShippingOption(options[0].id)
     }
@@ -99,8 +100,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                     </Grid>
                     <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "1rem" }}>
                         <Link href='/Cart'><Button variant="outlined">Inapoi la cos</Button></Link>
-                        {/* <Button type='submit' variant="contained" color='primary'>Continua</Button> */}
-                        <Button type="submit" variant="contained" color="primary">Next</Button>
+                        <Button type="submit" variant="contained" color="primary">Continua</Button>
                     </div>
                 </form>
             </FormProvider>

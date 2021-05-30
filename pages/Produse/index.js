@@ -15,13 +15,13 @@ export async function getStaticProps() {
     const { data: categories } = await commerce.categories.list()
 
     const sortedNames1 = []
-    for (let i in products.filter(x=>x.categories[0].slug==='rame')) {
+    for (let i in products.filter(x => x.categories[0].slug === 'rame')) {
         if (sortedNames1.includes(products[i].name)) {
             continue
         } else { sortedNames1.push(products[i].name) }
     }
     const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
-    
+
 
     return {
         props: {
@@ -46,9 +46,9 @@ const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
 
     const changeBrand = () => {
         if (brand === 'marcaAll') {
-            return products.filter(x=>x.categories[0].slug===filter)
+            return products.filter(x => x.categories[0].slug === filter)
         }
-        if (brand!== 'marcaAll'){
+        if (brand !== 'marcaAll') {
             return products.filter(m => { return m.name && m.name.includes(brand) })
         }
         // const testFilter = products.filter(m => { return m.name && m.name.includes(brand) })
@@ -149,8 +149,8 @@ const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
                                         brandAll={word => setBrand(word)}
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
-                                        searchResult={word => setSearch(word)} 
-                                        />
+                                        searchResult={word => setSearch(word)}
+                                    />
                                 </div>
 
                                 <div className={styles.productList}>

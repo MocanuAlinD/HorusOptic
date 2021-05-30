@@ -5,7 +5,7 @@ import AddressForm from '../../components/Checkout/AddressForm'
 import PaymentForm from '../../components/Checkout/PaymentForm'
 import { commerce } from '../../lib/commerce'
 import Link from 'next/link'
-import { useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 // import useStyles from './styles';
 
@@ -19,7 +19,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [shippingData, setShippingData] = useState({})
     const [isFinished, setIsFinished] = useState(false)
 
-    const history = useHistory();
+    const router = useRouter();
 
 
 
@@ -79,7 +79,7 @@ useEffect(() => {
             const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' })
             setCheckoutToken(token)
         } catch (error) {
-            history.push('/')
+            router.push('/')
         }
     }
     generateToken()

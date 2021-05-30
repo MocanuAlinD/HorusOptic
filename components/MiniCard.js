@@ -7,7 +7,7 @@ import { commerce } from '../lib/commerce';
 
 
 const MiniCard = ({ produs, change, onAddToCart }) => {
-
+    console.log(produs.name, produs.inventory.available)
 
     return (
         <div key={produs.id} className={styles.container}>
@@ -17,7 +17,25 @@ const MiniCard = ({ produs, change, onAddToCart }) => {
             <h5 dangerouslySetInnerHTML={{ __html: produs.description }}></h5>
             <hr className={styles.divider}/>
             <h5>In stoc: <span>{produs.inventory.available}</span> </h5>
-            <div className={styles.link}><button onClick={() => onAddToCart(produs.id, 1)} disabled={true && produs.inventory.available < 99}>Adauga in cos</button></div>
+            {/* <div className={styles.link}><button onClick={() => onAddToCart(produs.id, 1)} disabled={true && produs.inventory.available < 99}>Adauga in cos</button></div> */}
+
+
+
+
+
+
+
+            {/* <div className={styles.link}><button onClick={() => onAddToCart(produs.id, 1)} disabled={true && produs.inventory.available < 99}>Adauga in cos</button></div> */}
+            {produs.inventory.available < 97 ? 
+                (<div className={styles.link}><button title="Produsul nu este pe stoc. Comanda doar la telefon." disabled={true && produs.inventory.available < 99}>INDISPONIBIL</button></div>) : 
+                (<div className={styles.link}><button onClick={() => onAddToCart(produs.id, 1)}>Adauga in cos</button></div>)
+            }
+
+
+
+
+
+
             <div className={styles.details}><a onClick={() => change(produs)}>Detalii</a></div>
         </div>
     );
