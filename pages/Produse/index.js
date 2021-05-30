@@ -9,7 +9,7 @@ import { commerce } from '../../lib/commerce'
 import cls from '../../styles/dinamicPage.module.css'
 
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
     const { data: products } = await commerce.products.list()
 
     const { data: categories } = await commerce.categories.list()
@@ -33,8 +33,6 @@ export async function getStaticProps() {
 
 
 const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
-    console.log(products.filter(x=>x.inventory.available < 98))
-
 
 
     const [filter, setFilter] = useState('rame')
@@ -201,6 +199,19 @@ const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
         </div>
     );
 }
+
+// Produse.getInitialProps = async () => {
+//     const { data: products } = await commerce.products.list()
+
+//     return { 
+//         props: {
+//             products
+//         } 
+//     }
+// }
+
+
+
 
 
 export default Produse;

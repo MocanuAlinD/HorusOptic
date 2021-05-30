@@ -8,8 +8,6 @@ const stripePromise = loadStripe(process.env.NEXT_APP_STRIPE_PUBLIC_API_KEY)
 
 
 const PaymentForm = ({ timeout, checkoutToken, backStep, onCaptureCheckout, shippingData, nextStep }) => {
-    console.log(shippingData)
-
 
     const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault()

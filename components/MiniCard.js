@@ -14,10 +14,10 @@ const MiniCard = ({ produs, change, onAddToCart }) => {
 
 
 
-    const getme = async () => {
-        const prod = await commerce.products.retrieve(produs.id)
-        setCant(prod.inventory.available)
-    }
+    // const getme = async () => {
+    //     const prod = await commerce.products.retrieve(produs.id)
+    //     setCant(prod.inventory.available)
+    // }
 
 
     return (
@@ -29,7 +29,7 @@ const MiniCard = ({ produs, change, onAddToCart }) => {
             <hr className={styles.divider} />
             <h5>In stoc: <span>{cant}</span> </h5>
             {/* <div className={styles.link}><button onClick={() => onAddToCart(produs.id, 1)} disabled={true && produs.inventory.available < 99}>Adauga in cos</button></div> */}
-            <button onClick={()=>getme()}>Click me</button>
+            {/* <button onClick={()=>getme()}>Click me</button> */}
 
 
 
