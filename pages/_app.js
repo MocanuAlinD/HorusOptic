@@ -56,12 +56,6 @@ function MyApp({ Component, pageProps }) {
     fetchCart()
   }, [])
 
-  // const alin = async()=>{
-  //   const res = await commerce.products.list()
-  //   console.log(res.data.map(x=> x.inventory.available))
-  // }
-  // alin()
-
 
   return (
     <>

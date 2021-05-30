@@ -21,7 +21,8 @@
 }
 
 .alin4{
-    height: 100%;
+    background: red;
+    /* height: 100%; */
     display: flex;
     justify-content: center;
     align-items: flex-end;

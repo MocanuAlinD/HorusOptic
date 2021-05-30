@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/Sidebar.module.css'
 import { AiOutlineSearch, AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
 
@@ -9,12 +9,12 @@ const Sidebar = (props) => {
         checkFilter(e)
     }
 
-    const checkFilter =(e) => {
-        if (e ==='rame'){
+    const checkFilter = (e) => {
+        if (e === 'rame') {
             const brands = document.querySelector('#brand')
             brands.style.display = 'block'
         }
-        if (e==='accesorii'){
+        if (e === 'accesorii') {
             const brands = document.querySelector('#brand')
             brands.style.display = 'none'
         }
@@ -23,7 +23,7 @@ const Sidebar = (props) => {
     const mobileSendAllCats = (e) => {
         if (e === 'rame') {
             const brands = document.querySelector('#divBrand')
-            brands.style.display =  'flex'
+            brands.style.display = 'flex'
             props.changeCat('rame')
         }
         if (e === 'accesorii') {
@@ -73,11 +73,11 @@ const Sidebar = (props) => {
                 <div className={styles.bucati} id='brand'>
                     <h4>Brand</h4>
 
-                    <input defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={() => props.brandAll('marcaAll')}></input>
+                    <input defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={(e) => props.brandAll(e.target.value)}></input>
                     <label htmlFor="marcaAll">Toate</label><br />
-                    {props.sortedNames.map((item, index)=>{
+                    {props.sortedNames.map((item, index) => {
                         return (
-                            <div key= { index } >
+                            <div key={index} >
                                 <input type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input>
                                 <label htmlFor={item}>{item}</label><br />
                             </div>
@@ -103,7 +103,7 @@ const Sidebar = (props) => {
                 {/* Search */}
                 <div className={styles.bucatiDrop}>
                     <AiOutlineSearch className={styles.searchIconDrop} />
-                    <input type="search" className={styles.searchDrop} onChange={(e) => props.searchResult(e.target.value.toLowerCase())}/>
+                    <input type="search" className={styles.searchDrop} onChange={(e) => props.searchResult(e.target.value.toLowerCase())} />
                 </div>
 
                 {/* Categorie RAME-ACCESORII */}
@@ -120,13 +120,13 @@ const Sidebar = (props) => {
                     <h4>Brand</h4>
                     <select name="brand" id="brandMobile" onChange={(e) => props.brandAll(e.target.value)}>
                         <option value="marcaAll">Toate</option>
-                        
+
                         {props.sortedNames.map((item, index) => {
                             return (
                                 <option key={index} value={item}>{item}</option>
                             )
                         })}
-                        
+
                     </select>
                 </div>
 

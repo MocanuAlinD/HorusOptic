@@ -9,17 +9,19 @@ export default function Home(props) {
   const { allIndexData } = props
   return (
     <div className={styles.container}>
-      <div className={styles.scrollText}>
+      {/* <div className={styles.scrollText}>
         <p>Pentru produsele indisponibile(nu mai sunt pe stoc), va rugam sa trimiteti un email (horus_top_optic@yahoo.com), sms ori la telefon (0742.654.258) cu codul produsului dorit si il vom aduce il cel mai scurt timp posibil. Va multumim pentru intelegere! </p>
-      </div>
+      </div> */}
+
+
+      {/* <marquee className={styles.scrollText} behavior="scroll" direction="left">Pentru produsele indisponibile(nu mai sunt pe stoc), va rugam sa trimiteti un email (horus_top_optic@yahoo.com), sms ori la telefon (0742.654.258) cu codul produsului dorit si il vom aduce il cel mai scurt timp posibil. Va multumim pentru intelegere!</marquee> */}
+
 
       <div className={styles.bigImage}>
         <h3>NOI AVEM GRIJA DE OCHII DUMNEAVOASTRA !</h3>
       </div>
       
       <Card1 indexData={allIndexData}/>
-
-      {/* <BsArrowBarUp className={styles.backTop}/> */}
 
       <div className={styles.mission}>
         <h3>Misiunea noastra</h3>

@@ -6,33 +6,32 @@ import Head from 'next/head'
 import { AiOutlineVerticalRight } from 'react-icons/ai';
 import Image from 'next/image'
 import { commerce } from '../../lib/commerce'
-import cls from '../../styles/dinamicPage.module.css'
+// import cls from '../../styles/dinamicPage.module.css'
 
 
 export async function getServerSideProps(context) {
     const { data: products } = await commerce.products.list()
 
-    const { data: categories } = await commerce.categories.list()
+    const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
 
     const sortedNames1 = []
-    for (let i in products.filter(x => x.categories[0].slug === 'rame')) {
-        if (sortedNames1.includes(products[i].name)) {
+    for (let i in abc) {
+        if (sortedNames1.includes(abc[i].name)) {
             continue
-        } else { sortedNames1.push(products[i].name) }
+        } else { sortedNames1.push(abc[i].name) }
     }
     const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
 
-
     return {
         props: {
-            products, sortedNames, categories
+            products, sortedNames
         }
     }
 }
 
 
 
-const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
+const Produse = ({ sortedNames, products, onAddToCart }) => {
 
 
     const [filter, setFilter] = useState('rame')
@@ -49,8 +48,6 @@ const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
         if (brand !== 'marcaAll') {
             return products.filter(m => { return m.name && m.name.includes(brand) })
         }
-        // const testFilter = products.filter(m => { return m.name && m.name.includes(brand) })
-        // return testFilter
     }
 
     const changePriceName = (e) => {
@@ -143,11 +140,12 @@ const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
                             <div className={styles.containerSt}>
                                 <div className={styles.sidebar}>
                                     <Sidebar
-                                        changeCat={cat => (setFilter(cat), setBrand('marcaAll'))}
+                                        changeCat={(cat) => (setFilter(cat), setBrand('marcaAll'))}
                                         brandAll={word => setBrand(word)}
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
                                         searchResult={word => setSearch(word)}
+
                                     />
                                 </div>
 
@@ -165,30 +163,32 @@ const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
                             <div className={styles.containerDr}>
                                 <button className={styles.backBtn} onClick={() => goback()}>&#60;</button>
 
-                                <div className={cls.alin1}>
-                                    <div className={cls.alin2}>
-                                        <div className={cls.alin3}>
-                                            <div className={cls.alin4} id='slider1'>
-                                                <div className={cls.alin5}>
-                                                    {img.assets.map((alin) =>
-                                                        <section key={alin.id}>
-                                                            <Image src={alin.url} width={alin.image_dimensions.width} height={alin.image_dimensions.height} />
-                                                        </section>
-                                                    )}
-                                                </div>
-                                            </div>
+                                <div className={styles.alin2}>
+                                    <div className={styles.alin4} id='slider1'>
+                                        <div className={styles.alin5}>
+                                            {img.assets.map((alin) =>
+                                                <section key={alin.id}>
+                                                    <Image src={alin.url} width={alin.image_dimensions.width} height={alin.image_dimensions.height} />
+                                                </section>
+                                            )}
                                         </div>
-                                        <div className={cls.buttonsDiv}>
-                                            <button className={cls.btnMinus} onClick={() => setImageMinus()}>&#60;</button>
-                                            <button className={cls.btnPlus} onClick={() => setImagePlus()}>&#62;</button>
-                                        </div>
+                                    </div>
+                                    <div className={styles.buttonsDiv}>
+                                        <button className={styles.btnMinus} onClick={() => setImageMinus()}>&#60;</button>
+                                        <button className={styles.btnPlus} onClick={() => setImagePlus()}>&#62;</button>
                                     </div>
                                 </div>
 
                                 <div className={styles.rightSide}>
                                     <h4>{img.name}</h4>
                                     <div className={styles.description} dangerouslySetInnerHTML={{ __html: img.description }}></div>
-                                    <div className={styles.link}><button onClick={() => onAddToCart(img.id, 1)} disabled={true && img.inventory.available < 99}>Adauga in cos</button></div>
+                                    {/* <div className={styles.link}><button onClick={() => onAddToCart(img.id, 1)} disabled={true && img.inventory.available < 99}>Adauga in cos</button></div> */}
+
+                                    {img.inventory.available < 90 ?
+                                        (<div className={styles.link}><button title="Produsul nu este pe stoc. Comanda la telefon sau email." disabled={true && img.inventory.available < 99}>INDISPONIBIL</button></div>) :
+                                        (<div className={styles.link}><button onClick={() => onAddToCart(img.id, 1)}>Adauga in cos</button></div>)
+                                    }
+
                                     <h4>Pret: {img.price.raw} <sub>ron</sub></h4>
                                 </div>
                             </div>

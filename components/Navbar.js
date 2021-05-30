@@ -39,12 +39,11 @@ const Navbar = ({totalItems}) => {
             <ul className={style.ul}>
                 <li><Link href='/'><a onClick={closeMenu}>Acasa</a></Link></li>
                 <li><Link href='/Produse'><a onClick={() => closeMenu()}>Produse</a></Link></li>
-                {/* <li><Link href='./despre'><a onClick={closeMenu}>Despre noi</a></Link></li> */}
-                <li><Link href='/info'><a onClick={() => closeMenu()}>?</a></Link></li>
+                <li><Link href='/info'><a onClick={() => closeMenu()}>FAQ</a></Link></li>
             </ul>
             <button className={style.meniu} onClick={changeMe}>Meniu</button>
             {location.pathname !== '/Cart' && <Link href='/Cart'>
-                <IconButton aria-label='Show cart items' style={{ color: "#f5cb5c" }} >
+                <IconButton aria-label='Show cart items' style={{ color: "#f5cb5c"}} >
                     <Badge badgeContent={totalItems} anchorOrigin={{ vertical: 'top', horizontal: 'right', }} color='secondary'>
                         <ShoppingCart />
                     </Badge>
@@ -55,57 +54,3 @@ const Navbar = ({totalItems}) => {
 }
 
 export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-class Navbar extends Component {
-
-    constructor(props) {
-        super(props)
-        this.status = false
-    }
-    changeMe() {
-        let a = document.querySelector("ul")
-        console.log(this.status)
-        if (a.style.transform == "translate(0px)") {
-            a.style.transform = "translate(30px)"
-        } else {
-            a.style.transform = "translate(-30px)"
-        }
-
-    }
-    render() {
-        return (
-            <div className={style.navbarContainer}>
-                <div className={style.navTitle}>
-                    <h3>HORUS TOP OPTIC</h3>
-                    <GiEyeOfHorus size='3rem' color="#f5cb5c" />
-                </div>
-                <ul className={style.ul}>
-                    <li><Link href=''><a>Acasa</a></Link></li>
-                    <li><Link href=''><a>Despre noi</a></Link></li>
-                    <li><Link href=''><a>Consultanta</a></Link></li>
-                    <li><Link href=''><a>Contact</a></Link></li>
-                </ul>
-                <button className={style.meniu} onClick={this.changeMe}>Meniu</button>
-            </div>
-        );
-    }
-}
-*/
-
-// export default Navbar;

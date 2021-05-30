@@ -8,9 +8,11 @@
     overflow: hidden;
 }
 
+/* Pagina cu produse */
 .container .s1{
     padding: 0 1rem;
 }
+
 
 .containerImg {
     width: 100%;
@@ -29,19 +31,7 @@
     position: relative;
 }
 
-.s2 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
 
-.containerDr {
-    display: flex;
-    width: 80%;
-    height: fit-content;
-}
 
 .backBtn {
     font-size: 2rem;
@@ -61,79 +51,7 @@
     cursor: pointer;
 }
 
-.imageDiv {
-    background: #242423;
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.rightSide {
-    min-height: 100%;
-    background: #242423;
-    width: 25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: .5rem;
-}
-
-.rightSide h4:first-child {
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 2rem;
-    text-decoration: underline;
-    padding-bottom: 2rem;
-}
-
-.description p {
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 200;
-    font-size: 1rem;
-}
-
-.rightSide h4:last-child {
-    color: #f5cb5c;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 2rem;
-    text-align: end;
-}
-
-
-/* Buton Adauga in cos */
-.link{
-    /* background: red; */
-    /* flex-grow: 1; */
-    text-align: left;
-    /* position: relative; */
-    
-}
-
-/* Buton Adauga in cos */
-.link button{
-    border: none;
-    /* background: blue; */
-    color: #333533;
-    /* position: absolute; */
-    /* bottom: -.2rem; */
-    /* right: -1rem; */
-    background: #f5cb5c;
-    padding: .05rem .2rem;
-    border-radius: .3rem;
-    font-family: 'Poppins',sans-serif;
-    font-size: .9rem;
-    font-weight: 400;
-    cursor: pointer;
-}
-
-.link button:disabled{
-    background: gray;
-    cursor: not-allowed;
-}
 
 .s1{
     width: 100%;
@@ -159,6 +77,165 @@
     flex-wrap: wrap;
 }
 
+
+
+
+
+
+
+
+
+/* SECTION 2 */
+
+
+/* Toata pagina S2 */
+.s2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+/* Div cu imaginea si scrisu */
+.containerDr {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: flex-end;
+    background: #242423;
+}
+
+.alin2{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.alin4{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    transition: all .35s ease-in-out;
+}
+
+.alin5 {
+    width: 100%;
+    display: flex;
+}
+
+.alin5 section{
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+}
+
+
+
+
+
+
+/* Partea cu scrisu din dreapta imaginii */
+.rightSide {
+    background: #242423;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 .5rem;
+}
+
+
+/* Titlu din partea dreapta sus */
+.rightSide h4:first-child {
+    color: #e8eddf;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+
+/* Descrierea */
+.description p {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 1rem;
+}
+
+
+/* Pretul */
+.rightSide h4:last-child {
+    color: #f5cb5c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: end;
+}
+
+
+/* Buton Adauga in cos */
+.link{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 1rem;
+    
+}
+
+/* Buton Adauga in cos */
+.link button{
+    border: none;
+    color: #333533;
+    background: #f5cb5c;
+    padding: .05rem .2rem;
+    border-radius: .3rem;
+    font-family: 'Poppins',sans-serif;
+    font-size: .9rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.link button:disabled{
+    background: gray;
+    cursor: not-allowed;
+}
+
+.buttonsDiv{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: fit-content;
+    height: 1.7rem;
+    display: flex;
+    background: #24242366;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem 1rem 0 0;
+    z-index: 3;
+}
+
+.buttonsDiv button{
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    width: 3rem;
+    cursor: pointer;
+    color: #e8eddf;
+    background: none;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+    transition: all 350ms ease-in-out;
+}
+
+.buttonsDiv button:hover{
+    color: #f5cb5c;
+}
+
+
 @media screen and (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -177,7 +254,7 @@
 
     .containerDr {
         display: block;
-        width: 95%;
+        width: 98%;
     }
 
     .rightSide {
@@ -222,5 +299,10 @@
         display: flex;
         flex-wrap: wrap;
         margin-top: 7.5rem;
+    }
+
+    .buttonsDiv{
+        left: 100%;
+        transform: translate(-100%);
     }
 }

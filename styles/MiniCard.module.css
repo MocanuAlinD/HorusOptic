@@ -2,7 +2,7 @@
 	position: relative;
     background: #242423;
     display: flex;
-    width: 250px;
+    width: 15rem;
     height: fit-content;
     margin: 1rem;
     flex-direction: column;
@@ -14,7 +14,6 @@
 
 
 .container:hover{
-    /* transform: scale(1.02); */
     box-shadow: 3px 3px 3px 3px rgba(24, 24, 24, 0.333);
     background: #121212;
 }
@@ -24,15 +23,14 @@
     color: #e8eddf;
     font-family: 'Poppins';
 }
+
 .container h4{
     font-weight: 400;
 }
+
 .container h5{
     font-weight: 200;
 }
-
-
-
 
 .container .pret{
     color: #242423;
@@ -57,23 +55,18 @@
 }
 
 .pret sub{
-    /* color: red; */
     font-weight: 400;
     font-size: .8rem;
 }
 
 .link{
-    /* background: red; */
     flex-grow: 1;
     text-align: right;
     position: relative;
-    /* align-self: flex-end; */
-    /* justify-content: flex-end; */
 }
 
 
 .link button{
-    /* background: blue; */
     border: none;
     color: #333533;
     position: absolute;

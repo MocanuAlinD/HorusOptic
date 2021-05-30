@@ -1,45 +1,15 @@
 
 .container{
-  /* background: linear-gradient(to right, #333533, #303030); */
   min-height: 79vh;
-  /* padding-top: 1.8rem; */
   height: 100%;
-}
-
-.scrollText{
-  overflow: hidden;
-  /* background: green; */
-  width: 100%;
-}
-
-.scrollText p{
-  white-space: nowrap;
-  animation: alin 75s linear infinite;
-  color: white;
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-  /* font-family: 'Cinzel Decorative', cursive; */
-  /* font-family: 'Poiret One', cursive; */
-  font-weight: 200;
-  font-size: .8rem;
-  /* background: tomato; */
-  text-align: center;
-  letter-spacing: .05rem;
-  display: flex;
-  justify-content: space-around;
-  /* padding: .2rem 0; */
-}
-@keyframes alin {
-    0%   { transform: translate(100%); }
-    100% { transform: translate(-100%); }
 }
 
 .bigImage{
   width: 100%;
-  height: 15rem;
-  background-image: url('/bg3.jpg');
+  height: 35rem;
+  background-image: url('/bg4.jpg');
   background-position-x: center;
-  background-position-y: center;
+  background-position-y: bottom;
   background-size: cover;
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -97,6 +67,10 @@
 
 
 @media screen and (max-width: 875px){
+  .bigImage{
+    height: 15rem;
+    background-position-x: left;
+  }
 	.bigImage h3{
     font-size: 1.5rem;
     width: 100%;
@@ -115,6 +89,10 @@
   .scrollText p{
     animation: alin 30s linear infinite;
     letter-spacing: 0;
+  }
+  .bigImage{
+    height: 15rem;
+    background-position-x: left;
   }
 }
 
