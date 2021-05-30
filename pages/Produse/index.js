@@ -33,7 +33,7 @@ export async function getStaticProps() {
 
 
 const Produse = ({ categories, products, sortedNames, onAddToCart }) => {
-    // console.log(products.filter(x=>x.categories[0].slug==='rame'))
+    console.log(products.filter(x=>x.inventory.available < 98))
 
 
 
