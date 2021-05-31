@@ -18,8 +18,6 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     const router = useRouter();
 
-
-
     const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
     const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1)
 
@@ -29,76 +27,81 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     }
 
     const Form = () => (activeStep === 0
-        ? <AddressForm checkoutToken={checkoutToken} nextStep={nextStep} next={next} />
-        : <PaymentForm timeout={timeout} cart={cart} shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep} nextStep={nextStep} onCaptureCheckout={onCaptureCheckout} />)
+        ? <AddressForm checkoutToken={checkoutToken} nextStep={nextStep} setShippingData={setShippingData} next={next} />
+        : <PaymentForm checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} shippingData={shippingData} onCaptureCheckout={onCaptureCheckout} timeout={timeout} cart={cart} />)
 
     let Confirmation = () => order.customer ? (
         <>
             <Typography variant="h5">
                 Multumim pentru comanda, {order.customer.firstname} {order.customer.lastname}
             </Typography>
-            <Divider style={{margin: ".5rem 0"}}/>
+            <Divider style={{ margin: ".5rem 0" }} />
             <Typography variant="subtitle2">
                 Comanda nr: {order.customer_reference}
             </Typography> <br />
             <Link href='/'><Button variant="outlined" type="button">Pagina principala</Button></Link>
         </>
     ) : isFinished ? (
-            <>
-                <Typography variant="h5">
-                    Multumim pentru comanda!
-                </Typography>
-                <Divider />
-                <Link href='/'><Button variant="outlined" type="button">Pagina principala</Button></Link>
-            </>
-    ): (
-        <div className = {styles.spinner}>
+        <>
+            <Typography variant="h5">
+                Multumim pentru comanda!
+            </Typography>
+            <Divider />
+            <Link href='/'><Button variant="outlined" type="button">Pagina principala</Button></Link>
+        </>
+    ) : (
+        <div className={styles.spinner}>
             <CircularProgress />
         </div >
     )
 
-if (error) {
-    <>
-        <Typography variant="h5">Error: {error}</Typography> <br />
-        <Link href='/'><Button variant="outlined" type="button">Pagina principala</Button></Link>
-    </>
-}
-
-const timeout = () => {
-    setTimeout(() => {
-        setIsFinished(true)
-    }, 3000)
-}
-
-useEffect(() => {
-    const generateToken = async () => {
-        try {
-            const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' })
-            setCheckoutToken(token)
-        } catch (error) {
-            router.push('/')
-        }
+    if (error) {
+        <>
+            <Typography variant="h5">Error: {error}</Typography> <br />
+            <Link href='/'><Button variant="outlined" type="button">Pagina principala</Button></Link>
+        </>
     }
-    generateToken()
-}, [cart])
 
-return (
-    <div className={styles.container}>
-        <div className={styles.checkout}>
-            <Paper variant="outlined" className={styles.paper}>
-                <Typography variant="h4" align="center" >Checkout</Typography>
-                <Stepper activeStep={activeStep} alternativeLabel className={styles.stepper}>
-                    {steps.map((step) => (
-                        <Step key={step}>
-                            <StepLabel>{step}</StepLabel>
-                        </Step>
-                    ))}
-                </Stepper>
-                {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
-            </Paper>
+    const timeout = () => {
+        setTimeout(() => {
+            setIsFinished(true)
+        }, 3000)
+    }
+
+    useEffect(() => {
+        // console.log("Cart DATA: ", cart)
+        if (cart.id) {
+            const generateToken = async () => {
+                try {
+                    const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' });
+                    console.log("TOKEN: ", token)
+                    setCheckoutToken(token);
+                } catch {
+                    if (activeStep !== steps.length) router.push('/');
+                }
+            };
+
+            generateToken();
+        }
+    }, [cart])
+
+    return (
+        <div className={styles.container}>
+            <div className={styles.checkout}>
+                <Paper variant="outlined" className={styles.paper}>
+                    <Typography variant="h4" align="center" >Checkout</Typography>
+                    <Stepper activeStep={activeStep} alternativeLabel className={styles.stepper}>
+                        {steps.map((step) => (
+                            <Step key={step}>
+                                <StepLabel>{step}</StepLabel>
+                            </Step>
+                        ))}
+                    </Stepper>
+                    {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
+                </Paper>
+            </div>
         </div>
-    </div>
-)
+    )
 }
 
 

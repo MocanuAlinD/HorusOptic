@@ -151,10 +151,10 @@ const Produse = ({ sortedNames, products, onAddToCart }) => {
 
                                 <div className={styles.productList}>
                                     {search === '' && changeBrand(products).map(prd =>
-                                        <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={cat => changeMe(cat)} />)}
+                                        <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />)}
 
                                     {search !== '' ? searchItems().map(prd =>
-                                        <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={cat => changeMe(cat)} />) : []}
+                                        <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />) : []}
                                 </div>
                             </div>
                         </section>

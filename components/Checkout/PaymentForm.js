@@ -10,6 +10,12 @@ const stripePromise = loadStripe(process.env.NEXT_APP_STRIPE_PUBLIC_API_KEY)
 
 const PaymentForm = ({ timeout, checkoutToken, backStep, onCaptureCheckout, shippingData, nextStep }) => {
 
+    function reducer(acc,cur){
+        return {...acc, [cur.id]: cur}
+    }
+
+    let newList = checkoutToken.live.line_items.reduce(reducer, {})
+
     const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault()
         if (!stripe || !elements) return
@@ -21,7 +27,7 @@ const PaymentForm = ({ timeout, checkoutToken, backStep, onCaptureCheckout, ship
             console.log('PaymentForm Error: ', error)
         } else {
             const orderData = {
-                line_items: [...checkoutToken.live.line_items],
+                line_items: newList,
                 customer: { firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email, },
                 shipping: {
                     name: `${shippingData.firstName} ${shippingData.lastName}`,

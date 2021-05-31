@@ -34,7 +34,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
     const fetchShippingOptions = async (checkoutTokenId, country, region = null) => {
         const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region })
-        console.log("Options: ",options[0])
+        // console.log("Options: ",options[0])
         setShippingOptions(options)
         setShippingOption(options[0].id)
     }
@@ -65,9 +65,9 @@ const AddressForm = ({ checkoutToken, next }) => {
                         <Grid item xs={12} sm={6}>
                             <InputLabel>Tara</InputLabel>
                             <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
-                                {countries.map(country => (
-                                    <MenuItem key={country.id} value={country.id}>
-                                        {country.label}
+                                {Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name })).map((item) => (
+                                    <MenuItem key={item.id} value={item.id}>
+                                        {item.label}
                                     </MenuItem>
                                 ))}
 
@@ -79,9 +79,9 @@ const AddressForm = ({ checkoutToken, next }) => {
                         <Grid item xs={12} sm={6}>
                             <InputLabel>Oras</InputLabel>
                             <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
-                                {subdivisions.map(shippingSubdivision => (
-                                    <MenuItem key={shippingSubdivision.id} value={shippingSubdivision.id}>
-                                        {shippingSubdivision.label}
+                                {Object.entries(shippingSubdivisions).map(([code, name]) => ({ id: code, label: name })).map((item) => (
+                                    <MenuItem key={item.id} value={item.id}>
+                                        {item.label}
                                     </MenuItem>
                                 ))}
                             </Select>
@@ -90,9 +90,9 @@ const AddressForm = ({ checkoutToken, next }) => {
                         <Grid item xs={12} sm={6}>
                             <InputLabel>Costuri transport</InputLabel>
                             <Select value={shippingOption} readOnly fullWidth onChange={(e) => setShippingOption(e.target.value)}>
-                                {options.map(option => (
-                                    <MenuItem key={option.id} value={option.id}>
-                                        {option.label}
+                                {shippingOptions.map((sO) => ({ id: sO.id, label: sO.price.formatted_with_code})).map((item) => (
+                                    <MenuItem key={item.id} value={item.id}>
+                                        {item.label}
                                     </MenuItem>
                                 ))}
                             </Select>

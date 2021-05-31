@@ -23,7 +23,9 @@ function MyApp({ Component, pageProps }) {
   }
 
   const handleUpdateCartQty = async (productId, quantity) => {
-    const { cart } = await commerce.cart.update(productId, { quantity: quantity })
+    console.log("Update cart qty: ", productId, quantity)
+    const { cart } = await commerce.cart.update(productId, { quantity })
+    console.log("Cart qty UPDATED: ",cart)
     setCart(cart)
   }
 
@@ -46,10 +48,10 @@ function MyApp({ Component, pageProps }) {
     try {
       const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder)
       setOrder(incomingOrder)
+      refreshCart()
     } catch (error) {
       setErrorMessage(error.data.error.message)
     }
-    refreshCart()
   }
 
   useEffect(() => {
@@ -80,9 +82,9 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps}
         onAddToCart={handleAddToCart}
         cart={cart}
-        handleUpdateCartQty={handleUpdateCartQty}
-        handleRemoveFromCart={handleRemoveFromCart}
-        handleEmptyCart={handleEmptyCart}
+        onUpdateCartQty={handleUpdateCartQty}
+        onRemoveFromCart={handleRemoveFromCart}
+        onEmptyCart={handleEmptyCart}
         order={order}
         onCaptureCheckout={handleCaptureCheckout}
         error={errorMessage}
