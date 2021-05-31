@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }) {
       setOrder(incomingOrder)
       refreshCart()
     } catch (error) {
-      setErrorMessage(error.data.error.message)
+      setErrorMessage("Error from capture checkout is: ",error.data.error.message)
     }
   }
 
