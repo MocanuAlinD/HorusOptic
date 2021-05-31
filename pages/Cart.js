@@ -6,8 +6,6 @@ import Link from 'next/link'
 const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     const noOfItems = cart.line_items
 
-    const handleEmptyCart = () => onEmptyCart()
-
     if (!cart.line_items) return 'Loading'
 
     return (
@@ -30,7 +28,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
                     {cart.line_items.length ? <div className={styles.wrapperRight}>
                         <h4>Subtotal: {cart.subtotal && cart.subtotal.formatted_with_code}</h4>
                         <div className={styles.endButtons}>
-                            <button className={styles.btnEmpty} onClick={handleEmptyCart}>Goleste cosul</button>
+                            <button className={styles.btnEmpty} onClick={() => onEmptyCart()}>Goleste cosul</button>
                             {/* <button className={styles.btnCheckout}>Plateste</button> */}
                             <Link href='/Checkout' className={styles.btnCheckout}><a>Plateste</a></Link>
                         </div>

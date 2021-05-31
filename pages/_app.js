@@ -23,9 +23,7 @@ function MyApp({ Component, pageProps }) {
   }
 
   const handleUpdateCartQty = async (productId, quantity) => {
-    console.log("Update cart qty: ", productId, quantity)
     const { cart } = await commerce.cart.update(productId, { quantity })
-    console.log("Cart qty UPDATED: ",cart)
     setCart(cart)
   }
 

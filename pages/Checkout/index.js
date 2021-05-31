@@ -69,18 +69,15 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     }
 
     useEffect(() => {
-        // console.log("Cart DATA: ", cart)
         if (cart.id) {
             const generateToken = async () => {
                 try {
                     const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' });
-                    console.log("TOKEN: ", token)
                     setCheckoutToken(token);
                 } catch {
-                    if (activeStep !== steps.length) router.push('/');
+                    router.push('/');
                 }
             };
-
             generateToken();
         }
     }, [cart])
