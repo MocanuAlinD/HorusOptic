@@ -3,6 +3,7 @@ import { Typography, Button, Divider } from '@material-ui/core'
 import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import Review from './Review'
+import styles from '../../styles/Checkout.module.css'
 
 const stripePromise = loadStripe(process.env.NEXT_APP_STRIPE_PUBLIC_API_KEY)
 
@@ -23,7 +24,7 @@ const PaymentForm = ({ timeout, checkoutToken, backStep, onCaptureCheckout, ship
                 line_items: [...checkoutToken.live.line_items],
                 customer: { firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email, },
                 shipping: {
-                    name: 'Primary',
+                    name: `${shippingData.firstName} ${shippingData.lastName}`,
                     street: shippingData.address1,
                     town_city: shippingData.city,
                     county_state: shippingData.shippingSubdivision,
@@ -38,12 +39,12 @@ const PaymentForm = ({ timeout, checkoutToken, backStep, onCaptureCheckout, ship
                     }
                 },
                 billing: {
-                    name: shippingData.firstName + ' ' + shippingData.lastName,
+                    name: `${shippingData.firstName} ${shippingData.lastName}`,
                     street: shippingData.address1,
                     town_city: shippingData.city,
-                    county_state: 'County test',
+                    county_state: shippingData.shippingSubdivision,
                     postal_zip_code: shippingData.zip,
-                    country: 'RO test country'
+                    country: shippingData.shippingCountry
                 },
             }
             onCaptureCheckout(checkoutToken.id, orderData)
@@ -60,7 +61,7 @@ const PaymentForm = ({ timeout, checkoutToken, backStep, onCaptureCheckout, ship
                 <ElementsConsumer>
                     {({ elements, stripe }) => (
                         <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
-                            <CardElement /> <br /> <br />
+                            <CardElement className={styles.cardElement} /> <br />
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                 <Button variant='outlined' onClick={backStep}>Inapoi</Button>
                                 <Button type='submit' variant='contained' disabled={!stripe} color='primary'>

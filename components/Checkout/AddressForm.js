@@ -34,7 +34,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
     const fetchShippingOptions = async (checkoutTokenId, country, region = null) => {
         const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region })
-        console.log("Options: ",options)
+        console.log("Options: ",options[0])
         setShippingOptions(options)
         setShippingOption(options[0].id)
     }
@@ -89,7 +89,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
                         <Grid item xs={12} sm={6}>
                             <InputLabel>Costuri transport</InputLabel>
-                            <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
+                            <Select value={shippingOption} readOnly fullWidth onChange={(e) => setShippingOption(e.target.value)}>
                                 {options.map(option => (
                                     <MenuItem key={option.id} value={option.id}>
                                         {option.label}

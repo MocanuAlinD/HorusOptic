@@ -7,9 +7,6 @@ import { commerce } from '../../lib/commerce'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 
-// import useStyles from './styles';
-
-
 // const steps = ["Shipping address", "Payment details"]
 const steps = ["Adresa livrare", "Detalii plata"]
 
@@ -40,7 +37,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             <Typography variant="h5">
                 Multumim pentru comanda, {order.customer.firstname} {order.customer.lastname}
             </Typography>
-            <Divider />
+            <Divider style={{margin: ".5rem 0"}}/>
             <Typography variant="subtitle2">
                 Comanda nr: {order.customer_reference}
             </Typography> <br />

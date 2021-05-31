@@ -71,7 +71,7 @@ const stare = () => {
                 uşoară decât lentila din sticlă minerală cu indice mare). 
                 Lentilele cu cel mai ridicat indice de refracţie 1,8 si 1,9 
                 (cele mai subţiri lentile) sunt lentilele disponibile doar pentru 
-                miopie mijlocie şi mare şi doar pe sticlă minarală.</p>
+                miopie mijlocie şi mare şi doar pe sticlă minerală.</p>
             <ul>
                 <h4>După utilizare</h4>
                 <li>lentile monofocale

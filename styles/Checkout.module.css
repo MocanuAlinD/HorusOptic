@@ -16,17 +16,24 @@
 }
 
 .container .paper{
-    background: #e8eddf;
+    background: white;
     padding: .5rem;
     margin: 1rem .3rem;
 }
 
 .container .stepper{
-    background: #e8eddf;
+    background: white;
 }
 
 .container .spinner{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container .cardElement{
+    background: white;
+    border: 1px solid #242423;
+    padding: .5rem;
+    border-radius: .25rem;
 }

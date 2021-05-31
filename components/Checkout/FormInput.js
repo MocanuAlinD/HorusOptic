@@ -5,13 +5,12 @@ import { useFormContext, Controller } from 'react-hook-form'
 const FormInput = ({ name, label}) => {
     const { control } = useFormContext()
     return (
-        // <Grid item xs={12} sm={6}>
         <Grid item xs={12} sm={6}>
             < Controller
                 control={control}
                 name={name}
                 defaultValue=""
-                render={({ field }) => <TextField {...field} label={label} required fullWidth variant="filled" />}
+                render={({ field }) => <TextField {...field} label={label} color="primary" required fullWidth variant="standard" />}
             />
 
         </Grid>
