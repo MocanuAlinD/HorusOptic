@@ -6,6 +6,7 @@
     display: flex;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(45deg,#44444422,#22222222);
 }
 
 /* Pagina cu produse */
@@ -69,12 +70,15 @@
     margin-top: 1rem;
     margin-right: .5rem;
     border-bottom: 1px solid #f5cb5c;
+    border-top: 1px solid #f5cb5c;
 }
 
 .productList {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    z-index: 0;
+    /* background: darkred; */
 }
 
 
@@ -215,7 +219,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 1rem 1rem 0 0;
-    z-index: 3;
+    /* z-index: 3; */
 }
 
 .buttonsDiv button{
@@ -266,7 +270,7 @@
         top: 3rem;
         left: 100%;
         transform: translate(-100%);
-        z-index: 1;
+        /* z-index: 1; */
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
@@ -304,5 +308,8 @@
     .buttonsDiv{
         left: 100%;
         transform: translate(-100%);
+    }
+    .sidebar{
+        border-top: none;
     }
 }

@@ -1,6 +1,8 @@
 .politica{
     min-height: 79vh;
     padding: 3rem 1rem 1rem 1rem;
+    background: #ffffff11;
+    backdrop-filter: blur(5px);
 }
 
 .politica h3{

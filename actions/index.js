@@ -6,7 +6,7 @@ const BASE_URL = 'http://localhost:3000'
 const INDEX_DATA = [
   {
     id: 1,
-    title: 'Horus Top Optic se ocupa cu:',
+    title: 'Cu ce ne ocupam',
     text: 'Consultatii optica medicala gratuite indiferent daca se achizitioneaza sau nu produsele companiei. Furnizarea de produse si servicii de calitate superioara si la preturi minime.',
     button: 'Citeste mai mult',
     url: '/Ocupa'

@@ -6,7 +6,6 @@ import Head from 'next/head'
 import { AiOutlineVerticalRight } from 'react-icons/ai';
 import Image from 'next/image'
 import { commerce } from '../../lib/commerce'
-// import cls from '../../styles/dinamicPage.module.css'
 
 
 export async function getServerSideProps(context) {

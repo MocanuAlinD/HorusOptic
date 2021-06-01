@@ -8,11 +8,10 @@ import {ShoppingCart} from '@material-ui/icons'
 import {useRouter } from 'next/router'
 
 
-const Navbar = ({totalItems}) => {
-    // console.log('Navbar: ', totalItems)
+const Navbar = ({totalItems, clr}) => {
     const [state, setState] = useState(true)
-    const location = useRouter()
-    
+    const router = useRouter()
+
     const changeMe = () => {
         let a = document.querySelector("ul")
         if (state) {
@@ -31,24 +30,26 @@ const Navbar = ({totalItems}) => {
     }
 
     return (
-        <div className={style.navbarContainer}>
+        <div className={style.navbarContainer} style={{background: `${clr}`}}>
             <div className={style.navTitle}>
                 <h3>HORUS TOP OPTIC</h3>
-                <GiEyeOfHorus size='3rem' color="#f5cb5c" className={style.icon} />
+                <GiEyeOfHorus className={style.icon} />
             </div>
-            <ul className={style.ul}>
+            <ul>
                 <li><Link href='/'><a onClick={closeMenu}>Acasa</a></Link></li>
                 <li><Link href='/Produse'><a onClick={() => closeMenu()}>Produse</a></Link></li>
                 <li><Link href='/info'><a onClick={() => closeMenu()}>FAQ</a></Link></li>
             </ul>
             <button className={style.meniu} onClick={changeMe}>Meniu</button>
-            {location.pathname !== '/Cart' && <Link href='/Cart'>
-                <IconButton aria-label='Show cart items' style={{ color: "#f5cb5c"}} >
-                    <Badge badgeContent={totalItems} anchorOrigin={{ vertical: 'top', horizontal: 'right', }} color='secondary'>
-                        <ShoppingCart />
-                    </Badge>
-                </IconButton>
-            </Link>}
+            <div className={style.divIcon}>
+                {(router.pathname !== '/Cart' && router.pathname !== '/Checkout') && <Link href='/Cart'>
+                    <IconButton className={style.cartIcon} aria-label='Show cart items'  >
+                        <Badge badgeContent={totalItems} anchorOrigin={{ vertical: 'top', horizontal: 'right', }} color='secondary'>
+                            <ShoppingCart />
+                        </Badge>
+                    </IconButton>
+                </Link>}
+            </div>
         </div>
     );
 }

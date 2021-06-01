@@ -1,21 +1,22 @@
 .navbarContainer{
     display: flex;
-    background: #242423;
-    justify-content: space-around;
+    /* background: linear-gradient(to bottom, #242423 10%, transparent); */
+    /* background: none; */
+    justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     width: 100%;
     height: 3rem;
 	z-index: 99;
-	/* border-radius: 0 0 1rem 1rem; */
-	border-bottom: 1px solid #ffffff77;
+	transition: all .5s ease-in-out;
 }
 
 .navTitle{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-grow: 1;
 }
 
 .navTitle h3{
@@ -26,16 +27,32 @@
     font-weight: 600;
     color: whitesmoke;
 	margin-right: 1rem;
+	user-select: none;
 }
 
+.icon{
+	color: #f5cb5c;
+	font-size: 3rem;
+}
+
+.divIcon{
+	flex-grow: 1;
+	text-align: end;
+}
+
+.navbarContainer .cartIcon{
+	color: #f5cb5c;
+}
 
 .navbarContainer ul{
+	flex-grow: 1;
     display: flex;
     list-style: none;
     justify-content: flex-end;
     width: fit-content;
     height: 2rem;
     align-items: center;
+	user-select: none;
 }
 
 .navbarContainer ul li a{
@@ -105,17 +122,11 @@
 
 @media screen and (max-width: 1000px){
 	.navTitle h3{
-		font-size: 1rem;
+		font-size: 2rem;
 	}
 }
 
-@media screen and (max-width: 875px){
-	.navTitle h3{
-		font-size: 1rem;
-	}
-}
-
-@media screen and (max-width: 812px){
+/* @media screen and (max-width: 812px){
 	.navTitle h3{
 		font-size: .9rem;
 	}
@@ -125,7 +136,7 @@
 	.navTitle h3{
 		font-size: .8rem;
 	}
-}
+} */
 
 @media screen and (max-width: 768px){
 	.navbarContainer{
@@ -142,7 +153,6 @@
 		justify-content: space-around;
 		align-items: center;
 		border-bottom: 1px solid #ffffff77;
-		/* border-top: 1px solid #ffffff77; */
 	}
 	.meniu{
 		display: flex;
@@ -154,6 +164,17 @@
 	.navTitle h3{
 		font-size: 1rem;
 	}
+	
+}
+
+@media screen and (max-width: 320px){
+	.navTitle h3{
+		font-size: .8rem;
+	}
+	.icon{
+		font-size: 2rem;
+	}
+	
 	
 }
 

@@ -1,98 +1,22 @@
 
 .container{
+  height: fit-content;
   min-height: 79vh;
-  height: 100%;
-}
-
-.bigImage{
-  width: 100%;
-  height: 35rem;
-  background-image: url('/bg9.jpg');
-  background-position-x: center;
-  background-position-y: bottom;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-origin: content-box;
+  /* background: darkolivegreen; */
   display: flex;
+  /* flex-direction: column; */
+  padding: .5rem;
   justify-content: flex-start;
-  align-items: flex-end;
 }
 
-.bigImage h3{
-  color: #f5cb5c;
-  font-family: 'Poppins';
-  font-size: 2rem;
-  font-weight: 600;
-  background: rgba(0,0,0,0.1);
-  backdrop-filter: blur(5px);
-  margin-left: 2rem;
-  padding: 0 1rem;
-  border-radius: 20px;
-  font-style: italic;
-}
-
-.mission{
-  width: calc(100% - 1rem);
-  margin: .5rem;
-  background: #242423;
-  padding: 1rem;
-  border-radius: .3rem;
-  border-bottom: 1px solid rgba(255,255,255,0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.mission h3{
-  color: #e8eddf;
-  font-size: 1.5rem;
-  font-family: 'Poppins',sans-serif;
-  font-weight: 600;
-  position: relative;
-}
-
-.ulMission{
-  position: relative;
-  margin-left: 1rem;
-}
-.ulMission li::marker{
-  color: #f5cb5c;
-}
-
-.ulMission li{
-  color: #e8eddf;
-  font-family: 'Poppins',sans-serif;
-  font-size: .9rem;
-  font-weight: 200;
-}
-
-
-@media screen and (max-width: 875px){
-  .bigImage{
-    height: 15rem;
-    background-position-x: left;
-  }
-	.bigImage h3{
-    font-size: 1.5rem;
-    width: 100%;
-    margin: 0;
-    text-align: center;
-  }
-}
 
 @media screen and (max-width: 768px){
-  .bigImage h3{
-    font-size: .8rem;
-    width: 100%;
-    margin: 0;
-    text-align: center;
+  .container{
+    height: 100%;
+    min-height: 79vh;
+    display: flex;
+    flex-direction: column;
   }
-  .scrollText p{
-    animation: alin 30s linear infinite;
-    letter-spacing: 0;
-  }
-  .bigImage{
-    height: 15rem;
-    background-position-x: center;
-  }
+  
 }
 

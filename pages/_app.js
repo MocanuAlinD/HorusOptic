@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { commerce } from '../lib/commerce'
 import Head from 'next/head'
+import {useRouter} from 'next/router'
 
 
 
@@ -12,34 +13,41 @@ function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({})
   const [order, setOrder] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
+  const router = useRouter()
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve())
+    console.log("Fetched cart")
   }
 
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity)
     setCart(cart)
+    console.log("Added to cart: ", productId,quantity)
   }
 
   const handleUpdateCartQty = async (productId, quantity) => {
     const { cart } = await commerce.cart.update(productId, { quantity })
     setCart(cart)
+    console.log("Update quantity:", productId, quantity)
   }
 
   const handleRemoveFromCart = async (productId) => {
     const { cart } = await commerce.cart.remove(productId)
     setCart(cart)
+    console.log("Remove from cart: ", productId)
   }
 
   const handleEmptyCart = async () => {
     const { cart } = await commerce.cart.empty()
     setCart(cart)
+    console.log("Empty cart: ", cart)
   }
 
   const refreshCart = async () => {
     const newCart = await commerce.cart.refresh()
     setCart(newCart)
+    console.log("Cart refreshed")
   }
 
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
@@ -47,8 +55,10 @@ function MyApp({ Component, pageProps }) {
       const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder)
       setOrder(incomingOrder)
       refreshCart()
+      console.log("Incoming order: ", incomingOrder)
     } catch (error) {
-      setErrorMessage("Error from capture checkout is: ",error.data.error.message)
+      console.log("Error from capture checkout is: ", error)
+      setErrorMessage(error.data.error.message)
     }
   }
 
@@ -76,7 +86,7 @@ function MyApp({ Component, pageProps }) {
         <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet" ></link>
       </Head>
 
-      <Navbar totalItems={cart.total_items === 0 ? null : cart.total_items} />
+      <Navbar totalItems={cart.total_items === 0 ? null : cart.total_items} clr={router.pathname === '/' ? 'none' : "#242423"}/>
       <Component {...pageProps}
         onAddToCart={handleAddToCart}
         cart={cart}
@@ -88,8 +98,8 @@ function MyApp({ Component, pageProps }) {
         error={errorMessage}
       />
 
-      <ScrollToTop />
       <Footer />
+      <ScrollToTop />
     </>
   )
 }
