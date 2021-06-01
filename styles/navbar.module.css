@@ -1,6 +1,6 @@
 .navbarContainer{
     display: flex;
-    /* background: linear-gradient(to bottom, #242423 10%, transparent); */
+    background: linear-gradient(to bottom, #242423 70%, transparent);
     /* background: none; */
     justify-content: space-between;
     align-items: center;
@@ -123,6 +123,9 @@
 @media screen and (max-width: 1000px){
 	.navTitle h3{
 		font-size: 2rem;
+	}
+	.navbarContainer{
+		background: #242423;
 	}
 }
 

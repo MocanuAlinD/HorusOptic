@@ -30,7 +30,7 @@ const Navbar = ({totalItems, clr}) => {
     }
 
     return (
-        <div className={style.navbarContainer} style={{background: `${clr}`}}>
+        <div className={style.navbarContainer}>
             <div className={style.navTitle}>
                 <h3>HORUS TOP OPTIC</h3>
                 <GiEyeOfHorus className={style.icon} />

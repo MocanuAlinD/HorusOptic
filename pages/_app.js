@@ -5,7 +5,6 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { commerce } from '../lib/commerce'
 import Head from 'next/head'
-import {useRouter} from 'next/router'
 
 
 
@@ -13,7 +12,6 @@ function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({})
   const [order, setOrder] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
-  const router = useRouter()
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve())
@@ -86,7 +84,7 @@ function MyApp({ Component, pageProps }) {
         <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet" ></link>
       </Head>
 
-      <Navbar totalItems={cart.total_items === 0 ? null : cart.total_items} clr={router.pathname === '/' ? 'none' : "#242423"}/>
+      <Navbar totalItems={cart.total_items === 0 ? null : cart.total_items}/>
       <Component {...pageProps}
         onAddToCart={handleAddToCart}
         cart={cart}
