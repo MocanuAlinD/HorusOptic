@@ -18,18 +18,6 @@ class Card1 extends Component {
     render() {
         return (
             <div className={style.cardContainer}>
-                {this.indexData.map(glass=>(
-                    <div key={glass.id} className={style.cards}>
-                        <h3>{glass.title} 
-                            <Arrows />
-                        </h3>
-                        <div className={style.forHide}>
-                            <hr color='#cfdbd5' style={{ height: '.1rem' }} />
-                            <h4>{this.shorten(glass.text, 200)}</h4>
-                            <div className={style.button}><Link href={glass.url}><a>{glass.button}</a></Link></div>
-                        </div>
-                    </div>
-                ))}
                 <div className={style.mission}>
                     <h3>Misiunea noastra
                         <Arrows />
@@ -44,8 +32,21 @@ class Card1 extends Component {
                         <li>Informarea clientilor despre afectiunile ochilor.</li>
                         <li>Informarea clientilor despre noutatile din lumea opticii medicale (tip rame, tip lentile etc).</li>
                     </ul>
-                    
+
                 </div>
+                {this.indexData.map(glass=>(
+                    <div key={glass.id} className={style.cards}>
+                        <h3>{glass.title} 
+                            <Arrows />
+                        </h3>
+                        <div className={style.forHide}>
+                            <hr color='#cfdbd5' style={{ height: '.1rem' }} />
+                            <h4>{this.shorten(glass.text, 200)}</h4>
+                            <div className={style.button}><Link href={glass.url}><a>{glass.button}</a></Link></div>
+                        </div>
+                    </div>
+                ))}
+                
             </div>
         );
     }

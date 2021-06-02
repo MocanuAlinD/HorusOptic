@@ -3,6 +3,8 @@
     padding: 3rem 1rem 1rem 1rem;
     background: #ffffff11;
     backdrop-filter: blur(5px);
+    width: 50%;
+    margin: 0 auto;
 }
 
 .container h3,
@@ -40,4 +42,10 @@
 
 .container li::marker{
     color: #f5cb5c;
+}
+
+@media screen and (max-width:768px){
+    .container{
+        width: 100%;
+    }
 }

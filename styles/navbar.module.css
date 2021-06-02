@@ -1,7 +1,7 @@
 .navbarContainer{
     display: flex;
     background: linear-gradient(to bottom, #242423 70%, transparent);
-    /* background: none; */
+    background: #242423;
     justify-content: space-between;
     align-items: center;
     position: sticky;
