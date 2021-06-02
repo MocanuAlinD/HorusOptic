@@ -27,4 +27,10 @@ a {
   text-decoration: none;
 }
 
+@media screen and (max-width:768px){
+  body{
+    background-image: url('/bg13_tall.jpg');
+  }
+}
+
 

@@ -7,28 +7,11 @@ import { commerce } from '../lib/commerce'
 import Head from 'next/head'
 
 
-
 function MyApp({ Component, pageProps }) {
+
   const [cart, setCart] = useState({})
   const [order, setOrder] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
-  const [products, setProducts] = useState([])
-  const [sortedNames, setSortedNames] = useState([])
-
-  const fetchProducts = async()=>{
-    const { data: products } = await commerce.products.list()
-    setProducts(products)
-
-    const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
-    const sortedNames1 = []
-    for (let i in abc) {
-      if (sortedNames1.includes(abc[i].name)) {
-        continue
-      } else { sortedNames1.push(abc[i].name) }
-    }
-    const sortedNames2 = sortedNames1.sort((a, b) => a > b && 1 || -1)
-    setSortedNames(sortedNames2)
-  }
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve())
@@ -79,7 +62,6 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     fetchCart()
-    fetchProducts()
   }, [])
 
 
@@ -112,8 +94,6 @@ function MyApp({ Component, pageProps }) {
         order={order}
         onCaptureCheckout={handleCaptureCheckout}
         error={errorMessage}
-        products={products}
-        sortedNames={sortedNames}
       />
 
       <Footer />

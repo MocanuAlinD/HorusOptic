@@ -3,7 +3,32 @@ import styles from '../../styles/Produse.module.css'
 import MiniCard from '../../components/MiniCard'
 import Sidebar from '../../components/Sidebar'
 import Head from 'next/head'
+import { AiOutlineVerticalRight } from 'react-icons/ai';
 import Image from 'next/image'
+import { commerce } from '../../lib/commerce'
+
+
+export async function getServerSideProps(context) {
+    const { data: products } = await commerce.products.list()
+
+    const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
+
+    const sortedNames1 = []
+    for (let i in abc) {
+        if (sortedNames1.includes(abc[i].name)) {
+            continue
+        } else { sortedNames1.push(abc[i].name) }
+    }
+    const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
+
+    return {
+        props: {
+            products, sortedNames
+        }
+    }
+}
+
+
 
 const Produse = ({ sortedNames, products, onAddToCart }) => {
 
@@ -155,6 +180,7 @@ const Produse = ({ sortedNames, products, onAddToCart }) => {
                                 <div className={styles.rightSide}>
                                     <h4>{img.name}</h4>
                                     <div className={styles.description} dangerouslySetInnerHTML={{ __html: img.description }}></div>
+                                    {/* <div className={styles.link}><button onClick={() => onAddToCart(img.id, 1)} disabled={true && img.inventory.available < 99}>Adauga in cos</button></div> */}
 
                                     {img.inventory.available < 90 ?
                                         (<div className={styles.link}><button title="Produsul nu este pe stoc. Comanda la telefon sau email." disabled={true && img.inventory.available < 99}>INDISPONIBIL</button></div>) :
