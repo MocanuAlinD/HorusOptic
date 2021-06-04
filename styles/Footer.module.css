@@ -52,6 +52,11 @@
 .rightFooter{
     padding-top: 2rem;
 }
+
+.rightFooter a:first-child{
+    margin-top: .5rem;
+}
+
 .rightFooter a{
     color: #e8eddf;
     font-size: .8rem;
@@ -74,9 +79,8 @@
 .socialFooter{
 	margin: 1rem 0;
 	padding: 0;
-	/* display: flex; */
-    /* background: orange; */
 }
+
 .socialFooter li{
     color: #e8eddf;
     font-family: 'Poppins',sans-serif;
@@ -93,6 +97,7 @@
 	display: none;
     /* background: orange; */
 }
+
 .socialFooterMobile li{
     color: #e8eddf;
     font-family: 'Poppins',sans-serif;
@@ -116,9 +121,8 @@
         height: fit-content;
         display: flex;
         flex-direction: column;
-        /* padding: 0 1rem 1rem; */
-        /* margin-bottom: .5rem; */
     }
+
     .rightFooter{
         padding-bottom: 1.5rem;
     }
@@ -126,27 +130,24 @@
     .socialFooter{
         display: none;
     }
-    /* .socialFooterMobile{
-        display: flex;
-        background: red;
-        width: 100%;
-    } */
+
     .socialFooterMobile{
         width: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
+
     .socialFooterMobile ul{
         display: flex;
         justify-content: space-evenly;
         width: 100%;
     }
-    
 
     .middleFooter a{
         font-size: 1.1rem;
     }
+
     .rightFooter a{
         font-size: 1.1rem;
     }

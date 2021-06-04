@@ -5,6 +5,14 @@
     backdrop-filter: blur(5px);
     width: 50%;
     margin: 0 auto;
+    user-select: none;
+}
+
+.container img{
+    float: left;
+    margin-right: 1rem;
+    width: 50%;
+    height: auto;
 }
 
 .container h3,
@@ -48,4 +56,5 @@
     .container{
         width: 100%;
     }
+
 }

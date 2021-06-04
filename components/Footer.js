@@ -27,7 +27,7 @@ const Footer = () => {
             </div>
             <div className={styles.middleFooter}>
                 <h3>Despre</h3>
-                <hr width='100%' style={{height:'.1rem'}}/>
+                <hr width='100%' style={{height:'.1rem', marginBottom: '.5rem'}}/>
                 <Link href="/Footer/istoria"><a>Istoria ochelarilor de vedere</a></Link>
                 <Link href="/Footer/nastere"><a>Locul de naștere al ochelarilor</a></Link>
                 <Link href="/Footer/stare"><a>Tipuri de lentile</a></Link>
@@ -36,7 +36,7 @@ const Footer = () => {
                 <Link href="/Footer/soare"><a>Ochelarii de soare</a></Link>
                 <Link href="/Footer/optica"><a>Consult optica medicala</a></Link>
             </div>
-            <div className={styles.rightFooter}>
+            <div className={styles.rightFooter} >
                 <Link href="/PoliticaDeConfidentialitate"><a>Politica de confidentialitate</a></Link>
                 <Link href="/Garantie"><a>Garantie</a></Link>
                 <h4>CUI: 40666971</h4>

@@ -4,9 +4,10 @@ import styles from '../../styles/LinksFooter.module.css'
 const istoria = () => {
     return (
         <div className={styles.container}>
+            <img src='/readingStone.jpg'/>
             <h3>&emsp;&emsp;Istoria ochelarilor de vedere</h3>
-            <p>De la origini, ”pietrele pentru citit” până la modernele accesorii de stil de viață și modă
-                Potrivit experților, ochelarii sunt a cincea cea mai importantă invenție, de când s-a descoperit focul 
+            <p>De la origini, ”pietrele pentru citit” până la modernele accesorii de stil de viață și modă, 
+                potrivit experților, ochelarii sunt a cincea cea mai importantă invenție, de când s-a descoperit focul 
                 și s-a inventat roata. Motivul: pentru prima dată în istoria omenirii, milioane de oameni cu deficiențe de 
                 vedere s-au putut bucura de o vedere mai bună. Astăzi acest lucru ni se pare firesc, însă timp de mai multe 
                 secole nu a existat pur și simplu nici o soluție pentru cei care sufereau de deficiențe de vedere - încă nu s-au 

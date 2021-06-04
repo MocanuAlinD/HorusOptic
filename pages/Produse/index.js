@@ -6,6 +6,8 @@ import Head from 'next/head'
 import { AiOutlineVerticalRight } from 'react-icons/ai';
 import Image from 'next/image'
 import { commerce } from '../../lib/commerce'
+import { IconButton } from '@material-ui/core'
+import { ShoppingCart } from '@material-ui/icons'
 
 
 export async function getServerSideProps(context) {
@@ -125,6 +127,7 @@ const Produse = ({ sortedNames, products, onAddToCart }) => {
         a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
     }
 
+
     return (
         <div className={styles.container} id='top'>
             <Head>
@@ -180,11 +183,26 @@ const Produse = ({ sortedNames, products, onAddToCart }) => {
                                 <div className={styles.rightSide}>
                                     <h4>{img.name}</h4>
                                     <div className={styles.description} dangerouslySetInnerHTML={{ __html: img.description }}></div>
-                                    {/* <div className={styles.link}><button onClick={() => onAddToCart(img.id, 1)} disabled={true && img.inventory.available < 99}>Adauga in cos</button></div> */}
 
-                                    {img.inventory.available < 90 ?
-                                        (<div className={styles.link}><button title="Produsul nu este pe stoc. Comanda la telefon sau email." disabled={true && img.inventory.available < 99}>INDISPONIBIL</button></div>) :
-                                        (<div className={styles.link}><button onClick={() => onAddToCart(img.id, 1)}>Adauga in cos</button></div>)
+                                    {!img.inventory.managed ? (
+                                        <div className={styles.link} >
+                                            <IconButton onClick={() => onAddToCart(img.id, 1)}>
+                                                <ShoppingCart className={styles.shopIcon} />
+                                            </IconButton>
+                                        </div>) :
+                                        (
+                                            img.inventory.available < 1 ?
+                                                (<div className={styles.linkDisabled}>
+                                                    <IconButton className={styles.shopIconDisabled} >
+                                                        <ShoppingCart />
+                                                    </IconButton>
+                                                </div>) :
+                                                (<div className={styles.link}>
+                                                    <IconButton onClick={() => onAddToCart(img.id, 1)}>
+                                                        <ShoppingCart className={styles.shopIcon} />
+                                                    </IconButton>
+                                                </div>)
+                                        )
                                     }
 
                                     <h4>Pret: {img.price.raw} <sub>ron</sub></h4>

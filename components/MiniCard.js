@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from '../styles/MiniCard.module.css'
 import Image from 'next/image'
+import { IconButton, Badge, Typography } from '@material-ui/core'
+import { ShoppingCart } from '@material-ui/icons'
 
 const MiniCard = ({ produs, change, onAddToCart }) => {
-
-    const stock = 98
 
     return (
         <div key={produs.id} className={styles.container}>
@@ -13,12 +13,37 @@ const MiniCard = ({ produs, change, onAddToCart }) => {
             <h5 className={styles.pret}>{produs.price.raw} <sub>ron</sub></h5>
             <h5 dangerouslySetInnerHTML={{ __html: produs.description }}></h5>
             <hr className={styles.divider} />
-            <h5>{produs.inventory.managed ? "In stoc:" : "Stoc epuizat"} <span>{produs.inventory.managed && produs.inventory.available}</span> </h5>
+            <h5>{!produs.inventory.managed ? <span>In stoc</span> : (
+                produs.inventory.available < 1 ? <span>Doar cu precomanda</span> : (
+                    produs.inventory.available < 4 ? (
+                        // <span>Stoc limitat: <span style={{ color: '#f5cb5c' }}>{produs.inventory.available}</span></span>
+                        <span>Stoc limitat</span>
+                    ) : <span>In stoc</span>
+                )
+            )} </h5>
 
-            {produs.inventory.available < stock ?
-                (<div className={styles.link}><button title="Produsul nu este pe stoc. Comanda la telefon sau email." disabled={true && produs.inventory.available < stock}>INDISPONIBIL</button></div>) :
-                (<div className={styles.link}><button onClick={() => onAddToCart(produs.id, 1)}>Adauga in cos</button></div>)
+            {!produs.inventory.managed ? (
+                <div className={styles.link} >
+                    <IconButton onClick={() => onAddToCart(produs.id, 1)}>
+                        <ShoppingCart className={styles.shopIcon} />
+                    </IconButton>
+                </div>) :
+                (
+                    produs.inventory.available < 1 ?
+                        (<div className={styles.linkDisabled}>
+                            <IconButton className={styles.shopIconDisabled} >
+                                <ShoppingCart />
+                            </IconButton>
+                        </div>) :
+                        (<div className={styles.link}>
+                            <IconButton onClick={() => onAddToCart(produs.id, 1)}>
+                                <ShoppingCart className={styles.shopIcon} />
+                            </IconButton>
+                        </div>)
+                )
             }
+
+
 
             <div className={styles.details}><a onClick={() => change(produs)}>Detalii</a></div>
         </div>

@@ -49,6 +49,7 @@
 .container h5{
     color: #e8eddf;
     font-family: 'Poppins';
+    user-select: none;
 }
 
 .container h4{
@@ -78,45 +79,47 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    pointer-events: none;
 }
 
 .pret sub{
     font-weight: 400;
-    font-size: .8rem;
+    font-size: .7rem;
 }
 
 .link{
-    flex-grow: 1;
-    text-align: right;
-    position: relative;
-}
-
-
-.link button{
-    border: none;
-    color: #333533;
     position: absolute;
-    bottom: 0rem;
-    right: -1rem;
-    background: #f5cb5c;
-    padding: .05rem .2rem;
-    border-radius: .3rem;
-    font-family: 'Poppins',sans-serif;
-    font-size: .9rem;
-    font-weight: 400;
-    cursor: pointer;
+    bottom: 0;
+    right: 0;
+}
+.link .shopIcon{
+    color: #f5cb5c;
 }
 
-.link button:disabled{
-    background: gray;
+.linkDisabled{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.linkDisabled .shopIconDisabled{
+    color: gray;
     cursor: not-allowed;
 }
 
+/* .linkEnabled{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
 
+.linkEnabled .shopIcon1{
+    color: #f5cb5c;
+} */
 
 .container .details{
     position: relative;
+    user-select: none;
 }
 
 .container .details a{
@@ -143,7 +146,7 @@
 .container h5>span{
     color: #e8eddf;
     font-weight: 400;
-    margin-left: .3rem;
+    /* margin-left: .3rem; */
 }
 
 

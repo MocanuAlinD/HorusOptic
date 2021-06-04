@@ -14,7 +14,7 @@ const INDEX_DATA = [
   {
     id: 2,
     title: 'Consultanță',
-    text: 'HORUS TOP OPTIC se adreseaza persoanelor care sunt in cautarea unor servicii prompte si de calitate, totul pentru un pret corect. Oferim: prescriptie ochelari de vedere, gama variata de ochelari.',
+    text: 'HORUS TOP OPTIC se adreseaza persoanelor care sunt in cautarea unor servicii prompte si de calitate, totul pentru un pret corect.',
     button: 'Citeste mai mult',
     url: '/Consultanta'
   },

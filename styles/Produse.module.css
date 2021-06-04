@@ -141,7 +141,7 @@
 
 
 
-/* Partea cu scrisu din dreapta imaginii */
+/* Toata partea cu scrisu din dreapta imaginii */
 .rightSide {
     background: #242423;
     width: 25rem;
@@ -149,6 +149,7 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 0 .5rem;
+    position: relative;
 }
 
 
@@ -159,6 +160,7 @@
     font-weight: 400;
     font-size: 2rem;
     padding-bottom: 1rem;
+    user-select: none;
 }
 
 
@@ -168,6 +170,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     font-size: 1rem;
+    user-select: none;
 }
 
 
@@ -178,33 +181,8 @@
     font-weight: 400;
     font-size: 2rem;
     text-align: end;
-}
-
-
-/* Buton Adauga in cos */
-.link{
-    display: flex;
-    justify-content: flex-start;
-    padding-top: 1rem;
-    
-}
-
-/* Buton Adauga in cos */
-.link button{
-    border: none;
-    color: #333533;
-    background: #f5cb5c;
-    padding: .05rem .2rem;
-    border-radius: .3rem;
-    font-family: 'Poppins',sans-serif;
-    font-size: .9rem;
-    font-weight: 400;
-    cursor: pointer;
-}
-
-.link button:disabled{
-    background: gray;
-    cursor: not-allowed;
+    user-select: none;
+    text-align: start;
 }
 
 .buttonsDiv{
@@ -238,6 +216,32 @@
 .buttonsDiv button:hover{
     color: #f5cb5c;
 }
+
+
+/* ================================================ */
+.link{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    /* background: red; */
+    text-align: end;
+}
+.link .shopIcon{
+    color: #f5cb5c;
+}
+
+.linkDisabled{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.linkDisabled .shopIconDisabled{
+    color: gray;
+    cursor: not-allowed;
+}
+/* ================================================ */
 
 
 @media screen and (max-width: 768px) {

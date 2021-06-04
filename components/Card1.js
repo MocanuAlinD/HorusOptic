@@ -5,9 +5,9 @@ import Arrows from './Arrows'
 
 // Cards from index page
 class Card1 extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.indexData= this.props.indexData
+        this.indexData = this.props.indexData
     }
     shorten = (text, maxLength) => {
         if (text && text.length >= maxLength) {
@@ -34,9 +34,9 @@ class Card1 extends Component {
                     </ul>
 
                 </div>
-                {this.indexData.map(glass=>(
+                {this.indexData.map(glass => (
                     <div key={glass.id} className={style.cards}>
-                        <h3>{glass.title} 
+                        <h3>{glass.title}
                             <Arrows />
                         </h3>
                         <div className={style.forHide}>
@@ -46,7 +46,7 @@ class Card1 extends Component {
                         </div>
                     </div>
                 ))}
-                
+
             </div>
         );
     }
