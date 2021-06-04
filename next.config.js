@@ -1,8 +1,7 @@
 module.exports = {
     images: {
         loader: 'imgix',
-        path: 'https://cdn.chec.io',
-        domains: ''
+        path: 'https://cdn.chec.io'
     },
     env: {
         NEXT_APP_CHEC_PUBLIC_API_KEY: process.env.NEXT_APP_CHEC_PUBLIC_API_KEY,
