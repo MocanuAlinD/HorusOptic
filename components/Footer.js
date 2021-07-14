@@ -28,13 +28,13 @@ const Footer = () => {
             <div className={styles.middleFooter}>
                 <h3>Despre</h3>
                 <hr width='100%' style={{height:'.1rem', marginBottom: '.5rem'}}/>
-                <Link href="/Footer/istoria"><a>Istoria ochelarilor de vedere</a></Link>
-                <Link href="/Footer/nastere"><a>Locul de naștere al ochelarilor</a></Link>
-                <Link href="/Footer/stare"><a>Tipuri de lentile</a></Link>
-                <Link href="/Footer/contact"><a>Lentile de contact</a></Link>
-                <Link href="/Footer/prezent"><a>Ochelarii din ziua de azi</a></Link>
-                <Link href="/Footer/soare"><a>Ochelarii de soare</a></Link>
-                <Link href="/Footer/optica"><a>Consult optica medicala</a></Link>
+                <Link href="/istoriaochelarilor"><a>Istoria ochelarilor de vedere</a></Link>
+                <Link href="/nastere"><a>Locul de naștere al ochelarilor</a></Link>
+                <Link href="/tipuridelentile"><a>Tipuri de lentile</a></Link>
+                <Link href="/lentiledecontact"><a>Lentile de contact</a></Link>
+                <Link href="/ochelariideazi"><a>Ochelarii din ziua de azi</a></Link>
+                <Link href="/ochelarisoare"><a>Ochelarii de soare</a></Link>
+                <Link href="/consultopticamedicala"><a>Consult optica medicala</a></Link>
             </div>
             <div className={styles.rightFooter} >
                 <Link href="/PoliticaDeConfidentialitate"><a>Politica de confidentialitate</a></Link>

@@ -17,6 +17,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-grow: 1;
+	/* background: red; */
 }
 
 .navTitle h3{
@@ -36,8 +37,10 @@
 }
 
 .divIcon{
-	flex-grow: 1;
+	/* flex-grow: 1; */
 	text-align: end;
+	/* background: blueviolet; */
+	width: fit-content;
 }
 
 .navbarContainer .cartIcon{
@@ -48,11 +51,12 @@
 	flex-grow: 1;
     display: flex;
     list-style: none;
-    justify-content: flex-end;
+    justify-content: center;
     width: fit-content;
     height: 2rem;
     align-items: center;
 	user-select: none;
+	/* background: blue; */
 }
 
 .navbarContainer ul li a{

@@ -5,7 +5,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import Review from './Review'
 import styles from '../../styles/Checkout.module.css'
 
-const stripePromise = loadStripe(process.env.NEXT_APP_STRIPE_PUBLIC_API_KEY)
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_API_KEY)
 
 
 const PaymentForm = ({ timeout, checkoutToken, backStep, onCaptureCheckout, shippingData, nextStep }) => {

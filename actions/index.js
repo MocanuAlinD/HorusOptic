@@ -2022,4 +2022,3 @@ export const getProduse = () => {
         }, 50)
     })
 }
-

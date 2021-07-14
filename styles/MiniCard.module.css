@@ -48,7 +48,7 @@
 .container h4,
 .container h5{
     color: #e8eddf;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     user-select: none;
 }
 
