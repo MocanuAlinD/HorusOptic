@@ -18,17 +18,15 @@ export async function getStaticProps() {
 
     return {
         props: {
-            products
+            products,
         },
-        revalidate: 10,
+        revalidate: 5,
     }
 }
 
 
 
 const Produse = ({ onAddToCart, products }) => {
-
-
 
     const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
 

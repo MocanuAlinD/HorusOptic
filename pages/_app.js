@@ -15,37 +15,37 @@ function MyApp({ Component, pageProps }) {
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve())
-    console.log("Fetched cart")
+    // console.log("Fetched cart")
   }
 
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity)
     setCart(cart)
-    console.log("Added to cart: ", productId,quantity)
+    // console.log("Added to cart: ", productId,quantity)
   }
 
   const handleUpdateCartQty = async (productId, quantity) => {
     const { cart } = await commerce.cart.update(productId, { quantity })
     setCart(cart)
-    console.log("Update quantity:", productId, quantity)
+    // console.log("Update quantity:", productId, quantity)
   }
 
   const handleRemoveFromCart = async (productId) => {
     const { cart } = await commerce.cart.remove(productId)
     setCart(cart)
-    console.log("Remove from cart: ", productId)
+    // console.log("Remove from cart: ", productId)
   }
 
   const handleEmptyCart = async () => {
     const { cart } = await commerce.cart.empty()
     setCart(cart)
-    console.log("Empty cart: ", cart)
+    // console.log("Empty cart: ", cart)
   }
 
   const refreshCart = async () => {
     const newCart = await commerce.cart.refresh()
     setCart(newCart)
-    console.log("Cart refreshed")
+    // console.log("Cart refreshed")
   }
 
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
@@ -53,9 +53,9 @@ function MyApp({ Component, pageProps }) {
       const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder)
       setOrder(incomingOrder)
       refreshCart()
-      console.log("Incoming order: ", incomingOrder)
+      // console.log("Incoming order: ", incomingOrder)
     } catch (error) {
-      console.log("Error from capture checkout is: ", error)
+      // console.log("Error from capture checkout is: ", error)
       setErrorMessage(error.data.error.message)
     }
   }

@@ -4,6 +4,7 @@ import Card1 from '../components/Card1'
 import axios from 'axios'
 
 export default function Home({ allIndexData }) {
+
   return (
     <div className={styles.container}>
       <div className={styles.img}>
