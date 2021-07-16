@@ -13,23 +13,19 @@ import { ShoppingCart } from '@material-ui/icons'
 export async function getServerSideProps(context) {
     const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
     const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
-    const { data: products_3 } = await commerce.products.list({ limit: 200, category_slug: '3' })
-    // const { data: products_4 } = await commerce.products.list({ limit: 200, category_slug: '4' })
-
-    const products = [...products_1, ...products_2, ...products_3]
 
     return {
         props: {
-            products
+            products_1, products_2
         }
     }
 }
 
 
 
-const Produse = ({ onAddToCart, products }) => {
+const Produse = ({ onAddToCart, products_1, products_2 }) => {
 
-
+    const products = [...products_1, ...products_2]
 
     const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
 
