@@ -10,7 +10,7 @@ import { IconButton } from '@material-ui/core'
 import { ShoppingCart } from '@material-ui/icons'
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
     const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
 
@@ -20,7 +20,6 @@ export async function getStaticProps() {
         props: {
             products,
         },
-        revalidate: 5,
     }
 }
 
