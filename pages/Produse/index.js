@@ -176,11 +176,11 @@ const Produse = ({ onAddToCart, products }) => {
                                 <div className={styles.alin2}>
                                     <div className={styles.alin4} id='slider1'>
                                         <div className={styles.alin5}>
-                                            {img.assets.map((alin) =>
+                                            {img ? img.assets.map((alin) =>
                                                 <section key={alin.id}>
                                                     <Image src={alin.url} width={alin.image_dimensions.width} height={alin.image_dimensions.height} />
                                                 </section>
-                                            )}
+                                            ): ''}
                                         </div>
                                     </div>
                                     <div className={styles.buttonsDiv}>
@@ -190,10 +190,10 @@ const Produse = ({ onAddToCart, products }) => {
                                 </div>
 
                                 <div className={styles.rightSide}>
-                                    <h4>{img.name}</h4>
-                                    <div className={styles.description} dangerouslySetInnerHTML={{ __html: img.description }}></div>
+                                    <h4>{img && img.name}</h4>
+                                    <div className={img && styles.description} dangerouslySetInnerHTML={{ __html: img && img.description }}></div>
 
-                                    {!img.inventory.managed ? (
+                                    {img && (!img.inventory.managed ? (
                                         <div className={styles.link} >
                                             <IconButton onClick={() => onAddToCart(img.id, 1)}>
                                                 <ShoppingCart className={styles.shopIcon} />
@@ -211,10 +211,9 @@ const Produse = ({ onAddToCart, products }) => {
                                                         <ShoppingCart className={styles.shopIcon} />
                                                     </IconButton>
                                                 </div>)
-                                        )
-                                    }
+                                        ))}
 
-                                    <h4>Pret: {img.price.raw} <sub>ron</sub></h4>
+                                    <h4>Pret: {img && img.price.raw} <sub>ron</sub></h4>
                                 </div>
                             </div>
                         </section>

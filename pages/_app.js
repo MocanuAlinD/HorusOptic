@@ -22,13 +22,11 @@ function MyApp({ Component, pageProps }) {
 
 
   useEffect(() => {
-    console.log('Use Effect')
     const fetchProducts = async () => {
       const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
       const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
       const products = [...products_1, ...products_2]
       setProducts(products)
-      console.log(products)
     }
     fetchProducts()
   }, [])
