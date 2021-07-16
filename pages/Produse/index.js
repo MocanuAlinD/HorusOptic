@@ -14,9 +14,9 @@ export async function getServerSideProps(context) {
     const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
     const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
     const { data: products_3 } = await commerce.products.list({ limit: 200, category_slug: '3' })
-    const { data: products_4 } = await commerce.products.list({ limit: 200, category_slug: '4' })
+    // const { data: products_4 } = await commerce.products.list({ limit: 200, category_slug: '4' })
 
-    const products = [...products_1, ...products_2, ...products_3, ...products_4]
+    const products = [...products_1, ...products_2, ...products_3]
 
     return {
         props: {
