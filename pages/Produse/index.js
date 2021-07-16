@@ -10,25 +10,36 @@ import { IconButton } from '@material-ui/core'
 import { ShoppingCart } from '@material-ui/icons'
 
 
-export async function getServerSideProps() {
-    const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
-    const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
+// export async function getServerSideProps() {
+//     const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
+//     const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
 
-    const products = [...products_1, ...products_2]
+//     const products = [...products_1, ...products_2]
 
-    return {
-        props: {
-            products,
-        },
-    }
-}
+//     return {
+//         props: {
+//             products,
+//         },
+//     }
+// }
 
 
 
 const Produse = ({ onAddToCart, products }) => {
 
-    const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
+    if (products===[]){
+        return
+    }
+    
+    const [filter, setFilter] = useState('rame')
+    const [brand, setBrand] = useState('marcaAll')
+    const [search, setSearch] = useState('')
+    const [def, setDef] = useState('mic')
+    const [img, setImg] = useState(products[0])
+    const [imgpos, setImgpos] = useState(0)
+    
 
+    const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
     const sortedNames1 = []
     for (let i in abc) {
         if (sortedNames1.includes(abc[i].name)) {
@@ -39,19 +50,12 @@ const Produse = ({ onAddToCart, products }) => {
     }
     const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
 
-    const [filter, setFilter] = useState('rame')
-    const [brand, setBrand] = useState('marcaAll')
-    const [search, setSearch] = useState('')
-    const [def, setDef] = useState('mic')
-    const [img, setImg] = useState(products[0])
-    const [imgpos, setImgpos] = useState(0)
 
     const changeBrand = () => {
         if (brand === 'marcaAll') {
             return products.filter(x => x.categories[0].slug === filter)
         }
         if (brand !== 'marcaAll') {
-            // return products.filter(m => { return m.name && m.name.includes(brand) })
             return products.filter(m => { return m.name && m.name === brand })
         }
     }
@@ -111,9 +115,9 @@ const Produse = ({ onAddToCart, products }) => {
 
 
     // Slider Images
-    const jobId = img.id
-    let ln = img.assets ? img.assets.length - 1 : []
-    var sliderIndex = 0
+    // const jobId = img.id
+    // let ln = img.assets ? img.assets.length - 1 : []
+    // var sliderIndex = 0
 
     useEffect(() => {
         let b = document.getElementById('slider1')
@@ -220,19 +224,5 @@ const Produse = ({ onAddToCart, products }) => {
         </div>
     );
 }
-
-// Produse.getInitialProps = async () => {
-//     const { data: products } = await commerce.products.list()
-
-//     return { 
-//         props: {
-//             products
-//         } 
-//     }
-// }
-
-
-
-
 
 export default Produse;

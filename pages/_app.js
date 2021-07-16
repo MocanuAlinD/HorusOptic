@@ -6,12 +6,32 @@ import Footer from '../components/Footer'
 import { commerce } from '../lib/commerce'
 import Head from 'next/head'
 
+// import Router from 'next/router'
+
 
 function MyApp({ Component, pageProps }) {
+
+  // Router.events.on('routeChangeStart',(url)=>{
+  //   <div style={{width:"100%", height: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Loading</div>
+  // })
 
   const [cart, setCart] = useState({})
   const [order, setOrder] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
+  const [products, setProducts] = useState([])
+
+
+  useEffect(() => {
+    console.log('Use Effect')
+    const fetchProducts = async () => {
+      const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
+      const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
+      const products = [...products_1, ...products_2]
+      setProducts(products)
+      console.log(products)
+    }
+    fetchProducts()
+  }, [])
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve())
@@ -92,6 +112,7 @@ function MyApp({ Component, pageProps }) {
         order={order}
         onCaptureCheckout={handleCaptureCheckout}
         error={errorMessage}
+        products={products}
       />
 
       <Footer />
