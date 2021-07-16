@@ -11,7 +11,25 @@ import { ShoppingCart } from '@material-ui/icons'
 
 
 export async function getServerSideProps(context) {
-    const { data: products } = await commerce.products.list()
+    const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
+    const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
+    const { data: products_3 } = await commerce.products.list({ limit: 200, category_slug: '3' })
+    const { data: products_4 } = await commerce.products.list({ limit: 200, category_slug: '4' })
+
+    const products = [...products_1, ...products_2, ...products_3, ...products_4]
+
+    return {
+        props: {
+            products
+        }
+    }
+}
+
+
+
+const Produse = ({ onAddToCart, products }) => {
+
+
 
     const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
 
@@ -19,20 +37,11 @@ export async function getServerSideProps(context) {
     for (let i in abc) {
         if (sortedNames1.includes(abc[i].name)) {
             continue
-        } else { sortedNames1.push(abc[i].name) }
-    }
-    const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
-
-    return {
-        props: {
-            products, sortedNames
+        } else {
+            sortedNames1.push(abc[i].name)
         }
     }
-}
-
-
-
-const Produse = ({ sortedNames, products, onAddToCart }) => {
+    const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
 
     const [filter, setFilter] = useState('rame')
     const [brand, setBrand] = useState('marcaAll')
@@ -46,7 +55,8 @@ const Produse = ({ sortedNames, products, onAddToCart }) => {
             return products.filter(x => x.categories[0].slug === filter)
         }
         if (brand !== 'marcaAll') {
-            return products.filter(m => { return m.name && m.name.includes(brand) })
+            // return products.filter(m => { return m.name && m.name.includes(brand) })
+            return products.filter(m => { return m.name && m.name === brand })
         }
     }
 
@@ -113,7 +123,6 @@ const Produse = ({ sortedNames, products, onAddToCart }) => {
         let b = document.getElementById('slider1')
         b.style.transform = 'translate(0)'
     }, [img])
-
 
     const setImagePlus = () => {
         let a = document.getElementById('slider1')
