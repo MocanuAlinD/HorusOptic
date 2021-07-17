@@ -16,27 +16,25 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
 
     // Here the spinner while is loading products
-    if (loading){
+    if (loading) {
         return <LoadingScreen />
     }
 
-    if (products===[]){
-        return
-    }
+    // if (products===[]){
+    //     return
+    // }
 
-    
-    
     const [filter, setFilter] = useState('rame')
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('mic')
     const [img, setImg] = useState(products[0])
     const [imgpos, setImgpos] = useState(0)
-    // const [btnActive, setBtnActive] = ([])
 
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(5)
-    const [currentPosts, setCurrentPosts] = useState(products.length)
+    // const [currentPosts, setCurrentPosts] = useState(products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length)
+    // const [currentPosts, setCurrentPosts] = useState(products.length)
 
     const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
     const sortedNames1 = []
@@ -49,6 +47,9 @@ const Produse = ({ onAddToCart, products, loading }) => {
     }
     const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
 
+    // const abc1 = products.filter(x => { return x.name && (x.categories[0].slug === 'accesorii' || x.categories[1].slug === 'accesorii') })
+    // console.log(abc1)
+
 
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
@@ -56,7 +57,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
     const changeBrand = () => {
         if (brand === 'marcaAll') {
-            return products.filter(x => x.categories[0].slug === filter).slice(indexOfFirstPost, indexOfLastPost)
+            return products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).slice(indexOfFirstPost, indexOfLastPost)
         }
         if (brand !== 'marcaAll') {
             return products.filter(m => { return m.name && m.name === brand })
@@ -141,24 +142,37 @@ const Produse = ({ onAddToCart, products, loading }) => {
         a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
     }
 
-    
+
 
     // Change page
     const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
         let buttons = document.querySelectorAll('.btn')
         buttons.forEach(button => {
             // console.log(button)
-            button.addEventListener('click', function(){
-                buttons.forEach(btn=> btn.classList.remove('active'))
+            button.addEventListener('click', function () {
+                buttons.forEach(btn => btn.classList.remove('active'))
                 button.classList.add('active')
             })
         })
-        setCurrentPage(pageNumber)
     }
 
-    const changeShow =(e) =>{
+    const changeShow = (e) => {
         setPostsPerPage(e)
         console.log(e)
+    }
+
+    const mad = (cat) => {
+        setFilter(cat)
+        if (cat === 'rame') {
+            setPostsPerPage(5)
+            setCurrentPage(1)
+        }
+        if (cat === 'accesorii') {
+            setPostsPerPage(products.length)
+            setCurrentPage(1)
+        }
+
     }
 
 
@@ -175,7 +189,8 @@ const Produse = ({ onAddToCart, products, loading }) => {
                             <div className={styles.containerSt}>
                                 <div className={styles.sidebar}>
                                     <Sidebar
-                                        changeCat={(cat) => (setFilter(cat), setBrand('marcaAll'))}
+                                        // changeCat={(cat) => (setFilter(cat), setBrand('marcaAll'))}
+                                        changeCat={(cat) => (mad(cat), setBrand('marcaAll'))}
                                         brandAll={word => setBrand(word)}
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
@@ -184,14 +199,14 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                 </div>
 
                                 <div className={styles.productList}>
-                                    {brand === 'marcaAll' && <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow}/> }
+                                    {(filter === 'rame' && brand === "marcaAll") && <Pagination postsPerPage={postsPerPage} totalPosts={products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length} paginate={paginate} changeShow={changeShow} />}
                                     {search === '' && changeBrand(products).map(prd =>
                                         <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />)}
 
                                     {search !== '' ? searchItems().map(prd =>
                                         <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />) : []}
                                     {/* <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} /> */}
-                                    
+
                                 </div>
                             </div>
                         </section>
@@ -207,7 +222,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                                 <section key={alin.id}>
                                                     <Image src={alin.url} width={alin.image_dimensions.width} height={alin.image_dimensions.height} />
                                                 </section>
-                                            ): ''}
+                                            ) : ''}
                                         </div>
                                     </div>
                                     <div className={styles.buttonsDiv}>
