@@ -80,6 +80,8 @@
     z-index: 0;
     /* background: darkred; */
     align-content: flex-start;
+    position: relative;
+    padding-bottom: 2rem;
 }
 
 
@@ -307,7 +309,7 @@
         min-width: 100%;
         display: flex;
         flex-wrap: wrap;
-        margin-top: 7.5rem;
+        margin-top: 9rem;
     }
 
     .buttonsDiv{

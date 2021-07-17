@@ -1,0 +1,26 @@
+.container{
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 79vh;
+}
+
+.container h2{
+    color: whitesmoke;
+    font-family: 'Poppins';
+    font-weight: 200;
+    font-size: 2rem;
+    animation: text 1s infinite;
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes text{
+    0%,100%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+}

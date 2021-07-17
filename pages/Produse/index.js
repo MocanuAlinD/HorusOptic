@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from '../../styles/Produse.module.css'
 import MiniCard from '../../components/MiniCard'
 import Sidebar from '../../components/Sidebar'
+import LoadingScreen from '../../components/LoadingScreen'
+import Pagination from '../../components/Pagination'
 import Head from 'next/head'
 import { AiOutlineVerticalRight } from 'react-icons/ai';
 import Image from 'next/image'
@@ -10,26 +12,19 @@ import { IconButton } from '@material-ui/core'
 import { ShoppingCart } from '@material-ui/icons'
 
 
-// export async function getServerSideProps() {
-//     const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
-//     const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
-
-//     const products = [...products_1, ...products_2]
-
-//     return {
-//         props: {
-//             products,
-//         },
-//     }
-// }
+const Produse = ({ onAddToCart, products, loading }) => {
 
 
-
-const Produse = ({ onAddToCart, products }) => {
+    // Here the spinner while is loading products
+    if (loading){
+        return <LoadingScreen />
+    }
 
     if (products===[]){
         return
     }
+
+    
     
     const [filter, setFilter] = useState('rame')
     const [brand, setBrand] = useState('marcaAll')
@@ -37,7 +32,10 @@ const Produse = ({ onAddToCart, products }) => {
     const [def, setDef] = useState('mic')
     const [img, setImg] = useState(products[0])
     const [imgpos, setImgpos] = useState(0)
-    
+
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postsPerPage, setPostsPerPage] = useState(9)
+    const [currentPosts, setCurrentPosts] = useState(products.length)
 
     const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
     const sortedNames1 = []
@@ -51,14 +49,19 @@ const Produse = ({ onAddToCart, products }) => {
     const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
 
 
+    const indexOfLastPost = currentPage * postsPerPage
+    const indexOfFirstPost = indexOfLastPost - postsPerPage
+    // const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
+
     const changeBrand = () => {
         if (brand === 'marcaAll') {
-            return products.filter(x => x.categories[0].slug === filter)
+            return products.filter(x => x.categories[0].slug === filter).slice(indexOfFirstPost, indexOfLastPost)
         }
         if (brand !== 'marcaAll') {
             return products.filter(m => { return m.name && m.name === brand })
         }
     }
+
 
     const changePriceName = (e) => {
         setDef(e)
@@ -75,6 +78,7 @@ const Produse = ({ onAddToCart, products }) => {
             return products.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() && 1 || -1)
         }
     }
+
 
     const changeMe = (e) => {
         setImg(e)
@@ -105,6 +109,7 @@ const Produse = ({ onAddToCart, products }) => {
         })
     }
 
+
     const searchItems = () => {
         const a = products.filter(x => {
             return x.name && x.name.toLowerCase().includes(search) ||
@@ -115,9 +120,8 @@ const Produse = ({ onAddToCart, products }) => {
 
 
     // Slider Images
-    // const jobId = img.id
-    // let ln = img.assets ? img.assets.length - 1 : []
-    // var sliderIndex = 0
+    let ln = img && (img.assets ? img.assets.length - 1 : [])
+    var sliderIndex = 0
 
     useEffect(() => {
         let b = document.getElementById('slider1')
@@ -135,6 +139,11 @@ const Produse = ({ onAddToCart, products }) => {
         sliderIndex = (sliderIndex > 0) ? sliderIndex - 1 : 0
         a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
     }
+
+    
+
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
 
     return (
@@ -155,7 +164,6 @@ const Produse = ({ onAddToCart, products }) => {
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
                                         searchResult={word => setSearch(word)}
-
                                     />
                                 </div>
 
@@ -165,6 +173,9 @@ const Produse = ({ onAddToCart, products }) => {
 
                                     {search !== '' ? searchItems().map(prd =>
                                         <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />) : []}
+                                    {/* <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} /> */}
+                                    {brand === 'marcaAll' && <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} /> }
+                                    
                                 </div>
                             </div>
                         </section>
