@@ -32,9 +32,10 @@ const Produse = ({ onAddToCart, products, loading }) => {
     const [def, setDef] = useState('mic')
     const [img, setImg] = useState(products[0])
     const [imgpos, setImgpos] = useState(0)
+    // const [btnActive, setBtnActive] = ([])
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage, setPostsPerPage] = useState(9)
+    const [postsPerPage, setPostsPerPage] = useState(5)
     const [currentPosts, setCurrentPosts] = useState(products.length)
 
     const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
@@ -143,7 +144,22 @@ const Produse = ({ onAddToCart, products, loading }) => {
     
 
     // Change page
-    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+    const paginate = (pageNumber) => {
+        let buttons = document.querySelectorAll('.btn')
+        buttons.forEach(button => {
+            // console.log(button)
+            button.addEventListener('click', function(){
+                buttons.forEach(btn=> btn.classList.remove('active'))
+                button.classList.add('active')
+            })
+        })
+        setCurrentPage(pageNumber)
+    }
+
+    const changeShow =(e) =>{
+        setPostsPerPage(e)
+        console.log(e)
+    }
 
 
     return (
@@ -168,13 +184,13 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                 </div>
 
                                 <div className={styles.productList}>
+                                    {brand === 'marcaAll' && <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow}/> }
                                     {search === '' && changeBrand(products).map(prd =>
                                         <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />)}
 
                                     {search !== '' ? searchItems().map(prd =>
                                         <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />) : []}
                                     {/* <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} /> */}
-                                    {brand === 'marcaAll' && <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} /> }
                                     
                                 </div>
                             </div>

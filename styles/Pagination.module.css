@@ -4,29 +4,18 @@
     height: fit-content;
     /* outline: 1px solid red; */
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     margin-left: .5rem;
 }
 
-.container button{
-    background: black;
-    border: none;
-    border-bottom: 1px solid #f5cb5c;
+.pickToShow label{
     color: #f5cb5c;
-    cursor: pointer;
-    font-size: .9rem;
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    margin-right: .5rem;
-    margin-top: .4rem;
-    width: 1.5rem;
-    outline: none;
-    padding: 0 .2rem;
-    text-decoration: none;
+    margin-right: .2rem;
 }
 
-.container button.active{
-    background: red;
+.pickToShow select{
+    margin-right: 1rem;
 }
