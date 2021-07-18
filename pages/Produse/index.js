@@ -14,6 +14,12 @@ import { ShoppingCart } from '@material-ui/icons'
 
 const Produse = ({ onAddToCart, products, loading }) => {
 
+    const ochelari = products.filter(x => (x.categories[0].slug === 'rame' || x.categories[1].slug === 'rame')).length
+    // console.log('ochelari: ', ochelari)
+
+    const accesorii = products.filter(x => (x.categories[0].slug === 'accesorii' || x.categories[1].slug === 'accesorii')).length
+    // console.log('accesorii: ', accesorii)
+
 
     // Here the spinner while is loading products
     if (loading) {
@@ -34,8 +40,9 @@ const Produse = ({ onAddToCart, products, loading }) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(5)
     // const [currentPosts, setCurrentPosts] = useState(products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length)
-    // const [currentPosts, setCurrentPosts] = useState(products.length)
+    const [currentPosts, setCurrentPosts] = useState(ochelari)
 
+    // Names for the brands
     const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
     const sortedNames1 = []
     for (let i in abc) {
@@ -47,8 +54,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
     }
     const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
 
-    // const abc1 = products.filter(x => { return x.name && (x.categories[0].slug === 'accesorii' || x.categories[1].slug === 'accesorii') })
-    // console.log(abc1)
+    
 
 
     const indexOfLastPost = currentPage * postsPerPage
@@ -63,7 +69,6 @@ const Produse = ({ onAddToCart, products, loading }) => {
             return products.filter(m => { return m.name && m.name === brand })
         }
     }
-
 
     const changePriceName = (e) => {
         setDef(e)
@@ -163,19 +168,19 @@ const Produse = ({ onAddToCart, products, loading }) => {
     }
 
     const mad = (cat) => {
+        setBrand('marcaAll')
         setFilter(cat)
         if (cat === 'rame') {
-            setPostsPerPage(5)
             setCurrentPage(1)
+            setCurrentPosts(ochelari)
         }
         if (cat === 'accesorii') {
-            setPostsPerPage(products.length)
             setCurrentPage(1)
+            setCurrentPosts(accesorii)
         }
-
     }
 
-
+    
     return (
         <div className={styles.container} id='top'>
             <Head>
@@ -189,9 +194,8 @@ const Produse = ({ onAddToCart, products, loading }) => {
                             <div className={styles.containerSt}>
                                 <div className={styles.sidebar}>
                                     <Sidebar
-                                        // changeCat={(cat) => (setFilter(cat), setBrand('marcaAll'))}
-                                        changeCat={(cat) => (mad(cat), setBrand('marcaAll'))}
-                                        brandAll={word => setBrand(word)}
+                                        changeCat={(cat) => mad(cat)}
+                                        brandAll={word => (changeBrand(word, setBrand(word !== 'marcaAll' ? word : 'marcaAll')))}
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
                                         searchResult={word => setSearch(word)}
@@ -199,14 +203,14 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                 </div>
 
                                 <div className={styles.productList}>
-                                    {(filter === 'rame' && brand === "marcaAll") && <Pagination postsPerPage={postsPerPage} totalPosts={products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length} paginate={paginate} changeShow={changeShow} />}
+                                    {/* {(filter === 'rame' && brand === "marcaAll") && <Pagination postsPerPage={postsPerPage} totalPosts={products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length} paginate={paginate} changeShow={changeShow} />} */}
+                                    {brand === "marcaAll" && <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow} />}
+                                    {/* <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow} /> */}
                                     {search === '' && changeBrand(products).map(prd =>
                                         <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />)}
 
                                     {search !== '' ? searchItems().map(prd =>
                                         <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />) : []}
-                                    {/* <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} /> */}
-
                                 </div>
                             </div>
                         </section>

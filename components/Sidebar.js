@@ -78,6 +78,7 @@ const Sidebar = (props) => {
                     {props.sortedNames.map((item, index) => {
                         return (
                             <div key={index} >
+                                {/* <input type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input> */}
                                 <input type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input>
                                 <label htmlFor={item}>{item}</label><br />
                             </div>
