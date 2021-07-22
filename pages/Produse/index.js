@@ -54,8 +54,6 @@ const Produse = ({ onAddToCart, products, loading }) => {
     }
     const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
 
-    
-
 
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
