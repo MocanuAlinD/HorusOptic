@@ -2,6 +2,8 @@ import React from 'react'
 import style from '../styles/Pagination.module.css'
 
 const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
+    console.log('postsPerPage', postsPerPage)
+    console.log('totalPosts', totalPosts)
     let pageNumbers = []
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
@@ -12,7 +14,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
             
                 <div className={style.pickToShow}>
                     <label>Afiseaza</label>
-                    <select onChange={(e) => changeShow(e.target.value)}>
+                <select value={postsPerPage} onChange={(e) => changeShow(e.target.value)}>
                         <option value='5'>5</option>
                         <option value='10'>10</option>
                         <option value='20'>20</option>

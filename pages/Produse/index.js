@@ -38,9 +38,10 @@ const Produse = ({ onAddToCart, products, loading }) => {
     const [imgpos, setImgpos] = useState(0)
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage, setPostsPerPage] = useState(5)
+    const [postsPerPage, setPostsPerPage] = useState(7)
     // const [currentPosts, setCurrentPosts] = useState(products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length)
     const [currentPosts, setCurrentPosts] = useState(ochelari)
+    // const [tempPost, setTempPost] = useState(5)
 
     // Names for the brands
     const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
@@ -84,7 +85,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
         }
     }
 
-
+    // Details page(section)
     const changeMe = (e) => {
         setImg(e)
         setImgpos(window.pageYOffset)
@@ -148,7 +149,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
 
     // Change page
-    const paginate = (e,pageNumber) => {
+    const paginate = (e, pageNumber) => {
         setCurrentPage(pageNumber)
         let buttons = document.querySelectorAll('.btn')
         buttons.forEach(btn => btn.classList.remove('active'))
@@ -157,6 +158,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
     // Show products per page select
     const changeShow = (e) => {
+        console.log('Posts per page: ', e)
         setPostsPerPage(e)
         setCurrentPage(1)
         buttonChange()
@@ -165,7 +167,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
     const buttonChange = () => {
         let buttons = document.querySelectorAll('.btn')
         buttons.forEach(btn => btn.classList.remove('active'))
-        buttons[0].classList.add('active')
+        buttons[0] ? buttons[0].classList.add('active') : ''
     }
 
     const mad = (cat) => {
@@ -182,7 +184,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
         }
     }
 
-    
+
     return (
         <div className={styles.container} id='top'>
             <Head>
@@ -197,7 +199,8 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                 <div className={styles.sidebar}>
                                     <Sidebar
                                         changeCat={(cat) => mad(cat)}
-                                        brandAll={word => (changeBrand(word, setBrand(word !== 'marcaAll' ? word : 'marcaAll')))}
+                                        // brandAll={word => (changeBrand(word, setBrand(word !== 'marcaAll' ? word : 'marcaAll')))}
+                                        brandAll={word => (changeBrand(word), setBrand(word !== 'marcaAll' ? word : 'marcaAll'))}
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
                                         searchResult={word => setSearch(word)}
@@ -206,7 +209,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
                                 <div className={styles.productList}>
                                     {/* {(filter === 'rame' && brand === "marcaAll") && <Pagination postsPerPage={postsPerPage} totalPosts={products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length} paginate={paginate} changeShow={changeShow} />} */}
-                                    {brand === "marcaAll" && <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow} />}
+                                    {brand === "marcaAll" && <Pagination setPostsPerPage={setPostsPerPage} postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow} />}
                                     {/* <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow} /> */}
                                     {search === '' && changeBrand(products).map(prd =>
                                         <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />)}
