@@ -148,26 +148,30 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
 
     // Change page
-    const paginate = (pageNumber) => {
+    const paginate = (e,pageNumber) => {
         setCurrentPage(pageNumber)
         let buttons = document.querySelectorAll('.btn')
-        buttons.forEach(button => {
-            // console.log(button)
-            button.addEventListener('click', function () {
-                buttons.forEach(btn => btn.classList.remove('active'))
-                button.classList.add('active')
-            })
-        })
+        buttons.forEach(btn => btn.classList.remove('active'))
+        e.target.classList.add('active')
     }
 
+    // Show products per page select
     const changeShow = (e) => {
         setPostsPerPage(e)
-        console.log(e)
+        setCurrentPage(1)
+        buttonChange()
+    }
+
+    const buttonChange = () => {
+        let buttons = document.querySelectorAll('.btn')
+        buttons.forEach(btn => btn.classList.remove('active'))
+        buttons[0].classList.add('active')
     }
 
     const mad = (cat) => {
         setBrand('marcaAll')
         setFilter(cat)
+        buttonChange()
         if (cat === 'rame') {
             setCurrentPage(1)
             setCurrentPosts(ochelari)

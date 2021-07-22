@@ -22,7 +22,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
                     
             
             {pageNumbers.map(number => (
-                <button className='btn' onClick={() => paginate(number)} key={number}>{number}</button>
+                <button className='btn' onClick={(e) => paginate(e, number)} key={number}>{number}</button>
             ))}
 
             <style jsx>{`
@@ -33,10 +33,10 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
                     border-radius: .3rem .3rem 0 0;
                     color: #f5cb5c;
                     cursor: pointer;
-                    font-size: .9rem;
+                    font-size: .75rem;
                     font-family: 'Poppins', sans-serif;
                     font-weight: 400;
-                    margin-right: .5rem;
+                    margin-right: .4rem;
                     margin-top: .4rem;
                     width: 1.5rem;
                     outline: none;
