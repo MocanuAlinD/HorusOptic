@@ -38,7 +38,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
     const [imgpos, setImgpos] = useState(0)
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage, setPostsPerPage] = useState(7)
+    const [postsPerPage, setPostsPerPage] = useState(5)
     // const [currentPosts, setCurrentPosts] = useState(products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length)
     const [currentPosts, setCurrentPosts] = useState(ochelari)
     // const [tempPost, setTempPost] = useState(5)
@@ -158,7 +158,6 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
     // Show products per page select
     const changeShow = (e) => {
-        console.log('Posts per page: ', e)
         setPostsPerPage(e)
         setCurrentPage(1)
         buttonChange()

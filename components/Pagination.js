@@ -2,8 +2,6 @@ import React from 'react'
 import style from '../styles/Pagination.module.css'
 
 const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
-    console.log('postsPerPage', postsPerPage)
-    console.log('totalPosts', totalPosts)
     let pageNumbers = []
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
