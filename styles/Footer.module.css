@@ -28,6 +28,7 @@
     color: #e8eddf;
 }
 
+/* LEFT FOOTER ===================================== */
 .leftFooter{
     margin-right: 1rem;
 }
@@ -39,6 +40,8 @@
     font-size: 1.2rem;
 }
 
+
+/* MIDDLE FOOTER ===================================== */
 .middleFooter{
     margin-right: 1rem;
 }
@@ -49,12 +52,26 @@
     font-weight: 200;
 }
 
+
+
+/* RIGHT FOOTER ===================================== */
 .rightFooter{
     padding-top: 2rem;
 }
 
 .rightFooter a:first-child{
     margin-top: .5rem;
+    color: #e8eddf;
+    animation: onoff 2s linear infinite;
+}
+
+@keyframes onoff{
+    0%,100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.1;
+    }
 }
 
 .rightFooter a{
@@ -62,8 +79,9 @@
     font-size: .8rem;
     font-family: 'Poppins',sans-serif;
     font-weight: 200;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
+
 .rightFooter h4{
     color: #e8eddf;
     font-size: 1rem;
@@ -111,8 +129,6 @@
 .footerContainer a:hover{
     color: #f5cb5c;
 }
-
-
 
 
 @media screen and (max-width: 768px){

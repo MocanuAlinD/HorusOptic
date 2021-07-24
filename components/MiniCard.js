@@ -10,7 +10,7 @@ const MiniCard = ({ produs, change, onAddToCart }) => {
         <div key={produs.id} className={styles.container}>
             <Image priority='true' layout='responsive' as='image' src={produs.media.source} width={1920} height={1080} />
             <h4>{produs.name}</h4>
-            <h5 className={styles.pret}>{produs.price.raw} <sub>ron</sub></h5>
+            <h5 className={styles.pret}>{produs.price.raw}&nbsp;<sub>ron</sub></h5>
             <h5 dangerouslySetInnerHTML={{ __html: produs.description }}></h5>
             <hr className={styles.divider} />
             <h5>{!produs.inventory.managed ? <span>In stoc</span> : (
@@ -45,7 +45,7 @@ const MiniCard = ({ produs, change, onAddToCart }) => {
 
 
 
-            <div className={styles.details}><a onClick={() => change(produs)}>Detalii</a></div>
+            <div className={styles.details}><a onClick={() => change(produs)}>...</a></div>
         </div>
     );
 }

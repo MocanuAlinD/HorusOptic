@@ -13,6 +13,12 @@ const Sidebar = (props) => {
         if (e === 'rame') {
             const brands = document.querySelector('#brand')
             brands.style.display = 'block'
+
+            const allBrands = document.querySelectorAll(".buttonBrands")
+            allBrands.forEach(brand => {
+                brand.checked=false
+            })
+            allBrands[0].checked=true
         }
         if (e === 'accesorii') {
             const brands = document.querySelector('#brand')
@@ -73,13 +79,13 @@ const Sidebar = (props) => {
                 <div className={styles.bucati} id='brand'>
                     <h4>Brand</h4>
 
-                    <input defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={(e) => props.brandAll(e.target.value)}></input>
+                    <input className="buttonBrands" defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={(e) => props.brandAll(e.target.value)}></input>
                     <label htmlFor="marcaAll">Toate</label><br />
                     {props.sortedNames.map((item, index) => {
                         return (
                             <div key={index} >
                                 {/* <input type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input> */}
-                                <input type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input>
+                                <input className="buttonBrands" type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input>
                                 <label htmlFor={item}>{item}</label><br />
                             </div>
                         )

@@ -1,26 +1,35 @@
 .container{
     /* background: red; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     min-height: 79vh;
 }
 
+.loader{
+    border: .3rem solid #242423;
+    border-radius: 50%;
+    border-top: .3rem solid #f5cb5c;
+    border-bottom: .3rem solid #f5cb5c;
+    width: 3.5rem;
+    height: 3.5rem;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
 .container h2{
     color: whitesmoke;
     font-family: 'Poppins';
     font-weight: 200;
-    font-size: 2rem;
-    animation: text 1s infinite;
-    transition: opacity 1s ease-in-out;
-}
-
-@keyframes text{
-    0%,100%{
-        opacity: 0;
-    }
-    50%{
-        opacity: 1;
-    }
+    font-size: 1rem;
 }

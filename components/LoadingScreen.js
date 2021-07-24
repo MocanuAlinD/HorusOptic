@@ -4,7 +4,8 @@ import style from '../styles/LoadingScreen.module.css'
 const LoadingScreen = () => {
     return (
         <div className={style.container}>
-            <h2>Se incarca...</h2>
+            <div className={style.loader}></div>
+            <h2>Actualizare produse....</h2>
         </div>
     )
 }

@@ -92,7 +92,7 @@
 }
 
 .cards:hover{
-    height: 10rem;
+    height: 11rem;
     background: #ffffff11;
 }
 
@@ -178,7 +178,7 @@
   opacity: 0;
 }
 .mission:hover{
-  height: 22rem;
+  height: 23rem;
   background: #ffffff11;
 }
 .mission:hover .ulMission{

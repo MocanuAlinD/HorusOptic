@@ -1,7 +1,6 @@
 import styles from '../styles/Home.module.css'
 import { getIndexData } from "../actions"
 import Card1 from '../components/Card1'
-import axios from 'axios'
 
 export default function Home({ allIndexData }) {
 

@@ -37,6 +37,7 @@ const Footer = () => {
                 <Link href="/consultopticamedicala"><a>Consult optica medicala</a></Link>
             </div>
             <div className={styles.rightFooter} >
+                <Link href="#"><a>Inainte sa cumperi !</a></Link>
                 <Link href="/PoliticaDeConfidentialitate"><a>Politica de confidentialitate</a></Link>
                 <Link href="/Garantie"><a>Garantie</a></Link>
                 <h4>CUI: 40666971</h4>
