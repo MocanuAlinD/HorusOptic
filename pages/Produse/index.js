@@ -127,26 +127,21 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
     // Slider Images
     let ln = img && (img.assets ? img.assets.length - 1 : [])
-    var sliderIndex = 0
+    let sliderIndex = 0
 
-    useEffect(() => {
-        let b = document.getElementById('slider1')
-        b.style.transform = 'translate(0)'
-    }, [img])
+
 
     const setImagePlus = () => {
         let a = document.getElementById('slider1')
         sliderIndex = (sliderIndex < ln) ? sliderIndex + 1 : ln
         a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
     }
-
+    
     const setImageMinus = () => {
         let a = document.getElementById('slider1')
         sliderIndex = (sliderIndex > 0) ? sliderIndex - 1 : 0
         a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
     }
-
-
 
     // Change page
     const paginate = (e, pageNumber) => {
@@ -183,6 +178,10 @@ const Produse = ({ onAddToCart, products, loading }) => {
         }
     }
 
+    useEffect(() => {
+        let b = document.getElementById('slider1')
+        b.style.transform = 'translate(0)'
+    }, [img])
 
     return (
         <div className={styles.container} id='top'>
@@ -234,8 +233,9 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                         </div>
                                     </div>
                                     <div className={styles.buttonsDiv}>
-                                        <button className={styles.btnMinus} onClick={() => setImageMinus()}>&#60;</button>
-                                        <button className={styles.btnPlus} onClick={() => setImagePlus()}>&#62;</button>
+                                        <button className={styles.btnMinus} onClick={setImageMinus}>&#60;</button>
+                                        {/* <h4>{tempNumber} / {img && img.assets.length}</h4> */}
+                                        <button className={styles.btnPlus} onClick={setImagePlus}>&#62;</button>
                                     </div>
                                 </div>
 

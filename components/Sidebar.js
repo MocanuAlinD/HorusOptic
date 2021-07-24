@@ -31,6 +31,9 @@ const Sidebar = (props) => {
             const brands = document.querySelector('#divBrand')
             brands.style.display = 'flex'
             props.changeCat('rame')
+
+            const allBrandsMobile = document.querySelector("#brandMobile")
+            allBrandsMobile.value = allBrandsMobile[0].value
         }
         if (e === 'accesorii') {
             const brands = document.querySelector('#divBrand')
@@ -45,7 +48,7 @@ const Sidebar = (props) => {
                 {/* Meniu Search */}
                 <div className={styles.searchDiv}>
                     <AiOutlineSearch className={styles.searchIcon} />
-                    <input type="search" className={styles.search} onChange={(e) => props.searchResult(e.target.value.toLowerCase())} />
+                    <input placeholder="Cauta..." type="search" className={styles.search} onChange={(e) => props.searchResult(e.target.value.toLowerCase())} />
                 </div>
 
                 {/* Meniu categorii */}
@@ -110,7 +113,7 @@ const Sidebar = (props) => {
                 {/* Search */}
                 <div className={styles.bucatiDrop}>
                     <AiOutlineSearch className={styles.searchIconDrop} />
-                    <input type="search" className={styles.searchDrop} onChange={(e) => props.searchResult(e.target.value.toLowerCase())} />
+                    <input placeholder="Cauta..." type="search" className={styles.searchDrop} onChange={(e) => props.searchResult(e.target.value.toLowerCase())} />
                 </div>
 
                 {/* Categorie RAME-ACCESORII */}
