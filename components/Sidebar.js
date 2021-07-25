@@ -48,7 +48,7 @@ const Sidebar = (props) => {
                 {/* Meniu Search */}
                 <div className={styles.searchDiv}>
                     <AiOutlineSearch className={styles.searchIcon} />
-                    <input placeholder="Cauta..." type="search" className={styles.search} onChange={(e) => props.searchResult(e.target.value.toLowerCase())} />
+                    <input placeholder="Cauta..." type="search" className={styles.search} onChange={(e) => props.setSearch(e.target.value.toLowerCase())} />
                 </div>
 
                 {/* Meniu categorii */}
@@ -82,13 +82,13 @@ const Sidebar = (props) => {
                 <div className={styles.bucati} id='brand'>
                     <h4>Brand</h4>
 
-                    <input className="buttonBrands" defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={(e) => props.brandAll(e.target.value)}></input>
+                    <input className="buttonBrands" defaultChecked type="radio" id="marcaAll" name="marca" value="marcaAll" onClick={(e) => props.setBrand(e.target.value)}></input>
                     <label htmlFor="marcaAll">Toate</label><br />
                     {props.sortedNames.map((item, index) => {
                         return (
                             <div key={index} >
                                 {/* <input type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input> */}
-                                <input className="buttonBrands" type="radio" id={item} name="marca" value={item} onClick={() => props.brandAll(item)}></input>
+                                <input className="buttonBrands" type="radio" id={item} name="marca" value={item} onClick={() => props.setBrand(item)}></input>
                                 <label htmlFor={item}>{item}</label><br />
                             </div>
                         )
@@ -113,7 +113,7 @@ const Sidebar = (props) => {
                 {/* Search */}
                 <div className={styles.bucatiDrop}>
                     <AiOutlineSearch className={styles.searchIconDrop} />
-                    <input placeholder="Cauta..." type="search" className={styles.searchDrop} onChange={(e) => props.searchResult(e.target.value.toLowerCase())} />
+                    <input placeholder="Cauta..." type="search" className={styles.searchDrop} onChange={(e) => props.setSearch(e.target.value.toLowerCase())} />
                 </div>
 
                 {/* Categorie RAME-ACCESORII */}
@@ -128,7 +128,7 @@ const Sidebar = (props) => {
                 {/* BRANDS */}
                 <div className={styles.bucatiDrop} id='divBrand'>
                     <h4>Brand</h4>
-                    <select name="brand" id="brandMobile" onChange={(e) => props.brandAll(e.target.value)}>
+                    <select name="brand" id="brandMobile" onChange={(e) => props.setBrand(e.target.value)}>
                         <option value="marcaAll">Toate</option>
 
                         {props.sortedNames.map((item, index) => {

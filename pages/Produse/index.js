@@ -41,7 +41,6 @@ const Produse = ({ onAddToCart, products, loading }) => {
     const [postsPerPage, setPostsPerPage] = useState(5)
     // const [currentPosts, setCurrentPosts] = useState(products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length)
     const [currentPosts, setCurrentPosts] = useState(ochelari)
-    // const [tempPost, setTempPost] = useState(5)
 
     // Names for the brands
     const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
@@ -126,7 +125,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
 
     // Slider Images
-    let ln = img && (img.assets ? img.assets.length - 1 : [])
+    let ln = img && (img.assets ? img.assets.length - 1 : '')
     let sliderIndex = 0
 
 
@@ -197,18 +196,15 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                 <div className={styles.sidebar}>
                                     <Sidebar
                                         changeCat={(cat) => mad(cat)}
-                                        // brandAll={word => (changeBrand(word, setBrand(word !== 'marcaAll' ? word : 'marcaAll')))}
-                                        brandAll={word => (changeBrand(word), setBrand(word !== 'marcaAll' ? word : 'marcaAll'))}
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
-                                        searchResult={word => setSearch(word)}
+                                        setSearch={setSearch}
+                                        setBrand={setBrand}
                                     />
                                 </div>
 
                                 <div className={styles.productList}>
-                                    {/* {(filter === 'rame' && brand === "marcaAll") && <Pagination postsPerPage={postsPerPage} totalPosts={products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length} paginate={paginate} changeShow={changeShow} />} */}
-                                    {brand === "marcaAll" && <Pagination setPostsPerPage={setPostsPerPage} postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow} />}
-                                    {/* <Pagination postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow} /> */}
+                                    {(search === "" && brand === "marcaAll") && <Pagination setPostsPerPage={setPostsPerPage} postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow} />}
                                     {search === '' && changeBrand(products).map(prd =>
                                         <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />)}
 
@@ -234,7 +230,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                     </div>
                                     <div className={styles.buttonsDiv}>
                                         <button className={styles.btnMinus} onClick={setImageMinus}>&#60;</button>
-                                        {/* <h4>{tempNumber} / {img && img.assets.length}</h4> */}
+                                        {/* <h4>{tn} / {img && img.assets.length}</h4> */}
                                         <button className={styles.btnPlus} onClick={setImagePlus}>&#62;</button>
                                     </div>
                                 </div>
