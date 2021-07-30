@@ -7,19 +7,21 @@ import Pagination from '../../components/Pagination'
 import Head from 'next/head'
 import { AiOutlineVerticalRight } from 'react-icons/ai';
 import Image from 'next/image'
-import { commerce } from '../../lib/commerce'
 import { IconButton } from '@material-ui/core'
 import { ShoppingCart } from '@material-ui/icons'
 
 
 const Produse = ({ onAddToCart, products, loading }) => {
 
-    const ochelari = products.filter(x => (x.categories[0].slug === 'rame' || x.categories[1].slug === 'rame')).length
-    // console.log('ochelari: ', ochelari)
 
-    const accesorii = products.filter(x => (x.categories[0].slug === 'accesorii' || x.categories[1].slug === 'accesorii')).length
-    // console.log('accesorii: ', accesorii)
+    const ochelariVedere = products.filter(x => { return (x.categories[0].slug === 'rame' || x.categories[1].slug === 'rame') && !(x.name && x.description.includes('soare')) })
+    const ochelariVedereLen = ochelariVedere.length
 
+    const ochelariSoare = products.filter(x => { return (x.categories[0].slug === 'rame' || x.categories[1].slug === 'rame') && (x.name && x.description.includes('soare'))})
+    const ochelariSoareLen = ochelariSoare.length
+
+    const ochelariAccesorii = products.filter(x => { return x.categories[0].slug === 'accesorii' || x.categories[1].slug === 'accesorii' })
+    const ochelariAccesoriiLen = ochelariAccesorii.length
 
     // Here the spinner while is loading products
     if (loading) {
@@ -30,20 +32,19 @@ const Produse = ({ onAddToCart, products, loading }) => {
     //     return
     // }
 
-    const [filter, setFilter] = useState('rame')
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('mic')
-    const [img, setImg] = useState(products[0])
     const [imgpos, setImgpos] = useState(0)
-
+    
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(5)
-    // const [currentPosts, setCurrentPosts] = useState(products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).length)
-    const [currentPosts, setCurrentPosts] = useState(ochelari)
+    const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen)
+    const [allProducts, setAllProducts] = useState(ochelariVedere)
+    const [img, setImg] = useState(allProducts[0])
 
     // Names for the brands
-    const abc = products.filter(x => { return x.name && x.categories[0].slug === 'rame' })
+    const abc = allProducts.filter(x => { return x.name && x.categories[0].slug === 'rame' })
     const sortedNames1 = []
     for (let i in abc) {
         if (sortedNames1.includes(abc[i].name)) {
@@ -57,30 +58,29 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
-    // const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
 
     const changeBrand = () => {
         if (brand === 'marcaAll') {
-            return products.filter(x => (x.categories[0].slug === filter || x.categories[1].slug === filter)).slice(indexOfFirstPost, indexOfLastPost)
+            return allProducts.slice(indexOfFirstPost, indexOfLastPost)
         }
         if (brand !== 'marcaAll') {
-            return products.filter(m => { return m.name && m.name === brand })
+            return allProducts.filter(m => { return m.name && m.name === brand })
         }
     }
 
     const changePriceName = (e) => {
         setDef(e)
         if (e === 'mic') {
-            return products.sort((a, b) => parseInt(a.price.raw) > parseInt(b.price.raw) && 1 || -1)
+            return allProducts.sort((a, b) => parseInt(a.price.raw) > parseInt(b.price.raw) && 1 || -1)
         }
         if (e === 'mare') {
-            return products.sort((a, b) => parseInt(a.price.raw) < parseInt(b.price.raw) && 1 || -1)
+            return allProducts.sort((a, b) => parseInt(a.price.raw) < parseInt(b.price.raw) && 1 || -1)
         }
         if (e === 'atoz') {
-            return products.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() && 1 || -1)
+            return allProducts.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() && 1 || -1)
         }
         if (e === 'ztoa') {
-            return products.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() && 1 || -1)
+            return allProducts.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() && 1 || -1)
         }
     }
 
@@ -116,7 +116,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
 
     const searchItems = () => {
-        const a = products.filter(x => {
+        const a = allProducts.filter(x => {
             return x.name && x.name.toLowerCase().includes(search) ||
                 x.description && x.description.toLowerCase().includes(search)
         })
@@ -165,15 +165,19 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
     const mad = (cat) => {
         setBrand('marcaAll')
-        setFilter(cat)
         buttonChange()
-        if (cat === 'rame') {
-            setCurrentPage(1)
-            setCurrentPosts(ochelari)
+        setCurrentPage(1)
+        if (cat === 'ochelariVedere') {
+            setCurrentPosts(ochelariVedereLen)
+            setAllProducts(ochelariVedere)
         }
-        if (cat === 'accesorii') {
-            setCurrentPage(1)
-            setCurrentPosts(accesorii)
+        if (cat === 'ochelariSoare') {
+            setCurrentPosts(ochelariSoareLen)
+            setAllProducts(ochelariSoare)
+        }
+        if (cat === 'ochelariAccesorii') {
+            setCurrentPosts(ochelariAccesoriiLen)
+            setAllProducts(ochelariAccesorii)
         }
     }
 
@@ -195,21 +199,20 @@ const Produse = ({ onAddToCart, products, loading }) => {
                             <div className={styles.containerSt}>
                                 <div className={styles.sidebar}>
                                     <Sidebar
+                                        // changeCat={(cat) => { mad(cat), console.log(cat)}}
                                         changeCat={(cat) => mad(cat)}
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
                                         setSearch={setSearch}
                                         setBrand={setBrand}
+                                        brand={brand}
                                     />
                                 </div>
 
                                 <div className={styles.productList}>
                                     {(search === "" && brand === "marcaAll") && <Pagination setPostsPerPage={setPostsPerPage} postsPerPage={postsPerPage} totalPosts={currentPosts} paginate={paginate} changeShow={changeShow} />}
-                                    {search === '' && changeBrand(products).map(prd =>
-                                        <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />)}
-
-                                    {search !== '' ? searchItems().map(prd =>
-                                        <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />) : []}
+                                    {search === '' && changeBrand(allProducts).map(prd => <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />)}
+                                    {search !== '' ? searchItems().map(prd => <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} change={changeMe} />) : []}
                                 </div>
                             </div>
                         </section>
@@ -263,6 +266,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                 </div>
                             </div>
                         </section>
+                        
                     </div>
                 </div>
             </div>

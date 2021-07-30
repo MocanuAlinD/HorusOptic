@@ -5,40 +5,42 @@ import { AiOutlineSearch, AiOutlineArrowDown, AiOutlineArrowUp } from 'react-ico
 const Sidebar = (props) => {
 
     const sendAllCats = (e) => {
+        // console.log(e)
         props.changeCat(e)
         checkFilter(e)
     }
 
     const checkFilter = (e) => {
-        if (e === 'rame') {
+        if (e === 'ochelariVedere' || e === 'ochelariSoare') {
             const brands = document.querySelector('#brand')
             brands.style.display = 'block'
 
             const allBrands = document.querySelectorAll(".buttonBrands")
             allBrands.forEach(brand => {
-                brand.checked=false
+                brand.checked = false
             })
-            allBrands[0].checked=true
+            allBrands[0].checked = true
         }
-        if (e === 'accesorii') {
+        if (e === 'ochelariAccesorii') {
             const brands = document.querySelector('#brand')
             brands.style.display = 'none'
         }
     }
 
     const mobileSendAllCats = (e) => {
-        if (e === 'rame') {
+        props.changeCat(e)
+        if (e === 'ochelariVedere') {
             const brands = document.querySelector('#divBrand')
             brands.style.display = 'flex'
-            props.changeCat('rame')
+            // props.changeCat('ochelariVedere')
 
             const allBrandsMobile = document.querySelector("#brandMobile")
             allBrandsMobile.value = allBrandsMobile[0].value
         }
-        if (e === 'accesorii') {
+        if (e === 'ochelariAccesorii') {
             const brands = document.querySelector('#divBrand')
             brands.style.display = 'none'
-            props.changeCat('accesorii')
+            // props.changeCat('ochelariAccesorii')
         }
     }
 
@@ -54,10 +56,13 @@ const Sidebar = (props) => {
                 {/* Meniu categorii */}
                 <div className={styles.bucati}>
                     <h4>Categorie</h4>
-                    <input defaultChecked type="radio" id="rame" name="categorie" value="rame" onClick={(e) => sendAllCats(e.target.value)}></input>
-                    <label htmlFor="rame">Rame</label><br />
+                    <input defaultChecked type="radio" name="categorie" value="ochelariVedere" onClick={(e) => sendAllCats(e.target.value)}></input>
+                    <label htmlFor="vedere">Ochelari vedere</label><br />
 
-                    <input type="radio" id="accesoriiSus" name="categorie" value="accesorii" onClick={(e) => sendAllCats(e.target.value)}></input>
+                    <input type="radio" name="categorie" value="ochelariSoare" onClick={(e) => sendAllCats(e.target.value)}></input>
+                    <label htmlFor="soare">Ochelari soare</label><br />
+
+                    <input type="radio" name="categorie" value="ochelariAccesorii" onClick={(e) => sendAllCats(e.target.value)}></input>
                     <label htmlFor="accesorii">Accesorii</label>
                 </div>
 
@@ -70,12 +75,31 @@ const Sidebar = (props) => {
                     <input type="radio" id="mare" name="pret" value="mare" onClick={() => props.changePriceName('mare')}></input>
                     <label htmlFor="mare">Mare</label> <br />
 
-                    <h4>Nume</h4>
+                    {/* <h4>Nume</h4>
                     <input type="radio" id="atoz" name="pret" value="atoz" onClick={() => props.changePriceName('atoz')}></input>
-                    <label htmlFor="atoz">A - Z</label> <br />
+                    <label htmlFor="atoz">A - Z</label> <br /> */}
 
-                    <input type="radio" id="ztoa" name="pret" value="ztoa" onClick={() => props.changePriceName('ztoa')}></input>
-                    <label htmlFor="ztoa">Z - A</label>
+                    {props.brand === 'marcaAll' ? (
+                        <>
+                            <h4>Nume</h4>
+                            <input type="radio" id="atoz" name="pret" value="atoz" onClick={() => props.changePriceName('atoz')}></input>
+                            <label htmlFor="atoz">A - Z</label> <br />
+
+                            <input type="radio" id="ztoa" name="pret" value="ztoa" onClick={() => props.changePriceName('ztoa')}></input>
+                            <label htmlFor="ztoa">Z - A</label>
+                        </>
+                    ) : (
+                        <>
+                            <h4>Nume</h4>
+                            <input disabled style={{ background: '#ccc' }} value='' />
+                            <label htmlFor="atoz">A - Z</label> <br />
+
+                            <input disabled style={{ background: '#ccc' }} value='' />
+                            <label htmlFor="ztoa">Z - A</label>
+                        </>
+                    )}
+
+
                 </div>
 
                 {/* Meniu Brand RAME */}
@@ -120,8 +144,9 @@ const Sidebar = (props) => {
                 <div className={styles.bucatiDrop}>
                     <h4>Categorii</h4>
                     <select name="arataMobile" id="arataMobile" onChange={(e) => mobileSendAllCats(e.target.value)}>
-                        <option value="rame">Rame</option>
-                        <option value="accesorii">Accesorii</option>
+                        <option value="ochelariVedere">Ochelari vedere</option>
+                        <option value="ochelariSoare">Ochelari soare</option>
+                        <option value="ochelariAccesorii">Accesorii</option>
                     </select>
                 </div>
 
@@ -149,9 +174,23 @@ const Sidebar = (props) => {
                         <optgroup label="Pret"></optgroup>
                         <option value="mic">Pret mic</option>
                         <option value="mare">Pret mare</option>
-                        <optgroup label='Nume'></optgroup>
-                        <option value="atoz">A - Z</option>
-                        <option value="ztoa">Z - A</option>
+                        {props.brand === 'marcaAll' ? (
+                            <>
+                                <optgroup label='Nume'></optgroup>
+                                <option value="atoz">A - Z</option>
+                                <option value="ztoa">Z - A</option>
+                            </>
+                        ) : (
+
+                            <>
+                                <optgroup label='Nume'></optgroup>
+                                <option disabled value="atoz">A - Z</option>
+                                <option disabled value="ztoa">Z - A</option>
+                            </>
+
+                        )}
+
+
                     </select>
                 </div>
 
