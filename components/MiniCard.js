@@ -5,10 +5,15 @@ import { IconButton, Badge, Typography } from '@material-ui/core'
 import { ShoppingCart } from '@material-ui/icons'
 
 const MiniCard = ({ produs, change, onAddToCart }) => {
+    // const dims = produs.assets[0].image_dimensions
 
     return (
-        <div key={produs.id} className={styles.container}>
-            <Image priority='true' layout='responsive' as='image' src={produs.media.source} width={1920} height={1080} />
+        <div className={styles.container}>
+            {/* <Image blurDataURL={produs.media.source} placeholder="blur" layout='intrinsic' src={produs.media.source} width={1920} height={1080} /> */}
+            <Image layout='intrinsic' as='image' src={produs.media.source} width={1920} height={1080} />
+            {/* <Image as='image' src={produs.media.source} width={192} height={108} /> */}
+            {/* <Image quality='10' loading='eager' layout='responsive' as='image' src={produs.media.source} width={dims.width} height={dims.height} /> */}
+            {/* <Image layout='fixed' src={produs.media.source} width={192} height={108} /> */}
             <h4>{produs.name}</h4>
             <h5 className={styles.pret}>{produs.price.raw}&nbsp;<sub>ron</sub></h5>
             <h5 dangerouslySetInnerHTML={{ __html: produs.description }}></h5>

@@ -13,7 +13,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
                 <div className={style.pickToShow}>
                     <label>Afiseaza</label>
                 <select value={postsPerPage} onChange={(e) => changeShow(e.target.value)}>
-                        <option value='5'>5</option>
+                        {/* <option value='5'>5</option> */}
                         <option value='10'>10</option>
                         <option value='20'>20</option>
                         <option value='50'>50</option>

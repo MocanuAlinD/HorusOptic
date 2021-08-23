@@ -1,12 +1,12 @@
 /* both sections */
 .container {
+    background: linear-gradient(45deg,#44444422,#22222222);
+    display: flex;
     height: fit-content;
     min-height: 79vh;
-    width: 100%;
-    display: flex;
-    position: relative;
     overflow: hidden;
-    background: linear-gradient(45deg,#44444422,#22222222);
+    position: relative;
+    width: 100%;
 }
 
 /* Pagina cu produse */
@@ -25,11 +25,11 @@
 }
 
 .containerImg .carousel .slider {
-    height: 100%;
-    width: 100%;
     display: flex;
-    transition: all 1s ease-in-out;
+    height: 100%;
     position: relative;
+    transition: all 1s ease-in-out;
+    width: 100%;
 }
 
 
@@ -63,7 +63,9 @@
 }
 
 .sidebar {
-    min-width: 7rem;
+    width: fit-content;
+    white-space: nowrap;
+    /* max-width: 15rem; */
     height: fit-content;
     background: #232323;
     border-radius: .3rem;
@@ -111,9 +113,9 @@
     flex-direction: row;
     width: 80%;
     align-items: flex-end;
-    background: #242423;
 }
 
+/* Imagine stanga */
 .alin2{
     width: 100%;
     height: 100%;
@@ -147,13 +149,16 @@
 
 /* Toata partea cu scrisu din dreapta imaginii */
 .rightSide {
-    background: #242423;
-    width: 25rem;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 0 .5rem;
     position: relative;
+    white-space: nowrap;
+    background: #242423;
+    border-bottom: 1px solid whitesmoke;
+    border-bottom-right-radius: 1rem;
 }
 
 
@@ -161,10 +166,13 @@
 .rightSide h4:first-child {
     color: #e8eddf;
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 2rem;
+    font-weight: 600;
+    font-size: 2.5rem;
     padding-bottom: 1rem;
     user-select: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .3rem;
 }
 
 
@@ -175,6 +183,7 @@
     font-weight: 200;
     font-size: 1rem;
     user-select: none;
+    white-space: nowrap;
 }
 
 

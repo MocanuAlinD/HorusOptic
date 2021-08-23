@@ -13,11 +13,10 @@ import { ShoppingCart } from '@material-ui/icons'
 
 const Produse = ({ onAddToCart, products, loading }) => {
 
-
     const ochelariVedere = products.filter(x => { return (x.categories[0].slug === 'rame' || x.categories[1].slug === 'rame') && !(x.name && x.description.includes('soare')) })
     const ochelariVedereLen = ochelariVedere.length
 
-    const ochelariSoare = products.filter(x => { return (x.categories[0].slug === 'rame' || x.categories[1].slug === 'rame') && (x.name && x.description.includes('soare'))})
+    const ochelariSoare = products.filter(x => { return (x.categories[0].slug === 'rame' || x.categories[1].slug === 'rame') && (x.name && x.description.includes('soare')) })
     const ochelariSoareLen = ochelariSoare.length
 
     const ochelariAccesorii = products.filter(x => { return x.categories[0].slug === 'accesorii' || x.categories[1].slug === 'accesorii' })
@@ -36,9 +35,9 @@ const Produse = ({ onAddToCart, products, loading }) => {
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('mic')
     const [imgpos, setImgpos] = useState(0)
-    
+
     const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage, setPostsPerPage] = useState(5)
+    const [postsPerPage, setPostsPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen)
     const [allProducts, setAllProducts] = useState(ochelariVedere)
     const [img, setImg] = useState(allProducts[0])
@@ -102,7 +101,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
 
 
-    const goback = (e) => {
+    const goback = () => {
         let b = document.getElementById('s1')
         b.style.display = 'flex'
         let c = document.getElementById('s2')
@@ -135,7 +134,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
         sliderIndex = (sliderIndex < ln) ? sliderIndex + 1 : ln
         a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
     }
-    
+
     const setImageMinus = () => {
         let a = document.getElementById('slider1')
         sliderIndex = (sliderIndex > 0) ? sliderIndex - 1 : 0
@@ -226,14 +225,15 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                         <div className={styles.alin5}>
                                             {img ? img.assets.map((alin) =>
                                                 <section key={alin.id}>
-                                                    <Image src={alin.url} width={alin.image_dimensions.width} height={alin.image_dimensions.height} />
+                                                    {/* <Image priority='true' layout='responsive' as='image' src={alin.url} width={alin.image_dimensions.width} height={alin.image_dimensions.height} /> */}
+                                                    <Image layout='intrinsic' as='image' src={alin.url} width={1920} height={1080} />
                                                 </section>
                                             ) : ''}
                                         </div>
                                     </div>
                                     <div className={styles.buttonsDiv}>
                                         <button className={styles.btnMinus} onClick={setImageMinus}>&#60;</button>
-                                        {/* <h4>{tn} / {img && img.assets.length}</h4> */}
+                                        {/* <h4>{imageNumber} / {img && img.assets.length}</h4> */}
                                         <button className={styles.btnPlus} onClick={setImagePlus}>&#62;</button>
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                 </div>
                             </div>
                         </section>
-                        
+
                     </div>
                 </div>
             </div>

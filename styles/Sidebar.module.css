@@ -1,11 +1,14 @@
 .container {
     margin: .5rem;
     position: relative;
+    /* width: fit-content; */
 }
+
 
 .container .bucati {
     margin-bottom: 1rem;
     /* background: red; */
+    /* width: 100%; */
 }
 
 .bucati h4 {
