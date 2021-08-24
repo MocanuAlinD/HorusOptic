@@ -2,7 +2,6 @@
     display: flex;
     /* background: linear-gradient(to bottom, #242423 70%, transparent); */
     background: #151515;
-	/* background: coral; */
     justify-content: space-between;
     align-items: center;
     position: sticky;
@@ -53,7 +52,7 @@
     list-style: none;
     justify-content: center;
     width: fit-content;
-    height: 2rem;
+    /* height: 2rem; */
     align-items: center;
 	user-select: none;
 	/* background: blue; */
@@ -130,33 +129,21 @@
 	}
 }
 
-/* @media screen and (max-width: 812px){
-	.navTitle h3{
-		font-size: .9rem;
-	}
-}
-
-@media screen and (max-width: 797px){
-	.navTitle h3{
-		font-size: .8rem;
-	}
-} */
-
 @media screen and (max-width: 768px){
 	.navbarContainer{
 		border-bottom: none;
 	}
 	.navbarContainer ul{
-		position: fixed;
-		top: 3rem;
-		right: -100%;
-		width: 100%;
-		background: #242423;
-		height: 3rem;
-		display: flex;
-		justify-content: space-around;
 		align-items: center;
+		background: #151515;
 		border-bottom: 1px solid #ffffff77;
+		display: flex;
+		height: 3rem;
+		justify-content: space-around;
+		position: fixed;
+		right: -100%;
+		top: 3rem;
+		width: 100%;
 	}
 	.meniu{
 		display: flex;

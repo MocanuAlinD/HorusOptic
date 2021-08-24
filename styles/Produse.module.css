@@ -119,7 +119,6 @@
 .alin2{
     width: 100%;
     height: 100%;
-    overflow: hidden;
     position: relative;
 }
 
@@ -131,17 +130,24 @@
     transition: all .35s ease-in-out;
 }
 
-.alin5 {
+.smallImages{
     width: 100%;
+    height: fit-content;
+    background: #242423;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: .1rem;
+    overflow-x: auto;
 }
 
-.alin5 section{
-    width: 100%;
-    min-width: 100%;
+.smallImage{
+    min-width: fit-content;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .2rem .1rem;
 }
-
 
 
 
@@ -157,8 +163,9 @@
     position: relative;
     white-space: nowrap;
     background: #242423;
-    border-bottom: 1px solid whitesmoke;
-    border-bottom-right-radius: 1rem;
+    padding-bottom: 5.5rem;
+    /* border-bottom: 1px solid whitesmoke; */
+    /* border-bottom-right-radius: 1rem; */
 }
 
 
@@ -206,6 +213,7 @@
     width: fit-content;
     height: 1.7rem;
     display: flex;
+    display: none;
     background: #24242366;
     justify-content: center;
     align-items: center;
@@ -280,6 +288,7 @@
 
     .rightSide {
         width: 100%;
+        padding-bottom: 0;
     }
     .backBtn {
         font-size: 2rem;

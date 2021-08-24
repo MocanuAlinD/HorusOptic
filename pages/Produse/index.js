@@ -27,20 +27,17 @@ const Produse = ({ onAddToCart, products, loading }) => {
         return <LoadingScreen />
     }
 
-    // if (products===[]){
-    //     return
-    // }
-
     const [brand, setBrand] = useState('marcaAll')
     const [search, setSearch] = useState('')
     const [def, setDef] = useState('mic')
     const [imgpos, setImgpos] = useState(0)
-
+    
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen)
     const [allProducts, setAllProducts] = useState(ochelariVedere)
     const [img, setImg] = useState(allProducts[0])
+    const [currentImage, setCurrentImage] = useState(img ? img.assets[0].url: '')
 
     // Names for the brands
     const abc = allProducts.filter(x => { return x.name && x.categories[0].slug === 'rame' })
@@ -85,6 +82,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
     // Details page(section)
     const changeMe = (e) => {
+        setCurrentImage(e.assets[0].url)
         setImg(e)
         setImgpos(window.pageYOffset)
 
@@ -180,6 +178,10 @@ const Produse = ({ onAddToCart, products, loading }) => {
         }
     }
 
+    const changeImage = (e) => {
+        console.log(e)
+    }
+
     useEffect(() => {
         let b = document.getElementById('slider1')
         b.style.transform = 'translate(0)'
@@ -216,21 +218,25 @@ const Produse = ({ onAddToCart, products, loading }) => {
                             </div>
                         </section>
 
+
+
                         <section className={styles.s2} id='s2'>
                             <div className={styles.containerDr}>
                                 <button className={styles.backBtn} onClick={() => goback()}>&#60;</button>
 
                                 <div className={styles.alin2}>
                                     <div className={styles.alin4} id='slider1'>
-                                        <div className={styles.alin5}>
-                                            {img ? img.assets.map((alin) =>
-                                                <section key={alin.id}>
-                                                    {/* <Image priority='true' layout='responsive' as='image' src={alin.url} width={alin.image_dimensions.width} height={alin.image_dimensions.height} /> */}
-                                                    <Image layout='intrinsic' as='image' src={alin.url} width={1920} height={1080} />
-                                                </section>
-                                            ) : ''}
-                                        </div>
+                                        <Image layout='intrinsic' as='image' src={currentImage} width={1920} height={1080} />
                                     </div>
+                                    <div className={styles.smallImages}>
+                                        {img && img.assets.map((item)=>
+                                            <div key={item.id} className={styles.smallImage}>
+                                                <Image src={item.url} layout='intrinsic' width={120} height={72} onClick={()=> setCurrentImage(item.url)}/>
+                                            </div>
+                                        )}
+                                    </div>
+
+
                                     <div className={styles.buttonsDiv}>
                                         <button className={styles.btnMinus} onClick={setImageMinus}>&#60;</button>
                                         {/* <h4>{imageNumber} / {img && img.assets.length}</h4> */}
@@ -275,3 +281,19 @@ const Produse = ({ onAddToCart, products, loading }) => {
 }
 
 export default Produse;
+
+
+/*
+
+<div className={styles.alin4} id='slider1'>
+                                        <div className={styles.alin5}>
+                                            {img ? img.assets.map((alin) =>
+                                                <section key={alin.id}>
+                                                    {<Image priority='true' layout='responsive' as='image' src={alin.url} width={alin.image_dimensions.width} height={alin.image_dimensions.height} />}
+<Image layout='intrinsic' as='image' src={currentImage} width={1920} height={1080} />
+                                                </section >
+                                            ) : ''}
+                                        </div >
+                                    </div >
+
+*/

@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Link from 'next/link'
 import style from '../styles/navbar.module.css'
 import { GiEyeOfHorus } from 'react-icons/gi'
 import { useState } from 'react'
-import {IconButton, Badge, Typography} from '@material-ui/core'
-import {ShoppingCart} from '@material-ui/icons'
-import {useRouter } from 'next/router'
+import { IconButton, Badge } from '@material-ui/core'
+import { ShoppingCart } from '@material-ui/icons'
+import { useRouter } from 'next/router'
 
 
-const Navbar = ({totalItems, clr}) => {
+const Navbar = ({ totalItems }) => {
     const [state, setState] = useState(true)
     const router = useRouter()
 
     const changeMe = () => {
         let a = document.querySelector("ul")
         if (state) {
-            setState(false)
             a.style.right = "0"
+            setState(false)
         } else {
-            setState(true)
             a.style.right = "-100%"
+            setState(true)
         }
     }
 
