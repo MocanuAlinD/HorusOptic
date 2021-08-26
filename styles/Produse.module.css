@@ -205,39 +205,6 @@
     text-align: start;
 }
 
-.buttonsDiv{
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-    width: fit-content;
-    height: 1.7rem;
-    display: flex;
-    display: none;
-    background: #24242366;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1rem 1rem 0 0;
-    /* z-index: 3; */
-}
-
-.buttonsDiv button{
-    outline: none;
-    border: none;
-    font-size: 1.5rem;
-    width: 3rem;
-    cursor: pointer;
-    color: #e8eddf;
-    background: none;
-    font-family: 'Poppins',sans-serif;
-    font-weight: 400;
-    transition: all 350ms ease-in-out;
-}
-
-.buttonsDiv button:hover{
-    color: #f5cb5c;
-}
-
 
 /* ================================================ */
 .link{
@@ -332,10 +299,6 @@
         margin-top: 9rem;
     }
 
-    .buttonsDiv{
-        left: 100%;
-        transform: translate(-100%);
-    }
     .sidebar{
         border-top: none;
     }

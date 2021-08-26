@@ -12,20 +12,20 @@ function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({})
   const [order, setOrder] = useState({})
   const [errorMessage, setErrorMessage] = useState('')
-  const [products, setProducts] = useState([])
+  // const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true)
-      const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
-      const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
-      const products = [...products_1, ...products_2]
-      setProducts(products)
-      setLoading(false)
-    }
-    fetchProducts()
-  }, [])
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     setLoading(true)
+  //     const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
+  //     const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
+  //     const products = [...products_1, ...products_2]
+  //     setProducts(products)
+  //     setLoading(false)
+  //   }
+  //   fetchProducts()
+  // }, [])
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve())
@@ -97,7 +97,7 @@ function MyApp({ Component, pageProps }) {
         order={order}
         onCaptureCheckout={handleCaptureCheckout}
         error={errorMessage}
-        products={products}
+        // products={products}
         loading={loading}
       />
 
@@ -108,3 +108,7 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp
+
+
+
+

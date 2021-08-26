@@ -10,7 +10,8 @@ const MiniCard = ({ produs, change, onAddToCart }) => {
     return (
         <div className={styles.container}>
             {/* <Image blurDataURL={produs.media.source} placeholder="blur" layout='intrinsic' src={produs.media.source} width={1920} height={1080} /> */}
-            <Image layout='intrinsic' as='image' src={produs.media.source} width={1920} height={1080} />
+            {/* <Image layout='intrinsic' as='image' src={produs.media.source} width={1920} height={1080} /> */}
+            <Image layout='intrinsic' as='image' src={produs.media.source} width={produs.assets[0].image_dimensions.width} height={produs.assets[0].image_dimensions.height} />
             {/* <Image as='image' src={produs.media.source} width={192} height={108} /> */}
             {/* <Image quality='10' loading='eager' layout='responsive' as='image' src={produs.media.source} width={dims.width} height={dims.height} /> */}
             {/* <Image layout='fixed' src={produs.media.source} width={192} height={108} /> */}

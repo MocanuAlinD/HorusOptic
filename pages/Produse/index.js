@@ -9,6 +9,7 @@ import { AiOutlineVerticalRight } from 'react-icons/ai';
 import Image from 'next/image'
 import { IconButton } from '@material-ui/core'
 import { ShoppingCart } from '@material-ui/icons'
+import { commerce } from '../../lib/commerce'
 
 
 const Produse = ({ onAddToCart, products, loading }) => {
@@ -37,7 +38,7 @@ const Produse = ({ onAddToCart, products, loading }) => {
     const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen)
     const [allProducts, setAllProducts] = useState(ochelariVedere)
     const [img, setImg] = useState(allProducts[0])
-    const [currentImage, setCurrentImage] = useState(img ? img.assets[0].url: '')
+    const [currentImage, setCurrentImage] = useState('../../public/bg1_169.jpg')
 
     // Names for the brands
     const abc = allProducts.filter(x => { return x.name && x.categories[0].slug === 'rame' })
@@ -118,25 +119,6 @@ const Produse = ({ onAddToCart, products, loading }) => {
                 x.description && x.description.toLowerCase().includes(search)
         })
         return a
-    }
-
-
-    // Slider Images
-    let ln = img && (img.assets ? img.assets.length - 1 : '')
-    let sliderIndex = 0
-
-
-
-    const setImagePlus = () => {
-        let a = document.getElementById('slider1')
-        sliderIndex = (sliderIndex < ln) ? sliderIndex + 1 : ln
-        a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
-    }
-
-    const setImageMinus = () => {
-        let a = document.getElementById('slider1')
-        sliderIndex = (sliderIndex > 0) ? sliderIndex - 1 : 0
-        a.style.transform = 'translate(' + (sliderIndex) * -100 + '%)'
     }
 
     // Change page
@@ -231,16 +213,9 @@ const Produse = ({ onAddToCart, products, loading }) => {
                                     <div className={styles.smallImages}>
                                         {img && img.assets.map((item)=>
                                             <div key={item.id} className={styles.smallImage}>
-                                                <Image src={item.url} layout='intrinsic' width={120} height={72} onClick={()=> setCurrentImage(item.url)}/>
+                                                <Image src={item.url} layout='intrinsic' loading="eager" width={120} height={72} onClick={()=> setCurrentImage(item.url)}/>
                                             </div>
                                         )}
-                                    </div>
-
-
-                                    <div className={styles.buttonsDiv}>
-                                        <button className={styles.btnMinus} onClick={setImageMinus}>&#60;</button>
-                                        {/* <h4>{imageNumber} / {img && img.assets.length}</h4> */}
-                                        <button className={styles.btnPlus} onClick={setImagePlus}>&#62;</button>
                                     </div>
                                 </div>
 
@@ -281,6 +256,25 @@ const Produse = ({ onAddToCart, products, loading }) => {
 }
 
 export default Produse;
+
+
+export async function getStaticProps(context) {
+
+    const { data: products_1 } = await commerce.products.list({ limit: 200, category_slug: '1' })
+    const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
+    const products = [...products_1, ...products_2]
+    // setProducts(products)
+
+    return {
+        props: {
+            products,
+        },
+        revalidate: 5,
+    }
+}
+
+
+
 
 
 /*
