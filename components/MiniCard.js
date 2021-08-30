@@ -54,12 +54,12 @@ const MiniCard = ({ produs, change, onAddToCart }) => {
 
             {/* <div className={styles.details}><a onClick={() => change(produs)}>...</a></div> */}
             <div className={styles.details}>
-                <a onClick={() => change(produs)}>...</a>
-                {/* <Link href={'/Produse/' + produs.id} >
+                {/* <a onClick={() => change(produs)}>...</a> */}
+                <Link href={'/Produse/' + produs.id} >
                     <a target="_blank">
-                        Detalii
+                        ...
                     </a>
-                </Link> */}
+                </Link>
             </div>
         </div>
     );

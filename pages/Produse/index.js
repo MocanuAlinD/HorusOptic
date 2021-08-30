@@ -12,7 +12,6 @@ import { ShoppingCart } from '@material-ui/icons'
 import { commerce } from '../../lib/commerce'
 
 
-
 // export async function getStaticProps(context) {
 export const getStaticProps = async () => {
 
@@ -38,7 +37,7 @@ export const getStaticProps = async () => {
         props: {
             products, sortedNames
         },
-        revalidate: 5,
+        revalidate: 1,
     }
 }
 
@@ -74,7 +73,7 @@ const Produse = ({ onAddToCart, products, loading, sortedNames }) => {
     const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen)
     const [allProducts, setAllProducts] = useState(ochelariVedere)
     const [img, setImg] = useState(allProducts[0])
-    const [currentImage, setCurrentImage] = useState(img ? img.assets[0].url : '')
+    // const [currentImage, setCurrentImage] = useState(img ? img.assets[0].url : '')
     
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
@@ -106,34 +105,34 @@ const Produse = ({ onAddToCart, products, loading, sortedNames }) => {
 
     // Details page(section)
     const changeMe = (e) => {
-        setCurrentImage(e.assets[0].url)
-        setImg(e)
-        setImgpos(window.pageYOffset)
+        // setCurrentImage(e.assets[0].url)
+        // setImg(e)
+        // setImgpos(window.pageYOffset)
 
-        let b = document.getElementById('s2')
-        b.style.display = 'flex'
-        let c = document.getElementById('s1')
-        c.style.display = 'none'
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'auto'
-        })
+        // let b = document.getElementById('s2')
+        // b.style.display = 'flex'
+        // let c = document.getElementById('s1')
+        // c.style.display = 'none'
+        // window.scrollTo({
+        //     top: 0,
+        //     left: 0,
+        //     behavior: 'auto'
+        // })
     }
 
 
 
-    const goback = () => {
-        let b = document.getElementById('s1')
-        b.style.display = 'flex'
-        let c = document.getElementById('s2')
-        c.style.display = 'none'
-        window.scrollTo({
-            top: imgpos,
-            left: 0,
-            behavior: 'auto'
-        })
-    }
+    // const goback = () => {
+    //     let b = document.getElementById('s1')
+    //     b.style.display = 'flex'
+    //     let c = document.getElementById('s2')
+    //     c.style.display = 'none'
+    //     window.scrollTo({
+    //         top: imgpos,
+    //         left: 0,
+    //         behavior: 'auto'
+    //     })
+    // }
 
 
     const searchItems = () => {
@@ -187,10 +186,10 @@ const Produse = ({ onAddToCart, products, loading, sortedNames }) => {
         console.log(e)
     }
 
-    useEffect(() => {
-        let b = document.getElementById('slider1')
-        b.style.transform = 'translate(0)'
-    }, [img])
+    // useEffect(() => {
+    //     let b = document.getElementById('slider1')
+    //     b.style.transform = 'translate(0)'
+    // }, [img])
 
     return (
         <div className={styles.container} id='top'>
@@ -222,7 +221,7 @@ const Produse = ({ onAddToCart, products, loading, sortedNames }) => {
                             </div>
                         </section>
 
-                        <section className={styles.s2} id='s2'>
+                        {/* <section className={styles.s2} id='s2'>
                             <div className={styles.containerDr}>
                                 <button className={styles.backBtn} onClick={() => goback()}>&#60;</button>
 
@@ -266,7 +265,7 @@ const Produse = ({ onAddToCart, products, loading, sortedNames }) => {
                                     <h4>Pret: {img && img.price.raw} <sub>ron</sub></h4>
                                 </div>
                             </div>
-                        </section>
+                        </section> */}
 
                     </div>
                 </div>
