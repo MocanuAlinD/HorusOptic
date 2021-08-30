@@ -5,7 +5,7 @@ const LoadingScreen = () => {
     return (
         <div className={style.container}>
             <div className={style.loader}></div>
-            <h2>Actualizare produse....</h2>
+            <h2>Actualizare produs....</h2>
         </div>
     )
 }
