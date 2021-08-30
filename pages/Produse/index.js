@@ -12,6 +12,7 @@ import { ShoppingCart } from '@material-ui/icons'
 import { commerce } from '../../lib/commerce'
 
 
+
 // export async function getStaticProps(context) {
 export const getStaticProps = async () => {
 
