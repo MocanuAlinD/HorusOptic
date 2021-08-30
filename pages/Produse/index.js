@@ -19,10 +19,23 @@ export const getStaticProps = async () => {
     const { data: products_2 } = await commerce.products.list({ limit: 200, category_slug: '2' })
     const products = [...products_1, ...products_2]
 
+    // Names for the brands
+    const abc = products.filter(x => { return x.name && (x.categories[0].slug || x.categories[1].slug) === 'rame' })
+    const sortedNames1 = []
+    for (let i in abc) {
+        if (sortedNames1.includes(abc[i].name)) {
+            continue
+        } else {
+            sortedNames1.push(abc[i].name)
+        }
+    }
+    const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
+    // console.log('Sorted names',sortedNames)
+
 
     return {
         props: {
-            products
+            products, sortedNames
         },
         revalidate: 5,
     }
@@ -32,9 +45,9 @@ export const getStaticProps = async () => {
 
 
 
-const Produse = ({ onAddToCart, products, loading }) => {
+const Produse = ({ onAddToCart, products, loading, sortedNames }) => {
 
-    // console.log(products[0])
+    // console.log(sortedNames)
 
     const ochelariVedere = products.filter(x => { return (x.categories[0].slug === 'rame' || x.categories[1].slug === 'rame') && !(x.name && x.description.includes('soare')) })
     const ochelariVedereLen = ochelariVedere.length
@@ -60,21 +73,8 @@ const Produse = ({ onAddToCart, products, loading }) => {
     const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen)
     const [allProducts, setAllProducts] = useState(ochelariVedere)
     const [img, setImg] = useState(allProducts[0])
+    const [currentImage, setCurrentImage] = useState(img ? img.assets[0].url : '')
     
-
-    // Names for the brands
-    const abc = allProducts.filter(x => { return x.name && x.categories[0].slug === 'rame' })
-    const sortedNames1 = []
-    for (let i in abc) {
-        if (sortedNames1.includes(abc[i].name)) {
-            continue
-        } else {
-            sortedNames1.push(abc[i].name)
-        }
-    }
-    const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
-
-
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
 
@@ -122,13 +122,17 @@ const Produse = ({ onAddToCart, products, loading }) => {
 
 
 
-    // const goback = () => {
-    //     window.scrollTo({
-    //         top: imgpos,
-    //         left: 0,
-    //         behavior: 'auto'
-    //     })
-    // }
+    const goback = () => {
+        let b = document.getElementById('s1')
+        b.style.display = 'flex'
+        let c = document.getElementById('s2')
+        c.style.display = 'none'
+        window.scrollTo({
+            top: imgpos,
+            left: 0,
+            behavior: 'auto'
+        })
+    }
 
 
     const searchItems = () => {
@@ -182,10 +186,10 @@ const Produse = ({ onAddToCart, products, loading }) => {
         console.log(e)
     }
 
-    // useEffect(() => {
-    //     let b = document.getElementById('slider1')
-    //     b.style.transform = 'translate(0)'
-    // }, [img])
+    useEffect(() => {
+        let b = document.getElementById('slider1')
+        b.style.transform = 'translate(0)'
+    }, [img])
 
     return (
         <div className={styles.container} id='top'>
@@ -200,7 +204,6 @@ const Produse = ({ onAddToCart, products, loading }) => {
                             <div className={styles.containerSt}>
                                 <div className={styles.sidebar}>
                                     <Sidebar
-                                        // changeCat={(cat) => { mad(cat), console.log(cat)}}
                                         changeCat={(cat) => mad(cat)}
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
@@ -218,9 +221,51 @@ const Produse = ({ onAddToCart, products, loading }) => {
                             </div>
                         </section>
 
+                        <section className={styles.s2} id='s2'>
+                            <div className={styles.containerDr}>
+                                <button className={styles.backBtn} onClick={() => goback()}>&#60;</button>
 
+                                <div className={styles.alin2}>
+                                    <div className={styles.alin4} id='slider1'>
+                                        <Image layout='intrinsic' as='image' src={currentImage} width={1920} height={1080} />
+                                    </div>
+                                    <div className={styles.smallImages}>
+                                        {img && img.assets.map((item) =>
+                                            <div key={item.id} className={styles.smallImage}>
+                                                <Image src={item.url} layout='intrinsic' width={120} height={72} onClick={() => setCurrentImage(item.url)} />
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
 
+                                <div className={styles.rightSide}>
+                                    <h4>{img && img.name}</h4>
+                                    <div className={img && styles.description} dangerouslySetInnerHTML={{ __html: img && img.description }}></div>
 
+                                    {img && (!img.inventory.managed ? (
+                                        <div className={styles.link} >
+                                            <IconButton onClick={() => onAddToCart(img.id, 1)}>
+                                                <ShoppingCart className={styles.shopIcon} />
+                                            </IconButton>
+                                        </div>) :
+                                        (
+                                            img.inventory.available < 1 ?
+                                                (<div className={styles.linkDisabled}>
+                                                    <IconButton className={styles.shopIconDisabled} >
+                                                        <ShoppingCart />
+                                                    </IconButton>
+                                                </div>) :
+                                                (<div className={styles.link}>
+                                                    <IconButton onClick={() => onAddToCart(img.id, 1)}>
+                                                        <ShoppingCart className={styles.shopIcon} />
+                                                    </IconButton>
+                                                </div>)
+                                        ))}
+
+                                    <h4>Pret: {img && img.price.raw} <sub>ron</sub></h4>
+                                </div>
+                            </div>
+                        </section>
 
                     </div>
                 </div>
