@@ -3,6 +3,7 @@ import styles from '../styles/MiniCard.module.css'
 import Image from 'next/image'
 import { IconButton, Badge, Typography } from '@material-ui/core'
 import { ShoppingCart } from '@material-ui/icons'
+import Link from 'next/link'
 
 const MiniCard = ({ produs, change, onAddToCart }) => {
     // const dims = produs.assets[0].image_dimensions
@@ -51,7 +52,15 @@ const MiniCard = ({ produs, change, onAddToCart }) => {
 
 
 
-            <div className={styles.details}><a onClick={() => change(produs)}>...</a></div>
+            {/* <div className={styles.details}><a onClick={() => change(produs)}>...</a></div> */}
+            <div className={styles.details}>
+                {/* <a onClick={() => change(produs)}>...</a> */}
+                <Link href={'/Produse/' + produs.id} >
+                    <a target="_blank">
+                        Detalii
+                    </a>
+                </Link>
+            </div>
         </div>
     );
 }

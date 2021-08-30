@@ -113,6 +113,8 @@
     flex-direction: row;
     width: 80%;
     align-items: flex-end;
+    min-height: 79vh;
+    margin-top: 1rem;
 }
 
 /* Imagine stanga */
