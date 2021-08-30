@@ -73,8 +73,21 @@ const Produse = ({ onAddToCart, products, loading, sortedNames }) => {
     const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen)
     const [allProducts, setAllProducts] = useState(ochelariVedere)
     const [img, setImg] = useState(allProducts[0])
-    // const [currentImage, setCurrentImage] = useState(img ? img.assets[0].url : '')
     
+
+    // Names for the brands
+    // const abc = allProducts.filter(x => { return x.name && x.categories[0].slug === 'rame' })
+    // const sortedNames1 = []
+    // for (let i in abc) {
+    //     if (sortedNames1.includes(abc[i].name)) {
+    //         continue
+    //     } else {
+    //         sortedNames1.push(abc[i].name)
+    //     }
+    // }
+    // const sortedNames = sortedNames1.sort((a, b) => a > b && 1 || -1)
+
+
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
 
@@ -105,28 +118,24 @@ const Produse = ({ onAddToCart, products, loading, sortedNames }) => {
 
     // Details page(section)
     const changeMe = (e) => {
-        // setCurrentImage(e.assets[0].url)
-        // setImg(e)
-        // setImgpos(window.pageYOffset)
+        setCurrentImage(e.assets[0].url)
+        setImg(e)
+        setImgpos(window.pageYOffset)
 
-        // let b = document.getElementById('s2')
-        // b.style.display = 'flex'
-        // let c = document.getElementById('s1')
-        // c.style.display = 'none'
-        // window.scrollTo({
-        //     top: 0,
-        //     left: 0,
-        //     behavior: 'auto'
-        // })
+        let b = document.getElementById('s2')
+        b.style.display = 'flex'
+        let c = document.getElementById('s1')
+        c.style.display = 'none'
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'auto'
+        })
     }
 
 
 
     // const goback = () => {
-    //     let b = document.getElementById('s1')
-    //     b.style.display = 'flex'
-    //     let c = document.getElementById('s2')
-    //     c.style.display = 'none'
     //     window.scrollTo({
     //         top: imgpos,
     //         left: 0,
@@ -204,6 +213,7 @@ const Produse = ({ onAddToCart, products, loading, sortedNames }) => {
                             <div className={styles.containerSt}>
                                 <div className={styles.sidebar}>
                                     <Sidebar
+                                        // changeCat={(cat) => { mad(cat), console.log(cat)}}
                                         changeCat={(cat) => mad(cat)}
                                         changePriceName={word => changePriceName(word)}
                                         sortedNames={sortedNames}
@@ -221,51 +231,9 @@ const Produse = ({ onAddToCart, products, loading, sortedNames }) => {
                             </div>
                         </section>
 
-                        {/* <section className={styles.s2} id='s2'>
-                            <div className={styles.containerDr}>
-                                <button className={styles.backBtn} onClick={() => goback()}>&#60;</button>
 
-                                <div className={styles.alin2}>
-                                    <div className={styles.alin4} id='slider1'>
-                                        <Image layout='intrinsic' as='image' src={currentImage} width={1920} height={1080} />
-                                    </div>
-                                    <div className={styles.smallImages}>
-                                        {img && img.assets.map((item) =>
-                                            <div key={item.id} className={styles.smallImage}>
-                                                <Image src={item.url} layout='intrinsic' width={120} height={72} onClick={() => setCurrentImage(item.url)} />
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
 
-                                <div className={styles.rightSide}>
-                                    <h4>{img && img.name}</h4>
-                                    <div className={img && styles.description} dangerouslySetInnerHTML={{ __html: img && img.description }}></div>
 
-                                    {img && (!img.inventory.managed ? (
-                                        <div className={styles.link} >
-                                            <IconButton onClick={() => onAddToCart(img.id, 1)}>
-                                                <ShoppingCart className={styles.shopIcon} />
-                                            </IconButton>
-                                        </div>) :
-                                        (
-                                            img.inventory.available < 1 ?
-                                                (<div className={styles.linkDisabled}>
-                                                    <IconButton className={styles.shopIconDisabled} >
-                                                        <ShoppingCart />
-                                                    </IconButton>
-                                                </div>) :
-                                                (<div className={styles.link}>
-                                                    <IconButton onClick={() => onAddToCart(img.id, 1)}>
-                                                        <ShoppingCart className={styles.shopIcon} />
-                                                    </IconButton>
-                                                </div>)
-                                        ))}
-
-                                    <h4>Pret: {img && img.price.raw} <sub>ron</sub></h4>
-                                </div>
-                            </div>
-                        </section> */}
 
                     </div>
                 </div>

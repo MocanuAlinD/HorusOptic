@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { commerce } from '../../lib/commerce'
 import styles from '../../styles/Produse.module.css'
+import { IconButton } from '@material-ui/core'
+import { ShoppingCart } from '@material-ui/icons'
 import Image from 'next/image'
-import Head from 'next/head'
-import LoadinScreen from '../../components/LoadingScreen'
 
 
 export const getStaticPaths = async () => {
@@ -29,27 +29,26 @@ export const getStaticProps = async (context) => {
 
     return {
         props:  {item: singleProduct},
-        revalidate: 1
+        revalidate: 1,
     }
 }
 
 
 
-const Details = ({ item }) => {
+const Details = ({ item, onAddToCart}) => {
 
     if (!item){
         return (
-            <div>Loading item.....</div>
+            <div>Loading item......</div>
         )
     }
+    // console.log("Item is: ", item)
 
     const [currentImage, setCurrentImage] = useState(item.media.source)
 
     return (
         <div className={styles.containerDr}>
-            <Head>
-                <title>{item.name}</title>
-            </Head>
+            {/* <button className={styles.backBtn} onClick={() => goback()}>&#60;</button> */}
             <div className={styles.alin2}>
                 <div className={styles.alin4} id='slider1'>
                     <Image layout='intrinsic' as='image' src={currentImage} width={1920} height={1080} />
@@ -66,6 +65,27 @@ const Details = ({ item }) => {
             <div className={styles.rightSide}>
                 <h4>{item.name}</h4>
                 <div className={styles.description} dangerouslySetInnerHTML={{ __html: item.description }}></div>
+
+                {/* {item.inventory.managed ? (
+                    <div className={styles.link} >
+                        <IconButton onClick={() => onAddToCart(item.id, 1)}>
+                            <ShoppingCart className={styles.shopIcon} />
+                        </IconButton>
+                    </div>) :
+                    (
+                        item.inventory.available < 1 ?
+                            (<div className={styles.linkDisabled}>
+                                <IconButton className={styles.shopIconDisabled} >
+                                    <ShoppingCart />
+                                </IconButton>
+                            </div>) :
+                            (<div className={styles.link}>
+                                <IconButton onClick={() => onAddToCart(item.id, 1)}>
+                                    <ShoppingCart className={styles.shopIcon} />
+                                </IconButton>
+                            </div>)
+                    )} */}
+
                 <h4>Pret: {item.price.raw} <sub>ron</sub></h4>
             </div>
         </div>

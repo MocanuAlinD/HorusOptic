@@ -113,7 +113,6 @@
     flex-direction: row;
     width: 80%;
     align-items: flex-end;
-    /* height: 79vh; */
     min-height: 79vh;
     margin-top: 1rem;
 }
