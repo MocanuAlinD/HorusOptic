@@ -84,7 +84,7 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         ></link>
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppinswght@200;400;500;700;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700;900&display=swap"
           rel="stylesheet"
         ></link>
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>
@@ -96,7 +96,6 @@ function MyApp({ Component, pageProps }) {
 
       <Navbar totalItems={cart.total_items === 0 ? null : cart.total_items} />
 
-      {/* {!router.pathname.startsWith('/Produse/prod_') && (<Navbar totalItems={cart.total_items === 0 ? null : cart.total_items} />)} */}
       <Component
         {...pageProps}
         onAddToCart={handleAddToCart}
