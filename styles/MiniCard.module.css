@@ -1,219 +1,177 @@
-.miniCard__container{
-	position: relative;
-    background: #242423;
-    display: flex;
-    width: 25rem;
-    height: fit-content;
-    margin: 1rem;
-    flex-direction: column;
-    padding: .4rem;
-    border-radius: .3rem;
-    transition: all 350ms ease-in-out;
+.miniCard__container {
+  position: relative;
+  background: #242423;
+  display: flex;
+  width: 25rem;
+  height: fit-content;
+  margin: 1rem;
+  flex-direction: column;
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+  transition: all 350ms ease-in-out;
 }
 
 /* Yellow corners */
-.miniCard__container::before{
-    content: '';
+.miniCard__container::before {
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    padding: .08rem;
-    transform: translate(-.08rem, -.08rem);
-    border-radius: .3rem;
+    padding: 0.08rem;
+    transform: translate(-0.08rem, -0.08rem);
+    border-radius: 0.3rem;
     z-index: -1;
     background: linear-gradient(45deg, transparent 70%, #f5cb5c);
 }
 
 /* Yellow corners */
-.miniCard__container::after{
-    content: '';
+.miniCard__container::after {
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    padding: .08rem;
-    transform: translate(-.08rem, -.08rem);
-    border-radius: .3rem;
+    padding: 0.08rem;
+    transform: translate(-0.08rem, -0.08rem);
+    border-radius: 0.3rem;
     z-index: -1;
     background: linear-gradient(215deg, transparent 70%, #f5cb5c);
 }
 
-
-.miniCard__container:hover{
+.miniCard__container:hover {
     box-shadow: 3px 3px 3px 3px rgba(24, 24, 24, 0.333);
     background: #121212;
 }
 
 .miniCard__container h4,
-.miniCard__container h5{
+.miniCard__container h5 {
     color: #e8eddf;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     user-select: none;
 }
 
-.miniCard__container h4{
+.miniCard__container h4 {
     font-weight: 600;
     font-size: 1.5rem;
 }
 
-.miniCard__container h5{
+.miniCard__container h5 {
     font-weight: 200;
 }
 
 /* Top left */
-.miniCard__container .miniCard__pret{
+.miniCard__container .miniCard__pret {
     color: #242423;
-    position: absolute;
-    top: -0.5rem;
-    left: -0.5rem;
-    font-family: 'Poppins',sans-serif;
-    font-size: .8rem;
-    font-weight: 600;
-    background: #e8eddf77;
-    backdrop-filter: blur(3px);
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
-    text-align: center;
-    border: 3px solid #f5cb5c;
-    box-shadow: 0px 2px 8px 2px #24242488;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #e8eddf77;
+  backdrop-filter: blur(3px);
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  border: 3px solid #f5cb5c;
+  box-shadow: 0px 2px 8px 2px #24242488;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
 }
 
-
-/* Bottom middle */
-/* .container .pret{
-    color: #242423;
-    position: absolute;
-    bottom: -1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Poppins',sans-serif;
-    font-size: .8rem;
-    font-weight: 600;
-    background: #e8eddfbb;
-    backdrop-filter: blur(3px);
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
-    text-align: center;
-    border: 3px solid #f5cb5c;
-    box-shadow: 0px 2px 8px 2px #24242488;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-} */
-
-.miniCard__pret sub{
+.miniCard__pret sub {
     font-weight: 400;
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 
-.miniCard__cartContainer{
+.miniCard__cartContainer {
     position: absolute;
     bottom: 0;
     right: 0;
 }
 
-.miniCard__cartContainer .miniCard__shopIcon{
+.miniCard__cartContainer .miniCard__shopIcon {
     color: #f5cb5c;
 }
 
-.miniCard__linkDisabled{
-    position: absolute;
-    bottom: 0;
-    right: 0;
+.miniCard__linkDisabled {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
-.miniCard__linkDisabled .miniCard__shopIconDisabled{
-    color: gray;
-    cursor: not-allowed;
+.miniCard__linkDisabled .miniCard__shopIconDisabled {
+  color: gray;
+  cursor: not-allowed;
 }
 
-/* .linkEnabled{
-    position: absolute;
-    bottom: 0;
-    right: 0;
+.miniCard__container .miniCard__details {
+  position: relative;
+  user-select: none;
 }
 
-.linkEnabled .shopIcon1{
-    color: #f5cb5c;
-} */
-
-.miniCard__container .miniCard__details{
-    position: relative;
-    user-select: none;
+.miniCard__container .miniCard__details a {
+  color: #e8eddf;
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+  font-weight: 400;
+  border: 1px solid #f5cb5c;
+  padding: 0.01rem 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
 }
 
-.miniCard__container .miniCard__details a{
-    color: #e8eddf;
-    position: absolute;
-    bottom: 0rem;
-    left: 0;
-    font-family: 'Poppins',sans-serif;
-    font-size: .9rem;
-    font-weight: 400;
-    border: 1px solid #f5cb5c;
-    padding: .01rem .5rem;
-    border-radius: .3rem;
-    cursor: pointer;
-}
-
-
-.miniCard__container h5:last-of-type{
-    margin-bottom: 2rem;
-    font-weight: 200;
+.miniCard__container h5:last-of-type {
+  margin-bottom: 2rem;
+  font-weight: 200;
 }
 
 /* In stoc */
-.miniCard__container h5>span{
-    color: #e8eddf;
-    font-weight: 400;
-    /* margin-left: .3rem; */
+.miniCard__container h5 > span {
+  color: #e8eddf;
+  font-weight: 400;
 }
 
-.miniCard__container h5 p:nth-child(n+4){
-    display: none;
+.miniCard__container h5 p:nth-child(n + 4) {
+  display: none;
 }
 
-.miniCard__divider{
-    background: #e8eddf88;
-    height: 1px;
-    border: none;
-    margin: .4rem 0;
+.miniCard__divider {
+  background: #e8eddf88;
+  height: 1px;
+  border: none;
+  margin: 0.4rem 0;
 }
 
-
-
-@media screen and (max-width: 768px){
-    .miniCard__container{
-        position: relative;
-        background: #242423;
-        display: flex;
-        width: 100%;
-        height: fit-content;
-        margin: 1rem;
-        flex-direction: column;
-        padding: .4rem;
-        border-radius: .3rem;
-        box-shadow: 1px 1px 1px 1px #17171766;
-        transition: all 350ms ease-in-out;
-    }
-    .miniCard__container:hover{
-        transform: none;
-        box-shadow: none;
-        background: #121212;
-    }
-    .miniCard__container .miniCard__cartContainer button{
-        bottom: 0;
-        right: 0;
-        padding: .05rem .2rem;
-    }
+@media screen and (max-width: 768px) {
+  .miniCard__container {
+    width: 100%;
+    box-shadow: 1px 1px 1px 1px #17171766;
+  }
+  .miniCard__container:hover {
+    box-shadow: none;
+  }
+  .miniCard__container:hover {
+    box-shadow: 3px 3px 3px 3px rgba(24, 24, 24, 0.333);
+    background: #121212;
+  }
+  .miniCard__container .miniCard__cartContainer button {
+    bottom: 0;
+    right: 0;
+    padding: 0.05rem 0.2rem;
+  }
+  .miniCard__container .miniCard__details a {
+    font-size: 1.1rem;
+    letter-spacing: 0.3rem;
+  }
 }

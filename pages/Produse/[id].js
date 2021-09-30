@@ -39,14 +39,16 @@ export const getStaticProps = async (context) => {
 };
 
 const Details = ({ item }) => {
+
   if (!item) {
     return <LoadingScreen actualizare="Actualizare produs..." />;
   }
+  
 
   const [currentImage, setCurrentImage] = useState(item.media.source);
 
   return (
-    <div className={styles.containerDr}>
+    <div className={styles.containerDr} id='mocanu'>
       <Head>
         {/* <title>{item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase()}</title> */}
         <title>{item.name}</title>

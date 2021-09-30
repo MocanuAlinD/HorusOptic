@@ -8,7 +8,7 @@ import Head from "next/head";
 import { AiOutlineVerticalRight } from "react-icons/ai";
 import Image from "next/image";
 import { IconButton } from "@material-ui/core";
-import { ShoppingCart } from "@material-ui/icons";
+import { AllInbox, ShoppingCart } from "@material-ui/icons";
 import { commerce } from "../../lib/commerce";
 
 // export async function getStaticProps(context) {
@@ -218,6 +218,7 @@ const Produse = ({
       setAllProducts(ochelariAccesorii);
     }
   };
+
 
   return (
     <div className={styles.container} id="top">
