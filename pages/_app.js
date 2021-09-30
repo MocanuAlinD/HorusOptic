@@ -1,10 +1,11 @@
-import '../styles/globals.css'
+// import '../styles/globals.css'
 import ScrollToTop from '../components/ScrollToTop'
 import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { commerce } from '../lib/commerce'
 import Head from 'next/head'
+import GlobalStyle from './globalStyles'
 
 
 function MyApp({ Component, pageProps }) {
@@ -77,6 +78,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <GlobalStyle />
       <Head>
         <title>Horus Top Optic</title>
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />

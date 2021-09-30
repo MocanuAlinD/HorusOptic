@@ -1,21 +1,23 @@
-.container{
-    /* background: red; */
-    width: 100%;
-    height: fit-content;
-    /* outline: 1px solid red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-left: .5rem;
+.pagination__container {
+  /* background: red; */
+  width: 100%;
+  height: fit-content;
+  /* outline: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 0.5rem;
 }
 
-.pickToShow label{
-    color: #f5cb5c;
-    font-family: 'Poppins', sans-serif;
-    margin-right: .2rem;
+.pagination__pickToShow label {
+  color: #f5cb5c;
+  font-family: "Poppins", sans-serif;
+  margin-right: 0.2rem;
 }
 
-.pickToShow select{
-    margin-right: 1rem;
+.pagination__pickToShow select {
+  margin-right: 1rem;
 }
+
+

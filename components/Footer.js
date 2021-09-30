@@ -7,17 +7,17 @@ import Link from 'next/link'
 
 const Footer = () => {
     return (
-        <div className={styles.footerContainer}>
-            <div className={styles.leftFooter}>
+        <div className={styles.footer__container}>
+            <div className={styles.footer__left}>
                 <h3>Contact</h3>
                 <hr width='100%' style={{height:'.1rem'}}/>
-                <div className={styles.socialFooter}>
+                <div className={styles.footer__social}>
                     <ul>
                         <li><ImMobile size='1.2rem' style={{marginBottom: '-0.2rem', marginRight: '.5rem'}}/><a> 0742.654.258</a></li>
                         <li><AiOutlineMail size='1.2rem' style={{ marginBottom: '-0.2rem', marginRight: '.5rem' }}/><a> horus_top_optic@yahoo.com</a></li>
                     </ul>
                 </div>
-                <div className={styles.socialFooterMobile}>
+                <div className={styles.footer__socialMobile}>
                     <ul>
                         <li><a href="tel:0742654258"><ImMobile size='2rem' style={{ marginTop: '1rem', marginRight: '0' }} /></a></li>
                         <li><a href="mailto:horus_top_optic@yahoo.com"><AiOutlineMail size='2rem' style={{ marginTop: '1rem', marginRight: '0' }} /></a></li>
@@ -25,7 +25,7 @@ const Footer = () => {
                 </div>
                 
             </div>
-            <div className={styles.middleFooter}>
+            <div className={styles.footer__middle}>
                 <h3>Despre</h3>
                 <hr width='100%' style={{height:'.1rem', marginBottom: '.5rem'}}/>
                 <Link href="/istoriaochelarilor"><a>Istoria ochelarilor de vedere</a></Link>
@@ -36,7 +36,7 @@ const Footer = () => {
                 <Link href="/ochelarisoare"><a>Ochelarii de soare</a></Link>
                 <Link href="/consultopticamedicala"><a>Consult optica medicala</a></Link>
             </div>
-            <div className={styles.rightFooter} >
+            <div className={styles.footer__right} >
                 <Link href="#"><a>Inainte sa cumperi !</a></Link>
                 <Link href="/PoliticaDeConfidentialitate"><a>Politica de confidentialitate</a></Link>
                 <Link href="/Garantie"><a>Garantie</a></Link>

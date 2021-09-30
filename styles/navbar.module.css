@@ -1,4 +1,4 @@
-.navbarContainer{
+.nav{
     display: flex;
     /* background: linear-gradient(to bottom, #242423 70%, transparent); */
     background: #151515;
@@ -12,14 +12,14 @@
 	transition: all .5s ease-in-out;
 }
 
-.navTitle{
+.nav__title{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-grow: 1;
 }
 
-.navTitle h3{
+.nav__title h3{
     font-family: 'Abril Fatface';
     font-family: 'Monotone';
     font-family: 'Cinzel Decorative', cursive;
@@ -30,23 +30,23 @@
 	user-select: none;
 }
 
-.icon{
+.nav__icon{
 	color: #f5cb5c;
 	font-size: 3rem;
 }
 
-.divIcon{
+.nav__cartContainer{
 	/* flex-grow: 1; */
 	text-align: end;
 	/* background: blueviolet; */
 	width: fit-content;
 }
 
-.navbarContainer .cartIcon{
+.nav .nav__cartIcon{
 	color: #f5cb5c;
 }
 
-.navbarContainer ul{
+.nav ul{
 	flex-grow: 1;
     display: flex;
     list-style: none;
@@ -58,7 +58,7 @@
 	/* background: blue; */
 }
 
-.navbarContainer ul li a{
+.nav ul li a{
     margin: 0 1.3rem;
     font-family: 'Poppins', sans-serif;
     color: #e8eddf;
@@ -67,11 +67,11 @@
     padding: 0 .3rem;
 }
 
-.navbarContainer ul li a:hover{
+.nav ul li a:hover{
 	color: #242423;
 }
 
-.navbarContainer ul li a::before{
+.nav ul li a::before{
 	content: '';
 	position: absolute;
 	top: 0;
@@ -86,13 +86,13 @@
 	z-index: -1;
 }
 
-.navbarContainer ul li a:hover::before{
+.nav ul li a:hover::before{
 	transform: scaleY(1.2);
 	opacity: 1;
 }
 
 
-.navbarContainer ul li a::after{
+.nav ul li a::after{
 	content: '';
 	position: absolute;
 	top: 1px;
@@ -105,11 +105,11 @@
 	z-index: -1;
 }
 
-.navbarContainer ul li a:hover::after{
+.nav ul li a:hover::after{
 	transform: scale(1);
 }
 
-.meniu{
+.nav__menu{
 	display: none;
 	outline: none;
 	background: none;
@@ -124,16 +124,16 @@
 }
 
 @media screen and (max-width: 1000px){
-	.navTitle h3{
+	.nav__title h3{
 		font-size: 2rem;
 	}
 }
 
 @media screen and (max-width: 768px){
-	.navbarContainer{
+	.nav{
 		border-bottom: none;
 	}
-	.navbarContainer ul{
+	.nav ul{
 		align-items: center;
 		background: #151515;
 		border-bottom: 1px solid #ffffff77;
@@ -145,24 +145,24 @@
 		top: 3rem;
 		width: 100%;
 	}
-	.meniu{
+	.nav__menu{
 		display: flex;
 	}
 	
 	.ul{
 		transition: all .35s ease-in-out;
 	}
-	.navTitle h3{
+	.nav__title h3{
 		font-size: 1rem;
 	}
 	
 }
 
 @media screen and (max-width: 320px){
-	.navTitle h3{
+	.nav__title h3{
 		font-size: .8rem;
 	}
-	.icon{
+	.nav__icon{
 		font-size: 2rem;
 	}
 	

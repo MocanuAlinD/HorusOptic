@@ -1,4 +1,7 @@
-* {
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+    * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,6 +10,7 @@
 html,
 body {
   width: 100%;
+  background: #242423;
   min-height: calc(100vh - 3rem);
   background-image: url('/bg13.jpg');
   background-position-x: center;
@@ -41,7 +45,10 @@ a {
 @media screen and (max-width:768px){
   body{
     background-image: url('/bg13_tall.jpg');
+    background-image: none;
+    /* background: #151515; */
   }
 }
+`
 
-
+export default GlobalStyle

@@ -1,4 +1,4 @@
-.container{
+.miniCard__container{
 	position: relative;
     background: #242423;
     display: flex;
@@ -12,7 +12,7 @@
 }
 
 /* Yellow corners */
-.container::before{
+.miniCard__container::before{
     content: '';
     position: absolute;
     width: 100%;
@@ -27,7 +27,7 @@
 }
 
 /* Yellow corners */
-.container::after{
+.miniCard__container::after{
     content: '';
     position: absolute;
     width: 100%;
@@ -42,29 +42,29 @@
 }
 
 
-.container:hover{
+.miniCard__container:hover{
     box-shadow: 3px 3px 3px 3px rgba(24, 24, 24, 0.333);
     background: #121212;
 }
 
-.container h4,
-.container h5{
+.miniCard__container h4,
+.miniCard__container h5{
     color: #e8eddf;
     font-family: 'Poppins', sans-serif;
     user-select: none;
 }
 
-.container h4{
+.miniCard__container h4{
     font-weight: 600;
     font-size: 1.5rem;
 }
 
-.container h5{
+.miniCard__container h5{
     font-weight: 200;
 }
 
 /* Top left */
-.container .pret{
+.miniCard__container .miniCard__pret{
     color: #242423;
     position: absolute;
     top: -0.5rem;
@@ -111,28 +111,28 @@
     pointer-events: none;
 } */
 
-.pret sub{
+.miniCard__pret sub{
     font-weight: 400;
     font-size: .7rem;
 }
 
-.link{
+.miniCard__cartContainer{
     position: absolute;
     bottom: 0;
     right: 0;
 }
 
-.link .shopIcon{
+.miniCard__cartContainer .miniCard__shopIcon{
     color: #f5cb5c;
 }
 
-.linkDisabled{
+.miniCard__linkDisabled{
     position: absolute;
     bottom: 0;
     right: 0;
 }
 
-.linkDisabled .shopIconDisabled{
+.miniCard__linkDisabled .miniCard__shopIconDisabled{
     color: gray;
     cursor: not-allowed;
 }
@@ -147,12 +147,12 @@
     color: #f5cb5c;
 } */
 
-.container .details{
+.miniCard__container .miniCard__details{
     position: relative;
     user-select: none;
 }
 
-.container .details a{
+.miniCard__container .miniCard__details a{
     color: #e8eddf;
     position: absolute;
     bottom: 0rem;
@@ -167,29 +167,23 @@
 }
 
 
-.container h5:last-of-type{
+.miniCard__container h5:last-of-type{
     margin-bottom: 2rem;
     font-weight: 200;
 }
 
 /* In stoc */
-.container h5>span{
+.miniCard__container h5>span{
     color: #e8eddf;
     font-weight: 400;
     /* margin-left: .3rem; */
 }
 
-
-.container h5 p:nth-child(4),
-.container h5 p:nth-child(5),
-.container h5 p:nth-child(6),
-.container h5 p:nth-child(7),
-.container h5 p:nth-child(8),
-.container h5 p:nth-child(9){
+.miniCard__container h5 p:nth-child(n+4){
     display: none;
 }
 
-.divider{
+.miniCard__divider{
     background: #e8eddf88;
     height: 1px;
     border: none;
@@ -199,7 +193,7 @@
 
 
 @media screen and (max-width: 768px){
-    .container{
+    .miniCard__container{
         position: relative;
         background: #242423;
         display: flex;
@@ -212,12 +206,12 @@
         box-shadow: 1px 1px 1px 1px #17171766;
         transition: all 350ms ease-in-out;
     }
-    .container:hover{
+    .miniCard__container:hover{
         transform: none;
         box-shadow: none;
         background: #121212;
     }
-    .container .link button{
+    .miniCard__container .miniCard__cartContainer button{
         bottom: 0;
         right: 0;
         padding: .05rem .2rem;

@@ -1,4 +1,4 @@
-.container{
+.loadingScreen__container{
     /* background: red; */
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
     min-height: 79vh;
 }
 
-.loader{
+.loadingScreen__container__loader{
     border: .3rem solid #242423;
     border-radius: 50%;
     border-top: .3rem solid #f5cb5c;
@@ -27,7 +27,7 @@
     }
 }
 
-.container h2{
+.loadingScreen__container h2{
     color: whitesmoke;
     font-family: 'Poppins';
     font-weight: 200;

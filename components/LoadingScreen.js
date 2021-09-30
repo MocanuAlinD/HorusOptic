@@ -1,13 +1,13 @@
 import React from 'react'
 import style from '../styles/LoadingScreen.module.css'
 
-const LoadingScreen = () => {
+const LoadingScreen = ({actualizare}) => {
     return (
-        <div className={style.container}>
-            <div className={style.loader}></div>
-            <h2>Actualizare produs....</h2>
-        </div>
-    )
+      <div className={style.loadingScreen__container}>
+        <div className={style.loadingScreen__container__loader}></div>
+        <h2>{actualizare}</h2>
+      </div>
+    );
 }
 
 export default LoadingScreen

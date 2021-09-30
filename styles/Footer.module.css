@@ -1,4 +1,4 @@
-.footerContainer{
+.footer__container{
     width: 100%;
     height: 14rem;
     background: #151515;
@@ -10,11 +10,11 @@
     border-top: 1px solid #e8eddf66;
 }
 
-.footerContainer a{
+.footer__container a{
     transition: all 350ms ease-in-out;
 }
 
-.leftFooter, .middleFooter, .rightFooter{
+.footer__left, .footer__middle, .footer__right{
     width: 100%;
     height: 100%;
     display: flex;
@@ -23,17 +23,17 @@
     align-items: flex-start;
 }
 
-.footerContainer h3{
+.footer__container h3{
     color: #e8eddf;
 }
 
 /* LEFT FOOTER ===================================== */
-.leftFooter{
+.footer__left{
     margin-right: 1rem;
 }
-.leftFooter h3,
-.middleFooter h3,
-.rightFooter h3{
+.footer__left h3,
+.footer__middle h3,
+.footer__right h3{
     font-family: 'Poppins',sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
@@ -41,10 +41,10 @@
 
 
 /* MIDDLE FOOTER ===================================== */
-.middleFooter{
+.footer__middle{
     margin-right: 1rem;
 }
-.middleFooter a{
+.footer__middle a{
     color: #e8eddf;
     font-size: .8rem;
     font-family: 'Poppins';
@@ -54,11 +54,11 @@
 
 
 /* RIGHT FOOTER ===================================== */
-.rightFooter{
+.footer__right{
     padding-top: 2rem;
 }
 
-.rightFooter a:first-child{
+.footer__right a:first-child{
     margin-top: .5rem;
     color: #e8eddf;
     animation: onoff 2s linear infinite;
@@ -73,7 +73,7 @@
     }
 }
 
-.rightFooter a{
+.footer__right a{
     color: #e8eddf;
     font-size: .8rem;
     font-family: 'Poppins',sans-serif;
@@ -81,24 +81,24 @@
     margin-bottom: 1rem;
 }
 
-.rightFooter h4{
+.footer__right h4{
     color: #e8eddf;
     font-size: 1rem;
     font-family: 'Poppins',sans-serif;
     font-weight: 200;
 }
 
-.mobile{
+/* .mobile{
     font-size: 2rem;
     margin-top: 1rem;
-}
+} */
 
-.socialFooter{
+.footer__social{
 	margin: 1rem 0;
 	padding: 0;
 }
 
-.socialFooter li{
+.footer__social li{
     color: #e8eddf;
     font-family: 'Poppins',sans-serif;
     font-weight: 200;
@@ -108,14 +108,14 @@
     letter-spacing: .05rem;
 }
 
-.socialFooterMobile{
+.footer__socialMobile{
 	margin: 1rem 0;
 	padding: 0;
 	display: none;
     /* background: orange; */
 }
 
-.socialFooterMobile li{
+.footer__socialMobile li{
     color: #e8eddf;
     font-family: 'Poppins',sans-serif;
     font-weight: 200;
@@ -125,45 +125,45 @@
     letter-spacing: .05rem;
 }
 
-.footerContainer a:hover{
+.footer__container a:hover{
     color: #f5cb5c;
 }
 
 
 @media screen and (max-width: 768px){
-    .footerContainer{
+    .footer__container{
         width: 100%;
         height: fit-content;
         display: flex;
         flex-direction: column;
     }
 
-    .rightFooter{
+    .footer__right{
         padding-bottom: 1.5rem;
     }
 
-    .socialFooter{
+    .footer__social{
         display: none;
     }
 
-    .socialFooterMobile{
+    .footer__socialMobile{
         width: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
 
-    .socialFooterMobile ul{
+    .footer__socialMobile ul{
         display: flex;
         justify-content: space-evenly;
         width: 100%;
     }
 
-    .middleFooter a{
+    .footer__middle a{
         font-size: 1.1rem;
     }
 
-    .rightFooter a{
+    .footer__right a{
         font-size: 1.1rem;
     }
 }

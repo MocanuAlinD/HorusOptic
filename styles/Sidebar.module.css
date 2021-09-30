@@ -5,20 +5,20 @@
 }
 
 
-.container .bucati {
+.container .desktop__items {
     margin-bottom: 1rem;
     /* background: red; */
     /* width: 100%; */
 }
 
-.bucati h4 {
+.desktop__items h4 {
     color: #e8eddf;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
 
-.bucati label {
+.desktop__items label {
     color: #e8eddf;
     margin-left: .3rem;
     font-family: 'Poppins', sans-serif;
@@ -26,7 +26,7 @@
     font-size: .8rem;
 }
 
-.bucati input {
+.desktop__items input {
     /* background: red; */
     -webkit-appearance: none;
     width: .8rem;
@@ -38,23 +38,23 @@
     box-shadow: 0px 0px 2px 0px #ccc, 2px 2px 2px 1px #00000077;
 }
 
-.bucati input:checked {
+.desktop__items input:checked {
     background: #f5cb5c;
     box-shadow: none;
 }
 
-.searchDiv {
+.desktop__searchContainer {
     display: flex;
     margin-bottom: .5rem;
     justify-content: space-between;
 }
 
-.searchIcon {
+.desktop__searchIcon {
     color: #e8eddf;
     font-size: 1rem;
 }
 
-.search {
+.desktop__search {
     width: 80%;
     background: #e8eddf22;
     outline: none;
@@ -68,50 +68,57 @@
     display: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 768px) {
     .container {
-        /* display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap; */
-        /* background: red; */
         margin: 0;
+        /* background: red; */
     }
     .desktop {
         display: none;
     }
     .mobile {
-        /* background: red; */
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
-    .bucatiDrop {
+    .mobile__items {
         display: flex;
-        /* margin: .3rem; */
-        /* background: red; */
         padding: 3px;
         width: fit-content;
+        width: 33.3333333%;
+        flex-direction: column;
     }
-    .mobile div:first-child {
-        /* background: blue; */
+    .mobile__search {
         width: 100%;
+        padding: 0;
+        flex-direction: row;
     }
-    /* .mobile div:nth-child(3){
-        display: none;
-    } */
-    /* .mobile div:nth-child(4){
-        display: none;
-    }
-    .mobile div:nth-child(5){
-        display: none;
-    } */
     .searchIconDrop {
         color: #e8eddf;
         font-size: 1.5rem;
         margin: 0 .5rem;
+        margin-left: 0;
     }
-    .container .searchDrop {
+    .searchDrop {
         width: 100%;
+        height: 100%;
         background: #e8eddf22;
         outline: none;
         border: none;
@@ -120,24 +127,30 @@
         color: #f5cb5c;
         height: 1.5rem;
     }
-    .bucatiDrop h4 {
+    .mobile__items h4 {
         color: #e8eddf;
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
         margin-right: .3rem;
         font-size: .9rem;
     }
-    .bucatiDrop select {
+    .mobile__items select {
         background: #f5cb5c;
         outline: none;
         border-radius: .2rem;
-        font-family: "Poppins";
+        font-family: "Poppins", sans-serif;
         font-size: .8rem;
         border: none;
     }
-    .bucatiDrop option {
+    .mobile__items option {
         background: #f5cb5c;
-        font-family: "Poppins";
+        font-family: "Poppins", sans-serif;
         font-size: .8rem;
     }
 }
+
+/* @media screen and (max-width: 412px){
+    .bucatiDrop:not(:first-child) {
+        width: 33%;
+    }
+} */

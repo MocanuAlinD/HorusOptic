@@ -30,20 +30,20 @@ const Navbar = ({ totalItems }) => {
     }
 
     return (
-        <div className={style.navbarContainer}>
-            <div className={style.navTitle}>
+        <div className={style.nav}>
+            <div className={style.nav__title}>
                 <h3>HORUS TOP OPTIC</h3>
-                <GiEyeOfHorus className={style.icon} />
+                <GiEyeOfHorus className={style.nav__icon} />
             </div>
             <ul>
                 <li><Link href='/'><a onClick={closeMenu}>Acasa</a></Link></li>
                 <li><Link href='/Produse'><a onClick={() => closeMenu()}>Produse</a></Link></li>
                 <li><Link href='/info'><a onClick={() => closeMenu()}>FAQ</a></Link></li>
             </ul>
-            <button className={style.meniu} onClick={changeMe}>Meniu</button>
-            <div className={style.divIcon}>
+            <button className={style.nav__menu} onClick={changeMe}>Meniu</button>
+            <div className={style.nav__cartContainer}>
                 {(router.pathname !== '/Cart' && router.pathname !== '/Checkout') && <Link href='/Cart'>
-                    <IconButton className={style.cartIcon} aria-label='Show cart items'  >
+                    <IconButton className={style.nav__cartIcon} aria-label='Show cart items'  >
                         <Badge badgeContent={totalItems} anchorOrigin={{ vertical: 'top', horizontal: 'right', }} color='secondary'>
                             <ShoppingCart />
                         </Badge>
