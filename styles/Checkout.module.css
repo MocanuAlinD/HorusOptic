@@ -1,4 +1,4 @@
-.container{
+.checkout__container{
     width: 100%;
     height: fit-content;
     min-height: 79vh;
@@ -10,32 +10,32 @@
     backdrop-filter: blur(5px);
 }
 
-.checkout{
+.checkout__wrapper{
     width: 35rem;
     max-width: 100%;
     height: fit-content;
     /* background: darkgoldenrod; */
 }
 
-.container .paper{
+.checkout__container .checkout__paper{
     background: white;
     padding: .5rem;
     margin: 1rem .3rem;
 }
 
-.container .stepper{
+.checkout__container .checkout__stepper{
     background: white;
 }
 
-.container .spinner{
+.checkout__container .checkout__spinner{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container .cardElement{
+.checkout__container .cardElement{
     background: white;
-    border: 1px solid #242423;
+    border: 10px solid #242423;
     padding: .5rem;
     border-radius: .25rem;
 }

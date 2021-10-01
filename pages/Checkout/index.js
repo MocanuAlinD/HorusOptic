@@ -50,7 +50,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             <Link href='/'><Button variant="outlined" type="button">Pagina principala</Button></Link>
         </>
     ) : (
-        <div className={styles.spinner}>
+        <div className={styles.checkout__spinner}>
             <CircularProgress />
         </div >
     )
@@ -83,11 +83,11 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     }, [cart])
 
     return (
-        <div className={styles.container}>
-            <div className={styles.checkout}>
-                <Paper variant="outlined" className={styles.paper}>
+        <div className={styles.checkout__container}>
+            <div className={styles.checkout__wrapper}>
+                <Paper variant="outlined" className={styles.checkout__paper}>
                     <Typography variant="h4" align="center" >Checkout</Typography>
-                    <Stepper activeStep={activeStep} alternativeLabel className={styles.stepper}>
+                    <Stepper activeStep={activeStep} alternativeLabel className={styles.checkout__stepper}>
                         {steps.map((step) => (
                             <Step key={step}>
                                 <StepLabel>{step}</StepLabel>

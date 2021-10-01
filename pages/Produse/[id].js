@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { commerce } from "../../lib/commerce";
-import styles from "../../styles/Produse.module.css";
+import styles from "../../styles/ProductPage.module.css";
 import Image from "next/image";
 import Head from "next/head";
 import LoadingScreen from "../../components/LoadingScreen";
@@ -39,22 +39,20 @@ export const getStaticProps = async (context) => {
 };
 
 const Details = ({ item }) => {
-
   if (!item) {
     return <LoadingScreen actualizare="Actualizare produs..." />;
   }
-  
 
   const [currentImage, setCurrentImage] = useState(item.media.source);
 
   return (
-    <div className={styles.containerDr} id='mocanu'>
+    <div className={styles.product__container}>
       <Head>
         {/* <title>{item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase()}</title> */}
         <title>{item.name}</title>
       </Head>
-      <div className={styles.alin2}>
-        <div className={styles.alin4} id="slider1">
+      <div className={styles.product__imagesContainer}>
+        <div className={styles.product__bigImageContainer} id="slider1">
           <Image
             layout="intrinsic"
             as="image"
@@ -63,9 +61,9 @@ const Details = ({ item }) => {
             height={1080}
           />
         </div>
-        <div className={styles.smallImages}>
+        <div className={styles.product__smallImagesContainer}>
           {item.assets.map((item, index) => (
-            <div key={item.id} className={styles.smallImage}>
+            <div key={item.id} className={styles.product__smallImage}>
               <Image
                 src={item.url}
                 layout="intrinsic"
@@ -78,10 +76,10 @@ const Details = ({ item }) => {
         </div>
       </div>
 
-      <div className={styles.rightSide}>
+      <div className={styles.product__content}>
         <h4>{item.name}</h4>
         <div
-          className={styles.description}
+          className={styles.product__description}
           dangerouslySetInnerHTML={{ __html: item.description }}
         ></div>
         <h4>

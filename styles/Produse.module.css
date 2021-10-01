@@ -88,129 +88,6 @@
 }
 
 
-
-
-
-
-
-
-
-/* SECTION 2 */
-
-
-/* Toata pagina S2 */
-.s2 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
-
-/* Div cu imaginea si scrisu */
-.containerDr {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: flex-end;
-    min-height: 79vh;
-    /* margin-top: 1rem; */
-    margin: 0 auto;
-}
-
-/* Imagine stanga */
-.alin2{
-    width: 100%;
-    /* height: 50%; */
-    position: relative;
-    /* background: red; */
-    margin: 0 auto;
-}
-
-.alin4{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    width: 100%;
-    transition: all .35s ease-in-out;
-}
-
-.smallImages{
-    width: 100%;
-    height: fit-content;
-    background: #242423;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: .1rem;
-    overflow-x: auto;
-}
-
-.smallImage{
-    min-width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: .2rem .1rem;
-}
-
-
-
-
-
-/* Toata partea cu scrisu din dreapta imaginii */
-.rightSide {
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 0 .5rem;
-    position: relative;
-    white-space: nowrap;
-    background: #242423;
-    padding-bottom: 5.5rem;
-    /* border-bottom: 1px solid whitesmoke; */
-    /* border-bottom-right-radius: 1rem; */
-}
-
-
-/* Titlu din partea dreapta sus */
-.rightSide h4:first-child {
-    color: #e8eddf;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2.5rem;
-    padding-bottom: 1rem;
-    user-select: none;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: .3rem;
-}
-
-
-/* Descrierea */
-.description p {
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 200;
-    font-size: 1rem;
-    user-select: none;
-    white-space: nowrap;
-}
-
-
-/* Pretul */
-.rightSide h4:last-child {
-    color: #f5cb5c;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 2rem;
-    text-align: end;
-    user-select: none;
-    text-align: start;
-}
-
-
 /* ================================================ */
 .link{
     position: absolute;
@@ -236,11 +113,7 @@
 }
 /* ================================================ */
 
-@media screen and (max-width: 888px){
-    .smallImages{
-        justify-content: flex-start;
-    }
-}
+
 
 @media screen and (max-width: 768px) {
     .container {
@@ -258,15 +131,6 @@
         margin: .5rem 0;
     }
 
-    .containerDr {
-        display: block;
-        width: 98%;
-    }
-
-    .rightSide {
-        width: 100%;
-        padding-bottom: 0;
-    }
     .backBtn {
         font-size: 2rem;
         position: fixed;
