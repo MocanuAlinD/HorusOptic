@@ -9,54 +9,10 @@
     width: 100%;
 }
 
-/* Pagina cu produse */
-.container .s1{
-    padding: 0 1rem;
-}
-
-
 .containerImg {
     width: 100%;
 }
 
-.containerImg .carousel {
-    height: 100%;
-    width: 100%;
-}
-
-.containerImg .carousel .slider {
-    display: flex;
-    height: 100%;
-    position: relative;
-    transition: all 1s ease-in-out;
-    width: 100%;
-}
-
-
-
-.backBtn {
-    font-size: 2rem;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    z-index: 1;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    border: none;
-    outline: none;
-    background: #f5cb5c;
-    color: #242423;
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-
-
-.s1{
-    width: 100%;
-}
 .containerSt {
     display: flex;
     width: 100%;
@@ -74,6 +30,7 @@
     border-bottom: 1px solid #f5cb5c;
     border-top: 1px solid #f5cb5c;
     border-right: 1px solid #f5cb5c;
+    margin-bottom: 1rem;
 }
 
 .productList {
@@ -87,34 +44,6 @@
     padding-bottom: 2rem;
 }
 
-
-/* ================================================ */
-.link{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    /* background: red; */
-    text-align: end;
-}
-.link .shopIcon{
-    color: #f5cb5c;
-}
-
-.linkDisabled{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.linkDisabled .shopIconDisabled{
-    color: gray;
-    cursor: not-allowed;
-}
-/* ================================================ */
-
-
-
 @media screen and (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -122,33 +51,7 @@
         padding: 0;
         margin: 0;
     }
-    .container .s1{
-        padding: 0;
-    }
-
-    .s2 {
-        display: none;
-        margin: .5rem 0;
-    }
-
-    .backBtn {
-        font-size: 2rem;
-        position: fixed;
-        top: 3rem;
-        left: 100%;
-        transform: translate(-100%);
-        /* z-index: 1; */
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        border: none;
-        outline: none;
-        background: #242423;
-        color: #f5cb5c;
-        font-family: 'Poppins', sans-serif;
-        font-size: 2rem;
-        cursor: pointer;
-    }
+    
     .containerSt {
         display: flex;
         flex-direction: column;
@@ -165,15 +68,12 @@
         position: fixed;
         top: 3rem;
         z-index: 2;
+        border-top: none;
     }
     .productList {
         min-width: 100%;
         display: flex;
         flex-wrap: wrap;
         margin-top: 9rem;
-    }
-
-    .sidebar{
-        border-top: none;
     }
 }

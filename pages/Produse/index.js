@@ -5,10 +5,6 @@ import Sidebar from "../../components/Sidebar";
 import LoadingScreen from "../../components/LoadingScreen";
 import Pagination from "../../components/Pagination";
 import Head from "next/head";
-import { AiOutlineVerticalRight } from "react-icons/ai";
-import Image from "next/image";
-import { IconButton } from "@material-ui/core";
-import { AllInbox, ShoppingCart } from "@material-ui/icons";
 import { commerce } from "../../lib/commerce";
 
 // export async function getStaticProps(context) {
@@ -73,6 +69,7 @@ const Produse = ({
   readingGlasses,
   sunGlasses,
 }) => {
+
   const ochelariVedere = products.filter((x) => {
     return (
       (x.categories[0].slug === "rame" || x.categories[1].slug === "rame") &&
@@ -106,13 +103,11 @@ const Produse = ({
   const [brand, setBrand] = useState("marcaAll");
   const [search, setSearch] = useState("");
   const [def, setDef] = useState("mic");
-  const [imgpos, setImgpos] = useState(0);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
   const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen);
   const [allProducts, setAllProducts] = useState(ochelariVedere);
-  const [img, setImg] = useState(allProducts[0]);
   const [brandNames, setBrandNames] = useState(readingGlasses);
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -152,23 +147,6 @@ const Produse = ({
       );
     }
   };
-
-  // Details page(section)
-  // const changeMe = (e) => {
-  //   setCurrentImage(e.assets[0].url);
-  //   setImg(e);
-  //   setImgpos(window.pageYOffset);
-
-  //   let b = document.getElementById("s2");
-  //   b.style.display = "flex";
-  //   let c = document.getElementById("s1");
-  //   c.style.display = "none";
-  //   window.scrollTo({
-  //     top: 0,
-  //     left: 0,
-  //     behavior: "auto",
-  //   });
-  // };
 
   const searchItems = () => {
     const a = allProducts.filter((x) => {
@@ -227,9 +205,6 @@ const Produse = ({
       </Head>
 
       <div className={styles.containerImg}>
-        <div className={styles.carousel}>
-          <div className={styles.slider} id="slider">
-            <section className={styles.s1} id="s1">
               <div className={styles.containerSt}>
                 <div className={styles.sidebar}>
                   <Sidebar
@@ -274,75 +249,9 @@ const Produse = ({
                     : []}
                 </div>
               </div>
-            </section>
           </div>
-        </div>
-      </div>
     </div>
   );
 };
 
 export default Produse;
-
-/*
-
-<div className={styles.alin4} id='slider1'>
-                                        <div className={styles.alin5}>
-                                            {img ? img.assets.map((alin) =>
-                                                <section key={alin.id}>
-                                                    {<Image priority='true' layout='responsive' as='image' src={alin.url} width={alin.image_dimensions.width} height={alin.image_dimensions.height} />}
-<Image layout='intrinsic' as='image' src={currentImage} width={1920} height={1080} />
-                                                </section >
-                                            ) : ''}
-                                        </div >
-                                    </div >
-
-*/
-
-{
-  /* <section className={styles.s2} id='s2'>
-    <div className={styles.containerDr}>
-        <button className={styles.backBtn} onClick={() => goback()}>&#60;</button>
-
-        <div className={styles.alin2}>
-            <div className={styles.alin4} id='slider1'>
-                <Image layout='intrinsic' as='image' src={currentImage} width={1920} height={1080} />
-            </div>
-            <div className={styles.smallImages}>
-                {img && img.assets.map((item) =>
-                    <div key={item.id} className={styles.smallImage}>
-                        <Image src={item.url} layout='intrinsic' loading="eager" width={120} height={72} onClick={() => setCurrentImage(item.url)} />
-                    </div>
-                )}
-            </div>
-        </div>
-
-        <div className={styles.rightSide}>
-            <h4>{img && img.name}</h4>
-            <div className={img && styles.description} dangerouslySetInnerHTML={{ __html: img && img.description }}></div>
-
-            {img && (!img.inventory.managed ? (
-                <div className={styles.link} >
-                    <IconButton onClick={() => onAddToCart(img.id, 1)}>
-                        <ShoppingCart className={styles.shopIcon} />
-                    </IconButton>
-                </div>) :
-                (
-                    img.inventory.available < 1 ?
-                        (<div className={styles.linkDisabled}>
-                            <IconButton className={styles.shopIconDisabled} >
-                                <ShoppingCart />
-                            </IconButton>
-                        </div>) :
-                        (<div className={styles.link}>
-                            <IconButton onClick={() => onAddToCart(img.id, 1)}>
-                                <ShoppingCart className={styles.shopIcon} />
-                            </IconButton>
-                        </div>)
-                ))}
-
-            <h4>Pret: {img && img.price.raw} <sub>ron</sub></h4>
-        </div>
-    </div>
-</section> */
-}
