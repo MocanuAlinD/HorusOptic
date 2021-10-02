@@ -1,24 +1,23 @@
 .despreNoiContainer{
     min-height: 79vh;
     padding-top: 1rem;
-    background: #ffffff11;
+    background: var(--color-extra-light);
     backdrop-filter: blur(5px);
     width: 50%;
     margin: 0 auto;
 }
 
 .despreNoiContainer p{
-    color: #e8eddf;
+    color: var(--color-primary-lighten1);
     padding: 2rem 3rem;
-    /* padding-bottom: 1rem; */
-    font-family: 'Poppins',sans-serif;
+    font-family: var(--font-family-poppins);
     font-size: 1rem;
-    font-weight: 200;
+    font-weight: var(--font-w200);
     text-align: justify;
 }
 
 .despreNoiContainer p strong{
-    font-weight: 400;
+    font-weight: var(--font-w400);
 }
 @media screen and (max-width: 768px){
     .despreNoiContainer{

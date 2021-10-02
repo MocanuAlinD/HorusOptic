@@ -1,23 +1,23 @@
 .politica{
     min-height: 79vh;
     padding: 3rem 1rem 1rem 1rem;
-    background: #ffffff11;
+    background: var(--color-extra-light);
     backdrop-filter: blur(5px);
     width: 50%;
     margin: 0 auto;
 }
 
 .politica h3{
-    color: #e8eddf;
-    font-family: 'Poppins',sans-serif;
-    font-weight: 400;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w400);
 }
 
 .politica p{
-    color: #e8eddf;
-    font-family: 'Poppins',sans-serif;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
     font-size: .9rem;
-    font-weight: 200;
+    font-weight: var(--font-w200);
 }
 
 @media screen and (max-width:768px){

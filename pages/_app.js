@@ -6,13 +6,15 @@ import Footer from "../components/Footer";
 import { commerce } from "../lib/commerce";
 import Head from "next/head";
 import GlobalStyle from "./globalStyles";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
+
+  const router = useRouter()
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
-
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
@@ -94,7 +96,7 @@ function MyApp({ Component, pageProps }) {
         ></link>
       </Head>
 
-      <Navbar totalItems={cart.total_items === 0 ? null : cart.total_items} />
+      {!router.pathname.includes("/Produse/[id]") && <Navbar totalItems={cart.total_items === 0 ? null : cart.total_items} />}
 
       <Component
         {...pageProps}
@@ -106,11 +108,11 @@ function MyApp({ Component, pageProps }) {
         order={order}
         onCaptureCheckout={handleCaptureCheckout}
         error={errorMessage}
-        // products={products}
         loading={loading}
       />
 
-      <Footer />
+      {router.pathname.includes("/Produse/[id]") ? '' : <Footer />}
+
       <ScrollToTop />
     </>
   );

@@ -1,20 +1,18 @@
 /* Div cu imaginea si scrisu */
 .product__container {
     display: flex;
-    /* flex-direction: row; */
-    width: 75%;
+    width: 85%;
     align-items: flex-end;
     justify-content: center;
-    min-height: 79vh;
-    margin: 0 auto .5rem;
+    min-height: 99vh;
+    margin: auto;
+    /* margin: 0 auto .5rem; */
 }
 
 /* Imagine stanga */
 .product__imagesContainer{
     width: fit-content;
-    /* height: 50%; */
     position: relative;
-    /* margin: 0 auto; */
 }
 
 .product__bigImageContainer{
@@ -28,7 +26,7 @@
 .product__smallImagesContainer{
     width: 100%;
     height: fit-content;
-    background: #242423;
+    background: var(--color-primary-dark2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,23 +49,17 @@
 .product__content {
     width: fit-content;
     display: inline-block;
-    /* flex-direction: column; */
-    /* justify-content: flex-start; */
     padding: 0 .5rem 5.5rem;
     position: relative;
     white-space: nowrap;
-    background: #242423;
-    /* align-self: flex-end; */
-    /* padding-bottom: 5.5rem; */
-    /* border-bottom: 1px solid whitesmoke; */
-    /* border-bottom-right-radius: 1rem; */
+    background: var(--color-primary-dark2);
 }
 
 /* Titlu din partea dreapta sus */
 .product__content h4:first-child {
-    color: #e8eddf;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w600);
     font-size: 2.5rem;
     padding-bottom: 1rem;
     user-select: none;
@@ -79,9 +71,9 @@
 
 /* Descrierea */
 .product__description p {
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 200;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w200);
     font-size: 1rem;
     user-select: none;
     white-space: nowrap;
@@ -89,9 +81,9 @@
 
 /* Pretul */
 .product__content h4:last-child {
-    color: #f5cb5c;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+    color: var(--color-primary-light);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w400);
     font-size: 2rem;
     text-align: end;
     user-select: none;

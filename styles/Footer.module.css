@@ -1,13 +1,13 @@
 .footer__container {
   width: 100%;
   height: 14rem;
-  background: #151515;
+  background: var(--color-primary-dark1);
   display: flex;
   padding: 0 1rem 1rem;
   padding-bottom: 0;
   user-select: none;
   backdrop-filter: blur(2px);
-  border-top: 1px solid #e8eddf66;
+  border-top: 1px solid var(--color-primary-lighten2);
 }
 
 .footer__container a {
@@ -26,7 +26,7 @@
 }
 
 .footer__container h3 {
-  color: #e8eddf;
+  color: var(--color-primary-lighten1);
 }
 
 /* LEFT FOOTER ===================================== */
@@ -36,8 +36,8 @@
 .footer__left h3,
 .footer__middle h3,
 .footer__right h3 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-family-poppins);
+  font-weight: var(--font-w400);
   font-size: 1.2rem;
 }
 
@@ -46,10 +46,10 @@
   margin-right: 1rem;
 }
 .footer__middle a {
-  color: #e8eddf;
+  color: var(--color-primary-lighten1);
   font-size: 0.8rem;
-  font-family: "Poppins";
-  font-weight: 200;
+  font-family: var(--font-family-poppins);
+  font-weight: var(--font-w200);
 }
 
 /* RIGHT FOOTER ===================================== */
@@ -59,7 +59,7 @@
 
 .footer__right a:first-child {
   margin-top: 0.5rem;
-  color: #e8eddf;
+  color: var(--color-primary-lighten1);
   animation: onoff 2s linear infinite;
 }
 
@@ -74,18 +74,18 @@
 }
 
 .footer__right a {
-  color: #e8eddf;
+  color: var(--color-primary-lighten1);
   font-size: 0.8rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
+  font-family: var(--font-family-poppins);
+  font-weight: var(--font-w200);
   margin-bottom: 1rem;
 }
 
 .footer__right h4 {
-  color: #e8eddf;
+  color: var(--color-primary-lighten1);
   font-size: 1rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
+  font-family: var(--font-family-poppins);
+  font-weight: var(--font-w200);
 }
 
 .footer__social {
@@ -95,9 +95,9 @@
 }
 
 .footer__social li {
-  color: #e8eddf;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
+  color: var(--color-primary-lighten1);
+  font-family: var(--font-family-poppins);
+  font-weight: var(--font-w200);
   list-style: none;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
@@ -105,7 +105,7 @@
 }
 
 .footer__container a:hover {
-  color: #f5cb5c;
+  color: var(--color-primary-light);
 }
 
 @media screen and (max-width: 768px) {

@@ -1,6 +1,6 @@
 .miniCard__container {
   position: relative;
-  background: #242423;
+  background: var(--color-primary-dark2);
   display: flex;
   width: 25rem;
   height: fit-content;
@@ -23,7 +23,7 @@
     transform: translate(-0.08rem, -0.08rem);
     border-radius: 0.3rem;
     z-index: -1;
-    background: linear-gradient(45deg, transparent 70%, #f5cb5c);
+    background: linear-gradient(45deg, transparent 70%, var(--color-primary-light));
 }
 
 /* Yellow corners */
@@ -38,47 +38,47 @@
     transform: translate(-0.08rem, -0.08rem);
     border-radius: 0.3rem;
     z-index: -1;
-    background: linear-gradient(215deg, transparent 70%, #f5cb5c);
+    background: linear-gradient(215deg, transparent 70%, var(--color-primary-light));
 }
 
 .miniCard__container:hover {
     box-shadow: 3px 3px 3px 3px rgba(24, 24, 24, 0.333);
-    background: #121212;
+    background: var(--color-primary-dark1);
 }
 
 .miniCard__container h4,
 .miniCard__container h5 {
-    color: #e8eddf;
-    font-family: "Poppins", sans-serif;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
     user-select: none;
 }
 
 .miniCard__container h4 {
-    font-weight: 600;
+    font-weight: var(--font-w600);
     font-size: 1.5rem;
 }
 
 .miniCard__container h5 {
-    font-weight: 200;
+    font-weight: var(--font-w200);
 }
 
 /* Top left */
 .miniCard__container .miniCard__pret {
-    color: #242423;
+  color: var(--color-primary-dark2);
   position: absolute;
   top: -0.5rem;
   left: -0.5rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-poppins);
   font-size: 0.8rem;
-  font-weight: 600;
-  background: #e8eddf77;
+  font-weight: var(--font-w600);
+  background: var(--color-primary-lighten2);
   backdrop-filter: blur(3px);
   border-radius: 50%;
   width: 4rem;
   height: 4rem;
   text-align: center;
-  border: 3px solid #f5cb5c;
-  box-shadow: 0px 2px 8px 2px #24242488;
+  border: 3px solid var(--color-primary-light);
+  box-shadow: 0px 2px 8px 2px var(--color-primary-dark2op);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,7 +86,7 @@
 }
 
 .miniCard__pret sub {
-    font-weight: 400;
+    font-weight: var(--font-w400);
     font-size: 0.7rem;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .miniCard__cartContainer .miniCard__shopIcon {
-    color: #f5cb5c;
+    color: var(--color-primary-light);
 }
 
 .miniCard__linkDisabled {
@@ -117,15 +117,15 @@
 }
 
 .miniCard__container .miniCard__details a {
-  color: #e8eddf;
+  color: var(--color-primary-lighten1);
   position: absolute;
   bottom: 0rem;
   left: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-poppins);
   font-size: 1rem;
   letter-spacing: 0.3rem;
-  font-weight: 400;
-  border: 1px solid #f5cb5c;
+  font-weight: var(--font-w400);
+  border: 1px solid var(--color-primary-light);
   padding: 0.01rem 0.5rem;
   border-radius: 0.3rem;
   cursor: pointer;
@@ -133,13 +133,13 @@
 
 .miniCard__container h5:last-of-type {
   margin-bottom: 2rem;
-  font-weight: 200;
+  font-weight: var(--font-w200);
 }
 
 /* In stoc */
 .miniCard__container h5 > span {
-  color: #e8eddf;
-  font-weight: 400;
+  color: var(--color-primary-lighten1);
+  font-weight: var(--font-w400);
 }
 
 .miniCard__container h5 p:nth-child(n + 4) {
@@ -147,7 +147,7 @@
 }
 
 .miniCard__divider {
-  background: #e8eddf88;
+  background: var(--color-primary-lighten2);
   height: 1px;
   border: none;
   margin: 0.4rem 0;
@@ -156,14 +156,12 @@
 @media screen and (max-width: 768px) {
   .miniCard__container {
     width: 100%;
-    box-shadow: 1px 1px 1px 1px #17171766;
   }
   .miniCard__container:hover {
     box-shadow: none;
   }
   .miniCard__container:hover {
-    box-shadow: 3px 3px 3px 3px rgba(24, 24, 24, 0.333);
-    background: #121212;
+    background: var(--color-primary-dark1);
   }
   .miniCard__container .miniCard__cartContainer button {
     bottom: 0;

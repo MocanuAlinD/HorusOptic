@@ -2,11 +2,10 @@
     width: 100%;
     height: fit-content;
     min-height: 79vh;
-    /* background: darkcyan; */
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ffffff11;
+    background: var(--color-extra-light);
     backdrop-filter: blur(5px);
 }
 
@@ -14,17 +13,16 @@
     width: 35rem;
     max-width: 100%;
     height: fit-content;
-    /* background: darkgoldenrod; */
 }
 
 .checkout__container .checkout__paper{
-    background: white;
+    background: var(--color-primary-lighten1);
     padding: .5rem;
     margin: 1rem .3rem;
 }
 
 .checkout__container .checkout__stepper{
-    background: white;
+    background: var(--color-primary-lighten1);
 }
 
 .checkout__container .checkout__spinner{
@@ -34,8 +32,8 @@
 }
 
 .checkout__container .cardElement{
-    background: white;
-    border: 10px solid #242423;
+    background: var(--color-primary-lighten1);
+    border: 10px solid var(--color-primary-dark2);
     padding: .5rem;
     border-radius: .25rem;
 }

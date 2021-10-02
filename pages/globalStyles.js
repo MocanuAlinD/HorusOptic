@@ -1,10 +1,28 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-    * {
+:root{
+  --color-primary-dark1: #151515;    // gray
+  --color-primary-dark2: #242423;   // gray
+  --color-primary-dark2op: #24242388; // gray opacity 88
+  --color-primary-light: #f5cb5c;   // some yellow
+  --color-primary-lighten1: #e8eddf;  // some white
+  --color-primary-lighten2: #e8eddf70; // some white opacity 70
+  --color-extra-light: #ffffff18; // white opacity 18
+  --font-family-cinzel: 'Cinzel Decorative', cursive;
+  --font-family-poppins: 'Poppins', sans-serif;
+  --font-w200: 200;
+  --font-w400: 400;
+  --font-w600: 600;
+  --font-w800: 800;
+
+}
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family: 'Poppins', sans-serif; */
+  /* line-height: 1.3; */
 }
 
 html,
@@ -19,6 +37,7 @@ body {
   background-repeat: no-repeat;
   background-origin: content-box;
   scroll-behavior: smooth;
+  
 }
 
 a {
@@ -49,6 +68,6 @@ a {
     /* background: #151515; */
   }
 }
-`
+`;
 
 export default GlobalStyle

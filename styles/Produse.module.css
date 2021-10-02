@@ -1,6 +1,6 @@
 /* both sections */
 .container {
-    background: linear-gradient(45deg,#44444422,#22222222);
+    background: linear-gradient(45deg,#44444466,#22222266);
     display: flex;
     height: fit-content;
     min-height: 79vh;
@@ -21,15 +21,14 @@
 .sidebar {
     width: fit-content;
     white-space: nowrap;
-    /* max-width: 15rem; */
     height: fit-content;
-    background: #232323;
+    background: var(--color-primary-dark2);
     border-radius: .3rem;
     margin-top: 1rem;
     margin-right: .5rem;
-    border-bottom: 1px solid #f5cb5c;
-    border-top: 1px solid #f5cb5c;
-    border-right: 1px solid #f5cb5c;
+    border-top: 1px solid var(--color-primary-light);
+    border-right: 1px solid var(--color-primary-light);
+    border-bottom: 1px solid var(--color-primary-light);
     margin-bottom: 1rem;
 }
 
@@ -38,7 +37,6 @@
     display: flex;
     flex-wrap: wrap;
     z-index: 0;
-    /* background: darkred; */
     align-content: flex-start;
     position: relative;
     padding-bottom: 2rem;
@@ -62,7 +60,7 @@
         border-radius: 0;
         margin-top: 0;
         margin-right: 0;
-        border-bottom: 1px solid #f5cb5c;
+        border-bottom: 1px solid var(--color-primary-light);
         border-right: none;
         padding: 1rem;
         position: fixed;

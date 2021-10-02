@@ -1,7 +1,6 @@
 .nav{
     display: flex;
-    /* background: linear-gradient(to bottom, #242423 70%, transparent); */
-    background: #151515;
+    background: var(--color-primary-dark1);
     justify-content: space-between;
     align-items: center;
     position: sticky;
@@ -20,30 +19,26 @@
 }
 
 .nav__title h3{
-    font-family: 'Abril Fatface';
-    font-family: 'Monotone';
-    font-family: 'Cinzel Decorative', cursive;
+    font-family: var(--font-family-cinzel);
     font-size: 2rem;
-    font-weight: 600;
-    color: whitesmoke;
+    font-weight: var(--font-w600);
+    color: var(--color-primary-lighten1);
 	margin-right: 1rem;
 	user-select: none;
 }
 
 .nav__icon{
-	color: #f5cb5c;
+	color: var(--color-primary-light);
 	font-size: 3rem;
 }
 
 .nav__cartContainer{
-	/* flex-grow: 1; */
 	text-align: end;
-	/* background: blueviolet; */
 	width: fit-content;
 }
 
 .nav .nav__cartIcon{
-	color: #f5cb5c;
+	color: var(--color-primary-light);
 }
 
 .nav ul{
@@ -52,23 +47,21 @@
     list-style: none;
     justify-content: center;
     width: fit-content;
-    /* height: 2rem; */
     align-items: center;
 	user-select: none;
-	/* background: blue; */
 }
 
 .nav ul li a{
     margin: 0 1.3rem;
-    font-family: 'Poppins', sans-serif;
-    color: #e8eddf;
+    font-family: var(--font-family-poppins);
+    color: var(--color-primary-lighten1);
     position: relative;
     transition: all 350ms ease-in-out;
     padding: 0 .3rem;
 }
 
 .nav ul li a:hover{
-	color: #242423;
+	color: var(--color-primary-dark2);
 }
 
 .nav ul li a::before{
@@ -78,8 +71,8 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	border-top: 1px solid white;
-	border-bottom: 1px solid white;
+	border-top: 1px solid var(--color-primary-lighten1);
+	border-bottom: 1px solid var(--color-primary-lighten1);
 	transform: scaleY(2);
 	opacity: 0;
 	transition: .5s;
@@ -99,7 +92,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: white;
+	background: var(--color-primary-lighten1);
 	transform: scale(0);
 	transition: .5s;
 	z-index: -1;
@@ -113,13 +106,13 @@
 	display: none;
 	outline: none;
 	background: none;
-	color: #f5cb5c;
+	color: var(--color-primary-light);
 	border: none;
-	border-bottom: 1px solid #f5cb5c77;
+	border-bottom: 1px solid var(--color-primary-light);
 	border-radius: 5px;
 	padding: 0 5px;
 	font-size: 1rem;
-	font-family: 'Poppins',sans-serif;
+	font-family: var(--font-family-poppins);
 	cursor: pointer;
 }
 
@@ -135,8 +128,8 @@
 	}
 	.nav ul{
 		align-items: center;
-		background: #151515;
-		border-bottom: 1px solid #ffffff77;
+		background: var(--color-primary-dark1);
+		border-bottom: 1px solid var(--color-extra-light);
 		display: flex;
 		height: 3rem;
 		justify-content: space-around;

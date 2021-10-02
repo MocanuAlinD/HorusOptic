@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ffffff22;
+    background: var(--color-extra-light);
     backdrop-filter: blur(5px);
 }
 
@@ -21,7 +21,7 @@
 }
 
 .jos{
-    background: #242423;
+    background: var(--color-primary-dark2);
     height: 100%;
     width: 100%;
     border-radius: .2rem;
@@ -40,9 +40,9 @@
 }
 
 .wrapperRight h4{
-    color: #e8eddf;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 200;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w200);
     padding: 0 .5rem;
     font-size: 1rem;
     justify-self: flex-end;
@@ -54,13 +54,13 @@
 .btnEmpty{
     align-self: center;
     background: none;
-    border: 1px solid #e8eddf;
+    border: 1px solid var(--color-primary-lighten1);
     border-radius: .3rem;
-    color: #e8eddf;
+    color: var(--color-primary-lighten1);
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-family-poppins);
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: var(--font-w400);
     height: fit-content;
     outline: none;
     padding: .1rem .3rem;
@@ -70,21 +70,18 @@
 
 
 .btnEmpty:hover{
-    border: 1px solid #e76f51;
+    border: 1px solid var(--color-primary-light);
 }
-
-
-
 
 .endButtons a{
     align-self: center;
-    background: #e8eddf;
+    background: var(--color-primary-lighten1);
     border-radius: .3rem;
-    color: #242423;
+    color: var(--color-primary-dark2);
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-family-poppins);
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: var(--font-w400);
     height: fit-content;
     outline: none;
     padding: .1rem .3rem;
@@ -92,7 +89,7 @@
 }
 
 .endButtons a:hover{
-    background: #83c5be;
+    background: var(--color-primary-light);
 }
 
 .emptyCart{
@@ -104,7 +101,7 @@
 }
 
 .emptyCart a{
-    color: #f5cb5c;
+    color: var(--color-primary-light);
     margin: 0 .2rem;
     text-decoration: underline;
     letter-spacing: .05rem;
@@ -114,9 +111,9 @@
 
 
 .emptyCart h5{
-    color: #e8eddf;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w400);
     font-size: 1rem;
     text-align: center;
 }
@@ -160,9 +157,9 @@
 
 
     .emptyCart h5{
-        color: #e8eddf;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
+        color: var(--color-primary-lighten1);
+        font-family: var(--font-family-poppins);
+        font-weight: var(--font-w400);
         font-size: 1rem;
         text-align: center;
     }

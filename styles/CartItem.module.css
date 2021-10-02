@@ -1,6 +1,6 @@
 .cartItem__container{
 	position: relative;
-    background: #242423;
+    background: var(--color-primary-dark2);
     display: flex;
     width: 30rem;
     max-width: 100%;
@@ -31,9 +31,9 @@
 
 .cartItem__namePrice h4{
     width: 100%;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 200;
-    color: white;
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w200);
+    color: var(--color-primary-lighten1);
     font-size: .9rem;
 }
 
@@ -50,10 +50,10 @@
 }
 
 .cartItem__buttons button{
-    background: #e8eddf;
+    background: var(--color-primary-lighten1);
     border: none;
     border-radius: .15rem;
-    color: #242423;
+    color: var(--color-primary-dark2);
     cursor: pointer;
     height: 1.5rem;
     margin: 0 .5rem;
@@ -63,22 +63,22 @@
 }
 
 .cartItem__buttons button:hover{
-    background: #f5cb5c;
-    color: #242423;
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark2);
 }
 
 
 .cartItem__buttons h5{
-    color: #e8eddf;
-    font-family: 'Poppins',sans-serif;
-    font-weight: 400;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w400);
 }
 
 .cartItem__buttons .cartItem__delete{
     width: fit-content;
     height: fit-content;
-    font-family: 'Poppins',sans-serif;
-    font-weight: 400;
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w400);
     padding: 0 .3rem;
     margin: 0;
 }
@@ -91,8 +91,8 @@
 
 .cartItem__plusMinus button{
     background: none;
-    color: #e8eddf;
-    font-weight: 200;
+    color: var(--color-primary-lighten1);
+    font-weight: var(--font-w200);
     font-size: 1.2rem;
     height: 100%;
 }
@@ -115,8 +115,6 @@
 
     .cartItem__textButtons{
         width: 100%;
-        /* background: cornflowerblue; */
-        /* height: 100%; */
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -130,16 +128,15 @@
         align-items: center;
         margin: 0;
         padding: 0 .3rem;
-        /* background: #ff000088; */
         width: 100%;
         height: 100%;
     }
 
     .cartItem__namePrice h4{
         width: 100%;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 200;
-        color: white;
+        font-family: var(--font-family-poppins);
+        font-weight: var(--font-w200);
+        color: var(--color-primary-lighten1);
         font-size: .9rem;
     }
 
@@ -148,25 +145,23 @@
     }
 
     .cartItem__namePrice .cartItem__name{
-        /* font-size: .1rem; */
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
+        font-family: var(--font-family-poppins);
+        font-weight: var(--font-w400);
     }
 
     .cartItem__buttons{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* background: #f5cb5c99; */
         width: 100%;
         height: 100%;
     }
 
     .cartItem__buttons button{
-        background: #e8eddf;
+        background: var(--color-primary-lighten1);
         border: none;
         border-radius: .15rem;
-        color: #242423;
+        color: var(--color-primary-dark2);
         cursor: pointer;
         height: 1.5rem;
         margin: 0 .2rem;
@@ -176,22 +171,22 @@
     }
 
     .cartItem__buttons button:hover{
-        background: #f5cb5c;
-        color: #242423;
+        background: var(--color-primary-light);
+        color: var(--color-primary-dark2);
     }
 
 
     .cartItem__buttons h5{
-        color: #e8eddf;
-        font-family: 'Poppins',sans-serif;
-        font-weight: 400;
+        color: var(--color-primary-lighten1);
+        font-family: var(--font-family-poppins);
+        font-weight: var(--font-w400);
     }
 
     .cartItem__buttons .cartItem__delete{
         width: fit-content;
         height: fit-content;
-        font-family: 'Poppins',sans-serif;
-        font-weight: 400;
+        font-family: var(--font-family-poppins);
+        font-weight: var(--font-w400);
         padding: 0 .3rem;
     }
 
@@ -202,8 +197,8 @@
 
     .cartItem__plusMinus button{
         background: none;
-        color: #e8eddf;
-        font-weight: 200;
+        color: var(--color-primary-lighten1);
+        font-weight: var(--font-w200);
         font-size: 1.2rem;
         height: fit-content;
     }

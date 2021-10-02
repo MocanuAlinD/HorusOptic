@@ -50,7 +50,6 @@ const Sidebar = ({
       const brands = document.querySelector("#divBrand");
       brands.style.display = "flex";
       setBrandNames(readingGlasses);
-      // props.changeCat('ochelariVedere')
 
       const allBrandsMobile = document.querySelector("#brandMobile");
       allBrandsMobile.value = allBrandsMobile[0].value;
@@ -62,7 +61,6 @@ const Sidebar = ({
     if (e === "ochelariAccesorii") {
       const brands = document.querySelector("#divBrand");
       brands.style.display = "none";
-      // props.changeCat('ochelariAccesorii')
     }
   };
 

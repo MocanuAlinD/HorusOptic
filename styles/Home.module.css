@@ -34,11 +34,11 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    color: #f5cb5c;
+    color: var(--color-primary-light);
     font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    background: #ffffff11;
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w400);
+    background: var(--color-extra-light);
     text-align: center;
     border-radius: 0 0 .5rem .5rem;
   }

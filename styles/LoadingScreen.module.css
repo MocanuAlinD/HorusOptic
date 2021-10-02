@@ -1,5 +1,4 @@
 .loadingScreen__container{
-    /* background: red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,10 +8,10 @@
 }
 
 .loadingScreen__container__loader{
-    border: .3rem solid #242423;
+    border: .3rem solid var(--color-primary-dark2);
     border-radius: 50%;
-    border-top: .3rem solid #f5cb5c;
-    border-bottom: .3rem solid #f5cb5c;
+    border-top: .3rem solid var(--color-primary-light);
+    border-bottom: .3rem solid var(--color-primary-light);
     width: 3.5rem;
     height: 3.5rem;
     animation: spin 3s linear infinite;
@@ -28,8 +27,8 @@
 }
 
 .loadingScreen__container h2{
-    color: whitesmoke;
-    font-family: 'Poppins';
-    font-weight: 200;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w200);
     font-size: 1rem;
 }

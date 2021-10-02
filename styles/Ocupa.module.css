@@ -1,7 +1,7 @@
 .ocupaContainer{
     min-height: 79vh;
     padding: 3rem 1rem 1rem 1rem;
-    background: #ffffff11;
+    background: var(--color-extra-light);
     backdrop-filter: blur(5px);
     width: 50%;
     margin: 0 auto;
@@ -9,18 +9,18 @@
 
 .ocupaContainer li,
 .ocupaContainer h3{
-    color: #e8eddf;
-    font-family: 'Poppins',sans-serif;
-    font-weight: 200;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w200);
 }
 
 .ocupaContainer h3{
-    font-weight: 400;
+    font-weight: var(--font-w400);
     text-decoration: underline;
 }
 
 .ocupaContainer li::marker{
-    color: #f5cb5c;
+    color: var(--color-primary-light);
 }
 
 .ocupaContainer li{
@@ -30,22 +30,15 @@
 }
 
 .ocupaUnu{
-    /* background: darkcyan; */
     margin-bottom: 1rem;
 }
 
 .ocupaDoi{
-    /* background: darkgreen; */
     margin-bottom: 1rem;
 }
 
 .ocupaTrei{
-    /* background: darkolivegreen; */
     margin-bottom: 1rem;
-}
-
-.ocupaPatru{
-    /* background: darkviolet; */
 }
 
 @media screen and (max-width:768px){
