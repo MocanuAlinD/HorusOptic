@@ -199,14 +199,13 @@ const Produse = ({
 
 
   return (
-    <div className={styles.container} id="top">
+    <div className={styles.produse__container} id="top">
       <Head>
         <title>Produse</title>
       </Head>
 
-      <div className={styles.containerImg}>
-              <div className={styles.containerSt}>
-                <div className={styles.sidebar}>
+      <div className={styles.produse__wrapper}>
+                <div className={styles.produse__sidebar}>
                   <Sidebar
                     changeCat={(cat) => changecat(cat)}
                     changePriceName={(word) => changePriceName(word)}
@@ -220,7 +219,7 @@ const Produse = ({
                   />
                 </div>
 
-                <div className={styles.productList}>
+                <div className={styles.produse__list}>
                   {search === "" && brand === "marcaAll" && (
                     <Pagination
                       setPostsPerPage={setPostsPerPage}
@@ -248,7 +247,6 @@ const Produse = ({
                       ))
                     : []}
                 </div>
-              </div>
           </div>
     </div>
   );

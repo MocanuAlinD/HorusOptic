@@ -9,10 +9,10 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     if (!cart.line_items) return 'Loading'
 
     return (
-        <div className={styles.cartContainer}>
-            <div className={styles.wrapper}>
+        <div className={styles.cart__container}>
+            <div className={styles.cart__wrapper}>
 
-                <div className={styles.sus}>
+                <div className={styles.cart__contentUp}>
                     {noOfItems ? noOfItems.map(item => (
                         <div key={item.id} className="">
                             <CartItem 
@@ -24,15 +24,17 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
                 </div>
 
 
-                <div className={styles.jos}>
-                    {cart.line_items.length ? <div className={styles.wrapperRight}>
+                <div className={styles.cart__contentDown}>
+                    {cart.line_items.length ? 
+                    <>
                         <h4>Subtotal: {cart.subtotal && cart.subtotal.formatted_with_code}</h4>
-                        <div className={styles.endButtons}>
-                            <button className={styles.btnEmpty} onClick={() => onEmptyCart()}>Goleste cosul</button>
+                        <div className={styles.cart__buttons}>
+                            <button className={styles.cart__btnEmptyCart} onClick={() => onEmptyCart()}>Goleste cosul</button>
                             {/* <button className={styles.btnCheckout}>Plateste</button> */}
-                            <Link href='/Checkout' className={styles.btnCheckout}><a>Plateste</a></Link>
+                            <Link href='/Checkout'><a>Plateste</a></Link>
                         </div>
-                    </div> : <div className={styles.emptyCart}>
+                    </> : 
+                    <div className={styles.cart_goToProducts}>
                         <h5>Nu aveti produse in cos. <Link href='/Produse'><a>Aici</a></Link> vedeti produsele noastre.</h5>
                     </div>}
                 </div>

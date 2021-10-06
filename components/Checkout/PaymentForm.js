@@ -67,7 +67,7 @@ const PaymentForm = ({ timeout, checkoutToken, backStep, onCaptureCheckout, ship
                 <ElementsConsumer>
                     {({ elements, stripe }) => (
                         <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
-                            <CardElement className={styles.cardElement} /> <br />
+                            <CardElement className={styles.checkout__cardElement} /> <br />
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                 <Button variant='outlined' onClick={backStep}>Inapoi</Button>
                                 <Button type='submit' variant='contained' disabled={!stripe} color='primary'>

@@ -3,7 +3,7 @@ import styles from '../styles/Consultanta.module.css'
 
 const Consultanta = () => {
     return (
-        <div className={styles.consultantaContainer}>
+        <div className={styles.consultanta__container}>
             <h3>ADEVAR, SERIOZITATE, PROMPTITUDINE, VARIETATE, DIN RESPECT PENTRU DUMNEAVOASTRA</h3>
             <ul>
                 <li>Consultatii gratuite</li>

@@ -1,5 +1,5 @@
 /* both sections */
-.container {
+.produse__container {
     background: linear-gradient(45deg,#44444466,#22222266);
     display: flex;
     height: fit-content;
@@ -9,16 +9,14 @@
     width: 100%;
 }
 
-.containerImg {
+.produse__wrapper {
     width: 100%;
-}
-
-.containerSt {
     display: flex;
-    width: 100%;
+    margin: 1rem;
 }
 
-.sidebar {
+
+.produse__sidebar {
     width: fit-content;
     white-space: nowrap;
     height: fit-content;
@@ -32,7 +30,7 @@
     margin-bottom: 1rem;
 }
 
-.productList {
+.produse__list {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -42,19 +40,18 @@
     padding-bottom: 2rem;
 }
 
-@media screen and (max-width: 768px) {
-    .container {
+@media screen and (max-width: 768px){
+    .produse__container {
         flex-direction: column;
         justify-content: flex-start;
         padding: 0;
         margin: 0;
     }
-    
-    .containerSt {
-        display: flex;
-        flex-direction: column;
+    .produse__wrapper{
+        margin: 0;
     }
-    .containerSt .sidebar {
+    
+    .produse__sidebar {
         width: 100%;
         height: fit-content;
         border-radius: 0;
@@ -68,7 +65,7 @@
         z-index: 2;
         border-top: none;
     }
-    .productList {
+    .produse__list {
         min-width: 100%;
         display: flex;
         flex-wrap: wrap;

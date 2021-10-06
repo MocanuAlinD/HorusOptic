@@ -1,4 +1,4 @@
-.consultantaContainer{
+.consultanta__container{
     min-height: 79vh;
     padding: 3rem 1rem 1rem 1rem;
     background: var(--color-extra-light);
@@ -6,18 +6,18 @@
     width: 50%;
     margin: 0 auto;
 }
-.consultantaContainer h3{
+.consultanta__container h3{
     color: var(--color-primary-lighten1);
     font-weight: var(--font-w400);
     text-decoration: underline;
     font-family: var(--font-family-poppins);
 }
 
-.consultantaContainer li::marker{
+.consultanta__container li::marker{
     color: var(--color-primary-light);
 }
 
-.consultantaContainer li{
+.consultanta__container li{
     color: var(--color-primary-lighten1);
     margin-left: 3rem;
     font-family: var(--font-family-poppins);
@@ -26,7 +26,7 @@
 }
 
 @media screen and (max-width:768px){
-    .consultantaContainer{
+    .consultanta__container{
         width: 100%;
     }
 }

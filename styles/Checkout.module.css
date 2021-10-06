@@ -31,7 +31,8 @@
     align-items: center;
 }
 
-.checkout__container .cardElement{
+/* In components/Checkout/PaymentForm */
+.checkout__container .checkout__cardElement{
     background: var(--color-primary-lighten1);
     border: 10px solid var(--color-primary-dark2);
     padding: .5rem;
