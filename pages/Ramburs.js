@@ -11,11 +11,11 @@ const Ramburs = ({ cart, onEmptyCart }) => {
   }
 
   const removeCart = (e) => {
-    // console.log(e.target);
+    console.log('from remove card');
     
     setTimeout(() => {
       onEmptyCart();
-      // console.log("remove cart");
+      console.log("removed cart");
     }, 3000);
     
   };
@@ -75,7 +75,7 @@ const Ramburs = ({ cart, onEmptyCart }) => {
         <input
           type="hidden"
           name="_next"
-          value="https://horus-optic.vercel.app/Produse"
+          value="https://horus-optic.vercel.app/"
         ></input>
         <input type="hidden" name="_captcha" value="false"></input>
         <input type="hidden" name="_template" value="table"></input>
