@@ -121,7 +121,7 @@
 
 @media screen and (max-width: 1000px){
 	.nav__title h3{
-		font-size: 2rem;
+		font-size: 1.7rem;
 	}
 }
 
@@ -154,12 +154,20 @@
 	
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 340px){
 	.nav__title h3{
 		font-size: .8rem;
 	}
 	.nav__icon{
 		font-size: 2rem;
+	}
+	
+	
+}
+
+@media screen and (max-width: 290px){
+	.nav__title h3{
+		font-size: .7rem;
 	}
 	
 	

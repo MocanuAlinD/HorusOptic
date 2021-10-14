@@ -116,6 +116,24 @@
     text-align: center;
 }
 
+.cart__pickPayment{
+    display: flex;
+    /* background: coral; */
+    justify-content: center;
+    align-items: center;
+}
+.cart__pickPayment label{
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+}
+.cart__pickPayment input{
+    margin: auto .5rem;
+    text-align: center;
+}
+.cart__pickPayment div:first-child{
+    margin-right: 1.5rem;
+}
+
 @media screen and (max-width: 768px){
     .cart__wrapper{
         width: 100%;
@@ -123,5 +141,9 @@
 
     .cart__contentDown{
         margin-bottom: 1rem;
+    }
+    .cart__ramburs, .cart__card{
+        display: flex;
+        flex-direction: column;
     }
 }
