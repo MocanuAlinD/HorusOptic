@@ -10,22 +10,22 @@ const Ramburs = ({ cart, onEmptyCart }) => {
     return <Empty />;
   }
 
-  const removeCart = (e) => {
-    console.log('from remove card');
+  // const removeCart = (e) => {
+  //   console.log('from remove card');
     
-    setTimeout(() => {
-      onEmptyCart();
-      console.log("removed cart");
-    }, 3000);
+  //   setTimeout(() => {
+  //     onEmptyCart()
+  //     console.log("removed cart")
+  //   }, 3000);
     
-  };
+  // };
 
   return (
     <div className={styles.ramburs__container}>
       <form
         action="https://formsubmit.co/81b98d1d934c3b7f0e32bc02eb386532"
         method="POST"
-        onSubmit={(e) => removeCart(e)}
+        onSubmit={onEmptyCart}
       >
         <textarea
           // style={{ display: "none" }}
