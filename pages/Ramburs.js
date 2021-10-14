@@ -4,21 +4,11 @@ import Link from "next/link";
 import Empty from "../components/Empty";
 
 const Ramburs = ({ cart, onEmptyCart }) => {
-  // console.log(cart.total_items);
+  // console.log(cart);
   // console.log(cart);
   if (cart.total_items === 0 || cart.total_items === undefined) {
     return <Empty />;
   }
-
-  // const removeCart = (e) => {
-  //   console.log('from remove card');
-    
-  //   setTimeout(() => {
-  //     onEmptyCart()
-  //     console.log("removed cart")
-  //   }, 3000);
-    
-  // };
 
   return (
     <div className={styles.ramburs__container}>
@@ -41,7 +31,7 @@ const Ramburs = ({ cart, onEmptyCart }) => {
               "     " +
               item.price.formatted +
               "\n"
-          )}
+          ) + "Total: " + cart.subtotal.raw + " " + cart.currency.symbol}
           readOnly
           required
         >
