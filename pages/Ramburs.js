@@ -18,20 +18,26 @@ const Ramburs = ({ cart, onEmptyCart }) => {
         onSubmit={onEmptyCart}
       >
         <textarea
-          // style={{ display: "none" }}
+          style={{ display: "none" }}
           name="Prods"
           id=""
           cols="30"
           rows="10"
-          value={cart.line_items.map(
-            (item) =>
-              item.media.source +
-              "     " +
-              item.quantity +
-              "     " +
-              item.price.formatted +
-              "\n"
-          ) + "Total: " + cart.subtotal.raw + " " + cart.currency.symbol}
+          value={
+            cart.line_items.map(
+              (item) =>
+                item.media.source +
+                "     " +
+                item.quantity +
+                "     " +
+                item.price.formatted +
+                "\n"
+            ) +
+            "Total: " +
+            cart.subtotal.raw +
+            " " +
+            cart.currency.symbol
+          }
           readOnly
           required
         >
@@ -46,29 +52,86 @@ const Ramburs = ({ cart, onEmptyCart }) => {
           )}
         </textarea>
 
-        <input type="text" name="Nume" required placeholder="nume" />
-        <input type="tel" name="Telefon" required placeholder="telefon" />
-        <input type="email" name="Email" required placeholder="email" />
-        <input
-          type="address"
-          name="Adresa"
-          required
-          placeholder="adresa de livrare"
-        />
+        <div className={styles.check}>
+          <input
+            className={styles.form__input}
+            type="text"
+            name="Nume"
+            required
+            placeholder=" "
+            id="nume"
+            spellCheck="false"
+          />
+          <label htmlFor="nume" className={styles.form__label}>
+            Nume
+          </label>
+        </div>
+
+        <div className={styles.check}>
+          <input
+            className={styles.form__input}
+            type="text"
+            name="Telefon"
+            required
+            placeholder=" "
+            id="telefon"
+            spellCheck="false"
+          />
+          <label htmlFor="telefon" className={styles.form__label}>
+            Telefon
+          </label>
+        </div>
+
+        <div className={styles.check}>
+          <input
+            className={styles.form__input}
+            type="email"
+            name="Email"
+            required
+            placeholder=" "
+            id="email"
+            spellCheck="false"
+            // autoComplete="off"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          />
+          <label htmlFor="email" className={styles.form__label}>
+            Email
+          </label>
+        </div>
+
+        <div className={styles.check}>
+          <input
+            className={styles.form__input}
+            id="address"
+            type="address"
+            name="Adresa"
+            required
+            placeholder=" "
+            spellCheck="false"
+          />
+          <label htmlFor="address" className={styles.form__label}>
+            Adresa de livrare
+          </label>
+        </div>
+
         <textarea
           name="Comentarii"
           id=""
           cols="30"
           rows="10"
-          placeholder="adauga un comentariu"
+          spellCheck="false"
         ></textarea>
+
         <input
           type="hidden"
           name="_next"
-          value="https://horus-optic.vercel.app/"
+          value="http://localhost:3000/"
         ></input>
         <input type="hidden" name="_captcha" value="false"></input>
         <input type="hidden" name="_template" value="table"></input>
+        <button type="reset" className={styles.resetBtn}>
+          Reset
+        </button>
         <div className={styles.ramburs__buttonsContainer}>
           <Link href="/Cart">
             <a>Inapoi la cos</a>

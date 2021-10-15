@@ -45,20 +45,21 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
                 <div className={styles.cart__pickPayment}>
                   <div className={styles.cart__ramburs}>
-                    <label htmlFor="plata">Ramburs</label>
                     <input
                       type="radio"
                       name="card"
+                      defaultChecked
                       onClick={() => setPick("ramburs")}
                     />
+                    <label htmlFor="plata">Ramburs</label>
                   </div>
                   <div className={styles.cart__card}>
-                    <label htmlFor="plata">Card</label>
                     <input
                       type="radio"
                       name="card"
                       onClick={() => setPick("card")}
                     />
+                    <label htmlFor="plata">Card</label>
                   </div>
                 </div>
 

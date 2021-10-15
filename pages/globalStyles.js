@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
   --color-primary-light: #f5cb5c;   // some yellow
   --color-primary-lighten1: #e8eddf;  // some white
   --color-primary-lighten2: #e8eddf70; // some white opacity 70
+  --color-primary-blue: #1a73e8; // blue
   --color-extra-light: #ffffff18; // white opacity 18
   --font-family-cinzel: 'Cinzel Decorative', cursive;
   --font-family-poppins: 'Poppins', sans-serif;
