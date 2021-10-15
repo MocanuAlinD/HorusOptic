@@ -125,7 +125,8 @@ const Ramburs = ({ cart, onEmptyCart }) => {
         <input
           type="hidden"
           name="_next"
-          value="http://localhost:3000/"
+          // value="http://localhost:3000/"
+          value="http://horus-optic.vercel.app/Produse/"
         ></input>
         <input type="hidden" name="_captcha" value="false"></input>
         <input type="hidden" name="_template" value="table"></input>
