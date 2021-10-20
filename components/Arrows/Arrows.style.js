@@ -4,6 +4,7 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
     width: fit-content;
     display: flex;
+    transition: var(--transition);
 `
 
 export const Arrow_1 = styled.div`

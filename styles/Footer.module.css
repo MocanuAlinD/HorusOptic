@@ -8,6 +8,7 @@
   user-select: none;
   backdrop-filter: blur(2px);
   border-top: 1px solid var(--color-primary-lighten2);
+  transition: .35s ease-in-out;
 }
 
 .footer__container a {

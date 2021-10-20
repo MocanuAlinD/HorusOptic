@@ -2,7 +2,7 @@
     min-height: 79vh;
     width: 100%;
     padding: 3rem 1rem 1rem 1rem;
-    background: var(--color-extra-light);
+    background: var(--color-primary-dark2op);
     backdrop-filter: blur(5px);
     width: 50%;
     margin: 0 auto;

@@ -8,61 +8,82 @@
   flex-direction: column;
   padding: 0.4rem;
   border-radius: 0.3rem;
-  transition: all 350ms ease-in-out;
+  transition: var(--transition);
 }
 
 /* Yellow corners */
 .miniCard__container::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    padding: 0.08rem;
-    transform: translate(-0.08rem, -0.08rem);
-    border-radius: 0.3rem;
-    z-index: -1;
-    background: linear-gradient(45deg, transparent 70%, var(--color-primary-light));
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0.08rem;
+  transform: translate(-0.08rem, -0.08rem) scale(1);
+  border-radius: 0.3rem;
+  z-index: -1;
+  background: linear-gradient(
+    45deg,
+    transparent 70%,
+    var(--color-primary-light)
+  );
+  transition: var(--transition);
 }
 
 /* Yellow corners */
 .miniCard__container::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    padding: 0.08rem;
-    transform: translate(-0.08rem, -0.08rem);
-    border-radius: 0.3rem;
-    z-index: -1;
-    background: linear-gradient(215deg, transparent 70%, var(--color-primary-light));
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0.08rem;
+  transform: translate(-0.08rem, -0.08rem) scale(1);
+  border-radius: 0.3rem;
+  z-index: -1;
+  background: linear-gradient(
+    225deg,
+    transparent 70%,
+    var(--color-primary-light)
+  );
+  transition: var(--transition);
 }
 
+.miniCard__container:hover::before {
+  transform: scale(1.02) rotateX(180deg);
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    transparent 70%,
+    var(--color-primary-light)
+  );
+}
+.miniCard__container:hover::after {
+  transform: scale(1.01) rotateX(180deg);
+}
 .miniCard__container:hover {
-    box-shadow: 3px 3px 3px 3px rgba(24, 24, 24, 0.333);
-    background: var(--color-primary-dark1);
+  background: var(--color-primary-dark1);
 }
 
 .miniCard__container h4,
 .miniCard__container h5 {
-    color: var(--color-primary-lighten1);
-    font-family: var(--font-family-poppins);
-    user-select: none;
+  color: var(--color-primary-lighten1);
+  font-family: var(--font-family-poppins);
+  user-select: none;
 }
 
 .miniCard__container h4 {
-    font-weight: var(--font-w600);
-    font-size: 1.5rem;
+  font-weight: var(--font-w600);
+  font-size: 1.5rem;
 }
 
 .miniCard__container h5 {
-    font-weight: var(--font-w200);
+  font-weight: var(--font-w200);
 }
 
-/* Top left */
+/* Top left - Price*/
 .miniCard__container .miniCard__pret {
   color: var(--color-primary-dark2);
   position: absolute;
@@ -83,21 +104,22 @@
   justify-content: center;
   align-items: center;
   pointer-events: none;
+  transition: var(--transition);
 }
 
 .miniCard__pret sub {
-    font-weight: var(--font-w400);
-    font-size: 0.7rem;
+  font-weight: var(--font-w400);
+  font-size: 0.7rem;
 }
 
 .miniCard__cartContainer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .miniCard__cartContainer .miniCard__shopIcon {
-    color: var(--color-primary-light);
+  color: var(--color-primary-light);
 }
 
 .miniCard__linkDisabled {
@@ -129,6 +151,7 @@
   padding: 0.01rem 0.5rem;
   border-radius: 0.3rem;
   cursor: pointer;
+  transition: var(--transition);
 }
 
 .miniCard__container h5:last-of-type {

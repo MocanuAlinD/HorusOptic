@@ -1,6 +1,8 @@
 /* both sections */
 .produse__container {
-    background: linear-gradient(45deg,#44444466,#22222266);
+    /* background: linear-gradient(45deg,#44444466,#22222266); */
+    /* background: linear-gradient(to bottom left, var(--color-primary-dark2op),var(--color-primary-light)); */
+    backdrop-filter: blur(20px);
     display: flex;
     height: fit-content;
     min-height: 79vh;
@@ -28,6 +30,7 @@
     border-right: 1px solid var(--color-primary-light);
     border-bottom: 1px solid var(--color-primary-light);
     margin-bottom: 1rem;
+    transition: .35s ease-in-out;
 }
 
 .produse__list {

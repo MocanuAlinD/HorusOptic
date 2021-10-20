@@ -35,11 +35,11 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
       <style jsx>
         {`
         .pagination__button {
-            background: #242423;
+            background: var(--color-primary-dark2);
             border: none;
-            border-bottom: 1px solid #f5cb5c;
+            border-bottom: 1px solid var(--color-primary-light);
             border-radius: 0.3rem 0.3rem 0 0;
-            color: #f5cb5c;
+            color: var(--color-primary-light);
             cursor: pointer;
             font-size: 0.75rem;
             font-family: "Poppins", sans-serif;
@@ -49,15 +49,16 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
             outline: none;
             padding: 0 0.2rem;
             text-decoration: none;
+            transition: .35s ease-in-out;
             width: 1.5rem;
           }
           .pagination__button:hover {
-            background: #f5cb5c;
-            color: #242424;
+            background: var(--color-primary-light);
+            color: var(--color-primary-dark2);
           }
           .active {
-            background: #f5cb5c;
-            color: #242424;
+            background: var(--color-primary-light);
+            color: var(--color-primary-dark2);
           }
         }
         `}

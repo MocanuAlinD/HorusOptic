@@ -12,7 +12,7 @@ import {
   CardButton,
 } from "./Card1.style";
 import Arrows from "../Arrows";
-import Link from 'next/link'
+import Link from "next/link";
 
 const Card1 = ({ indexData }) => {
   const shorten = (text, maxLength) => {
@@ -31,7 +31,7 @@ const Card1 = ({ indexData }) => {
         </Title>
 
         <MissionList className="ulMission">
-            <hr color="#cfdbd5" style={{ height: ".1rem", margin: ".2rem 0"}} />
+          <hr color="#cfdbd5" style={{ height: ".1rem", margin: ".2rem 0" }} />
           <MissionItem>
             Preturi incepand de la 100 lei perechea de ochelari
           </MissionItem>
@@ -71,7 +71,7 @@ const Card1 = ({ indexData }) => {
             <Arrows />
           </CardTitle>
 
-          <ForHide className="forHide">
+          <ForHide className='forHide'>
             <hr color="#cfdbd5" style={{ height: ".1rem" }} />
             <CardText>{shorten(item.text, 200)}</CardText>
             <CardButton>

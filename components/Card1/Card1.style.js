@@ -19,15 +19,15 @@ export const Mission = styled.div`
   padding-top: 0.5rem;
   margin-top: 0.2rem;
   border-radius: 0.3rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid var(--color-primary-lighten2);
+  border-bottom: 1px solid var(--color-primary-lighten2);
   transition: all 0.35s ease-in-out;
   user-select: none;
   backdrop-filter: blur(5px);
   overflow: hidden;
   &:hover {
     height: 23rem;
-    background: #ffffff11;
+    /* background: var(--color-primary-lighten1); */
   }
   &:hover .ulMission {
     transform: translateY(0);
@@ -37,7 +37,7 @@ export const Mission = styled.div`
   @media screen and (max-width: 768px) {
     width: 100%;
     height: fit-content;
-    background: #ffffff11;
+    /* background: var(--color-extra-light); */
     &:hover {
       height: fit-content;
     }
@@ -51,7 +51,7 @@ export const Mission = styled.div`
 
 // h3 title
 export const Title = styled.h3`
-  color: #e8eddf;
+  color: var(--color-primary-lighten1);
   font-size: 1.5rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -74,12 +74,12 @@ export const MissionList = styled.ul`
 
 // li
 export const MissionItem = styled.li`
-  color: #e8eddf;
-  font-family: "Poppins", sans-serif;
+  color: var(--color-primary-lighten1);
+  font-family: var(--font-family-poppins);
   font-size: 0.9rem;
   font-weight: 200;
   &::marker {
-    color: #f5cb5c;
+    color: var(--color-primary-light);
   }
 `;
 
@@ -94,20 +94,20 @@ export const Cards = styled.div`
   border-radius: 0.3rem;
   padding: 0 1rem;
   padding-top: 0.4rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid var(--color-primary-lighten2);
+  border-bottom: 1px solid var(--color-primary-lighten2);
   transition: all 0.35s ease-in-out;
   user-select: none;
   backdrop-filter: blur(5px);
   overflow: hidden;
   a {
-    color: #242423;
-    font-family: "Poppins";
+    color: var(--color-primary-dark2);
+    font-family: var(--font-family-poppins);
     font-size: 1rem;
     width: fit-content;
     padding: 0 0.2rem;
     margin: 0.2rem;
-    background: #f5cb5c;
+    background: var(--color-primary-light);
     outline: none;
     border: none;
     border-bottom: 1px solid transparent;
@@ -116,13 +116,13 @@ export const Cards = styled.div`
     transition: all 350ms ease-in-out;
   }
   a:hover {
-    background: #242423;
-    color: #f5cb5c;
-    border-bottom: 1px solid #f5cb5c;
+    background: var(--color-primary-dark2);
+    color: var(--color-primary-light);
+    border-bottom: 1px solid var(--color-primary-light);
   }
   &:hover {
     height: 11rem;
-    background: #ffffff11;
+    /* background: var(--color-primary-lighten1); */
   }
   &:hover .forHide {
     transform: translateY(0);
@@ -131,12 +131,12 @@ export const Cards = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 100%;
-    background: #ffffff11;
+    /* background: var(--color-primary-lighten1); */
     height: fit-content;
     padding-bottom: 0.5rem;
     &:hover {
       height: fit-content;
-      background: #ffffff11;
+      background: var(--color-primary-lighten1);
     }
     &:hover .forHide {
       transform: none;
@@ -147,11 +147,11 @@ export const Cards = styled.div`
 
 // h3 card title
 export const CardTitle = styled.h3`
-  color: whitesmoke;
+  color: var(--color-primary-lighten1);
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-family: var(--font-family-poppins);
+  font-weight: var(--font-w600);
   display: flex;
   justify-content: space-between;
 `;
@@ -177,10 +177,10 @@ export const ForHide = styled.div`
 
 // h4 card text
 export const CardText = styled.h4`
-  color: whitesmoke;
-  font-family: "Poppins";
+  color: var(--color-primary-lighten1);
+  font-family: var(--font-family-poppins);
   font-size: 0.9rem;
-  font-weight: 200;
+  font-weight: var(--font-w200);
   margin-top: 0.5rem;
   text-align: left;
 `;

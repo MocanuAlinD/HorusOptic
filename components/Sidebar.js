@@ -20,10 +20,10 @@ const Sidebar = ({
   const sendAllCats = (e) => {
     changeCat(e);
     checkFilter(e);
-    if(e === 'ochelariSoare'){
-      setBrandNames(sunGlasses)
-    } else if (e === 'ochelariVedere'){
-      setBrandNames(readingGlasses)
+    if (e === "ochelariSoare") {
+      setBrandNames(sunGlasses);
+    } else if (e === "ochelariVedere") {
+      setBrandNames(readingGlasses);
     }
   };
 
@@ -84,6 +84,7 @@ const Sidebar = ({
         <div className={styles.desktop__items}>
           <h4>Categorie</h4>
           <input
+            id="vedere"
             defaultChecked
             type="radio"
             name="categorie"
@@ -94,6 +95,7 @@ const Sidebar = ({
           <br />
 
           <input
+            id="soare"
             type="radio"
             name="categorie"
             value="ochelariSoare"
@@ -103,6 +105,7 @@ const Sidebar = ({
           <br />
 
           <input
+            id="accesorii"
             type="radio"
             name="categorie"
             value="ochelariAccesorii"

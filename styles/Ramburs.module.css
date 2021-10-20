@@ -10,7 +10,8 @@
 .form__input,
 .ramburs__container textarea {
   background: var(--color-primary-lighten1);
-  background: transparent;
+  /* background: var(--color-primary-dark2); */
+  transition: var(--transition);
 }
 
 .ramburs__container form {
@@ -23,12 +24,14 @@
   margin: 0.5rem 0;
   padding: 2rem;
   width: 50%;
+  transition: var(--transition);
 }
 
 .ramburs__container form textarea {
   resize: none;
   margin: 0.5rem 0;
   padding: 0.5rem;
+  color: var(--color-primary-dark2);
 }
 
 .ramburs__buttonsContainer {
@@ -46,13 +49,13 @@
   border-radius: 0.2rem;
   border: none;
   outline: none;
-  color: var(--color-primary-lighten1);
+  /* color: var(--color-primary-lighten1); */
   height: 2.5rem;
 }
 
 .ramburs__buttonsContainer a {
   color: var(--color-primary-dark2);
-  background: var(--color-primary-lighten1);
+  background: var(--color-primary-lighten2);
   transition: all 0.3s ease;
   text-align: center;
   display: flex;
@@ -61,24 +64,36 @@
 }
 
 .ramburs__buttonsContainer a:hover {
-  background: #ccc;
+  background: var(--color-primary-dark2op);
+  color: var(--color-primary-lighten1);
 }
 
 .ramburs__buttonsContainer button {
   background: var(--color-primary-blue);
   font-size: 1.2rem;
   font-family: var(--font-family-poppins);
+  transition: .35s;
+  color: whitesmoke;
+}
+
+.ramburs__buttonsContainer button:hover {
+  background: var(--color-primary-darkblue);
 }
 
 .resetBtn {
   margin-bottom: 0.5rem;
   cursor: pointer;
   background: var(--color-primary-light);
+  background: transparent;
   outline: none;
   border: 1px solid var(--color-primary-dark2);
   border-radius: 0.2rem;
   width: fit-content;
   padding: 0.1rem 0.2rem;
+  color: var(--color-primary-dark2);
+}
+.resetBtn:hover{
+  background: var(--color-primary-lighten1);
 }
 
 .ramburs__buttonsContainer a {
@@ -98,13 +113,17 @@
   border-bottom: .1rem solid var(--color-primary-dark2op);
   transition: all 0.3s ease;
   font-family: var(--font-family-poppins);
+  color: var(--color-primary-dark2);
+  background: transparent;
 }
+
 
 .form__input:focus {
   border: none;
   outline: none;
   border-bottom: .1rem solid var(--color-primary-blue);
-  background: var(--color-primary-lighten1);
+  /* background: var(--color-primary-lighten1); */
+  background: transparent;
 }
 
 .form__label {
@@ -114,6 +133,7 @@
   transform: translateY(-50%);
   transition: 0.3s ease-in-out;
   background: var(--color-primary-lighten1);
+  background: transparent;
   font-size: 1.1rem;
   color: var(--color-primary-dark2op);
   padding: 0 .2rem;
@@ -131,7 +151,7 @@
   top: 0;
   left: 0.3rem;
   font-size: 0.8rem;
-  color: var(--color-primary-dark2);
+  color: var(--color-primary-dark2op);
 }
 
 .form__input:-webkit-autofill {

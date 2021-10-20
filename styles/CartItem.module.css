@@ -22,19 +22,21 @@
 }
 
 
-
+/* name and price container */
 .cartItem__namePrice{
     display: flex;
     align-items: center;
     height: 50%;
 }
 
+
 .cartItem__namePrice h4{
     width: 100%;
     font-family: var(--font-family-poppins);
-    font-weight: var(--font-w200);
+    /* font-weight: var(--font-w200); */
     color: var(--color-primary-lighten1);
-    font-size: .9rem;
+    font-size: 1rem;
+    font-weight: var(--font-w400);
 }
 
 .cartItem__price{

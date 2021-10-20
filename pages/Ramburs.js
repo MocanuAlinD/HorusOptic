@@ -17,6 +17,8 @@ const Ramburs = ({ cart, onEmptyCart }) => {
         method="POST"
         onSubmit={onEmptyCart}
       >
+
+        {/* Products list - is invisible */}
         <textarea
           style={{ display: "none" }}
           name="Prods"
@@ -52,6 +54,8 @@ const Ramburs = ({ cart, onEmptyCart }) => {
           )}
         </textarea>
 
+
+        {/* ======================================================= */}
         <div className={styles.check}>
           <input
             className={styles.form__input}
