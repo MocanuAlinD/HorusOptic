@@ -62,16 +62,18 @@
         margin-right: 0;
         border-bottom: 1px solid var(--color-primary-light);
         border-right: none;
-        padding: 1rem;
+        padding: 1rem .5rem;
+        padding-bottom: .2rem;
         position: fixed;
-        top: 3rem;
+        top: 0;
         z-index: 2;
         border-top: none;
+        background: var(--color-primary-dark1);
     }
     .produse__list {
         min-width: 100%;
         display: flex;
         flex-wrap: wrap;
-        margin-top: 9rem;
+        margin-top: 6rem;
     }
 }

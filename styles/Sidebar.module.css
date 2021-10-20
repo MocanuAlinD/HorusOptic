@@ -144,6 +144,7 @@
         font-family: var(--font-family-poppins);
         font-size: .8rem;
         border: none;
+        color: var(--color-primary-dark2);
     }
     .mobile__items option {
         background: var(--color-primary-light);
