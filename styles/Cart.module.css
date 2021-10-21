@@ -145,6 +145,9 @@
 }
 .cart__pickPayment input[type='radio']{
     display: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -moz-appearance: none;
 }
 .cart__pickPayment label{
     padding-left: 2rem;
@@ -158,7 +161,10 @@
     left: .75rem;
     width: .5rem;
     height: .5rem;
-    border-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
     transform: translateY(-50%);
     outline: .15rem solid var(--color-primary-lighten1);
     outline-offset: .15rem;

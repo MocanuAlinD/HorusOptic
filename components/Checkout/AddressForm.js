@@ -56,7 +56,7 @@ const AddressForm = ({ checkoutToken, next }) => {
             <Typography variant="h6" gutterBottom>Adresa livrare</Typography>
             <FormProvider {...methods}>
                 <form onSubmit={methods.handleSubmit((data) => next({ ...data, city: subdivisions.filter(x => x.id && x.id === shippingSubdivision)[0].label, shippingCountry, shippingSubdivision, shippingOption }))}>
-                    <Grid container spacing={3} >
+                    <Grid container spacing={3}>
                         <FormInput name='firstName' label='Nume' />
                         <FormInput name='lastName' label='Prenume' />
                         <FormInput name='address1' label='Adresa' />

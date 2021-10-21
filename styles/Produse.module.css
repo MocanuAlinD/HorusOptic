@@ -2,6 +2,8 @@
 .produse__container {
     /* background: linear-gradient(45deg,#44444466,#22222266); */
     /* background: linear-gradient(to bottom left, var(--color-primary-dark2op),var(--color-primary-light)); */
+    -webkit-backdrop-filter: blur(20px);
+    -moz-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     display: flex;
     height: fit-content;

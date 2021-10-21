@@ -3,7 +3,7 @@ import { Typography, Button, Divider } from '@material-ui/core'
 import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import Review from './Review'
-import styles from '../../styles/Checkout.module.css'
+import styles from '../../styles/CheckoutComponents/Checkout.module.css'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_API_KEY)
 

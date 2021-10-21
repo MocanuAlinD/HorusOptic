@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@material-ui/core'
-import styles from '../../styles/Checkout.module.css'
+import styles from '../../styles/CheckoutComponents/Checkout.module.css'
 import AddressForm from '../../components/Checkout/AddressForm'
 import PaymentForm from '../../components/Checkout/PaymentForm'
 import { commerce } from '../../lib/commerce'

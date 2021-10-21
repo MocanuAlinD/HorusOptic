@@ -15,7 +15,9 @@ body {
   --color-primary-light: #f5cb5c;   // some yellow
   --color-primary-lighten1: #e8eddf;  // some white
   --color-primary-lighten2: #e8eddf70; // some white opacity 70
-  --color-primary-blue: #1a73e8; // blue
+  /* --color-primary-blue: #1a73e8; // blue */
+  --color-primary-blue: #3f51b5; // blue
+  --color-primary-blueHover: #303f9f; // blue hover
   --color-primary-darkblue: #00509d; // blue
   --color-extra-light: #ffffff44; // white opacity 18
   --font-family-cinzel: 'Cinzel Decorative', cursive;
@@ -47,7 +49,9 @@ body.dark {
   --color-primary-light: #0077b6;   // some yellow
   --color-primary-lighten1: #151515;  // some white
   --color-primary-lighten2: #24242388; // some white opacity 70
-  --color-primary-blue: #1a73e8; // blue
+  /* --color-primary-blue: #1a73e8; // blue */
+  --color-primary-blue: #3f51b5; // blue
+  --color-primary-blueHover: #303f9f; // blue hover
   --color-extra-light: #24242388; // white opacity 18
   --font-family-cinzel: 'Cinzel Decorative', cursive;
   --font-family-poppins: 'Poppins', sans-serif;
@@ -79,6 +83,9 @@ a {
 }
 
 ::-webkit-scrollbar-track{
+  -webkit-border: 1px solid var(---color-primary-light);
+  -moz-border: 1px solid var(---color-primary-light);
+  -o-border: 1px solid var(---color-primary-light);
 	border: 1px solid var(--color-primary-light);
 	box-shadow: inset 0 0 2.5px 2px rgba(0,0,0,0.5);
   background: var(--color-primary-dark2);
