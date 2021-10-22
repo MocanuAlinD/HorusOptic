@@ -22,6 +22,7 @@ const MiniCard = ({ produs, onAddToCart }) => {
         {produs.price.raw ? produs.price.raw : '0'}&nbsp;<sub>ron</sub>
       </h5>
       <h5 dangerouslySetInnerHTML={{ __html: produs.description ? produs.description : '-' }}></h5>
+      
 
       <hr className={styles.miniCard__divider} />
       <h5>

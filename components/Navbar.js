@@ -2,16 +2,15 @@ import React from "react";
 import Link from "next/link";
 import style from "../styles/navbar.module.css";
 import { GiEyeOfHorus } from "react-icons/gi";
-import { BsSun, BsMoon } from "react-icons/bs";
-import { VscColorMode } from "react-icons/vsc";
+import { BiSun, BiMoon } from "react-icons/bi";
 import { useState } from "react";
 import { IconButton, Badge } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import { useRouter } from "next/router";
-// import { StylesContext } from "@material-ui/styles";
 
 const Navbar = ({ totalItems }) => {
   const [state, setState] = useState(true);
+  const [themeIcon, setThemeIcon] = useState(true)
   const router = useRouter();
 
   const changeMe = () => {
@@ -33,6 +32,11 @@ const Navbar = ({ totalItems }) => {
 
   const changeTheme = () => {
     document.body.classList.toggle('dark')
+    if(document.body.classList.contains('dark')){
+      setThemeIcon(false)
+    } else {
+      setThemeIcon(true);
+    }
   }
 
   return (
@@ -80,19 +84,14 @@ const Navbar = ({ totalItems }) => {
         )}
       </div>
 
-      <div
-        className={style.theme_color_container}
-        onClick={() => changeTheme()}
-      >
-        <div className={style.icons_container}>
+      <div className={style.theme_color_container} onClick={() => changeTheme()} >
           <div className={style.sun}>
-            {/* <BsSun className={style.sunIcon} /> */}
-            <VscColorMode className={style.sunIcon} />
+            {themeIcon === true ? (
+              <BiSun className={style.sunIcon}  />
+            ) : (
+              <BiMoon className={style.sunIcon}  />
+            )}
           </div>
-          {/* <div className={style.moon}>
-            <BsMoon className={style.moonIcon} />
-          </div> */}
-        </div>
       </div>
     </div>
   );

@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/Cart.module.css";
 import CartItem from "../components/CartItem";
 import Link from "next/link";
+import {
+  RadioGroup,
+  Radio,
+  FormControlLabel,
+  Button,
+} from "@material-ui/core";
 
 const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const [pick, setPick] = useState("ramburs");
@@ -33,37 +39,58 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
                 Subtotal: {cart.subtotal && cart.subtotal.formatted_with_code}
               </h4>
               <div className={styles.cart__pickPayment}>
-                <input
-                  id="card"
-                  type="radio"
-                  name="card"
-                  defaultChecked
-                  onClick={() => setPick("ramburs")}
-                />
-                <label htmlFor="card">Ramburs</label>
-                <input
-                  id="ramburs"
-                  type="radio"
-                  name="card"
-                  onClick={() => setPick("card")}
-                />
-                <label htmlFor="ramburs">Card</label>
+                <RadioGroup
+                  row
+                  aria-label="Plata"
+                  defaultValue="ramburs"
+                  name="radio-buttons-group"
+                >
+                  <FormControlLabel
+                    value="ramburs"
+                    control={
+                      <Radio
+                        // color="primary"
+                        onClick={() => setPick("ramburs")}
+                        style={{ color: "var(--color-primary-light)" }}
+                      />
+                    }
+                    label="Ramburs"
+                  />
+                  <FormControlLabel
+                    value="card"
+                    control={
+                      <Radio
+                        color="primary"
+                        onClick={() => setPick("card")}
+                        style={{ color: "var(--color-primary-light)" }}
+                      />
+                    }
+                    label="Card"
+                  />
+                </RadioGroup>
               </div>
+
               <div className={styles.cart__buttons}>
-                <button
+                {/* <button
                   className={styles.cart__btnEmptyCart}
                   onClick={() => onEmptyCart()}
                 >
                   Goleste cosul
-                </button>
+                </button> */}
+
+                <Button variant="outlined" onClick={() => onEmptyCart()} className={styles.cart__emptyCart}>
+                  Goleste cosul
+                </Button>
 
                 {pick === "card" ? (
                   <Link href="/Checkout">
-                    <a>Plateste</a>
+                    {/* <a>Plateste</a> */}
+                    <Button variant='contained' className={styles.cart__next}>Plateste</Button>
                   </Link>
                 ) : (
                   <Link href="/Ramburs">
-                    <a>Continua</a>
+                    <Button variant='contained' className={styles.cart__next}>Continua</Button>
+                    {/* <a>Continua</a> */}
                   </Link>
                 )}
               </div>

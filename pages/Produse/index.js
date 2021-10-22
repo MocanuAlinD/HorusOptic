@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
     limit: 200,
     category_slug: "2",
   });
-  const products = [...products_1, ...products_2];
+  const products = [...products_1, ...products_2].reverse(); // REMOVE REVERSE ON PRODUCTION
 
   // ==================================================================
   // Names for the brands
@@ -33,7 +33,6 @@ export const getStaticProps = async () => {
     }
   }
   const readingGlasses = sortedNames1.sort((a, b) => (a > b && 1) || -1);
-
   // =======================================================
 
   const SunProducts = products.filter((x) => {
@@ -67,8 +66,12 @@ const Produse = ({
   products,
   loading,
   readingGlasses,
-  sunGlasses,
+  sunGlasses
 }) => {
+  // =======================================================================
+  
+
+  // =======================================================================
 
   const ochelariVedere = products.filter((x) => {
     return (
@@ -197,7 +200,6 @@ const Produse = ({
     }
   };
 
-
   return (
     <div className={styles.produse__container} id="top">
       <Head>
@@ -205,49 +207,41 @@ const Produse = ({
       </Head>
 
       <div className={styles.produse__wrapper}>
-                <div className={styles.produse__sidebar}>
-                  <Sidebar
-                    changeCat={(cat) => changecat(cat)}
-                    changePriceName={(word) => changePriceName(word)}
-                    brandNames={brandNames}
-                    setSearch={setSearch}
-                    setBrand={setBrand}
-                    setBrandNames={setBrandNames}
-                    readingGlasses={readingGlasses}
-                    sunGlasses={sunGlasses}
-                    brand={brand}
-                  />
-                </div>
+        <div className={styles.produse__sidebar}>
+          <Sidebar
+            changeCat={(cat) => changecat(cat)}
+            changePriceName={(word) => changePriceName(word)}
+            brandNames={brandNames}
+            setSearch={setSearch}
+            setBrand={setBrand}
+            setBrandNames={setBrandNames}
+            readingGlasses={readingGlasses}
+            sunGlasses={sunGlasses}
+            brand={brand}
+          />
+        </div>
 
-                <div className={styles.produse__list}>
-                  {search === "" && brand === "marcaAll" && (
-                    <Pagination
-                      setPostsPerPage={setPostsPerPage}
-                      postsPerPage={postsPerPage}
-                      totalPosts={currentPosts}
-                      paginate={paginate}
-                      changeShow={changeShow}
-                    />
-                  )}
-                  {search === "" &&
-                    changeBrand(allProducts).map((prd) => (
-                      <MiniCard
-                        onAddToCart={onAddToCart}
-                        key={prd.id}
-                        produs={prd}
-                      />
-                    ))}
-                  {search !== ""
-                    ? searchItems().map((prd) => (
-                        <MiniCard
-                          onAddToCart={onAddToCart}
-                          key={prd.id}
-                          produs={prd}
-                        />
-                      ))
-                    : []}
-                </div>
-          </div>
+        <div className={styles.produse__list}>
+          {search === "" && brand === "marcaAll" && (
+            <Pagination
+              setPostsPerPage={setPostsPerPage}
+              postsPerPage={postsPerPage}
+              totalPosts={currentPosts}
+              paginate={paginate}
+              changeShow={changeShow}
+            />
+          )}
+          {search === "" &&
+            changeBrand(allProducts).map((prd) => (
+              <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} />
+            ))}
+          {search !== ""
+            ? searchItems().map((prd) => (
+                <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} />
+              ))
+            : []}
+        </div>
+      </div>
     </div>
   );
 };

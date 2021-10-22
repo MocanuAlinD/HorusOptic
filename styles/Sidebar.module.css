@@ -22,6 +22,7 @@
     font-size: .8rem;
     letter-spacing: .05rem;
     transition: var(--transition);
+    cursor: pointer;
 }
 
 .desktop__items input {
@@ -90,7 +91,7 @@
 @media screen and (max-width: 768px) {
     .container {
         margin: 0;
-        /* background: red; */
+        margin-top: .1rem;
     }
     .desktop {
         display: none;

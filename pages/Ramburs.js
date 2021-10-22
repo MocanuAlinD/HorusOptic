@@ -2,6 +2,8 @@ import React from "react";
 import styles from "../styles/Ramburs.module.css";
 import Link from "next/link";
 import Empty from "../components/Empty";
+import { Button, TextField, Typography,Tooltip } from "@material-ui/core";
+import { AiFillDelete } from "react-icons/ai";
 
 const Ramburs = ({ cart, onEmptyCart }) => {
   // console.log(cart);
@@ -17,7 +19,6 @@ const Ramburs = ({ cart, onEmptyCart }) => {
         method="POST"
         onSubmit={onEmptyCart}
       >
-
         {/* Products list - is invisible */}
         <textarea
           style={{ display: "none" }}
@@ -54,70 +55,60 @@ const Ramburs = ({ cart, onEmptyCart }) => {
           )}
         </textarea>
 
-
         {/* ======================================================= */}
         <div className={styles.check}>
-          <input
-            className={styles.form__input}
-            type="text"
+          <TextField
             name="Nume"
             required
-            placeholder=" "
+            type="text"
+            fullWidth
             id="nume"
+            label="Nume"
+            variant="standard"
             spellCheck="false"
           />
-          <label htmlFor="nume" className={styles.form__label}>
-            Nume
-          </label>
         </div>
 
         <div className={styles.check}>
-          <input
-            className={styles.form__input}
-            type="text"
+          <TextField
             name="Telefon"
             required
-            placeholder=" "
-            id="telefon"
+            type="text"
+            fullWidth
+            id="nume"
+            label="Telefon"
+            variant="standard"
             spellCheck="false"
           />
-          <label htmlFor="telefon" className={styles.form__label}>
-            Telefon
-          </label>
         </div>
 
         <div className={styles.check}>
-          <input
-            className={styles.form__input}
-            type="email"
+          <TextField
             name="Email"
             required
-            placeholder=" "
-            id="email"
+            type="email"
+            fullWidth
+            id="nume"
+            label="Email"
+            variant="standard"
             spellCheck="false"
-            // autoComplete="off"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
-          <label htmlFor="email" className={styles.form__label}>
-            Email
-          </label>
         </div>
 
         <div className={styles.check}>
-          <input
-            className={styles.form__input}
-            id="address"
-            type="address"
+          <TextField
             name="Adresa"
             required
-            placeholder=" "
+            type="text"
+            fullWidth
+            id="address"
+            label="Adresa"
+            variant="standard"
             spellCheck="false"
           />
-          <label htmlFor="address" className={styles.form__label}>
-            Adresa de livrare
-          </label>
         </div>
-
+        <Typography variant="subtitle1">Comentariu</Typography>
         <textarea
           name="Comentarii"
           id=""
@@ -134,14 +125,28 @@ const Ramburs = ({ cart, onEmptyCart }) => {
         ></input>
         <input type="hidden" name="_captcha" value="false"></input>
         <input type="hidden" name="_template" value="table"></input>
-        <button type="reset" className={styles.resetBtn}>
-          Reset
-        </button>
+
+        <div className={styles.ramburs__reset}>
+          <Button
+            type="reset"
+            color="primary"
+            startIcon={<AiFillDelete />}
+            variant="outlined"
+            size="small"
+          >
+            RESET
+          </Button>
+        </div>
+
         <div className={styles.ramburs__buttonsContainer}>
           <Link href="/Cart">
-            <a>Inapoi la cos</a>
+              <Button color="primary" variant="outlined">
+                Inapoi la cos
+              </Button>
           </Link>
-          <button type="submit">Trimite</button>
+          <Button color="primary" type="submit" variant="contained">
+            Trimite
+          </Button>
         </div>
       </form>
     </div>

@@ -26,7 +26,7 @@ body {
   --font-w400: 400;
   --font-w600: 600;
   --font-w800: 800;
-  --transition: all .35s ease-out;
+  --transition: all .35s ease-in-out;
   width: 100%;
   background: var(--color-primary-dark2);
   min-height: calc(100vh - 3rem);
