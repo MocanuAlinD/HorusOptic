@@ -71,6 +71,7 @@ const Navbar = ({ totalItems }) => {
             <IconButton
               className={style.nav__cartIcon}
               aria-label="Show cart items"
+              title="Vezi produsele din cos"
             >
               <Badge
                 badgeContent={totalItems}

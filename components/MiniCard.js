@@ -4,6 +4,7 @@ import Image from "next/image";
 import { IconButton, Badge, Typography } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import Link from "next/link";
+import {FiMoreHorizontal} from 'react-icons/fi'
 
 const MiniCard = ({ produs, onAddToCart }) => {
 
@@ -12,17 +13,28 @@ const MiniCard = ({ produs, onAddToCart }) => {
       <Image
         layout="intrinsic"
         as="image"
-        src={produs.media.source ? produs.media.source : './no-image.png'}
+        src={produs.media.source ? produs.media.source : "./no-image.png"}
         // src={'/no-image.png'}
-        width={produs.assets[0].image_dimensions.width ? produs.assets[0].image_dimensions.width : '1920'}
-        height={produs.assets[0].image_dimensions.height ? produs.assets[0].image_dimensions.height : '1080'}
+        width={
+          produs.assets[0].image_dimensions.width
+            ? produs.assets[0].image_dimensions.width
+            : "1920"
+        }
+        height={
+          produs.assets[0].image_dimensions.height
+            ? produs.assets[0].image_dimensions.height
+            : "1080"
+        }
       />
       <h4>{produs.name}</h4>
       <h5 className={styles.miniCard__pret}>
-        {produs.price.raw ? produs.price.raw : '0'}&nbsp;<sub>ron</sub>
+        {produs.price.raw ? produs.price.raw : "0"}&nbsp;<sub>ron</sub>
       </h5>
-      <h5 dangerouslySetInnerHTML={{ __html: produs.description ? produs.description : '-' }}></h5>
-      
+      <h5
+        dangerouslySetInnerHTML={{
+          __html: produs.description ? produs.description : "-",
+        }}
+      ></h5>
 
       <hr className={styles.miniCard__divider} />
       <h5>
@@ -31,7 +43,6 @@ const MiniCard = ({ produs, onAddToCart }) => {
         ) : produs.inventory.available < 1 ? (
           <span>Doar cu precomanda</span>
         ) : produs.inventory.available < 4 ? (
-          // <span>Stoc limitat: <span style={{ color: '#f5cb5c' }}>{produs.inventory.available}</span></span>
           <span>Stoc limitat</span>
         ) : (
           <span>In stoc</span>
@@ -52,7 +63,10 @@ const MiniCard = ({ produs, onAddToCart }) => {
         </div>
       ) : (
         <div className={styles.miniCard__cartContainer}>
-          <IconButton onClick={() => onAddToCart(produs.id, 1)}>
+          <IconButton
+            onClick={() => onAddToCart(produs.id, 1)}
+            title="Adauga in cos"
+          >
             <ShoppingCart className={styles.miniCard__shopIcon} />
           </IconButton>
         </div>
@@ -60,7 +74,12 @@ const MiniCard = ({ produs, onAddToCart }) => {
 
       <div className={styles.miniCard__details}>
         <Link href={"/Produse/" + produs.id}>
-          <a target="_blank">...</a>
+          <a target="_blank">
+            <FiMoreHorizontal title="Vezi detalii produs" />
+          </a>
+          {/* <a target="_blank"> */}
+          {/* <sup>...</sup> */}
+          {/* </a> */}
         </Link>
       </div>
     </div>

@@ -46,7 +46,8 @@ body.dark {
   --color-primary-dark2op: #e9ecef88; // gray opacity 88
   /* --color-primary-light: #f95738;   // some yellow */
   /* --color-primary-light: #f95738;   // some yellow */
-  --color-primary-light: #0077b6;   // some yellow
+  /* --color-primary-light: #0077b6;   // some yellow */
+  --color-primary-light: #0081a7;   // some yellow
   --color-primary-lighten1: #151515;  // some white
   --color-primary-lighten2: #24242388; // some white opacity 70
   /* --color-primary-blue: #1a73e8; // blue */
@@ -99,7 +100,7 @@ a {
 
 @media screen and (max-width:768px){
   body{
-    background-image: url('/bg13_tall.jpg');
+    /* background-image: url('/bg13_tall.jpg'); */
     background-image: none;
     /* background: #151515; */
   }
