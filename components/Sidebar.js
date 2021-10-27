@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../styles/Sidebar.module.css";
 import {
   AiOutlineSearch,
@@ -8,6 +8,7 @@ import {
 
 const Sidebar = ({
   changeCat,
+  search,
   setSearch,
   changePriceName,
   brand,
@@ -17,6 +18,9 @@ const Sidebar = ({
   readingGlasses,
   sunGlasses,
 }) => {
+
+
+
   const sendAllCats = (e) => {
     changeCat(e);
     checkFilter(e);
@@ -68,19 +72,19 @@ const Sidebar = ({
     <div className={styles.container}>
       <div className={styles.desktop}>
         {/* Meniu Search */}
-        {/* searchDiv = desktop__searchContainer */}
         <div className={styles.desktop__searchContainer}>
           <AiOutlineSearch className={styles.desktop__searchIcon} />
           <input
             placeholder="Cauta..."
             type="search"
             className={styles.desktop__search}
+            spellCheck="false"
             onChange={(e) => setSearch(e.target.value.toLowerCase())}
-          />
+            value={search}
+          /> 
         </div>
 
         {/* Meniu categorii */}
-        {/* bucati = desktop__items */}
         <div className={styles.desktop__items}>
           <h4>Categorie</h4>
           <input
@@ -215,6 +219,7 @@ const Sidebar = ({
             placeholder="Cauta..."
             type="search"
             className={styles.searchDrop}
+            spellCheck="false"
             onChange={(e) => setSearch(e.target.value.toLowerCase())}
           />
         </div>

@@ -22,8 +22,9 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
         </select>
       </div>
 
-      {pageNumbers.map((number) => (
+      {pageNumbers.map((number, i) => (
         <button
+          // className="pagination__button"
           className="pagination__button"
           onClick={(e) => paginate(e, number)}
           key={number}
@@ -34,7 +35,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
 
       <style jsx>
         {`
-        .pagination__button {
+          .pagination__button {
             background: var(--color-primary-dark2);
             border: none;
             border-bottom: 1px solid var(--color-primary-light);
@@ -49,7 +50,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
             outline: none;
             padding: 0 0.2rem;
             text-decoration: none;
-            transition: .35s ease-in-out;
+            transition: 0.35s ease-in-out;
             width: 1.5rem;
           }
           .pagination__button:hover {
@@ -60,7 +61,6 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
             background: var(--color-primary-light);
             color: var(--color-primary-dark2);
           }
-        }
         `}
       </style>
     </div>

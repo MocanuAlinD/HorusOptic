@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Produse.module.css";
 import MiniCard from "../../components/MiniCard";
 import Sidebar from "../../components/Sidebar";
@@ -7,7 +7,6 @@ import Pagination from "../../components/Pagination";
 import Head from "next/head";
 import { commerce } from "../../lib/commerce";
 
-// export async function getStaticProps(context) {
 export const getStaticProps = async () => {
   const { data: products_1 } = await commerce.products.list({
     limit: 200,
@@ -17,6 +16,7 @@ export const getStaticProps = async () => {
     limit: 200,
     category_slug: "2",
   });
+  // All the products EXPORTED
   const products = [...products_1, ...products_2].reverse(); // REMOVE REVERSE ON PRODUCTION
 
   // ==================================================================
@@ -24,32 +24,33 @@ export const getStaticProps = async () => {
   const abc = products.filter((x) => {
     return x.name && (x.categories[0].slug || x.categories[1].slug) === "rame";
   });
-  const sortedNames1 = [];
+  let readingGlasses = [];
   for (let i in abc) {
-    if (sortedNames1.includes(abc[i].name)) {
+    if (readingGlasses.includes(abc[i].name)) {
       continue;
     } else {
-      sortedNames1.push(abc[i].name);
+      readingGlasses.push(abc[i].name);
     }
   }
-  const readingGlasses = sortedNames1.sort((a, b) => (a > b && 1) || -1);
+  // EXPORTED
+  readingGlasses = readingGlasses.sort((a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1);
   // =======================================================
 
   const SunProducts = products.filter((x) => {
     return x.description && x.description.includes("soare");
   });
 
-  const sortedNames_Sun = [];
+  let sunGlasses = [];
 
   for (let i in SunProducts) {
-    if (sortedNames_Sun.includes(SunProducts[i].name)) {
+    if (sunGlasses.includes(SunProducts[i].name)) {
       continue;
     } else {
-      sortedNames_Sun.push(SunProducts[i].name);
+      sunGlasses.push(SunProducts[i].name);
     }
   }
-
-  const sunGlasses = sortedNames_Sun.sort((a, b) => (a > b && 1) || -1);
+  // EXPORTED
+  sunGlasses = sunGlasses.sort((a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1);
 
   return {
     props: {
@@ -61,18 +62,14 @@ export const getStaticProps = async () => {
   };
 };
 
+// =======================================================================
 const Produse = ({
   onAddToCart,
   products,
   loading,
   readingGlasses,
-  sunGlasses
+  sunGlasses,
 }) => {
-  // =======================================================================
-  
-
-  // =======================================================================
-
   const ochelariVedere = products.filter((x) => {
     return (
       (x.categories[0].slug === "rame" || x.categories[1].slug === "rame") &&
@@ -152,6 +149,9 @@ const Produse = ({
   };
 
   const searchItems = () => {
+    if(search === ''){
+      return []
+    }
     const a = allProducts.filter((x) => {
       return (
         (x.name && x.name.toLowerCase().includes(search)) ||
@@ -200,6 +200,7 @@ const Produse = ({
     }
   };
 
+  
   return (
     <div className={styles.produse__container} id="top">
       <Head>
@@ -209,15 +210,16 @@ const Produse = ({
       <div className={styles.produse__wrapper}>
         <div className={styles.produse__sidebar}>
           <Sidebar
+            brand={brand}
+            brandNames={brandNames}
             changeCat={(cat) => changecat(cat)}
             changePriceName={(word) => changePriceName(word)}
-            brandNames={brandNames}
+            search={search}
             setSearch={setSearch}
             setBrand={setBrand}
             setBrandNames={setBrandNames}
             readingGlasses={readingGlasses}
             sunGlasses={sunGlasses}
-            brand={brand}
           />
         </div>
 
@@ -231,6 +233,17 @@ const Produse = ({
               changeShow={changeShow}
             />
           )}
+
+          {search !== "" ? (
+            <h3 className={styles.produse__searchResult}>
+              {searchItems().length}{" "}
+              {searchItems().length === 1 ? "produs" : "produse"}{" "}
+              {searchItems().length === 1 ? "gasit" : "gasite"}
+            </h3>
+          ) : (
+            ""
+          )}
+          {/* Products */}
           {search === "" &&
             changeBrand(allProducts).map((prd) => (
               <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} />

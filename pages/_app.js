@@ -9,12 +9,12 @@ import GlobalStyle from "./globalStyles";
 import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
-
-  const router = useRouter()
+  const router = useRouter();
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
@@ -96,7 +96,9 @@ function MyApp({ Component, pageProps }) {
         ></link>
       </Head>
 
-      {!router.pathname.includes("/Produse/[id]") && <Navbar totalItems={cart.total_items === 0 ? null : cart.total_items} />}
+      {!router.pathname.includes("/Produse/[id]") && (
+        <Navbar totalItems={cart.total_items === 0 ? null : cart.total_items} />
+      )}
 
       <Component
         {...pageProps}
@@ -111,7 +113,7 @@ function MyApp({ Component, pageProps }) {
         loading={loading}
       />
 
-      {router.pathname.includes("/Produse/[id]") ? '' : <Footer />}
+      {router.pathname.includes("/Produse/[id]") ? "" : <Footer />}
 
       <ScrollToTop />
     </>
