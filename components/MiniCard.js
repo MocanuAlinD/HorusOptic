@@ -12,11 +12,11 @@ const MiniCard = ({ produs, onAddToCart }) => {
     <div
       className={styles.miniCard__container}
     >
-      <Image
+      <img src={produs.media.source}/>
+      {/* <Image
         layout="intrinsic"
         as="image"
-        src={produs.media.source ? produs.media.source : "/no-image.png"}
-        // src={'/no-image.png'}
+        src={produs.image.url ? produs.image.url : "/no-image.png"}
         width={
           produs.assets[0].image_dimensions.width
             ? produs.assets[0].image_dimensions.width
@@ -27,7 +27,7 @@ const MiniCard = ({ produs, onAddToCart }) => {
             ? produs.assets[0].image_dimensions.height
             : "1080"
         }
-      />
+      /> */}
       <h4>{produs.name}</h4>
       <h5 className={styles.miniCard__pret}>
         {produs.price.raw ? produs.price.raw : "0"}&nbsp;<sub>ron</sub>

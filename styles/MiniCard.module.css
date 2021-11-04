@@ -10,6 +10,10 @@
   border-radius: 0.3rem;
   transition: var(--transition);
 }
+.miniCard__cartContainer img{
+  height: 100%;
+  width: auto;
+}
 
 /* Yellow corners */
 .miniCard__container::before {

@@ -54,24 +54,26 @@ const Details = ({ item }) => {
       <div className={styles.product__midContainer}>
         <div className={styles.product__imagesContainer}>
           <div className={styles.product__bigImageContainer} id="slider1">
-            <Image
+            {/* <Image
               layout="intrinsic"
               as="image"
               src={currentImage}
               width={1920}
               height={1080}
-            />
+            /> */}
+            <img src={currentImage}/>
           </div>
           <div className={styles.product__smallImagesContainer}>
             {item.assets.map((item, index) => (
               <div key={item.id} className={styles.product__smallImage}>
-                <Image
+                {/* <Image
                   src={item.url}
                   layout="intrinsic"
                   width={120}
                   height={72}
                   onClick={() => setCurrentImage(item.url)}
-                />
+                /> */}
+                <img src={item.url} />
               </div>
             ))}
           </div>

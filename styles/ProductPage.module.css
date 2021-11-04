@@ -7,6 +7,10 @@
     min-height: 100vh;
     /* margin: 0 auto .5rem; */
 }
+.product__container img{
+    height: 50%;
+    width: auto;
+}
 
 .product__midContainer{
     display: flex;
