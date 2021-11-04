@@ -15,7 +15,7 @@ const MiniCard = ({ produs, onAddToCart }) => {
       <Image
         layout="intrinsic"
         as="image"
-        src={produs.media.source ? produs.media.source : "./no-image.png"}
+        src={produs.media.source ? produs.media.source : "/no-image.png"}
         // src={'/no-image.png'}
         width={
           produs.assets[0].image_dimensions.width
