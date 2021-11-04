@@ -189,7 +189,7 @@
     display: none;
 }
 .recenzii__onlyStars .recenzii__star{
-    cursor: pointer;
+    /* cursor: none; */
     transition: var(--transition);
     margin: 0 .2rem;
 }

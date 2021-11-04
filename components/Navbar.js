@@ -69,8 +69,16 @@ const Navbar = ({ totalItems }) => {
         {session && (
           <li>
             <img src={session.user.image} alt={session.user.name} />
-            <Link href=''>
+            <Link href="">
               <a onClick={signOut}>Sign out</a>
+            </Link>
+          </li>
+        )}
+        {!session && (
+          <li>
+            {/* <img src={session.user.image} alt={session.user.name} /> */}
+            <Link href="/recenzii">
+              <a>Sign in</a>
             </Link>
           </li>
         )}
