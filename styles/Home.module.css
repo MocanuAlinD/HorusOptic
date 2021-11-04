@@ -1,6 +1,6 @@
 .container{
-  height: fit-content;
-  min-height: 79vh;
+  /* height: fit-content; */
+  min-height: var(--minheight);
   display: flex;
   padding: 1rem;
   align-items: center;

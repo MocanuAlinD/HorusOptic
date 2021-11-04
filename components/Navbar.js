@@ -3,15 +3,19 @@ import Link from "next/link";
 import style from "../styles/navbar.module.css";
 import { GiEyeOfHorus } from "react-icons/gi";
 import { BiSun, BiMoon } from "react-icons/bi";
+import { MdBrightnessMedium } from "react-icons/md";
 import { useState } from "react";
 import { IconButton, Badge } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import { useRouter } from "next/router";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Navbar = ({ totalItems }) => {
   const [state, setState] = useState(true);
-  const [themeIcon, setThemeIcon] = useState(true)
+  const [themeIcon, setThemeIcon] = useState(true);
   const router = useRouter();
+
+  const { data: session } = useSession();
 
   const changeMe = () => {
     let a = document.querySelector("ul");
@@ -31,19 +35,19 @@ const Navbar = ({ totalItems }) => {
   };
 
   const changeTheme = () => {
-    document.body.classList.toggle('dark')
-    if(document.body.classList.contains('dark')){
-      setThemeIcon(false)
+    document.body.classList.toggle("dark");
+    if (document.body.classList.contains("dark")) {
+      setThemeIcon(false);
     } else {
       setThemeIcon(true);
     }
-  }
+  };
 
   return (
     <div className={style.nav} id="nav">
       <div className={style.nav__title}>
         <h3>HORUS TOP OPTIC</h3>
-        <GiEyeOfHorus className={style.nav__icon} />
+        {/* <GiEyeOfHorus className={style.nav__icon} /> */}
       </div>
       <ul>
         <li>
@@ -61,6 +65,15 @@ const Navbar = ({ totalItems }) => {
             <a onClick={() => closeMenu()}>FAQ</a>
           </Link>
         </li>
+
+        {session && (
+          <li>
+            <img src={session.user.image} alt={session.user.name} />
+            <Link href=''>
+              <a onClick={signOut}>Sign out</a>
+            </Link>
+          </li>
+        )}
       </ul>
       <button className={style.nav__menu} onClick={changeMe}>
         Meniu
@@ -85,14 +98,17 @@ const Navbar = ({ totalItems }) => {
         )}
       </div>
 
-      <div className={style.theme_color_container} onClick={() => changeTheme()} >
-          <div className={style.sun}>
-            {themeIcon === true ? (
-              <BiSun className={style.sunIcon}  />
-            ) : (
-              <BiMoon className={style.sunIcon}  />
-            )}
-          </div>
+      <div
+        className={style.theme_color_container}
+        onClick={() => changeTheme()}
+      >
+        <div className={style.sun}>
+          {themeIcon === true ? (
+            <BiSun className={style.sunIcon} />
+          ) : (
+            <BiMoon className={style.sunIcon} />
+          )}
+        </div>
       </div>
     </div>
   );

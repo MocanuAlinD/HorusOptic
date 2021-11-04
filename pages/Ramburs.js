@@ -154,26 +154,3 @@ const Ramburs = ({ cart, onEmptyCart }) => {
 };
 
 export default Ramburs;
-
-// cart.line_items.length;
-// https://formsubmit.co/81b98d1d934c3b7f0e32bc02eb386532
-
-/* <input
-          type="text"
-          name="produse"
-          value={
-            cart.total_items !== 0 || cart.total_items !== undefined
-              ? cart.line_items.map(
-                  (item) =>
-                    item.media.source +
-                    "--" +
-                    item.quantity +
-                    "--" +
-                    item.price.formatted +
-                    "\n"
-                )
-              : "-"
-          }
-          readOnly
-          // style={{display: "none"}}
-        /> */

@@ -27,9 +27,11 @@ body {
   --font-w600: 600;
   --font-w800: 800;
   --transition: all .35s ease-in-out;
+  --minheight: calc(100vh - 17rem);
   width: 100%;
   background: var(--color-primary-dark2);
-  min-height: calc(100vh - 3rem);
+  height: fit-content;
+  min-height: 100vh;
   background-image: url('/bg13.jpg');
   background-position-x: center;
   background-position-y: center;
@@ -61,9 +63,11 @@ body.dark {
   --font-w600: 600;
   --font-w800: 800;
   --transition: all .35s ease-out;
+  --minheight: calc(100vh - 17rem);
   width: 100%;
   background: var(--color-primary-dark2);
-  min-height: calc(100vh - 3rem);
+  height: fit-content;
+  min-height: 100vh;
   background-image: url('/bgLight1.jpg');
   background-position-x: center;
   background-position-y: center;

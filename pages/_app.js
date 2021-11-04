@@ -7,14 +7,15 @@ import { commerce } from "../lib/commerce";
 import Head from "next/head";
 import GlobalStyle from "./globalStyles";
 import { useRouter } from "next/router";
+import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const router = useRouter();
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [comm, setComm] = useState([]);
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
@@ -66,56 +67,81 @@ function MyApp({ Component, pageProps }) {
     fetchCart();
   }, []);
 
+  const lst = (e) => {
+    console.log("app e: ", e);
+    setComm(e)
+  };
+
+  const fetchComments = async () => {
+    const dan = await fetch("./api/reviews", {
+      method: "GET",
+    });
+    const je = await dan.json();
+    setComm(je);
+  };
+
+
   return (
     <>
-      <GlobalStyle />
-      <Head>
-        <title>Horus Top Optic</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script
-          src="https://kit.fontawesome.com/cbb96f47ca.js"
-          crossorigin="anonymous"
-        ></script>
-        <link
-          rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-          rel="stylesheet"
-        ></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
-          rel="stylesheet"
-        ></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700;900&display=swap"
-          rel="stylesheet"
-        ></link>
-        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
-          rel="stylesheet"
-        ></link>
-      </Head>
+      <SessionProvider session={session}>
+        <GlobalStyle />
+        <Head>
+          <title>Horus Top Optic</title>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <script
+            src="https://kit.fontawesome.com/cbb96f47ca.js"
+            crossorigin="anonymous"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            rel="stylesheet"
+          ></link>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
+            rel="stylesheet"
+          ></link>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700;900&display=swap"
+            rel="stylesheet"
+          ></link>
+          <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
+            rel="stylesheet"
+          ></link>
+        </Head>
 
-      {!router.pathname.includes("/Produse/[id]") && (
-        <Navbar totalItems={cart.total_items === 0 ? null : cart.total_items} />
-      )}
+        {!router.pathname.includes("/Produse/[id]") && (
+          <Navbar
+            totalItems={cart.total_items === 0 ? null : cart.total_items}
+          />
+        )}
 
-      <Component
-        {...pageProps}
-        onAddToCart={handleAddToCart}
-        cart={cart}
-        onUpdateCartQty={handleUpdateCartQty}
-        onRemoveFromCart={handleRemoveFromCart}
-        onEmptyCart={handleEmptyCart}
-        order={order}
-        onCaptureCheckout={handleCaptureCheckout}
-        error={errorMessage}
-        loading={loading}
-      />
+        <Component
+          {...pageProps}
+          onAddToCart={handleAddToCart}
+          cart={cart}
+          onUpdateCartQty={handleUpdateCartQty}
+          onRemoveFromCart={handleRemoveFromCart}
+          onEmptyCart={handleEmptyCart}
+          order={order}
+          onCaptureCheckout={handleCaptureCheckout}
+          error={errorMessage}
+          loading={loading}
+          fetchComments={fetchComments}
+        />
 
-      {router.pathname.includes("/Produse/[id]") ? "" : <Footer />}
-
-      <ScrollToTop />
+        {router.pathname.includes("/Produse/[id]") ? (
+          ""
+        ) : (
+          <Footer comm={comm} lst={(e) => lst(e)} />
+        )}
+        <ScrollToTop />
+      </SessionProvider>
     </>
   );
 }

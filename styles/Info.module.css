@@ -1,21 +1,23 @@
 .container{
     width: 50%;
-    min-height: 79vh;
-    padding-top: 3rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background: var(--color-extra-light);
+    height: 100%;
+    /* padding-top: 2rem; */
+    /* padding-left: 1rem; */
+    /* padding-right: 1rem; */
+    padding: 2rem 1rem 0rem;
+    /* background: var(--color-extra-light); */
     background: var(--color-primary-dark2op);
     backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 2rem auto;
 }
 
 .container h4,
 .container p{
     color: var(--color-primary-lighten1);
     font-family: var(--font-family-poppins);
+    text-align: justify;
 }
 
 .container h4{
@@ -27,7 +29,7 @@
     font-size: .9rem;
     margin-bottom: 1rem;
     margin-left: 1rem;
-    text-align: left;
+    /* text-align: left; */
 }
 
 @media screen and (max-width:768px){

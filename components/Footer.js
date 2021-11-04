@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Footer.module.css";
 import { ImMobile } from "react-icons/im";
+import { BiArrowFromLeft } from "react-icons/bi";
 import {
   AiOutlineMail,
   AiOutlineWhatsApp,
   AiOutlineInstagram,
 } from "react-icons/ai";
+import { FaStar } from "react-icons/fa";
 import Link from "next/link";
 
-const Footer = () => {
+const Footer = ({ comm, lst }) => {
+  const [item, setItem] = useState("");
+
+  const alin = async () => {
+    const dan = await fetch("./api/reviews", {
+      method: "GET",
+    });
+    const je = await dan.json();
+    setItem(je[0]);
+    lst(je);
+  };
+
+  const clickme = () => {
+    const oneItem = comm[Math.floor(Math.random() * comm.length)];
+    console.log("item: ", oneItem);
+    setItem(oneItem);
+  };
+
+  useEffect(() => {
+    alin();
+  }, []);
+
   return (
     <div className={styles.footer__container}>
       <div className={styles.footer__left}>
@@ -90,6 +113,55 @@ const Footer = () => {
         </Link>
         <h4>CUI: 40666971</h4>
         <h4>J13/856/2019</h4>
+      </div>
+
+      <div className={styles.footer__commentsContainer}>
+        {/* <h3 className={styles.footer__commentsTitle}>Recenzii</h3> */}
+        {/* <hr style={{ width: "100%", height: ".1rem", marginBottom: ".5rem" }} /> */}
+        {item && (
+          <div className={styles.footer__commentsReview}>
+            <div className={styles.footer__imgName}>
+              <img
+                src={item.picture || "/no-image.png"}
+                alt="Image"
+                width="25px"
+                height="25px"
+              />
+              <h4>{item.name}</h4>
+            </div>
+
+            <div className={styles.footer__ratingText}>
+              <h5>{item.review}</h5>
+            </div>
+            <div className={styles.recenzii__onlyStars}>
+              {[...Array(5)].map((star, i) => {
+                const ratingValue = i + 1;
+                return (
+                  <label key={i}>
+                    <input
+                      type="radio"
+                      name="rating"
+                      value={item.rating}
+                    />
+                    <FaStar
+                      className={styles.recenzii__star}
+                      color={
+                        ratingValue <= item.rating
+                          ? "var(--color-primary-light)"
+                          : "var(--color-primary-lighten2)"
+                      }
+                      size="20"
+                    />
+                  </label>
+                );
+              })}
+            </div>
+          </div>
+        )}
+        <BiArrowFromLeft className={styles.button} onClick={clickme} />
+        <Link href="/recenzii">
+          <a>Lasa o recenzie</a>
+        </Link>
       </div>
     </div>
   );

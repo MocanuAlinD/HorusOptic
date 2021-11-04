@@ -9,7 +9,9 @@ import {FiMoreHorizontal} from 'react-icons/fi'
 const MiniCard = ({ produs, onAddToCart }) => {
 
   return (
-    <div className={styles.miniCard__container}>
+    <div
+      className={styles.miniCard__container}
+    >
       <Image
         layout="intrinsic"
         as="image"

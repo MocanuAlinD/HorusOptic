@@ -5,6 +5,7 @@ import {
   AiOutlineArrowDown,
   AiOutlineArrowUp,
 } from "react-icons/ai";
+import { BsSquare } from "react-icons/bs";
 
 const Sidebar = ({
   changeCat,
@@ -68,6 +69,7 @@ const Sidebar = ({
     }
   };
 
+
   return (
     <div className={styles.container}>
       <div className={styles.desktop}>
@@ -81,9 +83,9 @@ const Sidebar = ({
             spellCheck="false"
             onChange={(e) => setSearch(e.target.value.toLowerCase())}
             value={search}
-          /> 
+          />
         </div>
-
+        
         {/* Meniu categorii */}
         <div className={styles.desktop__items}>
           <h4>Categorie</h4>
