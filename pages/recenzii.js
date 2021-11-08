@@ -2,31 +2,29 @@ import React, { useState } from "react";
 import styles from "../styles/recenzii.module.css";
 import { useSession, signIn } from "next-auth/react";
 import { FaStar } from "react-icons/fa";
+import firebase from "../firebase";
+import {toast} from 'react-toastify'
 
-const recenzii = ({ fetchComments }) => {
+const recenzii = () => {
   const { data: session } = useSession();
 
   const [maxChar, setMaxChar] = useState(0);
   const [text, setText] = useState("");
   const [rating, setRating] = useState(1);
 
-  const postData = async () => {
-    const send = {
-      picture: session.user.image,
-      name: session.user.name,
-      review: text,
-      rating: +rating,
-    };
-    const dan = await fetch("./api/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(send),
-    });
-    const je = await dan.json();
-    console.log(je.message);
-    fetchComments();
+  const postData = () => {
+    if (session.user.name && session.user.image && text && rating) {
+      firebase.child('Contacts').push({
+        picture: session.user.image,
+        name: session.user.name,
+        review: text,
+        rating: rating
+      })
+      setText('')
+      setRating(1)
+    } else {
+      alert("Nu ai scris nimic.");
+    }
   };
 
   const checkLen = (e) => {
@@ -61,6 +59,7 @@ const recenzii = ({ fetchComments }) => {
               rows="10"
               spellCheck="false"
               maxLength="100"
+              value={text}
               onChange={(e) => checkLen(e.target.value)}
             ></textarea>
             <div className={styles.recenzii__rating}>

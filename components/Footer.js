@@ -9,27 +9,34 @@ import {
 } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
 import Link from "next/link";
+import firebase from "../firebase";
 
-const Footer = ({ comm, lst }) => {
+const Footer = () => {
+  const [data, setData] = useState({});
   const [item, setItem] = useState("");
 
-  const alin = async () => {
-    const dan = await fetch("./api/reviews", {
-      method: "GET",
-    });
-    const je = await dan.json();
-    setItem(je[0]);
-    lst(je);
-  };
-
   const clickme = () => {
-    const oneItem = comm[Math.floor(Math.random() * comm.length)];
+    const oneItem =
+      Object.values(data)[
+        Math.floor(Math.random() * Object.values(data).length)
+      ];
     console.log("item: ", oneItem);
     setItem(oneItem);
   };
 
   useEffect(() => {
-    alin();
+    firebase.child("Contacts").on("value", (s) => {
+      if (s.val() !== null) {
+        setItem(s.val()[Object.keys(s.val())[0]]);
+        console.log(s.val()[Object.keys(s.val())[0]]);
+        setData(s.val());
+      } else {
+        setData({});
+      }
+    });
+    return () => {
+      setData({});
+    };
   }, []);
 
   return (
@@ -116,8 +123,14 @@ const Footer = ({ comm, lst }) => {
       </div>
 
       <div className={styles.footer__commentsContainer}>
-        {/* <h3 className={styles.footer__commentsTitle}>Recenzii</h3> */}
-        {/* <hr style={{ width: "100%", height: ".1rem", marginBottom: ".5rem" }} /> */}
+        <h3 className={styles.footer__commentsTitle}>Recenzii</h3>
+        <hr
+          style={{
+            width: "100%",
+            height: ".1rem",
+            marginBottom: ".5rem",
+          }}
+        />
         {item && (
           <div className={styles.footer__commentsReview}>
             <div className={styles.footer__imgName}>
@@ -132,29 +145,25 @@ const Footer = ({ comm, lst }) => {
 
             <div className={styles.footer__ratingText}>
               <h5>{item.review}</h5>
-            </div>
-            <div className={styles.recenzii__onlyStars}>
-              {[...Array(5)].map((star, i) => {
-                const ratingValue = i + 1;
-                return (
-                  <label key={i}>
-                    <input
-                      type="radio"
-                      name="rating"
-                      value={item.rating}
-                    />
-                    <FaStar
-                      className={styles.recenzii__star}
-                      color={
-                        ratingValue <= item.rating
-                          ? "var(--color-primary-light)"
-                          : "var(--color-primary-lighten2)"
-                      }
-                      size="20"
-                    />
-                  </label>
-                );
-              })}
+              <div className={styles.recenzii__onlyStars}>
+                {[...Array(5)].map((star, i) => {
+                  const ratingValue = i + 1;
+                  return (
+                    <label key={i}>
+                      <input type="radio" name="rating" value={item.rating} />
+                      <FaStar
+                        className={styles.recenzii__star}
+                        color={
+                          ratingValue <= item.rating
+                            ? "var(--color-primary-light)"
+                            : "var(--color-primary-lighten2)"
+                        }
+                        size="20"
+                      />
+                    </label>
+                  );
+                })}
+              </div>
             </div>
           </div>
         )}
