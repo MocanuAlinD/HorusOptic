@@ -20,7 +20,7 @@ const Footer = () => {
       Object.values(data)[
         Math.floor(Math.random() * Object.values(data).length)
       ];
-    console.log("item: ", oneItem);
+    // console.log("item: ", oneItem);
     setItem(oneItem);
   };
 
@@ -28,7 +28,6 @@ const Footer = () => {
     firebase.child("Contacts").on("value", (s) => {
       if (s.val() !== null) {
         setItem(s.val()[Object.keys(s.val())[0]]);
-        console.log(s.val()[Object.keys(s.val())[0]]);
         setData(s.val());
       } else {
         setData({});

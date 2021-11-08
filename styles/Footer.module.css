@@ -106,7 +106,7 @@
 /* REVIEW FOOTER ======================================================= */
 .footer__commentsContainer {
   /* background: cornflowerblue; */
-  width: fit-content;
+  width:70rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -142,8 +142,7 @@
 .footer__commentsContainer .footer__commentsReview {
   height: 100%;
   width: 100%;
-  border-bottom: 1px solid white;
-  /* background: coral; */
+  border-bottom: 1px solid var(--color-primary-lighten1);
   padding: .2rem;
 }
 .footer__imgName {
