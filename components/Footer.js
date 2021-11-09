@@ -6,22 +6,29 @@ import {
   AiOutlineMail,
   AiOutlineWhatsApp,
   AiOutlineInstagram,
+  AiOutlinePlayCircle,
+  AiOutlinePauseCircle,
 } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
+import { BiSkipNext } from "react-icons/bi";
 import Link from "next/link";
 import firebase from "../firebase";
 
 const Footer = () => {
   const [data, setData] = useState({});
   const [item, setItem] = useState("");
+  const [checkTimer, setCheckTimer] = useState(true);
 
   const clickme = () => {
     const oneItem =
       Object.values(data)[
         Math.floor(Math.random() * Object.values(data).length)
       ];
-    // console.log("item: ", oneItem);
     setItem(oneItem);
+  };
+
+  const consu = () => {
+    setCheckTimer(!checkTimer);
   };
 
   useEffect(() => {
@@ -37,6 +44,13 @@ const Footer = () => {
       setData({});
     };
   }, []);
+
+  useEffect(() => {
+    if (checkTimer) {
+      const interval = setInterval(clickme, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [item, checkTimer]);
 
   return (
     <div className={styles.footer__container}>
@@ -166,7 +180,14 @@ const Footer = () => {
             </div>
           </div>
         )}
-        <BiArrowFromLeft className={styles.button} onClick={clickme} />
+        <div className={styles.playPauseContainer}>
+          {checkTimer ? (
+            <AiOutlinePauseCircle className={styles.button} onClick={consu} />
+          ) : (
+            <AiOutlinePlayCircle className={styles.button} onClick={consu} />
+          )}
+          <BiSkipNext className={styles.buttonNext} onClick={clickme} />
+        </div>
         <Link href="/recenzii">
           <a className={styles.footer__btnLasaRecenzie}>Lasa o recenzie</a>
         </Link>

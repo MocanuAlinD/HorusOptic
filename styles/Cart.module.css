@@ -2,7 +2,7 @@
 .cart__container{
     width: 100%;
     height: fit-content;
-    min-height: 79vh;
+    min-height: var(--minheight);
     display: flex;
     justify-content: center;
     align-items: center;

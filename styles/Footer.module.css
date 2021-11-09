@@ -109,7 +109,7 @@
 /* REVIEW FOOTER ======================================================= */
 .footer__commentsContainer {
   /* background: cornflowerblue; */
-  width:70rem;
+  width: 70rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -120,21 +120,24 @@
   color: var(--color-primary-lighten1);
 }
 
-/* next review button */
-.footer__commentsContainer .button {
+.playPauseContainer{
+  /* background: coral; */
   position: absolute;
-  right: 0;
-  top: 50%;
+  top: .25rem;
+  right: 1rem;
+  width: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* next review button */
+.button,
+.buttonNext{
   color: var(--color-primary-lighten1);
   font-size: 1.2rem;
   cursor: pointer;
-  transition: .35s ease;
+  transition: var(--transition);
   border-radius: .2rem;
-}
-
-.footer__commentsContainer .button:hover{
-  background: var(--color-primary-light);
-  color: var(--color-primary-dark1);
 }
 
 .footer__commentsContainer .footer__commentsTitle {

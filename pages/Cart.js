@@ -71,12 +71,6 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
               </div>
 
               <div className={styles.cart__buttons}>
-                {/* <button
-                  className={styles.cart__btnEmptyCart}
-                  onClick={() => onEmptyCart()}
-                >
-                  Goleste cosul
-                </button> */}
 
                 <Button variant="outlined" onClick={() => onEmptyCart()} className={styles.cart__emptyCart}>
                   Goleste cosul

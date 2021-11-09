@@ -15,7 +15,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  // const [comm, setComm] = useState([]);
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
@@ -66,19 +65,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   useEffect(() => {
     fetchCart();
   }, []);
-
-  // const lst = (e) => {
-  //   console.log("app e: ", e);
-  //   setComm(e)
-  // };
-
-  // const fetchComments = async () => {
-  //   const dan = await fetch("./api/reviews", {
-  //     method: "GET",
-  //   });
-  //   const je = await dan.json();
-  //   setComm(je);
-  // };
 
 
   return (
@@ -132,13 +118,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           onCaptureCheckout={handleCaptureCheckout}
           error={errorMessage}
           loading={loading}
-          // fetchComments={fetchComments}
         />
 
         {router.pathname.includes("/Produse/[id]") ? (
           ""
         ) : (
-          // <Footer comm={comm} lst={(e) => lst(e)} />
           <Footer />
         )}
         <ScrollToTop />
