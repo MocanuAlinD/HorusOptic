@@ -19,7 +19,7 @@ const Footer = () => {
   const [item, setItem] = useState("");
   const [checkTimer, setCheckTimer] = useState(true);
 
-  const clickme = () => {
+  const randomItem = () => {
     const oneItem =
       Object.values(data)[
         Math.floor(Math.random() * Object.values(data).length)
@@ -27,9 +27,16 @@ const Footer = () => {
     setItem(oneItem);
   };
 
-  const consu = () => {
+  const playPauseTimer = () => {
     setCheckTimer(!checkTimer);
   };
+
+  const nextItem = () =>{
+    if(checkTimer === true){
+      setCheckTimer(false);
+    }
+    randomItem();
+  }
 
   useEffect(() => {
     firebase.child("Contacts").on("value", (s) => {
@@ -47,7 +54,7 @@ const Footer = () => {
 
   useEffect(() => {
     if (checkTimer) {
-      const interval = setInterval(clickme, 5000);
+      const interval = setInterval(randomItem, 5000);
       return () => clearInterval(interval);
     }
   }, [item, checkTimer]);
@@ -182,11 +189,17 @@ const Footer = () => {
         )}
         <div className={styles.playPauseContainer}>
           {checkTimer ? (
-            <AiOutlinePauseCircle className={styles.button} onClick={consu} />
+            <AiOutlinePauseCircle
+              className={styles.button}
+              onClick={playPauseTimer}
+            />
           ) : (
-            <AiOutlinePlayCircle className={styles.button} onClick={consu} />
+            <AiOutlinePlayCircle
+              className={styles.button}
+              onClick={playPauseTimer}
+            />
           )}
-          <BiSkipNext className={styles.buttonNext} onClick={clickme} />
+          <BiSkipNext className={styles.buttonNext} onClick={nextItem} />
         </div>
         <Link href="/recenzii">
           <a className={styles.footer__btnLasaRecenzie}>Lasa o recenzie</a>
