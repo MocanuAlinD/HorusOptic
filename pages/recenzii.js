@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "../styles/recenzii.module.css";
 import { useSession, signIn } from "next-auth/react";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaFacebook } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import firebase from "../firebase";
-import {toast} from 'react-toastify'
 
 const recenzii = () => {
   const { data: session } = useSession();
@@ -14,14 +14,15 @@ const recenzii = () => {
 
   const postData = () => {
     if (session.user.name && session.user.image && text && rating) {
-      firebase.child('Contacts').push({
+      firebase.child("Contacts").push({
         picture: session.user.image,
         name: session.user.name,
         review: text,
-        rating: rating
-      })
-      setText('')
-      setRating(1)
+        rating: rating,
+      });
+      setText("");
+      setRating(1);
+      setMaxChar(0);
     } else {
       alert("Nu ai scris nimic.");
     }
@@ -37,16 +38,31 @@ const recenzii = () => {
       {!session && (
         <div className={styles.recenzii__noSession}>
           <h4>Te rugam sa te autentifici pentru a lasa un review</h4>
-          <button onClick={() => signIn("google")}>Google</button>
-          <button onClick={() => signIn("facebook")}>Facebook</button>
+          <div className={styles.loginButtonsContainer}>
+            <button
+              onClick={() => signIn("google")}
+              className={styles.googleBtn}
+            >
+              <FcGoogle className={styles.googleIcon}/>
+              Google
+            </button>
+            <button
+              onClick={() => signIn("facebook")}
+              className={styles.facebookBtn}
+            >
+              <FaFacebook className={styles.facebookIcon}/>
+              Facebook
+            </button>
+          </div>
         </div>
       )}
+
       {session && (
         <div className={styles.recenzii__session}>
           <div className={styles.recenzii__sessionHeader}>
             <img
               src={session.user.image}
-              alt={session.user.name}
+              alt=""
               width="50"
               height="50"
             />

@@ -47,7 +47,7 @@ const Footer = () => {
           <ul>
             <li>
               <AiOutlineWhatsApp
-                size="1.2rem"
+                size="1rem"
                 style={{ marginBottom: "-0.2rem", marginRight: ".5rem" }}
               />
               <a href="http://wa.me/+40742654258" target="_blank">
@@ -56,14 +56,14 @@ const Footer = () => {
             </li>
             <li>
               <ImMobile
-                size="1.2rem"
+                size="1rem"
                 style={{ marginBottom: "-0.2rem", marginRight: ".5rem" }}
               />
               <a href="tel:0742654258">0742.654.258</a>
             </li>
             <li>
               <AiOutlineMail
-                size="1.2rem"
+                size="1rem"
                 style={{ marginBottom: "-0.2rem", marginRight: ".5rem" }}
               />
               <a href="mailto:horus_top_optic@yahoo.com">
@@ -72,7 +72,7 @@ const Footer = () => {
             </li>
             <li>
               <AiOutlineInstagram
-                size="1.2rem"
+                size="1rem"
                 style={{ marginBottom: "-0.2rem", marginRight: ".5rem" }}
               />
               <a href="#">Instagram</a>
@@ -135,7 +135,7 @@ const Footer = () => {
             <div className={styles.footer__imgName}>
               <img
                 src={item.picture || "/no-image.png"}
-                alt="Image"
+                alt=""
                 width="25px"
                 height="25px"
               />
@@ -168,7 +168,7 @@ const Footer = () => {
         )}
         <BiArrowFromLeft className={styles.button} onClick={clickme} />
         <Link href="/recenzii">
-          <a>Lasa o recenzie</a>
+          <a className={styles.footer__btnLasaRecenzie}>Lasa o recenzie</a>
         </Link>
       </div>
     </div>

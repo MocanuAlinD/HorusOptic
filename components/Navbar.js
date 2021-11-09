@@ -43,6 +43,12 @@ const Navbar = ({ totalItems }) => {
     }
   };
 
+  const alin = () =>{
+    console.log('alin function')
+    signOut()
+    closeMenu()
+  }
+
   return (
     <div className={style.nav} id="nav">
       <div className={style.nav__title}>
@@ -57,28 +63,27 @@ const Navbar = ({ totalItems }) => {
         </li>
         <li>
           <Link href="/Produse">
-            <a onClick={() => closeMenu()}>Produse</a>
+            <a onClick={closeMenu}>Produse</a>
           </Link>
         </li>
         <li>
           <Link href="/info">
-            <a onClick={() => closeMenu()}>FAQ</a>
+            <a onClick={closeMenu}>FAQ</a>
           </Link>
         </li>
 
         {session && (
           <li>
-            <img src={session.user.image} alt={session.user.name} />
-            <Link href="">
-              <a onClick={signOut}>Sign out</a>
+            <img src={session.user.image} alt="" />
+            <Link href="/">
+              <a onClick={()=> (signOut(), closeMenu())}>Sign out</a>
             </Link>
           </li>
         )}
         {!session && (
           <li>
-            {/* <img src={session.user.image} alt={session.user.name} /> */}
             <Link href="/recenzii">
-              <a>Sign in</a>
+              <a onClick={closeMenu}>Sign in</a>
             </Link>
           </li>
         )}
