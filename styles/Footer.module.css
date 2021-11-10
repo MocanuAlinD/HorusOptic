@@ -4,22 +4,23 @@
   min-height: 14rem;
   background: var(--color-primary-dark1);
   display: flex;
+  justify-content: center;
   padding: 0 1rem 1rem;
   padding-bottom: 0;
   user-select: none;
-  backdrop-filter: blur(2px);
   border-top: 1px solid var(--color-primary-lighten2);
-  transition: 0.35s ease-in-out;
+  transition: var(--transition);
 }
 
 .footer__container a {
   transition: var(--transition);
 }
 
-.footer__left,
+
 .footer__middle,
 .footer__right{
-  width: 100%;
+  width: fit-content;
+  min-width: 15rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -33,15 +34,13 @@
 }
 
 /* LEFT FOOTER ===================================== */
-.footer__left h3,
+
 .footer__middle h3,
 .footer__right h3 {
   font-family: var(--font-family-poppins);
   font-weight: var(--font-w400);
 }
-.footer__left a{
-  font-size: .8rem;
-}
+
 
 /* MIDDLE FOOTER ===================================== */
 .footer__middle a {
@@ -87,21 +86,6 @@
   font-weight: var(--font-w200);
 }
 
-.footer__social {
-  margin: 1rem 0;
-  padding: 0;
-  width: 100%;
-}
-
-.footer__social li {
-  color: var(--color-primary-lighten1);
-  font-family: var(--font-family-poppins);
-  font-weight: var(--font-w200);
-  list-style: none;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
 .footer__container a:hover {
   color: var(--color-primary-light);
 }
@@ -109,7 +93,7 @@
 /* REVIEW FOOTER ======================================================= */
 .footer__commentsContainer {
   /* background: cornflowerblue; */
-  width: 70rem;
+  width: 15rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -231,22 +215,25 @@
     flex-direction: column;
     align-items: center;
   }
+  .footer__middle,
+  .footer__right,
+  .footer__commentsContainer{
+    width: 100%;
+  }
 
   .footer__right {
     padding-bottom: 1.5rem;
   }
 
-  .footer__middle a {
-    font-size: 1.1rem;
-  }
-
+  .footer__middle a,
   .footer__right a {
     font-size: 1.1rem;
   }
-  .footer__social li a{
+
+  /* .footer__social li a{
     font-size: 1rem;
     letter-spacing: 0;
-  }
+  } */
   .footer__commentsContainer {
     width: 100%;
     padding: 0 0 2rem 0;

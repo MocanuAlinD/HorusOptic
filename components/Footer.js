@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Footer.module.css";
-import { ImMobile } from "react-icons/im";
-import { BiArrowFromLeft } from "react-icons/bi";
-import {
-  AiOutlineMail,
-  AiOutlineWhatsApp,
-  AiOutlineInstagram,
-  AiOutlinePlayCircle,
-  AiOutlinePauseCircle,
-} from "react-icons/ai";
+import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
 import { BiSkipNext } from "react-icons/bi";
 import Link from "next/link";
@@ -31,17 +23,26 @@ const Footer = () => {
     setCheckTimer(!checkTimer);
   };
 
-  const nextItem = () =>{
-    if(checkTimer === true){
+  const nextItem = () => {
+    if (checkTimer === true) {
       setCheckTimer(false);
     }
     randomItem();
-  }
+  };
 
   useEffect(() => {
     firebase.child("Contacts").on("value", (s) => {
       if (s.val() !== null) {
-        setItem(s.val()[Object.keys(s.val())[0]]);
+        // console.log(s.val()[Object.keys(s.val())[Math.floor(Math.random()*Object.keys(s.val()).length)]]);
+        // console.log(s.val()[Object.keys(s.val())[0]]);
+        // setItem(s.val()[Object.keys(s.val())[0]]);
+        setItem(
+          s.val()[
+            Object.keys(s.val())[
+              Math.floor(Math.random() * Object.keys(s.val()).length)
+            ]
+          ]
+        );
         setData(s.val());
       } else {
         setData({});
@@ -61,47 +62,6 @@ const Footer = () => {
 
   return (
     <div className={styles.footer__container}>
-      <div className={styles.footer__left}>
-        <h3>Contact</h3>
-        <hr width="100%" style={{ height: ".1rem" }} />
-        <div className={styles.footer__social}>
-          <ul>
-            <li>
-              <AiOutlineWhatsApp
-                size="1rem"
-                style={{ marginBottom: "-0.2rem", marginRight: ".5rem" }}
-              />
-              <a href="http://wa.me/+40742654258" target="_blank">
-                Scrie-ne pe WhatsApp
-              </a>
-            </li>
-            <li>
-              <ImMobile
-                size="1rem"
-                style={{ marginBottom: "-0.2rem", marginRight: ".5rem" }}
-              />
-              <a href="tel:0742654258">0742.654.258</a>
-            </li>
-            <li>
-              <AiOutlineMail
-                size="1rem"
-                style={{ marginBottom: "-0.2rem", marginRight: ".5rem" }}
-              />
-              <a href="mailto:horus_top_optic@yahoo.com">
-                horus_top_optic@yahoo.com
-              </a>
-            </li>
-            <li>
-              <AiOutlineInstagram
-                size="1rem"
-                style={{ marginBottom: "-0.2rem", marginRight: ".5rem" }}
-              />
-              <a href="#">Instagram</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
       <div className={styles.footer__middle}>
         <h3>Despre</h3>
         <hr width="100%" style={{ height: ".1rem", marginBottom: ".5rem" }} />
@@ -143,7 +103,10 @@ const Footer = () => {
       </div>
 
       <div className={styles.footer__commentsContainer}>
-        <h3 className={styles.footer__commentsTitle}>Recenzii</h3>
+        {/* <h3 className={styles.footer__commentsTitle}>Recenzii</h3> */}
+        <Link href="/recenziiClienti">
+          <a className={styles.footer__commentsTitle}>Recenzii</a>
+        </Link>
         <hr
           style={{
             width: "100%",
@@ -164,7 +127,11 @@ const Footer = () => {
             </div>
 
             <div className={styles.footer__ratingText}>
-              <h5>{item.review}</h5>
+              <h5>
+                {item.review.length > 40
+                  ? item.review.slice(0, 50) + " . . ."
+                  : item.review}
+              </h5>
               <div className={styles.recenzii__onlyStars}>
                 {[...Array(5)].map((star, i) => {
                   const ratingValue = i + 1;

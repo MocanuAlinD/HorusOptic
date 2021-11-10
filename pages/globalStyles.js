@@ -104,8 +104,8 @@ a {
 
 @media screen and (max-width:768px){
   body{
-    /* background-image: url('/bg13_tall.jpg'); */
-    background-image: none;
+    background-image: url('/bg13_tall.jpg');
+    /* background-image: none; */
     /* background: #151515; */
   }
 }
