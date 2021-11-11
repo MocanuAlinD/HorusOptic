@@ -92,7 +92,7 @@
 
 /* REVIEW FOOTER ======================================================= */
 .footer__commentsContainer {
-  /* background: cornflowerblue; */
+  /* background: var(--color-primary-dark2); */
   width: 15rem;
   display: flex;
   justify-content: flex-start;
@@ -102,6 +102,10 @@
   padding: 0 1rem;
   font-family: var(--font-family-poppins);
   color: var(--color-primary-lighten1);
+}
+
+.footer__commentsTitle{
+  align-self: flex-start;
 }
 
 .playPauseContainer{
@@ -122,14 +126,6 @@
   cursor: pointer;
   transition: var(--transition);
   border-radius: .2rem;
-}
-
-.footer__commentsContainer .footer__commentsTitle {
-  font-family: var(--font-family-poppins);
-  font-weight: var(--font-w400);
-  font-size: 1.2rem;
-  /* background: coral; */
-  width: 100%;
 }
 
 .footer__commentsContainer .footer__commentsReview {
@@ -163,7 +159,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: fit-content;
-  min-height: 5.6rem;
+  min-height: 7rem;
 }
 
 .footer__ratingText h5{
@@ -172,16 +168,30 @@
   /* background: cornflowerblue; */
   padding-bottom: .1rem;
 }
-.footer__commentsContainer .footer__btnLasaRecenzie{
+
+.bottomButtonsContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.bottomButtonsContainer a{
+  font-size: .8rem;
+  padding: 0 .3rem;
+  border-radius: .3rem;
+}
+.footer__btnLasaRecenzie{
   align-self: flex-start;
   color: var(--color-primary-dark2);
   background: var(--color-primary-light);
-  margin: 1rem 0;
-  padding: .1rem .3rem;
-  border-radius: .3rem;
+  margin: .5rem 0;
   border-bottom: 1px solid var(--color-primary-light);
 }
-.footer__commentsContainer .footer__btnLasaRecenzie:hover{
+.footer__btnVeziToate{
+  border: 1px solid var(--color-primary-light);
+  
+}
+.footer__btnLasaRecenzie:hover{
   color: var(--color-primary-light);
   background: var(--color-primary-dark2);
 }
@@ -193,17 +203,9 @@
     display: flex;
 }
 
-.recenzii__onlyStars input[type='radio']{
-    display: none;
-}
-.recenzii__onlyStars .recenzii__star{
-    /* cursor: none; */
-    transition: var(--transition);
-    margin: 0 .2rem;
-}
-.recenzii__onlyStars label{
-    display: flex;
-    flex-direction: column;
+.bottomButtonsContainer{
+  display: flex;
+
 }
 
 
@@ -236,7 +238,8 @@
   } */
   .footer__commentsContainer {
     width: 100%;
-    padding: 0 0 2rem 0;
+    padding: 0 0 1rem 0;
+    margin-bottom: 2rem;
   }
   .footer__commentsContainer .button {
     right: 5%;

@@ -44,7 +44,7 @@
   flex-direction: column;
   height: fit-content;
   margin: 0.5rem .2rem;
-  min-height: 15rem;
+  min-height: 13rem;
   width: 15rem;
 }
 .reviewItem h5{
@@ -68,23 +68,6 @@
   margin: .5rem;
 }
 
-.onlyStars {
-  display: flex;
-  padding: .2rem;
-}
-
-.onlyStars input[type="radio"] {
-  display: none;
-}
-.onlyStars .star {
-  /* cursor: none; */
-  transition: var(--transition);
-  margin: 0 0.2rem;
-}
-.onlyStars label {
-  display: flex;
-  flex-direction: column;
-}
 
 @media screen and (max-width: 768px) {
   .reviewsContainer {

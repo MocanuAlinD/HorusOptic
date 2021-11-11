@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Footer.module.css";
 import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
-import { FaStar } from "react-icons/fa";
 import { BiSkipNext } from "react-icons/bi";
 import Link from "next/link";
 import firebase from "../firebase";
+import { Skeleton } from "@mui/material";
+import Stars from "./Stars";
 
 const Footer = () => {
   const [data, setData] = useState({});
@@ -19,10 +20,6 @@ const Footer = () => {
     setItem(oneItem);
   };
 
-  const playPauseTimer = () => {
-    setCheckTimer(!checkTimer);
-  };
-
   const nextItem = () => {
     if (checkTimer === true) {
       setCheckTimer(false);
@@ -33,9 +30,7 @@ const Footer = () => {
   useEffect(() => {
     firebase.child("Contacts").on("value", (s) => {
       if (s.val() !== null) {
-        // console.log(s.val()[Object.keys(s.val())[Math.floor(Math.random()*Object.keys(s.val()).length)]]);
-        // console.log(s.val()[Object.keys(s.val())[0]]);
-        // setItem(s.val()[Object.keys(s.val())[0]]);
+        setData(s.val());
         setItem(
           s.val()[
             Object.keys(s.val())[
@@ -43,7 +38,6 @@ const Footer = () => {
             ]
           ]
         );
-        setData(s.val());
       } else {
         setData({});
       }
@@ -55,7 +49,7 @@ const Footer = () => {
 
   useEffect(() => {
     if (checkTimer) {
-      const interval = setInterval(randomItem, 5000);
+      const interval = setInterval(randomItem, 3000);
       return () => clearInterval(interval);
     }
   }, [item, checkTimer]);
@@ -103,10 +97,7 @@ const Footer = () => {
       </div>
 
       <div className={styles.footer__commentsContainer}>
-        {/* <h3 className={styles.footer__commentsTitle}>Recenzii</h3> */}
-        <Link href="/recenziiClienti">
-          <a className={styles.footer__commentsTitle}>Recenzii</a>
-        </Link>
+        <h3 className={styles.footer__commentsTitle}>Recenzii</h3>
         <hr
           style={{
             width: "100%",
@@ -114,63 +105,84 @@ const Footer = () => {
             marginBottom: ".5rem",
           }}
         />
-        {item && (
-          <div className={styles.footer__commentsReview}>
-            <div className={styles.footer__imgName}>
+
+        <div className={styles.footer__commentsReview}>
+          <div className={styles.footer__imgName}>
+            {item && (
               <img
                 src={item.picture || "/no-image.png"}
                 alt=""
                 width="25px"
                 height="25px"
               />
-              <h4>{item.name}</h4>
-            </div>
+            )}
 
-            <div className={styles.footer__ratingText}>
+            {item ? (
+              <h4>{item.name}</h4>
+            ) : (
+              <Skeleton
+                variant="text"
+                width={200}
+                height={25}
+                sx={{ bgcolor: "grey.500" }}
+              />
+            )}
+          </div>
+
+          <div className={styles.footer__ratingText}>
+            {item ? (
               <h5>
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 {item.review.length > 40
                   ? item.review.slice(0, 50) + " . . ."
                   : item.review}
               </h5>
-              <div className={styles.recenzii__onlyStars}>
-                {[...Array(5)].map((star, i) => {
-                  const ratingValue = i + 1;
-                  return (
-                    <label key={i}>
-                      <input type="radio" name="rating" value={item.rating} />
-                      <FaStar
-                        className={styles.recenzii__star}
-                        color={
-                          ratingValue <= item.rating
-                            ? "var(--color-primary-light)"
-                            : "var(--color-primary-lighten2)"
-                        }
-                        size="20"
-                      />
-                    </label>
-                  );
-                })}
-              </div>
-            </div>
+            ) : (
+              <h5>
+                <Skeleton
+                  variant="text"
+                  width={200}
+                  height={80}
+                  sx={{ bgcolor: "grey.500" }}
+                />
+              </h5>
+            )}
+
+            {item ? (
+              <Stars item={item.rating} />
+            ) : (
+              <Skeleton
+                variant="text"
+                width={200}
+                sx={{ bgcolor: "grey.500" }}
+              />
+            )}
           </div>
-        )}
+        </div>
+
         <div className={styles.playPauseContainer}>
           {checkTimer ? (
             <AiOutlinePauseCircle
               className={styles.button}
-              onClick={playPauseTimer}
+              onClick={() => setCheckTimer(!checkTimer)}
             />
           ) : (
             <AiOutlinePlayCircle
               className={styles.button}
-              onClick={playPauseTimer}
+              onClick={() => setCheckTimer(!checkTimer)}
             />
           )}
           <BiSkipNext className={styles.buttonNext} onClick={nextItem} />
         </div>
-        <Link href="/recenzii">
-          <a className={styles.footer__btnLasaRecenzie}>Lasa o recenzie</a>
-        </Link>
+
+        <div className={styles.bottomButtonsContainer}>
+          <Link href="/recenziiClienti">
+            <a className={styles.footer__btnVeziToate}>Vezi toate</a>
+          </Link>
+          <Link href="/recenzii">
+            <a className={styles.footer__btnLasaRecenzie}>Lasa o recenzie</a>
+          </Link>
+        </div>
       </div>
     </div>
   );
