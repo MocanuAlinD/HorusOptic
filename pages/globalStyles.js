@@ -55,7 +55,8 @@ body.dark {
   /* --color-primary-blue: #1a73e8; // blue */
   --color-primary-blue: #3f51b5; // blue
   --color-primary-blueHover: #303f9f; // blue hover
-  --color-extra-light: #24242388; // white opacity 18
+  /* --color-extra-light: #24242388; // white opacity 18 */
+  --color-extra-light: #00000044; // white opacity 18
   --font-family-cinzel: 'Cinzel Decorative', cursive;
   --font-family-poppins: 'Poppins', sans-serif;
   --font-w200: 200;

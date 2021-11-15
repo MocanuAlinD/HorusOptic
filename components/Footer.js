@@ -49,7 +49,7 @@ const Footer = () => {
 
   useEffect(() => {
     if (checkTimer) {
-      const interval = setInterval(randomItem, 3000);
+      const interval = setInterval(randomItem, 5000);
       return () => clearInterval(interval);
     }
   }, [item, checkTimer]);

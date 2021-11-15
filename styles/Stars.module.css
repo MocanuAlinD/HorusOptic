@@ -1,5 +1,7 @@
 .onlyStars{
     display: flex;
+    /* background: coral; */
+    padding: .3rem 0;
 }
 
 .onlyStars input[type='radio']{

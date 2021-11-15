@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/recenziiClienti.module.css";
 import firebase from "../firebase";
-// import { FaStar } from "react-icons/fa";
 import Stars from '../components/Stars'
 
 const recenziiClienti = () => {

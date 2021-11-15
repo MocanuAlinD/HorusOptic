@@ -39,12 +39,13 @@
 
 .reviewItem {
   background: var(--color-primary-dark1);
-  /* box-shadow: 0 0 2px 1px var(--color-primary-lighten1); */
+  border: 1px solid var(--color-extra-light);
+  border-radius: .3rem;
   display: flex;
   flex-direction: column;
   height: fit-content;
-  margin: 0.5rem .2rem;
-  min-height: 13rem;
+  margin: 0.3rem;
+  min-height: 14rem;
   width: 15rem;
 }
 .reviewItem h5{
@@ -53,7 +54,9 @@
     flex-grow: 1;
     padding: .5rem;
     border-bottom: 1px solid var(--color-primary-lighten1);
+    position: relative;
 }
+
 .imageName {
   display: flex;
   /* background: coral; */
@@ -75,8 +78,6 @@
   }
   .reviewItem {
     margin: 0.5rem;
-    width: 80%;
-    /* height: fit-content; */
-    min-height: 20rem;
+    width: 90%;
   }
 }
