@@ -54,6 +54,7 @@ const Footer = () => {
     }
   }, [item, checkTimer]);
 
+
   return (
     <div className={styles.footer__container}>
       <div className={styles.footer__middle}>

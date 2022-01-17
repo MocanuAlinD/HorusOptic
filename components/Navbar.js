@@ -81,14 +81,14 @@ const Navbar = ({ totalItems }) => {
           <li>
             <img src={session.user.image} alt="" />
             <Link href="/">
-              <a onClick={() => (signOut(), closeMenu())}>Sign out</a>
+              <a onClick={() => (signOut(), closeMenu())}>Log out</a>
             </Link>
           </li>
         )}
         {!session && (
           <li>
             <Link href="/recenzii">
-              <a onClick={closeMenu}>Sign in</a>
+              <a onClick={closeMenu}>Log in</a>
             </Link>
           </li>
         )}
