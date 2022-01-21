@@ -182,9 +182,9 @@ const Produse = ({
     setCurrentPage(1);
   };
 
+
   const changecat = (cat) => {
     setBrand("marcaAll");
-    buttonChange();
     setCurrentPage(1);
     if (cat === "ochelariVedere") {
       setCurrentPosts(ochelariVedereLen);
