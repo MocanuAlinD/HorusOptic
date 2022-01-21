@@ -19,13 +19,14 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="50">50</option>
+          <option value="100">100</option>
         </select>
       </div>
 
       {pageNumbers.map((number, i) => (
         <button
           // className="pagination__button"
-          className="pagination__button"
+          className={`pagination__button ${i === 0 ? "active" : ""}`}
           onClick={(e) => paginate(e, number)}
           key={number}
         >

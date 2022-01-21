@@ -223,6 +223,7 @@ const Sidebar = ({
             className={styles.searchDrop}
             spellCheck="false"
             onChange={(e) => setSearch(e.target.value.toLowerCase())}
+            value={search}
           />
         </div>
 

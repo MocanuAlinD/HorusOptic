@@ -24,8 +24,12 @@ export const getStaticProps = async () => {
   const abc = products.filter((x) => {
     return x.name && (x.categories[0].slug || x.categories[1].slug) === "rame";
   });
+
   let readingGlasses = [];
   for (let i in abc) {
+    if(abc[i].description.includes('soare')){
+      continue
+    }
     if (readingGlasses.includes(abc[i].name)) {
       continue;
     } else {
@@ -58,7 +62,7 @@ export const getStaticProps = async () => {
       readingGlasses,
       sunGlasses,
     },
-    revalidate: 1,
+    revalidate: 10,
   };
 };
 
@@ -171,15 +175,11 @@ const Produse = ({
 
   // Show products per page select
   const changeShow = (e) => {
+    let buttons = document.querySelectorAll(".pagination__button");
+    buttons.forEach((btn) => btn.classList.remove("active"));
+    buttons[0].classList.add("active")
     setPostsPerPage(e);
     setCurrentPage(1);
-    buttonChange();
-  };
-
-  const buttonChange = () => {
-    let buttons = document.querySelectorAll(".btn");
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    buttons[0] ? buttons[0].classList.add("active") : "";
   };
 
   const changecat = (cat) => {
