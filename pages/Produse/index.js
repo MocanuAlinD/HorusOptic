@@ -62,7 +62,7 @@ export const getStaticProps = async () => {
       readingGlasses,
       sunGlasses,
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 };
 
