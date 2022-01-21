@@ -21,7 +21,6 @@ const Sidebar = ({
 }) => {
 
 
-
   const sendAllCats = (e) => {
     changeCat(e);
     checkFilter(e);

@@ -18,11 +18,10 @@ export const getStaticProps = async () => {
   });
   // All the products EXPORTED
   const products = [...products_1, ...products_2].reverse(); // REMOVE REVERSE ON PRODUCTION
-
   // ==================================================================
   // Names for the brands
   const abc = products.filter((x) => {
-    return x.name && (x.categories[0].slug || x.categories[1].slug) === "rame";
+    return x.name && (x.categories[0].slug === "rame" || x.categories[1].slug === "rame");
   });
 
   let readingGlasses = [];
@@ -56,21 +55,23 @@ export const getStaticProps = async () => {
   // EXPORTED
   sunGlasses = sunGlasses.sort((a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1);
 
+  
+
   return {
     props: {
       products,
       readingGlasses,
       sunGlasses,
     },
-    revalidate: 1,
+    revalidate: 1
   };
 };
 
 // =======================================================================
 const Produse = ({
   onAddToCart,
-  products,
   loading,
+  products,
   readingGlasses,
   sunGlasses,
 }) => {
