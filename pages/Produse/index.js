@@ -67,6 +67,8 @@ export const getStaticProps = async () => {
   };
 };
 
+
+
 // =======================================================================
 const Produse = ({
   onAddToCart,
