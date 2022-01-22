@@ -7,26 +7,7 @@ import Pagination from "../../components/Pagination";
 import Head from "next/head";
 import { commerce } from "../../lib/commerce";
 
-export const getStaticProps = async () => {
-  console.log("getStaticProps from static running...........")
-  const { data: products_1 } = await commerce.products.list({
-    limit: 200,
-    category_slug: "1",
-  });
-  const { data: products_2 } = await commerce.products.list({
-    limit: 200,
-    category_slug: "2",
-  });
-  // All the products EXPORTED
-  const products = [...products_1, ...products_2].reverse(); // REMOVE REVERSE ON PRODUCTION
 
-  return {
-    revalidate: 10,
-    props: {
-      products,
-    }
-  };
-};
 
 
 
@@ -279,3 +260,28 @@ const Produse = ({
 };
 
 export default Produse;
+
+
+
+
+export async function getStaticProps (){
+  const { data: products_1 } = await commerce.products.list({
+    limit: 200,
+    category_slug: "1",
+  });
+  const { data: products_2 } = await commerce.products.list({
+    limit: 200,
+    category_slug: "2",
+  });
+  // All the products EXPORTED
+  const products = [...products_1, ...products_2].reverse(); // REMOVE REVERSE ON PRODUCTION
+
+  console.log("getStaticProps from static running...........")
+  
+  return {
+    props: {
+      products,
+    },
+    revalidate: 5,
+  };
+};
