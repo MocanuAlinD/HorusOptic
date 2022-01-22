@@ -10,11 +10,11 @@ import { commerce } from "../../lib/commerce";
 export const getStaticProps = async () => {
   console.log("getStaticProps from static running...........")
   const { data: products_1 } = await commerce.products.list({
-    limit: 200,
+    limit: 20,
     category_slug: "1",
   });
   const { data: products_2 } = await commerce.products.list({
-    limit: 200,
+    limit: 20,
     category_slug: "2",
   });
   // All the products EXPORTED
@@ -26,7 +26,7 @@ export const getStaticProps = async () => {
       // readingGlasses,
       // sunGlasses,
     },
-    revalidate: 5
+    revalidate: 30
   };
 };
 
@@ -35,11 +35,14 @@ export const getStaticProps = async () => {
 // =======================================================================
 const Produse = ({
   onAddToCart,
-  loading,
   products,
   // readingGlasses,
   // sunGlasses,
 }) => {
+
+  if (!products) {
+    return <LoadingScreen actualizare="Incarcare produse..." />;
+  }
 
 
 
@@ -123,11 +126,6 @@ const Produse = ({
     );
   });
   const ochelariAccesoriiLen = ochelariAccesorii.length;
-
-  // Spinner while is loading product
-  if (loading) {
-    return <LoadingScreen actualizare="Actualizare produse..." />;
-  }
 
   const [brand, setBrand] = useState("marcaAll");
   const [search, setSearch] = useState("");

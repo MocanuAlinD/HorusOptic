@@ -14,7 +14,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
@@ -82,7 +81,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             crossorigin="anonymous"
           ></script>
           <link
-            rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
             rel="stylesheet"
           ></link>
@@ -117,7 +115,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           order={order}
           onCaptureCheckout={handleCaptureCheckout}
           error={errorMessage}
-          loading={loading}
         />
 
         {router.pathname.includes("/Produse/[id]") ? (

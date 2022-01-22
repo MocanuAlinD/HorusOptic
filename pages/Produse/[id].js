@@ -6,7 +6,7 @@ import Head from "next/head";
 import LoadingScreen from "../../components/LoadingScreen";
 
 export const getStaticPaths = async () => {
-  console.log("getStaticPaths running!")
+  console.log("Paths running!")
   const { data: products_1 } = await commerce.products.list({
     limit: 5,
     category_slug: "1",
@@ -30,13 +30,13 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-  console.log("getStaticProps from id running!")
+  console.log("Props from id running!")
   const id = context.params.id;
   const singleProduct = await commerce.products.retrieve(id);
 
   return {
     props: { item: singleProduct },
-    revalidate: 5
+    revalidate: 30
   };
 };
 

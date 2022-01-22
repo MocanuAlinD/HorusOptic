@@ -43,12 +43,6 @@ const Navbar = ({ totalItems }) => {
     }
   };
 
-  const alin = () =>{
-    console.log('alin function')
-    signOut()
-    closeMenu()
-  }
-
   return (
     <div className={style.nav} id="nav">
       <div className={style.nav__title}>
