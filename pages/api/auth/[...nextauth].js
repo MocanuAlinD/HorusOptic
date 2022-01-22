@@ -17,7 +17,7 @@ export default NextAuth({
     // }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     }),
     // EmailProvider({
     //   server: process.env.EMAIL_SERVER,
@@ -25,4 +25,5 @@ export default NextAuth({
     // }),
     // ...add more providers here
   ],
+  secret: process.env.SECRET,
 });
