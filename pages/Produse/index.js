@@ -8,6 +8,7 @@ import Head from "next/head";
 import { commerce } from "../../lib/commerce";
 
 export const getStaticProps = async () => {
+  console.log("getStaticProps from static running...........")
   const { data: products_1 } = await commerce.products.list({
     limit: 200,
     category_slug: "1",

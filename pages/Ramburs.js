@@ -6,8 +6,6 @@ import { Button, TextField, Typography,Tooltip } from "@material-ui/core";
 import { AiFillDelete } from "react-icons/ai";
 
 const Ramburs = ({ cart, onEmptyCart }) => {
-  // console.log(cart);
-  // console.log(cart);
   if (cart.total_items === 0 || cart.total_items === undefined) {
     return <Empty />;
   }
@@ -121,7 +119,8 @@ const Ramburs = ({ cart, onEmptyCart }) => {
           type="hidden"
           name="_next"
           // value="http://localhost:3000/"
-          value="http://horus-optic.vercel.app/Produse/"
+          // value="http://horus-optic.vercel.app/Produse/"
+          value="http://horus-top-optic.ro/Produse/"
         ></input>
         <input type="hidden" name="_captcha" value="false"></input>
         <input type="hidden" name="_template" value="table"></input>
@@ -140,9 +139,9 @@ const Ramburs = ({ cart, onEmptyCart }) => {
 
         <div className={styles.ramburs__buttonsContainer}>
           <Link href="/Cart">
-              <Button color="primary" variant="outlined">
-                Inapoi la cos
-              </Button>
+            <Button color="primary" variant="outlined">
+              Inapoi la cos
+            </Button>
           </Link>
           <Button color="primary" type="submit" variant="contained">
             Trimite
