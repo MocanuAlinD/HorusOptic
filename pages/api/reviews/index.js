@@ -11,7 +11,7 @@ export default async function (req, res) {
   if (req.method === "GET") {
     const alin = await conn.query("SELECT * FROM horus");
     const alin2 = JSON.stringify(alin[0]);
-    console.log(alin2);
+    // console.log(alin2);
     res.json(alin2);
   }
   if (req.method === "POST") {

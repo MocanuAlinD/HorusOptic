@@ -8,7 +8,6 @@ import Head from "next/head";
 import { commerce } from "../../lib/commerce";
 
 export const getStaticProps = async () => {
-  console.log("getStaticProps running!")
   const { data: products_1 } = await commerce.products.list({
     limit: 200,
     category_slug: "1",
@@ -19,16 +18,44 @@ export const getStaticProps = async () => {
   });
   // All the products EXPORTED
   const products = [...products_1, ...products_2].reverse(); // REMOVE REVERSE ON PRODUCTION
+
+  return {
+    props: {
+      products,
+      // readingGlasses,
+      // sunGlasses,
+    },
+    revalidate: 5
+  };
+};
+
+
+
+// =======================================================================
+const Produse = ({
+  onAddToCart,
+  loading,
+  products,
+  // readingGlasses,
+  // sunGlasses,
+}) => {
+
+
+
+  
   // ==================================================================
   // Names for the brands
   const abc = products.filter((x) => {
-    return x.name && (x.categories[0].slug === "rame" || x.categories[1].slug === "rame");
+    return (
+      x.name &&
+      (x.categories[0].slug === "rame" || x.categories[1].slug === "rame")
+    );
   });
 
   let readingGlasses = [];
   for (let i in abc) {
-    if(abc[i].description.includes('soare')){
-      continue
+    if (abc[i].description.includes("soare")) {
+      continue;
     }
     if (readingGlasses.includes(abc[i].name)) {
       continue;
@@ -37,7 +64,9 @@ export const getStaticProps = async () => {
     }
   }
   // EXPORTED
-  readingGlasses = readingGlasses.sort((a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1);
+  readingGlasses = readingGlasses.sort(
+    (a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1
+  );
   // =======================================================
 
   const SunProducts = products.filter((x) => {
@@ -54,30 +83,21 @@ export const getStaticProps = async () => {
     }
   }
   // EXPORTED
-  sunGlasses = sunGlasses.sort((a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1);
-
-  
-
-  return {
-    props: {
-      products,
-      readingGlasses,
-      sunGlasses,
-    },
-    revalidate: 5,
-  };
-};
+  sunGlasses = sunGlasses.sort(
+    (a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1
+  );
 
 
 
-// =======================================================================
-const Produse = ({
-  onAddToCart,
-  loading,
-  products,
-  readingGlasses,
-  sunGlasses,
-}) => {
+
+
+
+
+
+
+
+
+
   const ochelariVedere = products.filter((x) => {
     return (
       (x.categories[0].slug === "rame" || x.categories[1].slug === "rame") &&
@@ -157,8 +177,8 @@ const Produse = ({
   };
 
   const searchItems = () => {
-    if(search === ''){
-      return []
+    if (search === "") {
+      return [];
     }
     const a = allProducts.filter((x) => {
       return (
@@ -181,11 +201,10 @@ const Produse = ({
   const changeShow = (e) => {
     let buttons = document.querySelectorAll(".pagination__button");
     buttons.forEach((btn) => btn.classList.remove("active"));
-    buttons[0].classList.add("active")
+    buttons[0].classList.add("active");
     setPostsPerPage(e);
     setCurrentPage(1);
   };
-
 
   const changecat = (cat) => {
     setBrand("marcaAll");
@@ -204,7 +223,6 @@ const Produse = ({
     }
   };
 
-  
   return (
     <div className={styles.produse__container} id="top">
       <Head>
