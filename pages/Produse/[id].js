@@ -35,8 +35,8 @@ export const getStaticProps = async (context) => {
   const singleProduct = await commerce.products.retrieve(id);
 
   return {
-    props: { item: singleProduct },
-    revalidate: 30
+    revalidate: 10,
+    props: { item: singleProduct }
   };
 };
 
