@@ -6,12 +6,13 @@ import Head from "next/head";
 import LoadingScreen from "../../components/LoadingScreen";
 
 export const getStaticPaths = async () => {
+  console.log("getStaticPaths running!")
   const { data: products_1 } = await commerce.products.list({
-    limit: 50,
+    limit: 5,
     category_slug: "1",
   });
   const { data: products_2 } = await commerce.products.list({
-    limit: 50,
+    limit: 5,
     category_slug: "2",
   });
   const products = [...products_1, ...products_2];
@@ -24,17 +25,18 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true
+    fallback: true,
   };
 };
 
 export const getStaticProps = async (context) => {
+  console.log("getStaticProps from id running!")
   const id = context.params.id;
   const singleProduct = await commerce.products.retrieve(id);
 
   return {
     props: { item: singleProduct },
-    revalidate: 1
+    revalidate: 5,
   };
 };
 
