@@ -8,13 +8,13 @@ import {
 import { BsSquare } from "react-icons/bs";
 
 const Sidebar = ({
+  brand,
+  brandNames,
   changeCat,
   search,
   setSearch,
   changePriceName,
-  brand,
   setBrand,
-  brandNames,
   setBrandNames,
   readingGlasses,
   sunGlasses,

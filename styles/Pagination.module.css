@@ -6,6 +6,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin-left: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .pagination__pickToShow label {

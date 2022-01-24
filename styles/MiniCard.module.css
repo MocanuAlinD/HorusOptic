@@ -2,11 +2,11 @@
   position: relative;
   background: var(--color-primary-dark2);
   display: flex;
-  width: 20rem;
+  width: 12rem;
   height: fit-content;
-  margin: 1rem;
+  margin: .5rem;
   flex-direction: column;
-  padding: 0.4rem;
+  padding: 0.2rem;
   border-radius: 0.3rem;
   transition: var(--transition);
 }
@@ -79,8 +79,10 @@
 }
 
 .miniCard__container h4 {
-  font-weight: var(--font-w600);
-  font-size: 1.5rem;
+  font-weight: var(--font-w400);
+  /* text-align: center; */
+  font-size: 1.2rem;
+  /* padding-left: .3rem; */
 }
 
 .miniCard__container h5 {
@@ -101,17 +103,17 @@
   display: flex;
   font-family: var(--font-family-poppins);
   font-size: 1rem;
-  font-weight: var(--font-w600);
-  height: 4rem;
+  font-weight: var(--font-w400);
+  height: 2.5rem;
   justify-content: center;
   left: -0.5rem;
-  padding: 2rem;
+  /* padding: 1rem; */
   pointer-events: none;
   position: absolute;
   top: -0.5rem;
   text-align: center;
   transition: var(--transition);
-  width: 4rem;
+  width: 2.5rem;
 }
 
 .miniCard__pret sub {
@@ -182,12 +184,13 @@
   background: var(--color-primary-lighten2);
   height: 1px;
   border: none;
-  margin: 0.4rem 0;
+  margin: 0.2rem 0;
 }
 
 @media screen and (max-width: 768px) {
   .miniCard__container {
-    width: 100%;
+    width: 45%;
+    margin-top: 1rem;
   }
   .miniCard__container:hover {
     box-shadow: none;
@@ -204,4 +207,30 @@
     font-size: 1.1rem;
     letter-spacing: 0.3rem;
   }
+  .miniCard__container .miniCard__pret {
+  align-items: center;
+  backdrop-filter: blur(3px);
+  /* background: var(--color-primary-dark2op); */
+  background: linear-gradient(160deg, var(--color-primary-dark2) 35%, transparent);
+  border-top: .2rem solid var(--color-primary-light);
+  border-left: .2rem solid var(--color-primary-light);
+  border-radius: 50%;
+  box-shadow: 0px .3rem .6rem .1rem var(--color-primary-dark2op);
+  color: var(--color-primary-lighten1);
+  display: flex;
+  font-family: var(--font-family-poppins);
+  font-size: 1rem;
+  font-weight: var(--font-w400);
+  height: 2.5rem;
+  justify-content: center;
+  left: 50%;
+  /* padding: 1rem; */
+  pointer-events: none;
+  position: absolute;
+  top: -1rem;
+  text-align: center;
+  transition: var(--transition);
+  transform: translateX(-50%);
+  width: 2.5rem;
+}
 }

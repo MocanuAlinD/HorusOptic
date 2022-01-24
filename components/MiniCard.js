@@ -7,6 +7,11 @@ import Link from "next/link";
 import {FiMoreHorizontal} from 'react-icons/fi'
 
 const MiniCard = ({ produs, onAddToCart }) => {
+  // console.log(produs)
+
+  // if(!produs || produs === undefined){
+  //   return <div>Nu sunt produse</div>
+  // }
 
   return (
     <div
@@ -21,13 +26,13 @@ const MiniCard = ({ produs, onAddToCart }) => {
       />
       <h4>{produs.name}</h4>
       <h5 className={styles.miniCard__pret}>
-        {produs.price.raw ? produs.price.raw : "0"}&nbsp;<sub>ron</sub>
+        {produs.price.raw ? produs.price.raw : "0"}
       </h5>
-      <h5
+      {/* <h5
         dangerouslySetInnerHTML={{
           __html: produs.description ? produs.description : "-",
         }}
-      ></h5>
+      ></h5> */}
 
       <hr className={styles.miniCard__divider} />
       <h5>
