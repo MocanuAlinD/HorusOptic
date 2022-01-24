@@ -14,6 +14,33 @@ const Produse = ({ onAddToCart, products }) => {
   }
 
   const [all, setAll] = useState(products);
+  console.log("started again")
+
+  useEffect(() => {
+    // console.log("started use effect")
+    const getNewData = async () =>{
+      const { data: products_1 } = await commerce.products.list({
+        limit: 200,
+        category_slug: "1",
+      });
+      const { data: products_2 } = await commerce.products.list({
+        limit: 200,
+        category_slug: "2",
+      });
+      const productsData = [...products_1, ...products_2].reverse();
+      if (JSON.stringify(productsData) === JSON.stringify(products)) {
+        // console.log("sunt la fel");
+        return;
+      } else {
+        // console.log("nu sunt la fel");
+        setAll(productsData);
+      }
+    }
+    getNewData()
+    // console.log("end use effect")
+    
+  }, []);
+
 
   // All glasses
   const abc = all.filter(
@@ -185,7 +212,6 @@ const Produse = ({ onAddToCart, products }) => {
 
       <div className={styles.produse__wrapper}>
         <div className={styles.produse__sidebar}>
-          <button onClick={() => refreshData()}>Refresh</button>
           <Sidebar
             brand={brand}
             brandNames={brandNames}
