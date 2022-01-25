@@ -1,46 +1,21 @@
 import React, { useState, useEffect } from "react";
-import styles from "../../styles/Produse.module.css";
-import MiniCard from "../../components/MiniCard";
-import Sidebar from "../../components/Sidebar";
-import LoadingScreen from "../../components/LoadingScreen";
-import Pagination from "../../components/Pagination";
+import styles from "../styles/Produse.module.css";
+import MiniCard from "../components/MiniCard";
+import Sidebar from "../components/Sidebar";
+import LoadingScreen from "../components/LoadingScreen";
+import Pagination from "../components/Pagination";
 import Head from "next/head";
-import { commerce } from "../../lib/commerce";
+import { commerce } from "../lib/commerce";
 
 // =======================================================================
 const Produse = ({ onAddToCart, products }) => {
-  if (!products || products === "undefined") {
-    return <LoadingScreen actualizare="Incarcare produse..." />;
-  }
+  // if (!products || products === "undefined") {
+  //   return <LoadingScreen actualizare="Incarcare produse..." />;
+  // }
 
-  const [all, setAll] = useState(products);
-  console.log("started again")
-
-  useEffect(() => {
-    // console.log("started use effect")
-    const getNewData = async () =>{
-      const { data: products_1 } = await commerce.products.list({
-        limit: 200,
-        category_slug: "1",
-      });
-      const { data: products_2 } = await commerce.products.list({
-        limit: 200,
-        category_slug: "2",
-      });
-      const productsData = [...products_1, ...products_2].reverse();
-      if (JSON.stringify(productsData) === JSON.stringify(products)) {
-        // console.log("sunt la fel");
-        return;
-      } else {
-        // console.log("nu sunt la fel");
-        setAll(productsData);
-      }
-    }
-    getNewData()
-    // console.log("end use effect")
-    
-  }, []);
-
+  const [all, setAll] = useState(JSON.parse(products));
+  // const [all, setAll] = useState(products);
+  console.log("type of all: ", all[0])
 
   // All glasses
   const abc = all.filter(
@@ -266,17 +241,20 @@ export async function getStaticProps() {
   const { data: products_1 } = await commerce.products.list({
     limit: 200,
     category_slug: "1",
-  });
+  })
   const { data: products_2 } = await commerce.products.list({
     limit: 200,
     category_slug: "2",
-  });
-  const products = [...products_1, ...products_2].reverse(); // REMOVE REVERSE ON PRODUCTION
+  })
+
+  const products = JSON.stringify([...products_1, ...products_2].reverse()) // REMOVE REVERSE ON PRODUCTION
+  // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
+  console.log("typeof products staticProps: ", typeof products);
 
   return {
     props: {
       products,
     },
-    revalidate: 5,
+    revalidate: 30,
   };
 }
