@@ -15,7 +15,7 @@ const Produse = ({ onAddToCart, products }) => {
 
   const [all, setAll] = useState(JSON.parse(products));
   // const [all, setAll] = useState(products);
-  console.log("type of all: ", all[0])
+  // console.log("type of all: ", all[0])
 
   // All glasses
   const abc = all.filter(
@@ -249,7 +249,7 @@ export async function getStaticProps() {
 
   const products = JSON.stringify([...products_1, ...products_2].reverse()) // REMOVE REVERSE ON PRODUCTION
   // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
-  console.log("typeof products staticProps: ", typeof products);
+  // console.log("typeof products staticProps: ", typeof products);
 
   return {
     props: {

@@ -33,7 +33,6 @@ export const getStaticProps = async (context) => {
   // console.log("Props from id running!")
   const id = context.params.id;
   const singleProduct = await commerce.products.retrieve(id);
-  console.log(singleProduct)
 
   return {
     props: { item: singleProduct },
