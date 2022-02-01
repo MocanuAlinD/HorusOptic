@@ -1,0 +1,236 @@
+.miniCard__container {
+  position: relative;
+  background: var(--color-primary-dark2);
+  display: flex;
+  width: 12rem;
+  height: fit-content;
+  margin: .5rem;
+  flex-direction: column;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+  transition: var(--transition);
+}
+.miniCard__cartContainer img{
+  height: 100%;
+  width: auto;
+}
+
+/* Yellow corners */
+.miniCard__container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0.08rem;
+  transform: translate(-0.08rem, -0.08rem) scale(1);
+  border-radius: 0.3rem;
+  z-index: -1;
+  background: linear-gradient(
+    45deg,
+    transparent 70%,
+    var(--color-primary-light)
+  );
+  transition: var(--transition);
+}
+
+/* Yellow corners */
+.miniCard__container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0.08rem;
+  transform: translate(-0.08rem, -0.08rem) scale(1);
+  border-radius: 0.3rem;
+  z-index: -1;
+  background: linear-gradient(
+    225deg,
+    transparent 70%,
+    var(--color-primary-light)
+  );
+  transition: var(--transition);
+}
+
+.miniCard__container:hover::before {
+  transform: scale(1.02) rotateX(180deg);
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    transparent 70%,
+    var(--color-primary-light)
+  );
+}
+.miniCard__container:hover::after {
+  transform: scale(1.01) rotateX(180deg);
+}
+.miniCard__container:hover {
+  background: var(--color-primary-dark1);
+}
+
+.miniCard__container h4,
+.miniCard__container h5 {
+  color: var(--color-primary-lighten1);
+  font-family: var(--font-family-poppins);
+  user-select: none;
+}
+
+.miniCard__container h4 {
+  font-weight: var(--font-w400);
+  /* text-align: center; */
+  font-size: 1.2rem;
+  /* padding-left: .3rem; */
+}
+
+.miniCard__container h5 {
+  font-weight: var(--font-w200);
+}
+
+/* Top left - Price*/
+.miniCard__container .miniCard__pret {
+  align-items: center;
+  backdrop-filter: blur(3px);
+  /* background: var(--color-primary-dark2op); */
+  background: linear-gradient(160deg, var(--color-primary-dark2) 35%, transparent);
+  border-top: .2rem solid var(--color-primary-light);
+  border-left: .2rem solid var(--color-primary-light);
+  border-radius: 50%;
+  box-shadow: 0px .3rem .6rem .1rem var(--color-primary-dark2op);
+  color: var(--color-primary-lighten1);
+  display: flex;
+  font-family: var(--font-family-poppins);
+  font-size: 1rem;
+  font-weight: var(--font-w400);
+  height: 2.5rem;
+  justify-content: center;
+  left: -0.5rem;
+  /* padding: 1rem; */
+  pointer-events: none;
+  position: absolute;
+  top: -0.5rem;
+  text-align: center;
+  transition: var(--transition);
+  width: 2.5rem;
+}
+
+.miniCard__pret sub {
+  font-weight: var(--font-w400);
+  font-size: 0.7rem;
+}
+
+.miniCard__cartContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.miniCard__cartContainer .miniCard__shopIcon {
+  color: var(--color-primary-light);
+}
+
+.miniCard__linkDisabled {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.miniCard__linkDisabled .miniCard__shopIconDisabled {
+  color: gray;
+  cursor: not-allowed;
+}
+
+.miniCard__container .miniCard__details {
+  position: relative;
+  user-select: none;
+}
+
+.miniCard__container .miniCard__details a {
+  color: var(--color-primary-lighten1);
+  position: absolute;
+  bottom: -.3rem;
+  left: 0;
+  font-family: var(--font-family-poppins);
+  font-size: 1.5rem;
+  /* width: 3rem; */
+  text-align: center;
+  font-weight: var(--font-w400);
+  /* border: 1px solid var(--color-primary-light); */
+  /* padding: 0.01rem 0.5rem; */
+  /* background: red; */
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.miniCard__container h5:last-of-type {
+  margin-bottom: 2rem;
+  font-weight: var(--font-w200);
+}
+
+/* In stoc */
+.miniCard__container h5 > span {
+  color: var(--color-primary-lighten1);
+  font-weight: var(--font-w400);
+}
+
+.miniCard__container h5 p:nth-child(n + 4) {
+  display: none;
+}
+
+.miniCard__divider {
+  background: var(--color-primary-lighten2);
+  height: 1px;
+  border: none;
+  margin: 0.2rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .miniCard__container {
+    width: 45%;
+    margin-top: 1rem;
+  }
+  .miniCard__container:hover {
+    box-shadow: none;
+  }
+  .miniCard__container:hover {
+    background: var(--color-primary-dark1);
+  }
+  .miniCard__container .miniCard__cartContainer button {
+    bottom: 0;
+    right: 0;
+    padding: 0.05rem 0.2rem;
+  }
+  .miniCard__container .miniCard__details a {
+    font-size: 1.1rem;
+    letter-spacing: 0.3rem;
+  }
+  .miniCard__container .miniCard__pret {
+  align-items: center;
+  backdrop-filter: blur(3px);
+  /* background: var(--color-primary-dark2op); */
+  background: linear-gradient(160deg, var(--color-primary-dark2) 35%, transparent);
+  border-top: .2rem solid var(--color-primary-light);
+  border-left: .2rem solid var(--color-primary-light);
+  border-radius: 50%;
+  box-shadow: 0px .3rem .6rem .1rem var(--color-primary-dark2op);
+  color: var(--color-primary-lighten1);
+  display: flex;
+  font-family: var(--font-family-poppins);
+  font-size: 1rem;
+  font-weight: var(--font-w400);
+  height: 2.5rem;
+  justify-content: center;
+  left: 50%;
+  /* padding: 1rem; */
+  pointer-events: none;
+  position: absolute;
+  top: -1rem;
+  text-align: center;
+  transition: var(--transition);
+  transform: translateX(-50%);
+  width: 2.5rem;
+}
+}

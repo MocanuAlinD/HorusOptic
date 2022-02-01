@@ -1,0 +1,132 @@
+/* whole screen */
+.cart__container{
+    width: 100%;
+    height: fit-content;
+    min-height: var(--minheight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-extra-light);
+    backdrop-filter: blur(5px);
+}
+
+/* content */
+.cart__wrapper{
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* upper part */
+.cart__contentUp{
+    display: block;
+    justify-content: center;
+    background: none;
+}
+
+/* lower part */
+.cart__contentDown{
+    background: var(--color-primary-dark2);
+    height: 100%;
+    width: 100%;
+    border-radius: .2rem;
+    padding-bottom: .5rem;
+}
+
+/* row with buttons */
+.cart__buttons{
+    padding: 0 .5rem;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+/* subtotal */
+.cart__contentDown h4{
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w400);
+    padding: 0 .5rem;
+    font-size: 1.3rem;
+    justify-self: flex-end;
+    width: 100%;
+    text-align: end;
+}
+
+
+/* button empty cart */
+.cart__buttons .cart__emptyCart{
+    color: var(--color-primary-lighten1);
+    border-color: var(--color-primary-lighten1);
+    transition: var(--transition);
+}
+
+/* button empty cart hover */
+.cart__buttons .cart__emptyCart:hover{
+    color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+}
+
+
+
+/* continua or plateste button */
+.cart__buttons .cart__next{
+    color: var(--color-primary-dark2);
+    background: var(--color-primary-lighten1);
+    font-weight: var(--font-w600);
+}
+
+/* continua or plateste button:hover */
+.cart__buttons .cart__next:hover{
+    background: var(--color-primary-light);
+}
+
+
+.cart_goToProducts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50%;
+    padding: 0 1rem;
+}
+
+.cart_goToProducts a{
+    color: var(--color-primary-light);
+    margin: 0 .2rem;
+    text-decoration: underline;
+    letter-spacing: .05rem;
+    font-size: 1rem;
+}
+
+
+
+.cart_goToProducts h5{
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w400);
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+/* ================================================================================ */
+/* ramburs or card */
+.cart__pickPayment{
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    align-items: center;
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+}
+
+
+@media screen and (max-width: 768px){
+    .cart__wrapper{
+        width: 100%;
+    }
+
+    .cart__contentDown{
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,39 @@
+/* Whole page */
+.checkout__container{
+    width: 100%;
+    height: fit-content;
+    min-height: 79vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+/* content container wrapper */
+.checkout__wrapper{
+    width: 35rem;
+    max-width: 100%;
+    height: fit-content;
+}
+
+/* content container */
+.checkout__container .checkout__paper{
+    /* background: var(--color-primary-lighten1); */
+    padding: .5rem;
+    margin: 1rem .3rem;
+}
+
+/* stepper */
+.checkout__container .checkout__spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* In components/Checkout/PaymentForm */
+.checkout__container .checkout__cardElement{
+    /* background: var(--color-primary-lighten1); */
+    border: .2rem solid #e8eddf;
+    padding: .5rem;
+    border-radius: .25rem;
+}

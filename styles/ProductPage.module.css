@@ -1,0 +1,132 @@
+/* Div cu imaginea si scrisu */
+.product__container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    max-height: 100vh;
+    background: var(--color-primary-dark1);
+}
+.product__container img{
+    height: 50%;
+    width: auto;
+}
+
+.product__midContainer{
+    display: flex;
+    /* width: 60%; */
+    max-width: 60%;
+    /* border: .1rem solid var(--color-primary-light); */
+}
+
+/* Imagine stanga */
+.product__imagesContainer{
+    width: 100%;
+    position: relative;
+}
+
+.product__bigImageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    transition: all .35s ease-in-out;
+}
+
+.product__smallImagesContainer{
+    width: 100%;
+    height: fit-content;
+    /* background: var(--color-primary-dark2); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .2rem 0;
+    overflow-x: auto;
+    
+}
+
+.product__smallImage{
+    min-width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .2rem .2rem;
+}
+.product__smallImage:hover{
+    cursor: pointer;
+}
+
+/* Toata partea cu scrisu din dreapta imaginii */
+.product__content {
+    width: fit-content;
+    display: inline-block;
+    padding: 0 .5rem 5.5rem;
+    position: relative;
+    white-space: nowrap;
+    /* background: var(--color-primary-dark2); */
+}
+
+/* Titlu din partea dreapta sus */
+.product__content h4:first-child {
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w600);
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+    user-select: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .3rem;
+}
+
+
+/* Descrierea */
+.product__description p {
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w200);
+    font-size: 1rem;
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* Pretul */
+.product__content h4:last-child {
+    color: var(--color-primary-light);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w400);
+    font-size: 2rem;
+    text-align: end;
+    user-select: none;
+    text-align: start;
+}
+
+@media screen and (max-width: 1182px){
+    .product__smallImagesContainer{
+        justify-content: flex-start;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    .product__container{
+        display: block;
+        width: 100%;
+        height: 100vh;
+    }
+    .product__smallImagesContainer{
+        justify-content: flex-start;
+    }
+    .product__midContainer{
+        display: block;
+        border: none;
+        margin: 0;
+        max-width: 100%;
+        height: 100%;
+    }
+    .product__content{
+        width: 100%;
+    }
+
+}

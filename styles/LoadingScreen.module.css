@@ -1,0 +1,34 @@
+.loadingScreen__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 79vh;
+}
+
+.loadingScreen__container__loader{
+    border: .3rem solid var(--color-primary-dark2);
+    border-radius: 50%;
+    border-top: .3rem solid var(--color-primary-light);
+    border-bottom: .3rem solid var(--color-primary-light);
+    width: 3.5rem;
+    height: 3.5rem;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.loadingScreen__container h2{
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w200);
+    font-size: 1rem;
+}

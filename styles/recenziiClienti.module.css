@@ -1,0 +1,84 @@
+.container {
+  min-height: var(--minheight);
+  /* background: coral; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: var(--font-family-poppins);
+}
+.container h4,
+.container h5{
+    color: var(--color-primary-lighten1);
+}
+.reviewsContainer {
+  background: var(--color-primary-dark2op);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  padding-top: 2rem;
+  width: 60%;
+  /* min-width: 60%; */
+}
+
+.reviewsContainer .title {
+  color: var(--color-primary-lighten1);
+  /* background: coral; */
+  text-align: center;
+  font-weight: var(--font-w400);
+  font-size: 1.5rem;
+  width: 100%;
+  border-bottom: 1px solid var(--color-primary-lighten1);
+
+}
+.reviewsCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reviewItem {
+  background: var(--color-primary-dark1);
+  border: 1px solid var(--color-extra-light);
+  border-radius: .3rem;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin: 0.3rem;
+  min-height: 14rem;
+  width: 15rem;
+}
+.reviewItem h5{
+    /* background: blue; */
+    font-weight: var(--font-w200);
+    flex-grow: 1;
+    padding: .5rem;
+    border-bottom: 1px solid var(--color-primary-lighten1);
+    position: relative;
+}
+
+.imageName {
+  display: flex;
+  /* background: coral; */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.imageName img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin: .5rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  .reviewsContainer {
+    width: 100%;
+    margin: 0 0;
+  }
+  .reviewItem {
+    margin: 0.5rem;
+    width: 90%;
+  }
+}

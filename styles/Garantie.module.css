@@ -1,0 +1,28 @@
+.garantie{
+    min-height: 79vh;
+    width: 100%;
+    padding: 3rem 1rem 1rem 1rem;
+    background: var(--color-primary-dark2op);
+    backdrop-filter: blur(5px);
+    width: 50%;
+    margin: 0 auto;
+}
+
+.garantie p{
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-size: .9rem;
+    margin-right: 2rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+    font-weight: var(--font-w200);
+}
+.garantie strong{
+    font-weight: var(--font-w600);
+}
+
+@media screen and (max-width:768px){
+    .garantie{
+        width: 100%;
+    }
+}

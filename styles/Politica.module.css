@@ -1,0 +1,28 @@
+.politica{
+    min-height: 79vh;
+    padding: 3rem 1rem 1rem 1rem;
+    background: var(--color-primary-dark2op);
+    backdrop-filter: blur(20px);
+    width: 50%;
+    margin: 0 auto;
+    transition: .35s ease-in-out;
+}
+
+.politica h3{
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-weight: var(--font-w400);
+}
+
+.politica p{
+    color: var(--color-primary-lighten1);
+    font-family: var(--font-family-poppins);
+    font-size: .9rem;
+    font-weight: var(--font-w200);
+}
+
+@media screen and (max-width:768px){
+    .politica{
+        width: 100%;
+    }
+}
