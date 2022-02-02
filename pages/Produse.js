@@ -192,7 +192,6 @@ const Produse = ({ onAddToCart, products }) => {
             brandNames={brandNames}
             changeCat={(cat) => changecat(cat)}
             changePriceName={(word) => changePriceName(word)}
-            search={search}
             setSearch={setSearch}
             setBrand={setBrand}
             setBrandNames={setBrandNames}
