@@ -47,7 +47,8 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, changeShow }) => {
             font-family: "Poppins", sans-serif;
             font-weight: 400;
             margin-right: 0.4rem;
-            margin-top: 0.4rem;
+            margin-top: 0.2rem;
+            margin-bottom: .2rem;
             outline: none;
             padding: 0 0.2rem;
             text-decoration: none;

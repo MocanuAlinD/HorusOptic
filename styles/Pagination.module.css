@@ -6,7 +6,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin-left: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 }
 
 .pagination__pickToShow label {
@@ -17,6 +17,12 @@
 
 .pagination__pickToShow select {
   margin-right: 1rem;
+  border: none;
+  outline: none;
+  border-radius: .2rem .2rem 0 0;
+  padding: .1rem .1rem 0 0;
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark1);
 }
 
 

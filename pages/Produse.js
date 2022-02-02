@@ -203,6 +203,7 @@ const Produse = ({ onAddToCart, products }) => {
         <div className={styles.produse__list}>
           {search === "" && brand === "marcaAll" && (
             <Pagination
+              className={styles.produse__pagination}
               setPostsPerPage={setPostsPerPage}
               postsPerPage={postsPerPage}
               totalPosts={currentPosts}
@@ -240,13 +241,13 @@ export async function getStaticProps() {
   const { data: products_1 } = await commerce.products.list({
     limit: 200,
     category_slug: "1",
-  })
+  });
   const { data: products_2 } = await commerce.products.list({
     limit: 200,
     category_slug: "2",
-  })
+  });
 
-  const products = JSON.stringify([...products_1, ...products_2].reverse()) // REMOVE REVERSE ON PRODUCTION
+  const products = JSON.stringify([...products_1, ...products_2].reverse()); // REMOVE REVERSE ON PRODUCTION
   // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
   // console.log("typeof products staticProps: ", typeof products);
 

@@ -95,9 +95,6 @@
     background: var(--color-primary-light);
     color: var(--color-primary-dark1);
     border-radius: .3rem;
-    /* appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none; */
 }
 
 @media screen and (max-width: 768px) {
@@ -106,7 +103,6 @@
         margin-top: .1rem;
     }
     .mobile{
-        /* background: coral; */
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
