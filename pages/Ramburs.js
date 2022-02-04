@@ -13,7 +13,8 @@ const Ramburs = ({ cart, onEmptyCart }) => {
   return (
     <div className={styles.ramburs__container}>
       <form
-        action="https://formsubmit.co/81b98d1d934c3b7f0e32bc02eb386532"
+        // action="https://formsubmit.co/81b98d1d934c3b7f0e32bc02eb386532"
+        action="https://formsubmit.co/98234e676a87a1c2137ab8ba2b1077fb"
         method="POST"
         onSubmit={onEmptyCart}
       >
