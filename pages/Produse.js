@@ -5,10 +5,32 @@ import Sidebar from "../components/Sidebar";
 import Pagination from "../components/Pagination";
 import Head from "next/head";
 import { commerce } from "../lib/commerce";
+import Image from "next/image";
+
+export async function getStaticProps() {
+  const { data: products_1 } = await commerce.products.list({
+    limit: 200,
+    category_slug: "1",
+  });
+  const { data: products_2 } = await commerce.products.list({
+    limit: 200,
+    category_slug: "2",
+  });
+
+  const products = JSON.stringify([...products_1, ...products_2].reverse()); // REMOVE REVERSE ON PRODUCTION
+  // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
+  // console.log("typeof products staticProps: ", typeof products);
+
+  return {
+    props: {
+      products,
+    },
+    revalidate: 5,
+  };
+}
 
 // =======================================================================
 const Produse = ({ onAddToCart, products }) => {
-
   const [all, setAll] = useState(JSON.parse(products));
 
   // All glasses
@@ -89,7 +111,6 @@ const Produse = ({ onAddToCart, products }) => {
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-
 
   const changeBrand = () => {
     if (brand === "marcaAll") {
@@ -197,7 +218,7 @@ const Produse = ({ onAddToCart, products }) => {
         </div>
 
         <div className={styles.produse__list}>
-          {search === "" && brand === "marcaAll" && (
+          {/* {search === "" && brand === "marcaAll" && (
             <Pagination
               className={styles.produse__pagination}
               setPostsPerPage={setPostsPerPage}
@@ -206,25 +227,42 @@ const Produse = ({ onAddToCart, products }) => {
               paginate={paginate}
               changeShow={changeShow}
             />
-          )}
+          )} */}
 
-          {search !== "" && (
+          {/* {search !== "" && (
             <h3 className={styles.produse__searchResult}>
               {searchItems().length}{" "}
               {searchItems().length === 1 ? "produs" : "produse"}{" "}
               {searchItems().length === 1 ? "gasit" : "gasite"}
             </h3>
-          )}
+          )} */}
           {/* Products */}
-          {search === "" &&
+          {/* {search === "" &&
             changeBrand(allProducts).map((prd) => (
               <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} />
-            ))}
-          {search !== ""
-            ? searchItems().map((prd) => (
-                <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} />
-              ))
-            : []}
+            ))} */}
+          {all.map((item, index) => (
+            <div key={index} style={{ width: "30%", margin: ".5rem", padding: ".5rem", border: "1px solid white" }}>
+              <Image
+                layout="responsive"
+                as="image"
+                src={item.media.source}
+                width={1920}
+                height={1080}
+              />
+              <h4 style={{ color: "white", fontWeight: "200" }}>{item.name}</h4>
+              {/* <h4 style={{ color: "white", fontWeight: "200" }}>{item.id}</h4> */}
+              <h4 style={{ color: "white", fontWeight: "200" }}>
+                {item.price.raw}
+              </h4>
+              <h4
+                style={{ color: "white", fontWeight: "200" }}
+                dangerouslySetInnerHTML={{
+                  __html: item.description ? item.description : "-",
+                }}
+              ></h4>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -232,25 +270,3 @@ const Produse = ({ onAddToCart, products }) => {
 };
 
 export default Produse;
-
-export async function getStaticProps() {
-  const { data: products_1 } = await commerce.products.list({
-    limit: 200,
-    category_slug: "1",
-  });
-  const { data: products_2 } = await commerce.products.list({
-    limit: 200,
-    category_slug: "2",
-  });
-
-  const products = JSON.stringify([...products_1, ...products_2].reverse()); // REMOVE REVERSE ON PRODUCTION
-  // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
-  // console.log("typeof products staticProps: ", typeof products);
-
-  return {
-    props: {
-      products,
-    },
-    revalidate: 5,
-  };
-}
