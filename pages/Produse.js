@@ -98,7 +98,8 @@ const Produse = ({ onAddToCart, products }) => {
 
   const changeBrand = () => {
     if (brand === "marcaAll") {
-      return allProducts.slice(indexOfFirstPost, indexOfLastPost);
+      // return allProducts.slice(indexOfFirstPost, indexOfLastPost);
+      return allProducts
     }
     if (brand !== "marcaAll") {
       return allProducts.filter((m) => {
@@ -201,7 +202,7 @@ const Produse = ({ onAddToCart, products }) => {
         </div>
 
         <div className={styles.produse__list}>
-          {search === "" && brand === "marcaAll" && (
+          {/* {search === "" && brand === "marcaAll" && (
             <Pagination
               className={styles.produse__pagination}
               setPostsPerPage={setPostsPerPage}
@@ -210,7 +211,7 @@ const Produse = ({ onAddToCart, products }) => {
               paginate={paginate}
               changeShow={changeShow}
             />
-          )}
+          )} */}
 
           {search !== "" && (
             <h3 className={styles.produse__searchResult}>
