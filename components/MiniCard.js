@@ -71,7 +71,7 @@ const MiniCard = ({ produs, onAddToCart }) => {
       )}
 
       <div className={styles.miniCard__details}>
-        <Link href={"/produse/" + produs.id}>
+        <Link href={"/Produse/" + produs.id}>
           <a target="_blank">
             <FiMoreHorizontal title="Vezi detalii produs" />
           </a>

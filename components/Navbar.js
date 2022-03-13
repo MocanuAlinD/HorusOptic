@@ -56,7 +56,7 @@ const Navbar = ({ totalItems }) => {
           </Link>
         </li>
         <li>
-          <Link href="/produse">
+          <Link href="/Produse">
             <a onClick={closeMenu}>Produse</a>
           </Link>
         </li>

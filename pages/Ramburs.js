@@ -121,7 +121,7 @@ const Ramburs = ({ cart, onEmptyCart }) => {
           name="_next"
           // value="http://localhost:3000/"
           // value="http://horus-optic.vercel.app/Produse/"
-          value="http://horus-top-optic.ro/produse/"
+          value="http://horus-top-optic.ro/Produse/"
         ></input>
         <input type="hidden" name="_captcha" value="false"></input>
         <input type="hidden" name="_template" value="table"></input>
