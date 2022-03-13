@@ -93,7 +93,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
             <div className={styles.cart_goToProducts}>
               <h5>
                 Nu aveti produse in cos.{" "}
-                <Link href="/Produse">
+                <Link href="/produse">
                   <a>Aici</a>
                 </Link>{" "}
                 vedeti produsele noastre.

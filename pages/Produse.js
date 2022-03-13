@@ -1,11 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Produse.module.css";
 import MiniCard from "../components/MiniCard";
 import Sidebar from "../components/Sidebar";
-import LoadingScreen from "../components/LoadingScreen";
 import Pagination from "../components/Pagination";
 import Head from "next/head";
 import { commerce } from "../lib/commerce";
+
+export async function getStaticProps() {
+  const { data: products_1 } = await commerce.products.list({
+    limit: 200,
+    category_slug: "1",
+  });
+  const { data: products_2 } = await commerce.products.list({
+    limit: 200,
+    category_slug: "2",
+  });
+
+  const products = JSON.stringify([...products_1, ...products_2].reverse()); // REMOVE REVERSE ON PRODUCTION
+  // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
+  // console.log("typeof products staticProps: ", typeof products);
+
+  return {
+    props: {
+      products,
+    },
+    revalidate: 10,
+  };
+}
+
+
+
 
 // =======================================================================
 const Produse = ({ onAddToCart, products }) => {
@@ -98,8 +122,8 @@ const Produse = ({ onAddToCart, products }) => {
 
   const changeBrand = () => {
     if (brand === "marcaAll") {
-      // return allProducts.slice(indexOfFirstPost, indexOfLastPost);
-      return allProducts
+      return allProducts.slice(indexOfFirstPost, indexOfLastPost);
+      // return allProducts
     }
     if (brand !== "marcaAll") {
       return allProducts.filter((m) => {
@@ -202,7 +226,7 @@ const Produse = ({ onAddToCart, products }) => {
         </div>
 
         <div className={styles.produse__list}>
-          {/* {search === "" && brand === "marcaAll" && (
+          {search === "" && brand === "marcaAll" && (
             <Pagination
               className={styles.produse__pagination}
               setPostsPerPage={setPostsPerPage}
@@ -211,7 +235,7 @@ const Produse = ({ onAddToCart, products }) => {
               paginate={paginate}
               changeShow={changeShow}
             />
-          )} */}
+          )}
 
           {search !== "" && (
             <h3 className={styles.produse__searchResult}>
@@ -238,24 +262,4 @@ const Produse = ({ onAddToCart, products }) => {
 
 export default Produse;
 
-export async function getStaticProps() {
-  const { data: products_1 } = await commerce.products.list({
-    limit: 200,
-    category_slug: "1",
-  });
-  const { data: products_2 } = await commerce.products.list({
-    limit: 200,
-    category_slug: "2",
-  });
 
-  const products = JSON.stringify([...products_1, ...products_2].reverse()); // REMOVE REVERSE ON PRODUCTION
-  // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
-  // console.log("typeof products staticProps: ", typeof products);
-
-  return {
-    props: {
-      products,
-    },
-    revalidate: 30,
-  };
-}

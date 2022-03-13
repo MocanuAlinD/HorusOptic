@@ -99,7 +99,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           ></link>
         </Head>
 
-        {!router.pathname.includes("/Produse/[id]") && (
+        {!router.pathname.includes("/produse/[id]") && (
           <Navbar
             totalItems={cart.total_items === 0 ? null : cart.total_items}
           />
@@ -117,7 +117,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           error={errorMessage}
         />
 
-        {router.pathname.includes("/Produse/[id]") ? (
+        {router.pathname.includes("/produse/[id]") ? (
           ""
         ) : (
           <Footer />
