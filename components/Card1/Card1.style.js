@@ -27,7 +27,6 @@ export const Mission = styled.div`
   overflow: hidden;
   &:hover {
     height: 23rem;
-    /* background: var(--color-primary-lighten1); */
   }
   &:hover .ulMission {
     transform: translateY(0);
@@ -37,7 +36,6 @@ export const Mission = styled.div`
   @media screen and (max-width: 768px) {
     width: 100%;
     height: fit-content;
-    /* background: var(--color-extra-light); */
     &:hover {
       height: fit-content;
     }
@@ -122,7 +120,6 @@ export const Cards = styled.div`
   }
   &:hover {
     height: 11rem;
-    /* background: var(--color-primary-lighten1); */
   }
   &:hover .forHide {
     transform: translateY(0);
@@ -131,12 +128,11 @@ export const Cards = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 100%;
-    /* background: var(--color-primary-lighten1); */
     height: fit-content;
     padding-bottom: 0.5rem;
     &:hover {
       height: fit-content;
-      background: var(--color-primary-lighten1);
+      background: none;
     }
     &:hover .forHide {
       transform: none;
