@@ -8,176 +8,170 @@ import { commerce } from "../lib/commerce";
 
 // =======================================================================
 const Produse = ({ onAddToCart, products }) => {
-  // if (!products || products === "undefined") {
-  //   return <LoadingScreen actualizare="Incarcare produse..." />;
-  // }
-
   const [all, setAll] = useState(JSON.parse(products));
-  // const [all, setAll] = useState(products);
-  // console.log("type of all: ", all[0])
 
   // All glasses
-  const abc = all.filter(
-    (x) =>
-      x.name &&
-      (x.categories[0].slug === "rame" || x.categories[1].slug === "rame")
-  );
+  // const abc = all.filter(
+  //   (x) =>
+  //     x.name &&
+  //     (x.categories[0].slug === "rame" || x.categories[1].slug === "rame")
+  // );
   // ===================================================================
 
   // Reading glasses - all products
-  const ochelariVedere = all.filter((x) => {
-    return (
-      (x.categories[0].slug === "rame" || x.categories[1].slug === "rame") &&
-      !(x.name && x.description.includes("soare"))
-    );
-  });
-  const ochelariVedereLen = ochelariVedere.length;
+  // const ochelariVedere = all.filter((x) => {
+  //   return (
+  //     (x.categories[0].slug === "rame" || x.categories[1].slug === "rame") &&
+  //     !(x.name && x.description.includes("soare"))
+  //   );
+  // });
+  // const ochelariVedereLen = ochelariVedere.length;
 
   // Reading glasses - brand names
-  let readingGlasses = [];
-  for (let i in abc) {
-    if (abc[i].description.includes("soare")) {
-      continue;
-    }
-    if (readingGlasses.includes(abc[i].name)) {
-      continue;
-    } else {
-      readingGlasses.push(abc[i].name);
-    }
-  }
+  // let readingGlasses = [];
+  // for (let i in abc) {
+  //   if (abc[i].description.includes("soare")) {
+  //     continue;
+  //   }
+  //   if (readingGlasses.includes(abc[i].name)) {
+  //     continue;
+  //   } else {
+  //     readingGlasses.push(abc[i].name);
+  //   }
+  // }
 
-  readingGlasses = readingGlasses.sort(
-    (a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1
-  );
+  // readingGlasses = readingGlasses.sort(
+  //   (a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1
+  // );
   // =======================================================
 
   // Sun glasses - all products
-  const ochelariSoare = all.filter((x) => {
-    return x.description && x.description.includes("soare");
-  });
-  const ochelariSoareLen = ochelariSoare.length;
+  // const ochelariSoare = all.filter((x) => {
+  //   return x.description && x.description.includes("soare");
+  // });
+  // const ochelariSoareLen = ochelariSoare.length;
 
   // Sun glasses - brand names
-  let sunGlasses = [];
+  // let sunGlasses = [];
 
-  for (let i in ochelariSoare) {
-    if (sunGlasses.includes(ochelariSoare[i].name)) {
-      continue;
-    } else {
-      sunGlasses.push(ochelariSoare[i].name);
-    }
-  }
-  sunGlasses = sunGlasses.sort(
-    (a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1
-  );
+  // for (let i in ochelariSoare) {
+  //   if (sunGlasses.includes(ochelariSoare[i].name)) {
+  //     continue;
+  //   } else {
+  //     sunGlasses.push(ochelariSoare[i].name);
+  //   }
+  // }
+  // sunGlasses = sunGlasses.sort(
+  //   (a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1
+  // );
   // ============================================================
 
   // Accesories - all products (doesnt have brand names)
-  const ochelariAccesorii = all.filter((x) => {
-    return (
-      x.categories[0].slug === "accesorii" ||
-      x.categories[1].slug === "accesorii"
-    );
-  });
-  const ochelariAccesoriiLen = ochelariAccesorii.length;
+  // const ochelariAccesorii = all.filter((x) => {
+  //   return (
+  //     x.categories[0].slug === "accesorii" ||
+  //     x.categories[1].slug === "accesorii"
+  //   );
+  // });
+  // const ochelariAccesoriiLen = ochelariAccesorii.length;
   // ============================================================
 
-  const [brand, setBrand] = useState("marcaAll");
-  const [search, setSearch] = useState("");
-  const [def, setDef] = useState("mic");
+  // const [brand, setBrand] = useState("marcaAll");
+  // const [search, setSearch] = useState("");
+  // const [def, setDef] = useState("mic");
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
-  const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen);
-  const [allProducts, setAllProducts] = useState(ochelariVedere);
-  const [brandNames, setBrandNames] = useState(readingGlasses);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [postsPerPage, setPostsPerPage] = useState(10);
+  // const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen);
+  // const [allProducts, setAllProducts] = useState(ochelariVedere);
+  // const [brandNames, setBrandNames] = useState(readingGlasses);
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  // const indexOfLastPost = currentPage * postsPerPage;
+  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-  const changeBrand = () => {
-    if (brand === "marcaAll") {
-      return allProducts.slice(indexOfFirstPost, indexOfLastPost);
-      // return allProducts
-    }
-    if (brand !== "marcaAll") {
-      return allProducts.filter((m) => {
-        return m.name && m.name === brand;
-      });
-    }
-  };
+  // const changeBrand = () => {
+  //   if (brand === "marcaAll") {
+  //     return allProducts.slice(indexOfFirstPost, indexOfLastPost);
+  //     return allProducts
+  //   }
+  //   if (brand !== "marcaAll") {
+  //     return allProducts.filter((m) => {
+  //       return m.name && m.name === brand;
+  //     });
+  //   }
+  // };
 
-  const changePriceName = (e) => {
-    setDef(e);
-    if (e === "mic") {
-      return allProducts.sort(
-        (a, b) => (parseInt(a.price.raw) > parseInt(b.price.raw) && 1) || -1
-      );
-    }
-    if (e === "mare") {
-      return allProducts.sort(
-        (a, b) => (parseInt(a.price.raw) < parseInt(b.price.raw) && 1) || -1
-      );
-    }
-    if (e === "atoz") {
-      return allProducts.sort(
-        (a, b) => (a.name.toLowerCase() > b.name.toLowerCase() && 1) || -1
-      );
-    }
-    if (e === "ztoa") {
-      return allProducts.sort(
-        (a, b) => (a.name.toLowerCase() < b.name.toLowerCase() && 1) || -1
-      );
-    }
-  };
+  // const changePriceName = (e) => {
+  //   setDef(e);
+  //   if (e === "mic") {
+  //     return allProducts.sort(
+  //       (a, b) => (parseInt(a.price.raw) > parseInt(b.price.raw) && 1) || -1
+  //     );
+  //   }
+  //   if (e === "mare") {
+  //     return allProducts.sort(
+  //       (a, b) => (parseInt(a.price.raw) < parseInt(b.price.raw) && 1) || -1
+  //     );
+  //   }
+  //   if (e === "atoz") {
+  //     return allProducts.sort(
+  //       (a, b) => (a.name.toLowerCase() > b.name.toLowerCase() && 1) || -1
+  //     );
+  //   }
+  //   if (e === "ztoa") {
+  //     return allProducts.sort(
+  //       (a, b) => (a.name.toLowerCase() < b.name.toLowerCase() && 1) || -1
+  //     );
+  //   }
+  // };
 
-  const searchItems = () => {
-    if (search === "") {
-      return [];
-    }
-    const a = allProducts.filter((x) => {
-      return (
-        (x.name && x.name.toLowerCase().includes(search)) ||
-        (x.description && x.description.toLowerCase().includes(search))
-      );
-    });
-    return a;
-  };
+  // const searchItems = () => {
+  //   if (search === "") {
+  //     return [];
+  //   }
+  //   const a = allProducts.filter((x) => {
+  //     return (
+  //       (x.name && x.name.toLowerCase().includes(search)) ||
+  //       (x.description && x.description.toLowerCase().includes(search))
+  //     );
+  //   });
+  //   return a;
+  // };
 
   // Change page
-  const paginate = (e, pageNumber) => {
-    setCurrentPage(pageNumber);
-    let buttons = document.querySelectorAll(".pagination__button");
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    e.target.classList.add("active");
-  };
+  // const paginate = (e, pageNumber) => {
+  //   setCurrentPage(pageNumber);
+  //   let buttons = document.querySelectorAll(".pagination__button");
+  //   buttons.forEach((btn) => btn.classList.remove("active"));
+  //   e.target.classList.add("active");
+  // };
 
   // Show products per page select
-  const changeShow = (e) => {
-    let buttons = document.querySelectorAll(".pagination__button");
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    buttons[0].classList.add("active");
-    setPostsPerPage(e);
-    setCurrentPage(1);
-  };
+  // const changeShow = (e) => {
+  //   let buttons = document.querySelectorAll(".pagination__button");
+  //   buttons.forEach((btn) => btn.classList.remove("active"));
+  //   buttons[0].classList.add("active");
+  //   setPostsPerPage(e);
+  //   setCurrentPage(1);
+  // };
 
   // Change category
-  const changecat = (cat) => {
-    setBrand("marcaAll");
-    setCurrentPage(1);
-    if (cat === "ochelariVedere") {
-      setCurrentPosts(ochelariVedereLen);
-      setAllProducts(ochelariVedere);
-    }
-    if (cat === "ochelariSoare") {
-      setCurrentPosts(ochelariSoareLen);
-      setAllProducts(ochelariSoare);
-    }
-    if (cat === "ochelariAccesorii") {
-      setCurrentPosts(ochelariAccesoriiLen);
-      setAllProducts(ochelariAccesorii);
-    }
-  };
+  // const changecat = (cat) => {
+  //   setBrand("marcaAll");
+  //   setCurrentPage(1);
+  //   if (cat === "ochelariVedere") {
+  //     setCurrentPosts(ochelariVedereLen);
+  //     setAllProducts(ochelariVedere);
+  //   }
+  //   if (cat === "ochelariSoare") {
+  //     setCurrentPosts(ochelariSoareLen);
+  //     setAllProducts(ochelariSoare);
+  //   }
+  //   if (cat === "ochelariAccesorii") {
+  //     setCurrentPosts(ochelariAccesoriiLen);
+  //     setAllProducts(ochelariAccesorii);
+  //   }
+  // };
 
   return (
     <div className={styles.produse__container} id="top">
@@ -186,7 +180,7 @@ const Produse = ({ onAddToCart, products }) => {
       </Head>
 
       <div className={styles.produse__wrapper}>
-        <div className={styles.produse__sidebar}>
+        {/* <div className={styles.produse__sidebar}>
           <Sidebar
             brand={brand}
             brandNames={brandNames}
@@ -198,10 +192,10 @@ const Produse = ({ onAddToCart, products }) => {
             readingGlasses={readingGlasses}
             sunGlasses={sunGlasses}
           />
-        </div>
+        </div> */}
 
         <div className={styles.produse__list}>
-          {search === "" && brand === "marcaAll" && (
+          {/* {search === "" && brand === "marcaAll" && (
             <Pagination
               className={styles.produse__pagination}
               setPostsPerPage={setPostsPerPage}
@@ -210,17 +204,17 @@ const Produse = ({ onAddToCart, products }) => {
               paginate={paginate}
               changeShow={changeShow}
             />
-          )}
+          )} */}
 
-          {search !== "" && (
+          {/* {search !== "" && (
             <h3 className={styles.produse__searchResult}>
               {searchItems().length}{" "}
               {searchItems().length === 1 ? "produs" : "produse"}{" "}
               {searchItems().length === 1 ? "gasit" : "gasite"}
             </h3>
-          )}
+          )} */}
           {/* Products */}
-          {search === "" &&
+          {/* {search === "" &&
             changeBrand(allProducts).map((prd) => (
               <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} />
             ))}
@@ -228,7 +222,12 @@ const Produse = ({ onAddToCart, products }) => {
             ? searchItems().map((prd) => (
                 <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} />
               ))
-            : []}
+            : []} */}
+
+          {
+            all.map((prd) => (
+              <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} />
+            ))}
         </div>
       </div>
     </div>
