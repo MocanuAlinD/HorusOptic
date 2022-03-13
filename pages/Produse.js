@@ -7,7 +7,7 @@ import Head from "next/head";
 import { commerce } from "../lib/commerce";
 
 // =======================================================================
-const Produse = ({ onAddToCart, products }) => {
+const produse = ({ onAddToCart, products }) => {
   // if (!products || products === "undefined") {
   //   return <LoadingScreen actualizare="Incarcare produse..." />;
   // }
@@ -235,7 +235,7 @@ const Produse = ({ onAddToCart, products }) => {
   );
 };
 
-export default Produse;
+export default produse;
 
 export async function getStaticProps() {
   const { data: products_1 } = await commerce.products.list({
