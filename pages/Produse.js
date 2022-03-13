@@ -6,31 +6,6 @@ import Pagination from "../components/Pagination";
 import Head from "next/head";
 import { commerce } from "../lib/commerce";
 
-export async function getStaticProps() {
-  const { data: products_1 } = await commerce.products.list({
-    limit: 200,
-    category_slug: "1",
-  });
-  const { data: products_2 } = await commerce.products.list({
-    limit: 200,
-    category_slug: "2",
-  });
-
-  const products = JSON.stringify([...products_1, ...products_2].reverse()); // REMOVE REVERSE ON PRODUCTION
-  // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
-  // console.log("typeof products staticProps: ", typeof products);
-
-  return {
-    props: {
-      products,
-    },
-    revalidate: 10,
-  };
-}
-
-
-
-
 // =======================================================================
 const Produse = ({ onAddToCart, products }) => {
   // if (!products || products === "undefined") {
@@ -262,4 +237,24 @@ const Produse = ({ onAddToCart, products }) => {
 
 export default Produse;
 
+export async function getStaticProps() {
+  const { data: products_1 } = await commerce.products.list({
+    limit: 200,
+    category_slug: "1",
+  });
+  const { data: products_2 } = await commerce.products.list({
+    limit: 200,
+    category_slug: "2",
+  });
 
+  const products = JSON.stringify([...products_1, ...products_2].reverse()); // REMOVE REVERSE ON PRODUCTION
+  // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
+  // console.log("typeof products staticProps: ", typeof products);
+
+  return {
+    props: {
+      products,
+    },
+    revalidate: 10,
+  };
+}
