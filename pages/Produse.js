@@ -258,6 +258,11 @@ const Produse = ({ onAddToCart, products }) => {
             changeBrand(allProducts).map((prd) => (
               <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} />
             ))}
+          {search !== ""
+            ? searchItems().map((prd) => (
+                <MiniCard onAddToCart={onAddToCart} key={prd.id} produs={prd} />
+              ))
+            : []}
         </div>
       </div>
     </div>

@@ -187,6 +187,8 @@
   margin: 0.2rem 0;
 }
 
+
+
 @media screen and (max-width: 768px) {
   .miniCard__container {
     width: 45%;
@@ -233,4 +235,10 @@
   transform: translateX(-50%);
   width: 2.5rem;
 }
+}
+
+@media screen and (max-width: 350px){
+  .miniCard__container{
+    width: 100%;
+  }
 }

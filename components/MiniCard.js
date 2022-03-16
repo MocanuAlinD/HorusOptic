@@ -17,8 +17,8 @@ const MiniCard = ({ produs, onAddToCart }) => {
         layout="intrinsic"
         as="image"
         src={produs.imgUrl.slice(20)}
-        width={192}
-        height={108}
+        width={1920}
+        height={1080}
       />
       <h4>{produs.name}</h4>
       <h5 className={styles.miniCard__pret}>
