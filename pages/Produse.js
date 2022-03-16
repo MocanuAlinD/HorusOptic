@@ -5,7 +5,6 @@ import Sidebar from "../components/Sidebar";
 import Pagination from "../components/Pagination";
 import Head from "next/head";
 import { commerce } from "../lib/commerce";
-import Image from "next/image";
 
 export async function getStaticProps() {
   const { data: products_1 } = await commerce.products.list({
@@ -17,7 +16,25 @@ export async function getStaticProps() {
     category_slug: "2",
   });
 
-  const products = JSON.stringify([...products_1, ...products_2].reverse()); // REMOVE REVERSE ON PRODUCTION
+  const tempList = []
+  const both = [...products_1, ...products_2]
+
+  both.map(item=>{
+    const tempItem = {
+      id: item.id,
+      imgDim: item.image.dimensions,
+      imgUrl: item.image.url,
+      name: item.name,
+      price: item.price.raw,
+      inventory: item.inventory,
+      categories: item.categories,
+      description: item.description
+    }
+    tempList.push(tempItem)
+  })
+
+  const products = JSON.stringify(tempList)
+  // const products = JSON.stringify([...products_1, ...products_2].reverse()); // REMOVE REVERSE ON PRODUCTION
   // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
   // console.log("typeof products staticProps: ", typeof products);
 
@@ -25,7 +42,7 @@ export async function getStaticProps() {
     props: {
       products,
     },
-    revalidate: 5,
+    revalidate: 10,
   };
 }
 

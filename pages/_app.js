@@ -78,7 +78,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           />
           <script
             src="https://kit.fontawesome.com/cbb96f47ca.js"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           ></script>
           <link
             href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
