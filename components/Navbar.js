@@ -3,7 +3,6 @@ import Link from "next/link";
 import style from "../styles/navbar.module.css";
 import { GiEyeOfHorus } from "react-icons/gi";
 import { BiSun, BiMoon } from "react-icons/bi";
-import { MdBrightnessMedium } from "react-icons/md";
 import { useState } from "react";
 import { IconButton, Badge } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";

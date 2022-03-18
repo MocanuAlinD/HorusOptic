@@ -16,105 +16,67 @@ export async function getStaticProps() {
     category_slug: "2",
   });
 
-  const tempList = []
-  const both = [...products_1, ...products_2]
+  const tempList = [];
+  const both = [...products_1, ...products_2];
 
-  both.map(item=>{
+  both.map((item) => {
     const tempItem = {
       id: item.id,
-      imgDim: item.image.dimensions,
       imgUrl: item.image.url,
       name: item.name,
       price: item.price.raw,
       inventory: item.inventory,
       categories: item.categories,
-      description: item.description
-    }
-    tempList.push(tempItem)
-  })
+      description: item.description,
+    };
+    tempList.push(tempItem);
+  });
 
-  const products = JSON.stringify(tempList)
-  // const products = JSON.stringify([...products_1, ...products_2].reverse()); // REMOVE REVERSE ON PRODUCTION
-  // const products = [...products_1, ...products_2].reverse() // REMOVE REVERSE ON PRODUCTION
-  // console.log("typeof products staticProps: ", typeof products);
+  const products = JSON.stringify(tempList);
 
   return {
     props: {
       products,
     },
-    revalidate: 10,
+    revalidate: 5,
   };
 }
 
 // =======================================================================
-const Produse = ({ onAddToCart, products }) => {
-  const [all, setAll] = useState(JSON.parse(products));
+const Produse = ({ onAddToCart, products  }) => {
 
-  // All glasses
-  const abc = all.filter(
-    (x) =>
-      x.name &&
-      (x.categories[0].slug === "rame" || x.categories[1].slug === "rame")
-  );
-  // ===================================================================
+  const consu = JSON.parse(products)
+  const listVedere = []
+  const listSoare = []
+  const listAccesorii = []
+  const brandNameV = []
+  const brandNameS = []
 
-  // Reading glasses - all products
-  const ochelariVedere = all.filter((x) => {
-    return (
-      (x.categories[0].slug === "rame" || x.categories[1].slug === "rame") &&
-      !(x.name && x.description.includes("soare"))
-    );
-  });
-  const ochelariVedereLen = ochelariVedere.length;
-
-  // Reading glasses - brand names
-  let readingGlasses = [];
-  for (let i in abc) {
-    if (abc[i].description.includes("soare")) {
-      continue;
+  consu.map(item => {
+    if(item.categories[0].slug === 'rame' || item.categories[1].slug === 'rame'){
+      if(item.description.includes('soare')){
+        listSoare.push(item)
+        if(!brandNameS.includes(item.name)){
+          brandNameS.push(item.name)
+        }
+      } else {
+        listVedere.push(item)
+        if(!brandNameV.includes(item.name)){
+          brandNameV.push(item.name)
+        }
+      }
     }
-    if (readingGlasses.includes(abc[i].name)) {
-      continue;
-    } else {
-      readingGlasses.push(abc[i].name);
+    if(item.categories[0].slug === 'accesorii' || item.categories[1].slug === 'accesorii'){
+      listAccesorii.push(item)
     }
-  }
+  })
 
-  readingGlasses = readingGlasses.sort(
-    (a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1
-  );
-  // =======================================================
+  const brandNameVedere = brandNameV.sort((a,b)=> (a > b && 1) || -1)
+  const brandNameSoare = brandNameS.sort((a,b)=> (a > b && 1) || -1)
+  const listVedereLEN = listVedere.length
+  const listSoareLEN = listSoare.length
+  const listAccesoriiLEN = listAccesorii.length
 
-  // Sun glasses - all products
-  const ochelariSoare = all.filter((x) => {
-    return x.description && x.description.includes("soare");
-  });
-  const ochelariSoareLen = ochelariSoare.length;
-
-  // Sun glasses - brand names
-  let sunGlasses = [];
-
-  for (let i in ochelariSoare) {
-    if (sunGlasses.includes(ochelariSoare[i].name)) {
-      continue;
-    } else {
-      sunGlasses.push(ochelariSoare[i].name);
-    }
-  }
-  sunGlasses = sunGlasses.sort(
-    (a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1
-  );
-  // ============================================================
-
-  // Accesories - all products (doesnt have brand names)
-  const ochelariAccesorii = all.filter((x) => {
-    return (
-      x.categories[0].slug === "accesorii" ||
-      x.categories[1].slug === "accesorii"
-    );
-  });
-  const ochelariAccesoriiLen = ochelariAccesorii.length;
-  // ============================================================
 
   const [brand, setBrand] = useState("marcaAll");
   const [search, setSearch] = useState("");
@@ -122,9 +84,9 @@ const Produse = ({ onAddToCart, products }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
-  const [currentPosts, setCurrentPosts] = useState(ochelariVedereLen);
-  const [allProducts, setAllProducts] = useState(ochelariVedere);
-  const [brandNames, setBrandNames] = useState(readingGlasses);
+  const [currentPosts, setCurrentPosts] = useState(listVedereLEN);
+  const [allProducts, setAllProducts] = useState(listVedere);
+  const [brandNames, setBrandNames] = useState(brandNameVedere);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -145,12 +107,12 @@ const Produse = ({ onAddToCart, products }) => {
     setDef(e);
     if (e === "mic") {
       return allProducts.sort(
-        (a, b) => (parseInt(a.price.raw) > parseInt(b.price.raw) && 1) || -1
+        (a, b) => (parseInt(a.price) > parseInt(b.price) && 1) || -1
       );
     }
     if (e === "mare") {
       return allProducts.sort(
-        (a, b) => (parseInt(a.price.raw) < parseInt(b.price.raw) && 1) || -1
+        (a, b) => (parseInt(a.price) < parseInt(b.price) && 1) || -1
       );
     }
     if (e === "atoz") {
@@ -200,16 +162,16 @@ const Produse = ({ onAddToCart, products }) => {
     setBrand("marcaAll");
     setCurrentPage(1);
     if (cat === "ochelariVedere") {
-      setCurrentPosts(ochelariVedereLen);
-      setAllProducts(ochelariVedere);
+      setCurrentPosts(listVedereLEN)
+      setAllProducts(listVedere);
     }
     if (cat === "ochelariSoare") {
-      setCurrentPosts(ochelariSoareLen);
-      setAllProducts(ochelariSoare);
+      setCurrentPosts(listSoareLEN);
+      setAllProducts(listSoare);
     }
     if (cat === "ochelariAccesorii") {
-      setCurrentPosts(ochelariAccesoriiLen);
-      setAllProducts(ochelariAccesorii);
+      setCurrentPosts(listAccesoriiLEN);
+      setAllProducts(listAccesorii);
     }
   };
 
@@ -225,12 +187,12 @@ const Produse = ({ onAddToCart, products }) => {
             brand={brand}
             brandNames={brandNames}
             changeCat={(cat) => changecat(cat)}
-            changePriceName={(word) => changePriceName(word)}
+            changePriceName={changePriceName}
             setSearch={setSearch}
             setBrand={setBrand}
             setBrandNames={setBrandNames}
-            readingGlasses={readingGlasses}
-            sunGlasses={sunGlasses}
+            brandNameVedere={brandNameVedere}
+            brandNameSoare={brandNameSoare}
           />
         </div>
 

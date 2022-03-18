@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "../styles/Sidebar.module.css";
 import {
   AiOutlineSearch,
@@ -8,49 +8,44 @@ import {
 
 const Sidebar = ({
   brand,
+  setBrand,
   brandNames,
+  setBrandNames,
   changeCat,
   setSearch,
   changePriceName,
-  setBrand,
-  setBrandNames,
-  readingGlasses,
-  sunGlasses,
+  brandNameVedere,
+  brandNameSoare,
 }) => {
+  const [src, setSrc] = useState("");
 
-  const [src, setSrc] = useState('')
-
-
-  const mobileSendAllCats = (e) => {
+  const sendCategorie = (e) => {
     changeCat(e);
+    const allBrandsMobile = document.querySelector("#brandMobile");
+    const brands = document.querySelector("#divBrand");
+    const pret = document.querySelector("#pret");
+    pret.value = pret[0].value;
     if (e === "ochelariVedere") {
-      const brands = document.querySelector("#divBrand");
       brands.style.display = "flex";
-      setBrandNames(readingGlasses);
+      setBrandNames(brandNameVedere);
 
-      const allBrandsMobile = document.querySelector("#brandMobile");
       allBrandsMobile.value = allBrandsMobile[0].value;
     }
     if (e === "ochelariSoare") {
-      const brands = document.querySelector("#divBrand");
       brands.style.display = "flex";
-      setBrandNames(readingGlasses);
-
-      const allBrandsMobile = document.querySelector("#brandMobile");
       allBrandsMobile.value = allBrandsMobile[0].value;
-      setBrandNames(sunGlasses);
+      setBrandNames(brandNameSoare);
     }
 
     if (e === "ochelariAccesorii") {
-      const brands = document.querySelector("#divBrand");
       brands.style.display = "none";
     }
   };
 
   const removeSearch = () => {
-    setSrc("")
-    setSearch("")
-  }
+    setSrc("");
+    setSearch("");
+  };
 
   return (
     <div className={styles.container}>
@@ -70,8 +65,20 @@ const Sidebar = ({
             />
           </div>
           <div className={styles.searchButtons}>
-            <button className={styles.searchCauta} onClick={()=> setSearch(src)} disabled={src ? false : true}>Cauta</button>
-            <button className={styles.searchSterge} onClick={removeSearch}>Sterge</button>
+            <button
+              className={styles.searchSterge}
+              onClick={removeSearch}
+              disabled={!src}
+            >
+              Sterge
+            </button>
+            <button
+              className={styles.searchCauta}
+              onClick={() => setSearch(src)}
+              disabled={!src}
+            >
+              Cauta
+            </button>
           </div>
         </div>
 
@@ -81,7 +88,7 @@ const Sidebar = ({
           <select
             name="arataMobile"
             id="arataMobile"
-            onChange={(e) => mobileSendAllCats(e.target.value)}
+            onChange={(e) => sendCategorie(e.target.value)}
           >
             <option value="ochelariVedere">Ochelari vedere</option>
             <option value="ochelariSoare">Ochelari soare</option>
@@ -118,25 +125,16 @@ const Sidebar = ({
             <optgroup label="Pret"></optgroup>
             <option value="mic">Pret mic</option>
             <option value="mare">Pret mare</option>
-            {brand === "marcaAll" ? (
+            {brand === "marcaAll" && (
               <>
                 <optgroup label="Nume"></optgroup>
                 <option value="atoz">A - Z</option>
                 <option value="ztoa">Z - A</option>
               </>
-            ) : (
-              <>
-                <optgroup label="Nume"></optgroup>
-                <option disabled value="atoz">
-                  A - Z
-                </option>
-                <option disabled value="ztoa">
-                  Z - A
-                </option>
-              </>
             )}
           </select>
         </div>
+       
       </div>
     </div>
   );

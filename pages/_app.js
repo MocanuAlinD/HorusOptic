@@ -76,7 +76,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <script
+          {/* <script
             src="https://kit.fontawesome.com/cbb96f47ca.js"
             crossOrigin="anonymous"
           ></script>
@@ -96,7 +96,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           <link
             href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
             rel="stylesheet"
-          ></link>
+          ></link> */}
         </Head>
 
         {!router.pathname.includes("/Produse/[id]") && (

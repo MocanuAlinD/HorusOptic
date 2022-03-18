@@ -20,6 +20,7 @@
     color: var(--color-primary-lighten1);
     font-family: var(--font-family-poppins);
     font-weight: var(--font-w400);
+    font-size: 1rem;
 }
 
 .searchContainer{
@@ -38,7 +39,7 @@
 .searchDrop{
     background: var(--color-primary-light);
     color: var(--color-primary-dark1);
-    text-indent: 1rem;
+    text-indent: 1.3rem;
     width: 100%;
     outline: none;
     border: none;
@@ -60,7 +61,7 @@
 .searchButtons button{
     font-family: var(--font-family-poppins);
     font-weight: var(--font-w400);
-    font-size: .7rem;
+    font-size: .8rem;
     outline: none;
     border: none;
     background: var(--color-primary-light);
