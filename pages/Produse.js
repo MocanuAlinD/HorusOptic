@@ -10,10 +10,12 @@ export async function getStaticProps() {
   const { data: products_1 } = await commerce.products.list({
     limit: 200,
     category_slug: "1",
+    sortBy: 'created'
   });
   const { data: products_2 } = await commerce.products.list({
     limit: 200,
     category_slug: "2",
+    sortBy: 'created'
   });
 
   const tempList = [];
@@ -76,8 +78,10 @@ const Produse = ({ onAddToCart, products }) => {
     }
   });
 
-  const brandNameVedere = brandNameV.sort((a, b) => (a > b && 1) || -1);
-  const brandNameSoare = brandNameS.sort((a, b) => (a > b && 1) || -1);
+
+
+  const brandNameVedere = brandNameV.sort((a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1);
+  const brandNameSoare = brandNameS.sort((a, b) => (a.toLowerCase() > b.toLowerCase() && 1) || -1);
   const listVedereLEN = listVedere.length;
   const listSoareLEN = listSoare.length;
   const listAccesoriiLEN = listAccesorii.length;
