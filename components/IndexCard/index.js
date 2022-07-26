@@ -10,11 +10,12 @@ import {
   ForHide,
   CardText,
   CardButton,
-} from "./Card1.style";
+} from "./IndexCard.style";
 import Arrows from "../Arrows";
 import Link from "next/link";
+import { INDEX_DATA } from "../../actions";
 
-const Card1 = ({ indexData }) => {
+const IndexCard = () => {
   const shorten = (text, maxLength) => {
     if (text && text.length >= maxLength) {
       return text.substr(0, maxLength) + "...";
@@ -64,14 +65,14 @@ const Card1 = ({ indexData }) => {
         </MissionList>
       </Mission>
 
-      {indexData.map((item) => (
+      {INDEX_DATA.map((item) => (
         <Cards key={item.id}>
           <CardTitle>
             {item.title}
             <Arrows />
           </CardTitle>
 
-          <ForHide className='forHide'>
+          <ForHide className="forHide">
             <hr color="#cfdbd5" style={{ height: ".1rem" }} />
             <CardText>{shorten(item.text, 200)}</CardText>
             <CardButton>
@@ -86,4 +87,4 @@ const Card1 = ({ indexData }) => {
   );
 };
 
-export default Card1;
+export default IndexCard;

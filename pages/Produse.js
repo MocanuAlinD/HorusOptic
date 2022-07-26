@@ -46,14 +46,14 @@ export async function getStaticProps() {
 
 // =======================================================================
 const Produse = ({ onAddToCart, products }) => {
-  const consu = JSON.parse(products);
+  const temp = JSON.parse(products);
   const listVedere = [];
   const listSoare = [];
   const listAccesorii = [];
   const brandNameV = [];
   const brandNameS = [];
 
-  consu.map((item) => {
+  temp.map((item) => {
     if (
       item.categories[0].slug === "rame" ||
       item.categories[1].slug === "rame"
